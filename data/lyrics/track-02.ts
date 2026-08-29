@@ -81,251 +81,251 @@ export const track02Lyrics: TrackLyrics = {
       "text": "[Intro]"
     },
     {
-      "time": 1.2,
+      "time": 2.6,
       "text": "Ah, ah, ah, ah, ah, ah, ah"
     },
     {
-      "time": 6.5,
+      "time": 7.9,
       "text": "Ah, ah, ah, ah, ah, ah, ah"
     },
     {
-      "time": 11.5,
+      "time": 12.9,
       "text": "[Verse 1]"
     },
     {
-      "time": 12.4,
+      "time": 13.8,
       "text": "Khói bay, nơi phố xưa, ánh mắt quen chiều chạng vạng"
     },
     {
-      "time": 16.1,
+      "time": 17.5,
       "text": "Vắng hoe, chỉ còn mỗi anh, cigar và rượu vang"
     },
     {
-      "time": 19.8,
+      "time": 21.2,
       "text": "Giá như em ở đây, như lúc xưa anh sẽ sà vào"
     },
     {
-      "time": 23.2,
+      "time": 24.6,
       "text": "Nàng nhắc anh là đã lâu anh vẫn chưa được về nhà"
     },
     {
-      "time": 26.5,
+      "time": 27.9,
       "text": "Và cứ như là không quan tâm, nhưng vẫn cứ luôn miệng xì xào"
     },
     {
-      "time": 29.8,
+      "time": 31.2,
       "text": "Chẳng mấy khi, thấy suy, châm bi stiva"
     },
     {
-      "time": 32.4,
+      "time": 33.8,
       "text": "Còn nhớ em, anh muốn quên, để những câu hỏi kỳ lạ"
     },
     {
-      "time": 35.8,
+      "time": 37.2,
       "text": "Trả lời giúp anh, sao anh hút ben mà chẳng thấy phê, chẳng gì cả?"
     },
     {
-      "time": 39.2,
+      "time": 40.6,
       "text": "Chẳng thấy phê, chẳng gì cả, chẳng thấy phê, chẳng gì cả"
     },
     {
-      "time": 42.5,
+      "time": 43.9,
       "text": "Chẳng thấy phê, chẳng gì cả, chẳng thấy phê, chẳng gì cả, chyah"
     },
     {
-      "time": 46,
+      "time": 47.4,
       "text": "Baby, what's up?"
     },
     {
-      "time": 48.2,
+      "time": 49.6,
       "text": "Chạy đuổi theo nhau thành một vòng tròn"
     },
     {
-      "time": 51.5,
+      "time": 52.9,
       "text": "Đôi khi thấy nhưng không đợi mong"
     },
     {
-      "time": 54.8,
+      "time": 56.2,
       "text": "Chắc sẽ đến lúc con tim mình thôi nhung nhớ, yah"
     },
     {
-      "time": 58,
+      "time": 59.4,
       "text": "[Chorus]"
     },
     {
-      "time": 59,
+      "time": 60.4,
       "text": "Ah, gió thu, déjà vu, tưởng thấy em ở gần nhà"
     },
     {
-      "time": 63.5,
+      "time": 64.9,
       "text": "Màu tóc quen, làm ngỡ như bóng em vụt qua"
     },
     {
-      "time": 66.8,
+      "time": 68.2,
       "text": "Nếu ta chạm mắt nhau liệu có như hai người xa lạ?"
     },
     {
-      "time": 70.2,
+      "time": 71.6,
       "text": "Anh phóng lên, tay vít ga, ngược gió thu, vrah"
     },
     {
-      "time": 74,
+      "time": 75.4,
       "text": "[Interlude]"
     },
     {
-      "time": 75.2,
+      "time": 76.6,
       "text": "Trong một khoảnh khắc, anh tưởng như anh đã tìm thấy thứ bao lâu nay anh kiếm tìm"
     },
     {
-      "time": 80,
+      "time": 81.4,
       "text": "Mọi mảnh ghép kia hiện ra thật hợp lý, anh nghĩ là anh đã có lại niềm tin"
     },
     {
-      "time": 84.8,
+      "time": 86.2,
       "text": "Không gian xung quanh như là đang sáng lên, anh lao đi ở trong một bộ phim"
     },
     {
-      "time": 89.2,
+      "time": 90.6,
       "text": "Cào cào trắng trong màn đêm đen, FMF xé không gian lặng im"
     },
     {
-      "time": 94.5,
+      "time": 95.9,
       "text": "[Verse 2]"
     },
     {
-      "time": 96,
+      "time": 97.4,
       "text": "Từng lời nguyện cầu trở thành hiện thực rồi, điều gì sẽ thuộc về anh?"
     },
     {
-      "time": 99.8,
+      "time": 101.2,
       "text": "Anh không muốn mất em thêm lần nữa đâu nên đã phóng theo em thật nhanh"
     },
     {
-      "time": 103.2,
+      "time": 104.6,
       "text": "Càng đi theo em, anh lại càng xa, tiếng chim lợn kêu báo điềm chẳng lành"
     },
     {
-      "time": 106.8,
+      "time": 108.2,
       "text": "Từng lời nguyện cầu trở thành hiện thực rồi, điều gì sẽ thuộc về anh?"
     },
     {
-      "time": 110.2,
+      "time": 111.6,
       "text": "Anh không muốn mất em thêm lần nữa đâu nên đã phóng theo em thật nhanh"
     },
     {
-      "time": 113.6,
+      "time": 115,
       "text": "Càng đi theo em, anh lại càng xa tiếng chim lợn kêu báo điềm chẳng lành"
     },
     {
-      "time": 117,
+      "time": 118.4,
       "text": "[Bridge]"
     },
     {
-      "time": 118,
+      "time": 119.4,
       "text": "Hah-ah-ah, ah-ah-ah"
     },
     {
-      "time": 120.5,
+      "time": 121.9,
       "text": "Con tim như đang được sống lại"
     },
     {
-      "time": 122.8,
+      "time": 124.2,
       "text": "Giấc mơ chia làm hai"
     },
     {
-      "time": 124.5,
+      "time": 125.9,
       "text": "Anh mang mùa thu ngày hôm qua"
     },
     {
-      "time": 127,
+      "time": 128.4,
       "text": "Em mang ngày mai"
     },
     {
-      "time": 129.5,
+      "time": 130.9,
       "text": "Con tim như đang được sống lại"
     },
     {
-      "time": 131.8,
+      "time": 133.2,
       "text": "Giấc mơ chia làm hai"
     },
     {
-      "time": 133.5,
+      "time": 134.9,
       "text": "Anh mang mùa thu ngày hôm qua"
     },
     {
-      "time": 136,
+      "time": 137.4,
       "text": "Em mang ngày mai"
     },
     {
-      "time": 138.5,
+      "time": 139.9,
       "text": "[Verse 3]"
     },
     {
-      "time": 139.5,
+      "time": 140.9,
       "text": "Ah, ở ngã ba, một tiếng la, thất thanh và"
     },
     {
-      "time": 142.8,
+      "time": 144.2,
       "text": "Một tiếng xe, cứu thương, rít lên từ đằng xa"
     },
     {
-      "time": 145.5,
+      "time": 146.9,
       "text": "Anh muốn em, chậm lại chút thôi, anh muốn đi về nhà"
     },
     {
-      "time": 148.8,
+      "time": 150.2,
       "text": "Họ đến đây để bắt anh, đừng bỏ anh, yeah"
     },
     {
-      "time": 152,
+      "time": 153.4,
       "text": "Phải rất lâu, hai chúng ta chẳng nến, vang, cigar"
     },
     {
-      "time": 155.5,
+      "time": 156.9,
       "text": "Đốt thêm, khói bay, Camel, trà đen"
     },
     {
-      "time": 158.2,
+      "time": 159.6,
       "text": "Áo quan, lẵng hoa, chỉ là vẫn như hai người xa lạ"
     },
     {
-      "time": 161.5,
+      "time": 162.9,
       "text": "Anh vẫn luôn là chính anh, đợi hình bóng quen, là em"
     },
     {
-      "time": 164.8,
+      "time": 166.2,
       "text": "Khói bay, nơi phố xưa, ánh mắt quen chiều chạng vạng"
     },
     {
-      "time": 167.8,
+      "time": 169.2,
       "text": "Màu tóc quen, làm ngỡ như bóng ai vụt qua"
     },
     {
-      "time": 170.5,
+      "time": 171.9,
       "text": "Nếu ta chạm mắt nhau, liệu có như hai người xa lạ?"
     },
     {
-      "time": 173.8,
+      "time": 175.2,
       "text": "Nàng nhắc anh là đã lâu anh vẫn chưa được về nhà"
     },
     {
-      "time": 176.5,
+      "time": 177.9,
       "text": "[Chorus]"
     },
     {
-      "time": 177.2,
+      "time": 178.6,
       "text": "Gió thu, déjà vu, tưởng thấy em ở gần nhà"
     },
     {
-      "time": 180.8,
+      "time": 182.2,
       "text": "Vắng hoe, chỉ còn mỗi anh cigar và rượu vang"
     },
     {
-      "time": 184.2,
+      "time": 185.6,
       "text": "Giá như em ở đây, như lúc xưa chạy sà vào"
     },
     {
-      "time": 187.8,
+      "time": 189.2,
       "text": "Anh phóng lên, tay vít ga, ngược gió thu, vrah"
     }
   ]
