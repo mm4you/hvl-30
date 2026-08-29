@@ -19,18 +19,17 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
   const animFrameRef = useRef<number | null>(null);
 
-  // Match active line with 0.2s lead time for instant vocal sync
+  // Exact timestamp matching
   const activeIndex = useMemo(() => {
-    const time = currentTime + 0.2;
-    let idx = -1;
+    let index = -1;
     for (let i = 0; i < syncedLyrics.length; i++) {
-      if (syncedLyrics[i].time <= time) {
-        idx = i;
+      if (currentTime >= syncedLyrics[i].time) {
+        index = i;
       } else {
         break;
       }
     }
-    return idx;
+    return index;
   }, [currentTime, syncedLyrics]);
 
   // Smooth cubic-bezier scroll easing
@@ -42,7 +41,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
 
     const start = container.scrollTop;
     const change = targetTop - start;
-    const duration = 360;
+    const duration = 320;
     const startTime = performance.now();
 
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -95,8 +94,8 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
       className="synced-lyrics-container" 
       ref={containerRef}
       style={{
-        maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+        maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
       }}
     >
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
