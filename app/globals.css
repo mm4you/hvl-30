@@ -547,7 +547,7 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .controls .play-button:hover:not(:disabled) { background: white; color: #0d1011; transform: scale(1.03); }
 .buffer-ring { position: absolute; inset: -5px; border: 2px solid transparent; border-top-color: var(--accent); border-right-color: rgba(255,55,35,.28); border-radius: 50%; animation: buffer-spin .85s linear infinite; }
 @keyframes buffer-spin { to { transform: rotate(360deg); } }
-.volume-control { display: grid; grid-template-columns: 30px minmax(0, 1fr) 22px; align-items: center; gap: 7px; margin-top: 20px; color: rgba(238,241,238,.58); }
+.volume-control { display: flex; align-items: center; align-items: center; gap: 7px; margin-top: 20px; color: rgba(238,241,238,.58); }
 .volume-control button { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
 .volume-control button:hover { background: rgba(255,255,255,.06); color: white; }
 .volume-control > span { display: grid; place-items: center; }

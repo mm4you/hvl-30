@@ -1,7 +1,10 @@
+"use client";
+
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import type { TrackLyrics } from "@/data/lyrics/types";
 import { SyncedLyrics } from "./SyncedLyrics";
 import { StaticLyrics } from "./StaticLyrics";
+import { X } from "lucide-react";
 
 type LyricsViewProps = {
   trackLyrics: TrackLyrics | null;
@@ -18,47 +21,29 @@ type LyricsViewProps = {
 export const LyricsView = React.memo(function LyricsView({
   trackLyrics,
   trackTitle,
-  trackArtist,
   currentTime,
   onSeek,
   onClose,
-  isCompact = false,
 }: LyricsViewProps) {
   const [isUserScrolling, setIsUserScrolling] = useState(false);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Handle user manual scroll with 3.5s debounce before resuming auto-scroll
   const handleUserInteraction = useCallback(() => {
     setIsUserScrolling(true);
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
     scrollTimeoutRef.current = setTimeout(() => {
       setIsUserScrolling(false);
       scrollTimeoutRef.current = null;
-    }, 3500);
+    }, 3000);
   }, []);
 
-  // Reset scroll and user scroll state on track change
   useEffect(() => {
     setIsUserScrolling(false);
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
       scrollTimeoutRef.current = null;
     }
-    if (containerRef.current) {
-      containerRef.current.scrollTop = 0;
-    }
   }, [trackLyrics?.trackId]);
-
-  useEffect(() => {
-    return () => {
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, []);
 
   const hasSynced = Boolean(trackLyrics?.syncedLyrics && trackLyrics.syncedLyrics.length > 0);
   const hasStatic = Boolean(trackLyrics?.lyrics && trackLyrics.lyrics.length > 0);
@@ -66,44 +51,26 @@ export const LyricsView = React.memo(function LyricsView({
   return (
     <section
       aria-label="Lời bài hát"
-      className={`lyrics-view-panel ${isCompact ? "compact-mode" : "full-mode"}`}
-      ref={containerRef}
+      className="relative w-full h-full flex flex-col bg-[#0a0707]/95 overflow-hidden select-none"
       onWheel={handleUserInteraction}
       onTouchMove={handleUserInteraction}
       onPointerDown={handleUserInteraction}
     >
-      <div className="lyrics-view-header">
-        <div className="lyrics-track-info">
-          <span className="eyebrow">LỜI BÀI HÁT</span>
-          <h3>{trackTitle || trackLyrics?.title || "HVL 30"}</h3>
-          {trackArtist && <p className="lyrics-artist">{trackArtist}</p>}
-        </div>
-        {onClose && (
-          <button
-            type="button"
-            className="lyrics-close-btn"
-            onClick={onClose}
-            aria-label="Đóng lời bài hát"
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="18"
-              viewBox="0 0 24 24"
-              width="18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        )}
-      </div>
+      {/* Sleek Floating Close Button */}
+      {onClose && (
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-3 right-3 z-20 flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-black/60 hover:bg-black/90 text-white/80 hover:text-white border border-white/15 backdrop-blur-md transition-all active:scale-95 cursor-pointer shadow-md"
+          aria-label="Đóng lời bài hát"
+        >
+          <X className="w-3.5 h-3.5" />
+          <span>Đóng</span>
+        </button>
+      )}
 
-      <div className="lyrics-view-body">
+      {/* Main Lyrics Scroll View */}
+      <div className="relative flex-1 w-full h-full min-h-0 overflow-hidden">
         {hasSynced && trackLyrics?.syncedLyrics ? (
           <SyncedLyrics
             syncedLyrics={trackLyrics.syncedLyrics}
@@ -114,23 +81,11 @@ export const LyricsView = React.memo(function LyricsView({
         ) : hasStatic && trackLyrics?.lyrics ? (
           <StaticLyrics lyrics={trackLyrics.lyrics} />
         ) : (
-          <div className="no-lyrics-state">
-            <p>Không có lyrics cho bài này</p>
+          <div className="flex flex-col items-center justify-center h-full text-center text-zinc-500 p-6">
+            <p className="text-sm font-semibold">Bản nhạc không lời hoặc không có lyrics.</p>
           </div>
         )}
       </div>
-
-      {isUserScrolling && hasSynced && (
-        <div className="lyrics-scroll-resume-hint" aria-live="polite">
-          <button
-            type="button"
-            onClick={() => setIsUserScrolling(false)}
-            aria-label="Quay lại dòng đang phát"
-          >
-            <span>Đang tạm dừng cuộn · Chạm để tiếp tục</span>
-          </button>
-        </div>
-      )}
     </section>
   );
 });

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePlayer } from "@/context/PlayerContext";
 import { 
   Play, Pause, SkipBack, SkipForward, Shuffle, Repeat, Repeat1, 
-  Volume2, VolumeX, Headphones, ListMusic, X 
+  Volume2, VolumeX, Headphones, ListMusic, Maximize2, X 
 } from "lucide-react";
 import { AppleLyricsIcon } from "@/components/ui/AppleLyricsIcon";
 import { formatTime } from "@/lib/utils";
@@ -14,9 +14,11 @@ import { getLyricsForTrack } from "@/data/lyrics";
 export function MainPlayer({
   playlistVisible,
   onTogglePlaylist,
+  onOpenCinema,
 }: {
   playlistVisible: boolean;
   onTogglePlaylist: () => void;
+  onOpenCinema?: () => void;
 }) {
   const {
     currentTrack,
@@ -46,18 +48,17 @@ export function MainPlayer({
   const trackLyrics = currentTrack ? getLyricsForTrack(currentTrack.id) : null;
   const syncedLines = trackLyrics?.syncedLyrics || [];
 
-  // Find active lyric index
+  // Match active lyric
   let activeLyricIdx = -1;
   for (let i = 0; i < syncedLines.length; i++) {
-    const cur = syncedLines[i];
-    const nxt = syncedLines[i + 1];
-    if (currentTime >= cur.time && (!nxt || currentTime < nxt.time)) {
+    if (currentTime >= syncedLines[i].time) {
       activeLyricIdx = i;
+    } else {
       break;
     }
   }
 
-  // Smooth Apple Music auto-scroll
+  // Smooth scroll
   useEffect(() => {
     if (lyricsOpen && activeLineRef.current && lyricsScrollRef.current) {
       activeLineRef.current.scrollIntoView({
@@ -70,9 +71,10 @@ export function MainPlayer({
   if (!currentTrack) return null;
 
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-[#120a0b]/90 border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.5)] p-5 sm:p-7 md:p-8 backdrop-blur-2xl transition-all duration-300">
-      {/* Soft ambient red backlight */}
-      <div className="absolute -top-24 right-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden rounded-3xl bg-[#120a0b]/90 border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.6)] p-5 sm:p-7 md:p-8 backdrop-blur-2xl transition-all duration-300">
+      {/* Dynamic Ambient Red Back-Glow behind player */}
+      <div className={`absolute -top-20 -left-20 w-96 h-96 bg-[#ff3725]/15 rounded-full blur-[140px] pointer-events-none transition-opacity duration-1000 ${isPlaying ? "opacity-100" : "opacity-40"}`} />
+      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#600a06]/20 rounded-full blur-[140px] pointer-events-none" />
 
       {/* When Lyrics View is Opened */}
       {lyricsOpen ? (
@@ -89,16 +91,29 @@ export function MainPlayer({
               </div>
             </div>
 
-            <button
-              onClick={() => setLyricsOpen(false)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all cursor-pointer active:scale-95"
-            >
-              <X className="w-3.5 h-3.5" />
-              Đóng lời
-            </button>
+            <div className="flex items-center gap-2">
+              {onOpenCinema && (
+                <button
+                  onClick={onOpenCinema}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all active:scale-95 cursor-pointer"
+                  title="Toàn màn hình Cinema"
+                >
+                  <Maximize2 className="w-3.5 h-3.5 text-[#ff3725]" />
+                  <span>Cinema</span>
+                </button>
+              )}
+
+              <button
+                onClick={() => setLyricsOpen(false)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all cursor-pointer active:scale-95"
+              >
+                <X className="w-3.5 h-3.5" />
+                Đóng lời
+              </button>
+            </div>
           </div>
 
-          {/* Smooth Real-Time Synced Lyrics */}
+          {/* Smooth Real-Time Synced Lyrics (Pure Typography) */}
           <div 
             ref={lyricsScrollRef}
             className="flex-1 overflow-y-auto space-y-4 py-8 px-2 sm:px-6 scroll-smooth text-center"
@@ -110,6 +125,9 @@ export function MainPlayer({
             {syncedLines.length > 0 ? (
               syncedLines.map((line, idx) => {
                 const isActive = idx === activeLyricIdx;
+                const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
+                if (!text) return null;
+
                 return (
                   <div
                     key={idx}
@@ -117,18 +135,18 @@ export function MainPlayer({
                     onClick={() => seek(line.time)}
                     className={`cursor-pointer transition-all duration-300 ease-out select-none leading-relaxed ${
                       isActive
-                        ? "text-xl sm:text-2xl md:text-3xl font-extrabold text-white drop-shadow-[0_2px_24px_rgba(244,63,94,0.85)] scale-[1.03]"
+                        ? "text-xl sm:text-2xl md:text-3xl font-extrabold text-white drop-shadow-[0_2px_24px_rgba(255,55,35,0.9)] scale-[1.03]"
                         : "text-sm sm:text-base font-semibold text-white/35 hover:text-white/80 hover:scale-[1.01]"
                     }`}
                   >
-                    {line.text}
+                    {text}
                   </div>
                 );
               })
             ) : (
               <div className="flex flex-col items-center justify-center h-full text-center text-zinc-500 space-y-2">
-                <AppleLyricsIcon className="w-8 h-8 opacity-30 text-rose-500" />
-                <p className="text-sm font-medium">Bản intro / nhạc dạo không lời.</p>
+                <AppleLyricsIcon className="w-8 h-8 opacity-30 text-[#ff3725]" />
+                <p className="text-sm font-medium">Bản nhạc không lời hoặc không có lyrics.</p>
               </div>
             )}
           </div>
@@ -141,7 +159,7 @@ export function MainPlayer({
               </button>
               <button 
                 onClick={togglePlay} 
-                className="w-10 h-10 rounded-full bg-rose-600 hover:bg-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-600/40 cursor-pointer active:scale-95 transition-all"
+                className="w-10 h-10 rounded-full bg-[#ff3725] hover:bg-[#ff4e3e] text-white flex items-center justify-center shadow-lg shadow-[#ff3725]/40 cursor-pointer active:scale-95 transition-all"
               >
                 {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white ml-0.5" />}
               </button>
@@ -156,9 +174,9 @@ export function MainPlayer({
           </div>
         </div>
       ) : (
-        /* Standard Clean, Soft & Balanced Player View with 3:2 Landscape Artwork */
+        /* Standard Hi-Fi Studio Player View with 3:2 Landscape Artwork */
         <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10 animate-in fade-in duration-200">
-          {/* Authentic 3:2 Landscape Artwork (Never Cropped!) */}
+          {/* 3:2 Landscape Artwork with Ambient Back-Glow & Lossless Chip */}
           <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-zinc-950 flex-shrink-0 group">
             <Image
               src={currentTrack.artworkUrl}
@@ -168,12 +186,14 @@ export function MainPlayer({
               sizes="(max-width: 768px) 320px, 360px"
               className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
             />
-            {/* Soft inner glow */}
+            {/* Soft ambient inner shadow */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-            <span className="absolute top-2.5 left-2.5 text-[11px] font-mono font-bold bg-black/80 backdrop-blur-md text-white px-2.5 py-0.5 rounded-lg border border-white/15">
-              #{String(currentTrack.trackNumber).padStart(2, "0")}
+            
+            {/* Lossless Audio Floating Badge */}
+            <span className="absolute top-2.5 left-2.5 text-[11px] font-mono font-bold bg-black/80 backdrop-blur-md text-white px-2.5 py-0.5 rounded-lg border border-white/15 shadow-sm">
+              #{String(currentTrack.trackNumber).padStart(2, "0")} • FLAC 24-bit
             </span>
-            <span className="absolute bottom-2.5 right-2.5 text-[10px] font-mono font-extrabold bg-rose-600 text-white px-2 py-0.5 rounded-md shadow-md">
+            <span className="absolute bottom-2.5 right-2.5 text-[10px] font-mono font-extrabold bg-[#ff3725] text-white px-2 py-0.5 rounded-md shadow-md">
               HVL 30
             </span>
           </div>
@@ -182,7 +202,7 @@ export function MainPlayer({
           <div className="flex-1 w-full flex flex-col justify-between">
             {/* Title & Artist */}
             <div className="text-center md:text-left">
-              <p className="text-[11px] font-mono font-bold text-rose-500 uppercase tracking-widest mb-1">
+              <p className="text-[11px] font-mono font-bold text-[#ff3725] uppercase tracking-widest mb-1">
                 {isPlaying ? "ĐANG PHÁT" : "HVL 30"}
               </p>
               <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight truncate">
@@ -202,7 +222,7 @@ export function MainPlayer({
                 step={0.1}
                 value={currentTime}
                 onChange={(e) => seek(parseFloat(e.target.value))}
-                className="w-full accent-rose-500 cursor-pointer h-1.5"
+                className="w-full accent-[#ff3725] cursor-pointer h-1.5"
               />
               <div className="flex justify-between text-[11px] font-mono text-zinc-400 mt-1">
                 <span>{formatTime(currentTime)}</span>
@@ -210,7 +230,7 @@ export function MainPlayer({
               </div>
             </div>
 
-            {/* Core Playback Controls */}
+            {/* Core Playback Controls (Tactile Spring Physics) */}
             <div className="flex items-center justify-center md:justify-start gap-7 w-full my-3">
               <button
                 onClick={prevTrack}
@@ -222,7 +242,7 @@ export function MainPlayer({
 
               <button
                 onClick={togglePlay}
-                className="w-13 h-13 rounded-full bg-rose-600 hover:bg-rose-500 active:scale-90 text-white flex items-center justify-center shadow-xl shadow-rose-600/40 transition-all cursor-pointer"
+                className="w-13 h-13 rounded-full bg-[#ff3725] hover:bg-[#ff4e3e] active:scale-90 text-white flex items-center justify-center shadow-xl shadow-[#ff3725]/40 transition-all cursor-pointer"
                 title={isPlaying ? "Tạm dừng" : "Phát"}
               >
                 {isBuffering ? (
@@ -245,17 +265,17 @@ export function MainPlayer({
 
             {/* Bottom Controls Bar */}
             <div className="flex flex-wrap items-center justify-between gap-2.5 w-full border-t border-white/10 pt-3.5 text-xs">
-              {/* Volume */}
+              {/* Volume with Headphone detection */}
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleMute}
-                  className="text-zinc-400 hover:text-white p-1 transition-colors"
+                  className="text-zinc-400 hover:text-white p-1 transition-colors cursor-pointer active:scale-90"
                   title={isHeadphonesConnected ? "Đang kết nối tai nghe" : "Âm lượng"}
                 >
                   {isMuted || volume === 0 ? (
-                    <VolumeX className="w-4 h-4 text-rose-500" />
+                    <VolumeX className="w-4 h-4 text-[#ff3725]" />
                   ) : isHeadphonesConnected ? (
-                    <Headphones className="w-4 h-4 text-rose-500 animate-pulse" />
+                    <Headphones className="w-4 h-4 text-[#ff3725] animate-pulse" />
                   ) : (
                     <Volume2 className="w-4 h-4" />
                   )}
@@ -267,17 +287,17 @@ export function MainPlayer({
                   step={0.01}
                   value={isMuted ? 0 : volume}
                   onChange={(e) => setVolume(parseFloat(e.target.value))}
-                  className="w-20 accent-rose-500 cursor-pointer h-1"
+                  className="w-20 accent-[#ff3725] cursor-pointer h-1"
                 />
               </div>
 
-              {/* Actions & Lyrics Trigger Button */}
+              {/* Actions, Lyrics & Cinema Mode Trigger Buttons */}
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleShuffle}
-                  className={`p-2 rounded-xl border transition-all ${
+                  className={`p-2 rounded-xl border transition-all active:scale-90 ${
                     shuffle
-                      ? "bg-rose-600/20 text-rose-400 border-rose-500/40 shadow-sm"
+                      ? "bg-[#ff3725]/20 text-[#ff3725] border-[#ff3725]/40 shadow-sm"
                       : "bg-white/5 text-zinc-400 border-white/10 hover:text-white"
                   }`}
                   title={shuffle ? "Trộn bài: Đã bật" : "Trộn bài: Đã tắt"}
@@ -287,9 +307,9 @@ export function MainPlayer({
 
                 <button
                   onClick={toggleRepeat}
-                  className={`p-2 rounded-xl border transition-all ${
+                  className={`p-2 rounded-xl border transition-all active:scale-90 ${
                     repeatMode !== "off"
-                      ? "bg-rose-600/20 text-rose-400 border-rose-500/40 shadow-sm"
+                      ? "bg-[#ff3725]/20 text-[#ff3725] border-[#ff3725]/40 shadow-sm"
                       : "bg-white/5 text-zinc-400 border-white/10 hover:text-white"
                   }`}
                   title={repeatMode === "one" ? "Lặp 1 bài" : repeatMode === "all" ? "Lặp toàn bộ" : "Không lặp"}
@@ -297,20 +317,32 @@ export function MainPlayer({
                   {repeatMode === "one" ? <Repeat1 className="w-3.5 h-3.5" /> : <Repeat className="w-3.5 h-3.5" />}
                 </button>
 
-                {/* Apple Music Lyrics Toggle Button */}
+                {/* Lyrics Toggle */}
                 <button
                   onClick={() => setLyricsOpen(true)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs bg-white/5 hover:bg-rose-600/20 hover:text-rose-300 text-zinc-300 border-white/10 hover:border-rose-500/40 transition-all cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs bg-white/5 hover:bg-[#ff3725]/20 hover:text-[#ff3725] text-zinc-300 border-white/10 hover:border-[#ff3725]/40 transition-all cursor-pointer active:scale-95"
                 >
-                  <AppleLyricsIcon className="w-3.5 h-3.5 text-rose-500" />
+                  <AppleLyricsIcon className="w-3.5 h-3.5 text-[#ff3725]" />
                   <span>Lời bài hát</span>
                 </button>
 
+                {/* Fullscreen Cinema Mode */}
+                {onOpenCinema && (
+                  <button
+                    onClick={onOpenCinema}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs bg-white/5 hover:bg-white/15 text-zinc-300 border-white/10 transition-all cursor-pointer active:scale-95"
+                    title="Chế độ Cinema toàn màn hình"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5 text-[#ff3725]" />
+                    <span>Cinema</span>
+                  </button>
+                )}
+
                 <button
                   onClick={onTogglePlaylist}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs transition-all ${
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs transition-all active:scale-95 ${
                     playlistVisible
-                      ? "bg-rose-600/20 text-rose-300 border-rose-500/40 shadow-sm"
+                      ? "bg-[#ff3725]/20 text-rose-300 border-[#ff3725]/40 shadow-sm"
                       : "bg-white/5 text-zinc-300 border-white/10 hover:text-white"
                   }`}
                 >

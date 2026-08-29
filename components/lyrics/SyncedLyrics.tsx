@@ -19,7 +19,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
   const animFrameRef = useRef<number | null>(null);
 
-  // Exact timestamp matching
+  // Exact timestamp matching: find active line index
   const activeIndex = useMemo(() => {
     let index = -1;
     for (let i = 0; i < syncedLyrics.length; i++) {
@@ -41,7 +41,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
 
     const start = container.scrollTop;
     const change = targetTop - start;
-    const duration = 320;
+    const duration = 280;
     const startTime = performance.now();
 
     const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -68,7 +68,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
     const container = containerRef.current;
     if (!el || !container) return;
 
-    const desiredTop = el.offsetTop - container.clientHeight * 0.42 + el.clientHeight / 2;
+    const desiredTop = el.offsetTop - container.clientHeight * 0.45 + el.clientHeight / 2;
     smoothScrollTo(Math.max(0, desiredTop));
 
     return () => {
@@ -82,7 +82,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
       const el = lineRefs.current[index];
       const container = containerRef.current;
       if (el && container) {
-        const desiredTop = el.offsetTop - container.clientHeight * 0.42 + el.clientHeight / 2;
+        const desiredTop = el.offsetTop - container.clientHeight * 0.45 + el.clientHeight / 2;
         smoothScrollTo(Math.max(0, desiredTop));
       }
     },
@@ -94,8 +94,8 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
       className="synced-lyrics-container" 
       ref={containerRef}
       style={{
-        maskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+        maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
       }}
     >
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">

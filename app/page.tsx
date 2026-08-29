@@ -5,6 +5,7 @@ import type { CSSProperties, FormEvent, MouseEvent as ReactMouseEvent, ReactNode
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { getLyricsForTrack } from "@/data/lyrics";
 import { LyricsView } from "@/components/lyrics/LyricsView";
+import { CinemaModal } from "@/components/modal/CinemaModal";
 
 type Track = {
   id: string;
@@ -636,6 +637,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [controlNotice, setControlNotice] = useState("");
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [cinemaOpen, setCinemaOpen] = useState(false);
   const [driveMetadata, setDriveMetadata] = useState<DriveMetadata | null>(null);
   const [readingMetadata, setReadingMetadata] = useState(false);
   const [isAdding, setIsAdding] = useState(false);

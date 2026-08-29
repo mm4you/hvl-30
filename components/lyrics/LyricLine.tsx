@@ -7,7 +7,7 @@ type LyricLineProps = {
   isActive: boolean;
   isPast: boolean;
   isUpcoming: boolean;
-  onSeek: (time: number) => void;
+  onSeek: () => void;
 };
 
 export const LyricLine = React.memo(function LyricLine({
@@ -17,7 +17,6 @@ export const LyricLine = React.memo(function LyricLine({
   isUpcoming,
   onSeek,
 }: LyricLineProps) {
-  // Strip out brackets if any (like [Intro], [Chorus])
   const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
 
   if (!text) {
@@ -28,7 +27,7 @@ export const LyricLine = React.memo(function LyricLine({
     <button
       type="button"
       className={`lyric-line ${isActive ? "active" : ""} ${isPast ? "past" : ""} ${isUpcoming ? "upcoming" : ""}`}
-      onClick={() => onSeek(line.time)}
+      onClick={onSeek}
       aria-label={`Tua đến ${text}`}
       aria-current={isActive ? "true" : undefined}
     >
