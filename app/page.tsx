@@ -1997,9 +1997,9 @@ export default function Home() {
             <span className="sync-button-label">{accountLabel}</span>
             <span className="sync-dot" />
           </button>}
-          <button aria-label="Giới thiệu HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
+          <button aria-label="Đôi lời về HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
             <Icon name="info" size={18} />
-            <span>Giới thiệu</span>
+            <span>Đôi lời</span>
           </button>
           {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && <button className="add-button" onClick={() => setFormOpen((open) => !open)} type="button">
             <Icon name={formOpen ? "close" : "add"} size={18} />

@@ -10,19 +10,11 @@ export const StaticLyrics = React.memo(function StaticLyrics({ lyrics }: StaticL
       <div className="static-lyrics-list">
         {lyrics.map((line, index) => {
           const trimmed = line.trim();
-          const isSectionHeader = trimmed.startsWith("[") && trimmed.endsWith("]");
+          const isSectionHeader = trimmed.startsWith("[");
           const isEmpty = trimmed === "";
 
-          if (isEmpty) {
-            return <div key={`spacer-${index}`} aria-hidden="true" className="lyric-line-spacer" />;
-          }
-
-          if (isSectionHeader) {
-            return (
-              <div key={`header-${index}`} aria-hidden="true" className="lyric-section-header">
-                <span>{trimmed.slice(1, -1)}</span>
-              </div>
-            );
+          if (isEmpty || isSectionHeader) {
+            return null;
           }
 
           return (

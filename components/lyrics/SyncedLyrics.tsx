@@ -18,18 +18,26 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
 
-  // Calculate active index without heavy loops
+  // Filter out any [Intro], [Chorus], [Verse] section headers
+  const vocalLines = useMemo(() => {
+    return syncedLyrics.filter((line) => {
+      const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
+      return text.length > 0 && !line.text.trim().startsWith("[");
+    });
+  }, [syncedLyrics]);
+
+  // Calculate active index based on vocal lines only
   const activeIndex = useMemo(() => {
     let index = -1;
-    for (let i = 0; i < syncedLyrics.length; i++) {
-      if (syncedLyrics[i].time <= currentTime) {
+    for (let i = 0; i < vocalLines.length; i++) {
+      if (vocalLines[i].time <= currentTime) {
         index = i;
       } else {
         break;
       }
     }
     return index;
-  }, [currentTime, syncedLyrics]);
+  }, [currentTime, vocalLines]);
 
   // Smooth auto-scroll when active line changes and user is not manually scrolling
   useEffect(() => {
@@ -42,7 +50,6 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
     const targetTop = targetElement.offsetTop;
     const targetHeight = targetElement.clientHeight;
 
-    // Center the active line or place it slightly above center
     const desiredScrollTop = targetTop - (containerHeight / 2) + (targetHeight / 2);
 
     container.scrollTo({
@@ -54,7 +61,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   return (
     <div className="synced-lyrics-container" ref={containerRef}>
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
-        {syncedLyrics.map((line, index) => {
+        {vocalLines.map((line, index) => {
           const isActive = index === activeIndex;
           const isPast = activeIndex >= 0 && index < activeIndex;
           const isUpcoming = activeIndex < 0 || index > activeIndex;
