@@ -2259,7 +2259,7 @@ export default function Home() {
               ) : (
                 <div aria-hidden="true" className="artwork-fallback"><strong>HVL</strong><span>RPT MCK</span></div>
               )}
-              <span aria-hidden="true" className="artwork-number">{String((currentIndex ?? 0) + 1).padStart(2, "0")}</span>
+              <span aria-hidden="true" className="artwork-number">#{String((currentIndex ?? 0) + 1).padStart(2, "0")} • FLAC 24-bit Lossless</span>
               <span className="source-badge"><strong>HVL</strong></span>
             </>
           )}
