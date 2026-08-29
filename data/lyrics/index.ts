@@ -158,13 +158,18 @@ export function getLyricsForTrack(
       if (titleNormalizationMap[normalized]) result = titleNormalizationMap[normalized];
     }
   } else {
-    const { id, title, originalUrl } = trackOrId;
+    const { id, title, originalUrl, trackNumber } = trackOrId as { id?: string; title?: string; originalUrl?: string; trackNumber?: number };
 
     // Track 01 Intro exclusion
-    if (id === "track-01" || id === "18B7wTjbf6YmeeLtzJNv2Etoqq5dyn6R5") return null;
+    if (id === "track-01" || trackNumber === 1 || id === "18B7wTjbf6YmeeLtzJNv2Etoqq5dyn6R5") return null;
     if (title && normalizeTitle(title) === "elegie") return null;
 
-    if (id && lyricsByTrackId[id]) {
+    if (trackNumber && trackNumber >= 2 && trackNumber <= 30) {
+      const key = `track-${String(trackNumber).padStart(2, "0")}`;
+      if (lyricsByTrackId[key]) result = lyricsByTrackId[key];
+    }
+
+    if (!result && id && lyricsByTrackId[id]) {
       result = lyricsByTrackId[id];
     } else if (originalUrl) {
       for (const [key, lyrics] of Object.entries(lyricsByTrackId)) {
