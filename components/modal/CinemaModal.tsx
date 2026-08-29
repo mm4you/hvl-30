@@ -105,7 +105,7 @@ export function CinemaModal({
         <div className="flex items-center gap-3">
           <div className="w-2.5 h-2.5 rounded-full bg-[#ff3725] animate-ping" />
           <span className="text-xs font-mono font-extrabold uppercase tracking-widest text-zinc-400">
-            CINEMA STUDIO MODE • HVL 30 LOSSLESS
+            CINEMA MODE • HVL 30
           </span>
         </div>
 
@@ -134,7 +134,7 @@ export function CinemaModal({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             <span className="absolute top-3.5 left-3.5 text-xs font-mono font-black bg-black/80 backdrop-blur-md text-white px-3 py-1 rounded-xl border border-white/20">
-              #{String(currentTrack.trackNumber).padStart(2, "0")} • FLAC 24-bit
+              #{String(currentTrack.trackNumber).padStart(2, "0")}
             </span>
           </div>
 
