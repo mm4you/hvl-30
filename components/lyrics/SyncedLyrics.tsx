@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useCallback } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import type { SyncedLyricLine } from "@/data/lyrics/types";
 import { LyricLine } from "./LyricLine";
 
@@ -17,13 +17,12 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
 }: SyncedLyricsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
-  const animFrameRef = useRef<number | null>(null);
 
-  // Exact timestamp matching: find active line index
+  // Calculate active index reliably
   const activeIndex = useMemo(() => {
     let index = -1;
     for (let i = 0; i < syncedLyrics.length; i++) {
-      if (currentTime >= syncedLyrics[i].time) {
+      if (syncedLyrics[i].time <= currentTime) {
         index = i;
       } else {
         break;
@@ -32,70 +31,32 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
     return index;
   }, [currentTime, syncedLyrics]);
 
-  // Smooth cubic-bezier scroll easing
-  const smoothScrollTo = useCallback((targetTop: number) => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-
-    const start = container.scrollTop;
-    const change = targetTop - start;
-    const duration = 280;
-    const startTime = performance.now();
-
-    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      container.scrollTop = start + change * easeOutCubic(progress);
-
-      if (progress < 1) {
-        animFrameRef.current = requestAnimationFrame(step);
-      } else {
-        animFrameRef.current = null;
-      }
-    };
-
-    animFrameRef.current = requestAnimationFrame(step);
-  }, []);
-
-  // Smoothly center the active line
+  // Smooth auto-scroll when active line changes and user is not manually scrolling
   useEffect(() => {
     if (isUserScrolling || activeIndex < 0) return;
-    const el = lineRefs.current[activeIndex];
+    const targetElement = lineRefs.current[activeIndex];
     const container = containerRef.current;
-    if (!el || !container) return;
+    if (!targetElement || !container) return;
 
-    const desiredTop = el.offsetTop - container.clientHeight * 0.45 + el.clientHeight / 2;
-    smoothScrollTo(Math.max(0, desiredTop));
+    const containerHeight = container.clientHeight;
+    const targetTop = targetElement.offsetTop;
+    const targetHeight = targetElement.clientHeight;
 
-    return () => {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    };
-  }, [activeIndex, isUserScrolling, smoothScrollTo]);
+    const desiredScrollTop = targetTop - (containerHeight / 2) + (targetHeight / 2);
 
-  const handleSeek = useCallback(
-    (time: number, index: number) => {
-      onSeek(time);
-      const el = lineRefs.current[index];
-      const container = containerRef.current;
-      if (el && container) {
-        const desiredTop = el.offsetTop - container.clientHeight * 0.45 + el.clientHeight / 2;
-        smoothScrollTo(Math.max(0, desiredTop));
-      }
-    },
-    [onSeek, smoothScrollTo]
-  );
+    container.scrollTo({
+      top: Math.max(0, desiredScrollTop),
+      behavior: "smooth",
+    });
+  }, [activeIndex, isUserScrolling]);
 
   return (
     <div 
       className="synced-lyrics-container" 
       ref={containerRef}
       style={{
-        maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+        maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
       }}
     >
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
@@ -118,7 +79,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
                 isActive={isActive}
                 isPast={isPast}
                 isUpcoming={isUpcoming}
-                onSeek={() => handleSeek(line.time, index)}
+                onSeek={onSeek}
               />
             </div>
           );

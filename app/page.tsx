@@ -38,10 +38,10 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#070505] text-[#f4f0eb] flex flex-col selection:bg-[#ff3725] selection:text-white">
       {/* Top Header */}
-      <Header onOpenAbout={() => setAboutOpen(true)} />
+      <Header onOpenAbout={() => setAboutOpen(true)} onOpenCinema={() => setCinemaOpen(true)} />
 
       {/* Main Container - Spacious Widescreen Layout */}
-      <main className="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 md:px-8 py-6 sm:py-10">
+      <main className="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 py-6 sm:py-10">
         {/* Modern Hi-Fi Studio Player with 3:2 Artwork & Cinema Mode */}
         <MainPlayer
           playlistVisible={playlistVisible}
