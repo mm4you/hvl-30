@@ -1,28 +1,28 @@
-<svg width="512" height="380" viewBox="0 0 512 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Deep Solid Black Background -->
-  <rect width="512" height="380" rx="36" fill="#050505"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Solid 1:1 Deep Black Canvas -->
+  <rect width="512" height="512" fill="#050505"/>
 
-  <!-- Chunky Bold Red HVL Monogram -->
+  <!-- Chunky Bold Red HVL Monogram (Centered 1:1) -->
   <g fill="#FF3725">
     <!-- H -->
-    <path d="M88 124H130V194H174V124H216V268H174V226H130V268H88V124Z"/>
+    <path d="M72 170H120V246H168V170H216V326H168V282H120V326H72V170Z"/>
 
     <!-- V -->
-    <path d="M224 124H266L298 226L330 124H372L320 268H276L224 124Z"/>
+    <path d="M226 170H272L306 280L340 170H386L330 326H282L226 170Z"/>
 
     <!-- L -->
-    <path d="M378 124H420V232H464V268H378V124Z"/>
+    <path d="M394 170H440V286H488V326H394V170Z"/>
   </g>
 
   <!-- Subtitle: RPT MCK -->
   <text 
     x="256" 
-    y="302" 
+    y="368" 
     fill="#888888" 
     font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Arial Black', sans-serif" 
-    font-size="19" 
+    font-size="20" 
     font-weight="900" 
-    letter-spacing="9" 
+    letter-spacing="10" 
     text-anchor="middle"
   >
     RPT MCK
