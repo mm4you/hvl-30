@@ -84,7 +84,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const preloadAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Detect Headphones & Audio Output changes
+  // Detect Headphones
   useEffect(() => {
     if (typeof window === "undefined" || !navigator.mediaDevices?.enumerateDevices) return;
 
@@ -175,17 +175,13 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     } catch {}
   }, []);
 
-  // Preload next track
+  // Warm next track with 128KB chunk for instant start
   useEffect(() => {
     if (!queue.length) return;
     const nextIdx = (queueIndex + 1) % queue.length;
     const nextT = queue[nextIdx];
     if (nextT && typeof window !== "undefined") {
-      if (!preloadAudioRef.current) {
-        preloadAudioRef.current = new Audio();
-        preloadAudioRef.current.preload = "auto";
-      }
-      preloadAudioRef.current.src = nextT.audioUrl;
+      fetch(nextT.audioUrl, { headers: { Range: "bytes=0-131071" } }).catch(() => {});
     }
   }, [queue, queueIndex]);
 
@@ -196,11 +192,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     navigator.mediaSession.metadata = new MediaMetadata({
       title: currentTrack.title,
       artist: currentTrack.artist,
-      album: "HVL (Lossless FLAC)",
+      album: "HVL",
       artwork: [
         { src: currentTrack.artworkUrl, sizes: "512x512", type: "image/jpeg" },
-        { src: currentTrack.artworkUrl, sizes: "256x256", type: "image/jpeg" },
-        { src: currentTrack.artworkUrl, sizes: "128x128", type: "image/jpeg" },
       ],
     });
 
@@ -219,15 +213,7 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
         audioRef.current.currentTime = details.seekTime;
       }
     });
-    navigator.mediaSession.setActionHandler("seekbackward", (details) => {
-      const skip = details.seekOffset || 10;
-      if (audioRef.current) audioRef.current.currentTime = Math.max(0, audioRef.current.currentTime - skip);
-    });
-    navigator.mediaSession.setActionHandler("seekforward", (details) => {
-      const skip = details.seekOffset || 10;
-      if (audioRef.current) audioRef.current.currentTime = Math.min(duration, audioRef.current.currentTime + skip);
-    });
-  }, [currentTrack, duration]);
+  }, [currentTrack]);
 
   // Play a specific track
   const playTrack = useCallback(
@@ -252,7 +238,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       }
 
       if (audioRef.current) {
-        audioRef.current.src = track.audioUrl;
+        if (audioRef.current.src !== track.audioUrl) {
+          audioRef.current.src = track.audioUrl;
+        }
         audioRef.current.currentTime = 0;
         audioRef.current
           .play()
@@ -275,6 +263,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
+      if (!audioRef.current.src || audioRef.current.src === "") {
+        audioRef.current.src = currentTrack.audioUrl;
+      }
       audioRef.current
         .play()
         .then(() => setIsPlaying(true))
@@ -304,23 +295,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     setQueueIndex(nextIdx);
     const nextT = queue[nextIdx];
     if (nextT) {
-      setCurrentTrack(nextT);
-      try {
-        localStorage.setItem(STORAGE_KEY_LAST_TRACK, nextT.id);
-      } catch {}
-      if (audioRef.current) {
-        audioRef.current.src = nextT.audioUrl;
-        audioRef.current.currentTime = 0;
-        audioRef.current
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-            recordPlay(nextT);
-          })
-          .catch(() => setIsPlaying(false));
-      }
+      playTrack(nextT);
     }
-  }, [queue, queueIndex, repeatMode, recordPlay]);
+  }, [queue, queueIndex, repeatMode, playTrack]);
 
   // Prev Track
   const prevTrack = useCallback(() => {
@@ -338,23 +315,9 @@ export function PlayerProvider({ children }: { children: React.ReactNode }) {
     setQueueIndex(prevIdx);
     const prevT = queue[prevIdx];
     if (prevT) {
-      setCurrentTrack(prevT);
-      try {
-        localStorage.setItem(STORAGE_KEY_LAST_TRACK, prevT.id);
-      } catch {}
-      if (audioRef.current) {
-        audioRef.current.src = prevT.audioUrl;
-        audioRef.current.currentTime = 0;
-        audioRef.current
-          .play()
-          .then(() => {
-            setIsPlaying(true);
-            recordPlay(prevT);
-          })
-          .catch(() => setIsPlaying(false));
-      }
+      playTrack(prevT);
     }
-  }, [queue, queueIndex, recordPlay]);
+  }, [queue, queueIndex, playTrack]);
 
   // Seek
   const seek = useCallback((seconds: number) => {
