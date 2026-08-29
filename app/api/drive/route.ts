@@ -1,4 +1,5 @@
-export const runtime = "edge";`nconst DRIVE_FILE_ID = /^[A-Za-z0-9_-]{10,200}$/;
+export const runtime = "edge";
+const DRIVE_FILE_ID = /^[A-Za-z0-9_-]{10,200}$/;
 const DRIVE_FOLDER_TYPE = "application/vnd.google-apps.folder";
 const MAX_FOLDER_FILES = 200;
 const MAX_FOLDER_DEPTH = 5;
@@ -496,7 +497,9 @@ function streamedResponse(upstream: Response, headOnly = false) {
   }
   headers.set("Content-Type", audioType(upstream.headers.get("content-type"), upstream.headers.get("content-disposition")));
   headers.set("Content-Disposition", "inline");
-  headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable");`n  headers.set("CDN-Cache-Control", "public, s-maxage=31536000");`n  headers.set("Vercel-CDN-Cache-Control", "public, s-maxage=31536000");
+  headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable");
+  headers.set("CDN-Cache-Control", "public, s-maxage=31536000");
+  headers.set("Vercel-CDN-Cache-Control", "public, s-maxage=31536000");
   headers.set("Vary", "Range");
   headers.set("X-Content-Type-Options", "nosniff");
   if (headOnly) void upstream.body?.cancel();

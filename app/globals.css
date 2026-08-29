@@ -267,17 +267,102 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .about-links .spotify-link svg { color: #1ed760; }
 .about-links .youtube-link svg { color: #ff4a3d; }
 .about-links a:hover { border-color: rgba(255,55,35,.5); background: rgba(255,55,35,.1); }
-.about-statement { display: grid; grid-template-columns: minmax(150px, .36fr) minmax(0, 1.02fr) minmax(280px, .82fr); gap: clamp(22px, 4.5vw, 64px); align-items: start; padding: clamp(46px, 7vw, 88px) 0; border-top: 1px solid rgba(245,240,236,.15); border-bottom: 1px solid rgba(245,240,236,.15); }
-.about-statement h3 { margin: 0; max-width: 660px; color: #f4f0eb; font-size: clamp(38px, 5.5vw, 74px); line-height: .98; letter-spacing: -.065em; }
-.about-essay { display: grid; gap: 18px; }
-.about-essay p { margin: 0; color: #998e89; font-size: 13px; line-height: 1.75; }
-.about-essay strong { color: #eee7e1; }
-.about-pullquote { margin: 8px 0; padding: 2px 0 2px 18px; border-left: 3px solid var(--accent); color: #eee7e1; font-size: clamp(20px, 2.35vw, 29px); font-weight: 720; line-height: 1.28; letter-spacing: -.035em; }
-.about-essay p.about-closing { color: #e1d8d2; font-size: 15px; font-weight: 650; line-height: 1.6; }
-.about-source-links { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 5px; }
-.about-source-links a { padding-bottom: 3px; border-bottom: 1px solid rgba(255,55,35,.5); color: #cfc5bf; font-size: 9px; font-weight: 800; letter-spacing: .035em; text-decoration: none; }
-.about-source-links a:hover { color: var(--accent); }
-.about-track-section { padding: clamp(62px, 9vw, 118px) 0; }
+.about-statement {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding: clamp(40px, 6vw, 72px) 0;
+  border-top: 1px solid rgba(245, 240, 236, 0.14);
+  border-bottom: 1px solid rgba(245, 240, 236, 0.14);
+}
+.about-statement-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 860px;
+}
+.about-statement-header .eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+.about-statement-header h3 {
+  margin: 0;
+  color: #f4f0eb;
+  font-size: clamp(26px, 3.8vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+  font-weight: 850;
+}
+.about-pullquote {
+  margin: 6px 0 0;
+  padding: 14px 22px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 14px 14px 0;
+  background: rgba(255, 55, 35, 0.08);
+  color: #ffffff;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 750;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+.about-statement-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4.5vw, 54px);
+  align-items: start;
+}
+.about-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.about-col p {
+  margin: 0;
+  color: #a39892;
+  font-size: 13.5px;
+  line-height: 1.85;
+}
+.about-col strong {
+  color: #eee7e1;
+}
+.about-col p.about-closing {
+  color: #e5ded9;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.7;
+}
+.about-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 6px;
+}
+.about-source-links a {
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 55, 35, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 55, 35, 0.08);
+  color: #eee7e1;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+.about-source-links a:hover {
+  background: rgba(255, 55, 35, 0.22);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .about-statement-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}.about-track-section { padding: clamp(62px, 9vw, 118px) 0; }
 .about-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
 .about-section-heading h3 { margin: 0; color: #f4f0eb; font-size: clamp(40px, 7vw, 82px); line-height: .95; letter-spacing: -.07em; }
 .about-section-heading > p { max-width: 220px; margin: 0; color: #807672; font-size: 11px; line-height: 1.55; text-align: right; }
