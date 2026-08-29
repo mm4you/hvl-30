@@ -1106,23 +1106,29 @@ footer a:hover { color: var(--accent); }
   background-clip: unset !important;
   text-shadow: 0 0 24px rgba(255, 55, 35, 0.65), 0 0 48px rgba(255, 55, 35, 0.3) !important;
 }
-/* Dedicated Red Audio Waveform Ambient Glow */
+/* Dedicated High-Intensity Red Audio Waveform Ambient Glow */
 .artwork-ambient-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  overflow: visible !important;
 }
 
 .artwork-ambient-glow {
   position: absolute;
-  inset: -10px;
-  border-radius: 28px;
-  background: radial-gradient(circle at center, rgba(255, 55, 35, 0.95) 0%, rgba(255, 30, 20, 0.55) 45%, transparent 75%);
+  inset: -35px;
+  border-radius: 36px;
+  background: radial-gradient(circle at center, #ff2a14 0%, rgba(255, 45, 25, 0.85) 40%, rgba(255, 25, 10, 0.45) 65%, transparent 85%) !important;
   pointer-events: none;
-  z-index: 1;
-  transition: opacity 280ms ease, filter 80ms ease-out, transform 80ms ease-out;
+  z-index: 0;
+  will-change: transform, filter, opacity;
+  transition: opacity 250ms ease, filter 70ms ease-out, transform 70ms ease-out;
+}
+
+.player-card {
+  overflow: visible !important;
 }
 
 .artwork {
