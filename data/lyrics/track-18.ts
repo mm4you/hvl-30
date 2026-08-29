@@ -48,4 +48,166 @@ export const track18Lyrics: TrackLyrics = {
   "Tao đã đi từ đáy mà bây giờ oke vãi lờ",
   "Long đẹp zai represent Hoàng Mai see you later (Vuýp)"
 ],
+  syncedLyrics: [
+  {
+    "time": 10.5,
+    "text": "(Tùng ơi)"
+  },
+  {
+    "time": 11.8,
+    "text": "MCK, MCK, MCK"
+  },
+  {
+    "time": 13,
+    "text": "Hi-hi-hi, MCK, MCK (Chyeah)"
+  },
+  {
+    "time": 14.3,
+    "text": "Yeah, ah-ah-ah, yeah"
+  },
+  {
+    "time": 15.5,
+    "text": "Không động tay vào phone nhưng tao vẫn biết là mấy giờ, yeah"
+  },
+  {
+    "time": 18.6,
+    "text": "Xuất hiện trên mặt báo hàng trăm tờ raw paper, yeah"
+  },
+  {
+    "time": 21.2,
+    "text": "Money rơi vào túi, tao gạt tay vào fader, yeah"
+  },
+  {
+    "time": 23.5,
+    "text": "Ôm mặt chơi đi mà, chơi đi mà, okay, okay vãi lờ, yeah"
+  },
+  {
+    "time": 26.5,
+    "text": "Quen với những thứ tao có, những lời khen này, ôi-ồ-ôi"
+  },
+  {
+    "time": 29.1,
+    "text": "Phải làm sao để cho con số nó không tăng lên nữa, ôi-ồ-ôi, yeah"
+  },
+  {
+    "time": 32.4,
+    "text": "Tao chỉ hút và hút thôi không cần xem là mấy giờ, ah"
+  },
+  {
+    "time": 35.4,
+    "text": "Tao chỉ flow một tí mà okay vãi lồn thế nhờ, yeah"
+  },
+  {
+    "time": 38.2,
+    "text": "Bao nhiêu tiền mà thích phô phô ra, vẫn đang ngồi mà trap thôi thật là bất cập (Thật là bất cập)"
+  },
+  {
+    "time": 43.2,
+    "text": "Tao vẫn đang ngồi trap trong phòng, cố để mà phân tích kiểu thực chất thì gọi là fuck up"
+  },
+  {
+    "time": 47.8,
+    "text": "Chơi mày như là chiếc tay cầm four by four like a motherfuckin' trucker"
+  },
+  {
+    "time": 50.9,
+    "text": "Flow này gọi là, flow này gọi là, trap my phone like a motherfuckin' trap phone, chyeah"
+  },
+  {
+    "time": 54.8,
+    "text": "Chúng nó vẫn sẽ thấy tao, nhưng không biết tao đang đâu (Uh-huh)"
+  },
+  {
+    "time": 57.8,
+    "text": "Ghét tao xong phán xét tao chúng mày quá ngây thơ (Chúng mày quá là non)"
+  },
+  {
+    "time": 61.3,
+    "text": "Giọng nói trên cao kêu tên tao là God’s favorite (MCK, chyuh)"
+  },
+  {
+    "time": 64.1,
+    "text": "Sắp xếp rồi nghe rất hay nhưng mà can’t follow (MCK, MCK; swag)"
+  },
+  {
+    "time": 67.2,
+    "text": "Anh chỉ hút và hút thôi, không cần biết là mấy giờ, uh (Hút)"
+  },
+  {
+    "time": 70.4,
+    "text": "Anh chỉ hút và hút thôi, không phải lo về giấy tờ, uh"
+  },
+  {
+    "time": 73.4,
+    "text": "Anh chỉ hút và hút thôi, không cần xem là mấy giờ, uh"
+  },
+  {
+    "time": 76.5,
+    "text": "Anh chỉ hút và hút thôi, mấy em gái này quấy nhờ, uh"
+  },
+  {
+    "time": 79.5,
+    "text": "Anh chỉ hút và hút thôi, gotta see you later, uh"
+  },
+  {
+    "time": 82.1,
+    "text": "Anh ở khu Hồ Tây và trong lòng fan hâm mộ, uh"
+  },
+  {
+    "time": 84.9,
+    "text": "Đêm chạy qua nhà anh, baby girl muốn đóng làm giang hồ (Bitch)"
+  },
+  {
+    "time": 87.9,
+    "text": "Em bảo em bị đau ở đâu? Để đấy anh khám hộ (Fwah)"
+  },
+  {
+    "time": 90.8,
+    "text": "Okay, okay, okay, okay, okay, okay, oh (Okay)"
+  },
+  {
+    "time": 92.7,
+    "text": "Đang trên phố, em đang đâu, anh đang bờ hồ"
+  },
+  {
+    "time": 95.1,
+    "text": "Anh đi mua cho bố anh iPhone 16 Pro (Vuýp)"
+  },
+  {
+    "time": 97.3,
+    "text": "Mua thêm sim cho bố, con dâu nó add số Zalo (Fwah)"
+  },
+  {
+    "time": 100.1,
+    "text": "Anh là ngôi sao xa xôi, em cho anh ra khơi, anh đưa em vào đời"
+  },
+  {
+    "time": 103.8,
+    "text": "Dưới anh là mặt đất thôi còn trên anh là giời"
+  },
+  {
+    "time": 106.2,
+    "text": "Nhắn cho anh mấy hôm rồi mà vẫn chưa thấy anh này trả lời"
+  },
+  {
+    "time": 109.3,
+    "text": "Anh này người nhà giời à? Cứ bắt em chờ mà— (Chyeah)"
+  },
+  {
+    "time": 111.9,
+    "text": "Tao chỉ hút và hút mà không cần biết là mấy giờ"
+  },
+  {
+    "time": 114.6,
+    "text": "Từ ngày chết đói, từng ngày mưa rơi, (Gọi là) Camel flavor"
+  },
+  {
+    "time": 117.4,
+    "text": "Tao đã đi từ đáy mà bây giờ oke vãi lờ"
+  },
+  {
+    "time": 119.8,
+    "text": "Long đẹp zai represent Hoàng Mai see you later (Vuýp)"
+  }
+]
 };
