@@ -50,7 +50,7 @@ export function PlaylistPanel({ isVisible }: { isVisible: boolean }) {
       </div>
 
       {/* 2-Column Balanced Track Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-h-[500px] overflow-y-auto pr-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 max-h-[480px] overflow-y-auto pr-1.5 custom-scrollbar">
         {filteredTracks.map((track) => {
           const isCurrent = currentTrack?.id === track.id;
 
