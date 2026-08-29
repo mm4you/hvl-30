@@ -79,151 +79,151 @@ export const track30Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 14.5,
+    "time": 17.5,
     "text": "Tao đã nguyện không oán những cái chuyện không đáng nhưng có những chuyện nó khó có thể tha thứ"
   },
   {
-    "time": 18.9,
+    "time": 21.8,
     "text": "Tùng yêu, từng ghét, từng giận, từng quen, dù không muốn thì cũng đã phải giã từ"
   },
   {
-    "time": 22.8,
+    "time": 25.6,
     "text": "Chưa bao giờ hối hận vì những thứ đã làm, trời cao độ cho linh hồn xa xứ"
   },
   {
-    "time": 27,
+    "time": 29.6,
     "text": "Chưa bao giờ có \"nếu\", hoặc là \"đáng tiếc\", hoặc là \"thương hại\", hay là hai từ \"giá như\""
   },
   {
-    "time": 31.4,
+    "time": 33.9,
     "text": "Okay, tao đi ra phố, mấy em fan chạy lại hú hét"
   },
   {
-    "time": 34.2,
+    "time": 36.6,
     "text": "Bỏ hút cỏ mấy em cứ ép, hút cái này nhiều đầu anh lú đét"
   },
   {
-    "time": 37.6,
+    "time": 40,
     "text": "Mấy em gái chạy lại và hú hét, có em vú to, có em vú lép"
   },
   {
-    "time": 41.3,
+    "time": 43.6,
     "text": "Bảo là, \"Nghe nhạc anh sao mà tai nghe cứ khét\", CapCut hai ảnh các em cứ ghép"
   },
   {
-    "time": 45.5,
+    "time": 47.6,
     "text": "Ayy, tiếng lành đồn xa"
   },
   {
-    "time": 46.8,
+    "time": 48.9,
     "text": "Chúng nó bảo anh là không làm được, đến cái lúc anh làm được mặt chúng nó đần ra"
   },
   {
-    "time": 51.1,
+    "time": 53.2,
     "text": "Anh đã không còn cảm thấy cô đơn trong lòng ở nơi phố thị phồn hoa"
   },
   {
-    "time": 54.7,
+    "time": 56.6,
     "text": "Anh đã thấy được giá trị của anh khi mà cuộc đời anh trải qua một phần ba"
   },
   {
-    "time": 58.6,
+    "time": 60.4,
     "text": "Và anh đã quen với cô đơn"
   },
   {
-    "time": 60.2,
+    "time": 61.9,
     "text": "Con tim anh đã an nhiên, đã thôi nhung nhớ, đã thôi thét gào lên từng cơn"
   },
   {
-    "time": 64.1,
+    "time": 65.8,
     "text": "Anh giữ niềm yêu thương, trao hy vọng, điệu nhạc này chớ buồn làm gì"
   },
   {
-    "time": 67.6,
+    "time": 69.1,
     "text": "Với những thứ không quan trọng, anh sẽ lấy tay gạt đi"
   },
   {
-    "time": 70.4,
+    "time": 71.9,
     "text": "Suy nghĩ làm gì cho tốn thời gian"
   },
   {
-    "time": 72.2,
+    "time": 73.6,
     "text": "Tâm anh sáng và cái dáng anh hiền"
   },
   {
-    "time": 73.9,
+    "time": 75.3,
     "text": "Baby, mắt anh phát sáng, va vào cái say liền"
   },
   {
-    "time": 76.3,
+    "time": 77.6,
     "text": "Ôm, lúc nào cũng ôm một đống ưu phiền"
   },
   {
-    "time": 78.5,
+    "time": 79.7,
     "text": "Em làm cho anh nhung nhớ tặng anh cái dây chuyền, okay"
   },
   {
-    "time": 81.3,
+    "time": 82.5,
     "text": "Chắc là em cũng quên rồi"
   },
   {
-    "time": 82.6,
+    "time": 83.8,
     "text": "Nhưng mà anh thì nhớ những lúc em phá lên cười"
   },
   {
-    "time": 85,
+    "time": 86.1,
     "text": "Đẹp như là show của anh, show của anh"
   },
   {
-    "time": 87.2,
+    "time": 88.2,
     "text": "Bình luận \"hai chấm, ngoặc, ngoặc\", \"Quá ăn tiền\""
   },
   {
-    "time": 89.3,
+    "time": 90.3,
     "text": "Xong rồi anh nhận ra, không phải yêu, bởi vì anh chưa bao giờ là người được em quan tâm, quan tâm"
   },
   {
-    "time": 94.4,
+    "time": 95.2,
     "text": "Thật buồn, anh phải chỉnh lại bản thân và đi chơi với cả mấy em da nâu ngăm ngăm"
   },
   {
-    "time": 98.7,
+    "time": 99.5,
     "text": "Em nghĩ thế thôi mà đã hạ được anh? Baby, aight, get some, get some"
   },
   {
-    "time": 102.2,
+    "time": 102.8,
     "text": "Bao nhiêu thằng muốn cắn anh ngoài kia nhìn lại mông anh thì toàn là vết răng, vết răng"
   },
   {
-    "time": 106.6,
+    "time": 107.1,
     "text": "Anh mà đi ở đâu thì camera tự nhiên ra follow"
   },
   {
-    "time": 109,
+    "time": 109.4,
     "text": "Mấy thằng chưa gặp anh comment bảo, \"Trông mày như thằng côn đồ\""
   },
   {
-    "time": 112.1,
+    "time": 112.4,
     "text": "Hỏi anh tại sao đỉnh cao, hình như là do đẹp zai? I don't know"
   },
   {
-    "time": 115.5,
+    "time": 115.8,
     "text": "Mày đang làm đau đầu tao, để yên cho tao về ôm bồ"
   },
   {
-    "time": 118.6,
+    "time": 118.8,
     "text": "Take care, baby, are you take care?"
   },
   {
-    "time": 120.6,
+    "time": 120.8,
     "text": "I just wanted you to take care"
   },
   {
-    "time": 122.1,
+    "time": 122.3,
     "text": "Hy vọng em vẫn đang đổi thay, yeah"
   },
   {
-    "time": 124.1,
+    "time": 124.2,
     "text": "Anh đã nguyện không oán (Anh là như thế), những cái chuyện không đáng (Không bao giờ)"
   },
   {
@@ -231,95 +231,95 @@ export const track30Lyrics: TrackLyrics = {
     "text": "Anh đã nguyện không bán (Anh là vô giá), thể diện trong sáng (Okay luôn)"
   },
   {
-    "time": 131.5,
+    "time": 131.4,
     "text": "Không thích chuyện công cán (Nghe chưa?), cả mấy chuyện ân oán (Nghe rõ chưa?)"
   },
   {
-    "time": 134.9,
+    "time": 134.8,
     "text": "Chỉ có em và nhạc (M-O-U), là anh nghiện không chán (Yêu luôn)"
   },
   {
-    "time": 138,
+    "time": 137.7,
     "text": "Anh muốn trèo lên cao nhất (Tít trên), chỉ để khoe với mẹ anh (Mẹ ơi)"
   },
   {
-    "time": 141.7,
+    "time": 141.3,
     "text": "Con mẹ đã lớn, vững vàng, chững chạc không còn là thằng trẻ ranh (Con mẹ đã lớn rồi)"
   },
   {
-    "time": 146,
+    "time": 145.6,
     "text": "Đối mặt với thử thách, thân trai hai lăm gặp hổ bẻ nanh"
   },
   {
-    "time": 149.1,
+    "time": 148.5,
     "text": "Nhỡ đâu con dâu lại là người nước ngoài, cúi đầu tạ lễ, biếu mẹ cái thẻ xanh"
   },
   {
-    "time": 153.2,
+    "time": 152.6,
     "text": "Long Nhật Bản đã từng ngủ ở hè phố, Long Việt Nam giờ là báu vật của bố"
   },
   {
-    "time": 157.4,
+    "time": 156.6,
     "text": "Những người bạn vẫn luôn ở đó, chỉ cần nhìn thấy họ là nó đã được củng cố"
   },
   {
-    "time": 161.5,
+    "time": 160.6,
     "text": "Bước ra đường với đôi giày khủng bố, nhạc bật bung loa vang khắp cả phố"
   },
   {
-    "time": 165.2,
+    "time": 164.2,
     "text": "Racks on racks on racks on racks on racks on racks on racks, alo?"
   },
   {
-    "time": 168.8,
+    "time": 167.8,
     "text": "Long Tân Mai mãi là một thằng nhóc, Long Ba Đình nhiều lần gục mặt khóc"
   },
   {
-    "time": 172.5,
+    "time": 171.4,
     "text": "Long Phố Vọng đã có nhiều bằng cấp, Long Kim Mã, uhm, chẳng cao chẳng thấp"
   },
   {
-    "time": 176.2,
+    "time": 175,
     "text": "Long Thủ Thiêm tiêu tiền bằng xấp, Long-Long Hồ Tây quá giàu chẳng chấp"
   },
   {
-    "time": 179.4,
+    "time": 178.1,
     "text": "Long đẹp zai represent Hoàng Mai, Hà Nội, Ba Đình, đỉnh cao, đẳng cấp"
   },
   {
-    "time": 182.7,
+    "time": 181.3,
     "text": "Và anh đã quen với cô đơn"
   },
   {
-    "time": 184.2,
+    "time": 182.8,
     "text": "Con tim anh đã an nhiên, đã thôi nhung nhớ, thôi thét gào lên từng cơn"
   },
   {
-    "time": 187.9,
+    "time": 186.4,
     "text": "Gieo thêm hy vọng, điệu nhạc này chớ buồn làm gì"
   },
   {
-    "time": 190.5,
+    "time": 188.9,
     "text": "Với những thứ không quan trọng, anh sẽ lấy tay gạt đi"
   },
   {
-    "time": 193.4,
+    "time": 191.7,
     "text": "Suy nghĩ làm gì cho tốn thời gian"
   },
   {
-    "time": 195.1,
+    "time": 193.4,
     "text": "Con tim anh đã an nhiên, đã thôi nhung nhớ, thôi thét gào lên từng cơn"
   },
   {
-    "time": 198.8,
+    "time": 197,
     "text": "Gieo thêm hy vọng, điệu nhạc này chớ buồn làm gì"
   },
   {
-    "time": 201.4,
+    "time": 199.5,
     "text": "Với những thứ không quan trọng, anh sẽ lấy tay gạt đi"
   },
   {
-    "time": 204.2,
+    "time": 202.3,
     "text": "Suy nghĩ làm gì cho tốn thời gian"
   }
 ]

@@ -56,175 +56,175 @@ export const track09Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 11.5,
+    "time": 14,
     "text": "Mỗi đêm tôi cười, cười một mình tôi"
   },
   {
-    "time": 13.5,
+    "time": 15.9,
     "text": "Cho đêm bớt đi lạnh vắng"
   },
   {
-    "time": 14.9,
+    "time": 17.2,
     "text": "Mỗi đêm tôi nhìn, nhìn từng cuộc vui"
   },
   {
-    "time": 16.9,
+    "time": 19.1,
     "text": "Trong tôi xót xa ngàn nỗi"
   },
   {
-    "time": 18.2,
+    "time": 20.4,
     "text": "Rồi sẽ có lúc, tôi thôi rong chơi"
   },
   {
-    "time": 20.2,
+    "time": 22.3,
     "text": "Rồi sẽ có lúc, tim thôi đơn côi"
   },
   {
-    "time": 22.2,
+    "time": 24.3,
     "text": "Xót xa tôi nhìn, và tôi chợt thấy"
   },
   {
-    "time": 24.2,
+    "time": 26.2,
     "text": "Thương tôi, vô cùng"
   },
   {
-    "time": 25.5,
+    "time": 27.5,
     "text": "Rồi sẽ có lúc, tôi thôi rong chơi"
   },
   {
-    "time": 27.5,
+    "time": 29.4,
     "text": "Rồi sẽ có lúc, tim thôi đơn côi"
   },
   {
-    "time": 29.5,
+    "time": 31.3,
     "text": "Xót xa tôi nhìn, và tôi chợt thấy"
   },
   {
-    "time": 31.5,
+    "time": 33.2,
     "text": "Thương tôi, vô—"
   },
   {
-    "time": 32.8,
+    "time": 34.5,
     "text": "(Ayy, ah-ah, ayy, ah-ah)"
   },
   {
-    "time": 34.1,
+    "time": 35.8,
     "text": "(Ah-ah)"
   },
   {
-    "time": 35.5,
+    "time": 37.1,
     "text": "\"Em là gì của anh?\", em hỏi anh khi Mặt Trời rạng"
   },
   {
-    "time": 38.4,
+    "time": 39.9,
     "text": "Lần đầu tiên mà ta chạm môi, ta biết nhau còn hơn là bạn"
   },
   {
-    "time": 41.7,
+    "time": 43.1,
     "text": "Tín hiệu ta đã bắn cho nhau bay nhanh như là đạn"
   },
   {
-    "time": 44.5,
+    "time": 45.7,
     "text": "Anh không muốn thứ gì dài lâu, anh cũng không muốn đây là tạm"
   },
   {
-    "time": 47.9,
+    "time": 48.9,
     "text": "Hold on, little mama, đôi tay này đang dần sa đà"
   },
   {
-    "time": 50.5,
+    "time": 51.5,
     "text": "Không cần Louis Vui', không cần Gucci, không cần Prada"
   },
   {
-    "time": 53,
+    "time": 53.8,
     "text": "Anh cần thêm nụ hôn của em, hôn anh đi, little mama"
   },
   {
-    "time": 55.9,
+    "time": 56.6,
     "text": "Làm anh say như Hennessy, quyện vào anh y như là zaza"
   },
   {
-    "time": 58.8,
+    "time": 59.4,
     "text": "Không thể quên được anh đâu, không thể quên được, không thể quên được"
   },
   {
-    "time": 62.2,
+    "time": 62.6,
     "text": "Không còn cơ hội cho một ai đâu, không thể thêm được, không thể thêm được"
   },
   {
-    "time": 66,
+    "time": 66.3,
     "text": "Ngày mai là anh phải đi rồi, anh phải lên đường, anh phải đi"
   },
   {
-    "time": 69.4,
+    "time": 69.5,
     "text": "Chỉ còn mùi hương của anh là lưu ở trên giường, lưu ở trên giường"
   },
   {
-    "time": 73,
+    "time": 72.9,
     "text": "Liệu em còn nhớ về anh không? Hay là quên rồi? Em lại quên rồi?"
   },
   {
-    "time": 76.7,
+    "time": 76.5,
     "text": "Liệu trong em anh là thiên thần hay anh cũng chỉ là một tên tồi?"
   },
   {
-    "time": 80.5,
+    "time": 80.1,
     "text": "Liệu ta chỉ đang dạo chơi và đống cảm xúc này chỉ là game thôi?"
   },
   {
-    "time": 84.3,
+    "time": 83.7,
     "text": "Liệu anh có thay được em không, hay là em chỉ có một trên đời?"
   },
   {
-    "time": 88.2,
+    "time": 87.5,
     "text": "One time, two times, three times to the four"
   },
   {
-    "time": 90.4,
+    "time": 89.7,
     "text": "Wanna see you naked, put your panties on the floor"
   },
   {
-    "time": 92.9,
+    "time": 92,
     "text": "I'm a fuck you like I hate you nhưng mà hôn thì hôn thật lâu"
   },
   {
-    "time": 96.3,
+    "time": 95.3,
     "text": "Such a fuck boy when I'm sayin' that không thể quên được đâu"
   },
   {
-    "time": 99.3,
+    "time": 98.1,
     "text": "Yeah, one time, two times, three times to the four, yah"
   },
   {
-    "time": 102,
+    "time": 100.6,
     "text": "Như là ocean, anh sẽ bơi, nó quá là sâu"
   },
   {
-    "time": 104.4,
+    "time": 103,
     "text": "Làm anh quay lại ngay ngày mai đi, make me comin' back for more"
   },
   {
-    "time": 107.8,
+    "time": 106.2,
     "text": "Mút linh hồn của anh ra ngoài đi"
   },
   {
-    "time": 109.6,
+    "time": 107.9,
     "text": "Brain freeze, I don't know"
   },
   {
-    "time": 110.9,
+    "time": 109.2,
     "text": "I don't know, talk to me, babe"
   },
   {
-    "time": 112.7,
+    "time": 110.9,
     "text": "Talk to me, babe, uh-ah"
   },
   {
-    "time": 114,
+    "time": 112.2,
     "text": "Thế em là gì của anh? Thế thì anh là gì của em? Thế ta là gì của nhau?"
   },
   {
-    "time": 118.7,
+    "time": 116.7,
     "text": "Talk to me, babe"
   }
 ]

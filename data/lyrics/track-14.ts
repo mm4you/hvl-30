@@ -84,131 +84,131 @@ export const track14Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 13.5,
+    "time": 16,
     "text": "Thì thôi ta chia đôi"
   },
   {
-    "time": 15.7,
+    "time": 18.2,
     "text": "Anh cũng không muốn OD"
   },
   {
-    "time": 17.9,
+    "time": 20.4,
     "text": "Buồn vì những lời tổn thương"
   },
   {
-    "time": 20.2,
+    "time": 22.6,
     "text": "Mà ta đã gửi đến nhau"
   },
   {
-    "time": 22.5,
+    "time": 24.8,
     "text": "Yeah, yeah"
   },
   {
-    "time": 24.7,
+    "time": 27,
     "text": "Thì thôi ta chia đôi"
   },
   {
-    "time": 26.9,
+    "time": 29.2,
     "text": "Anh cũng không muốn OD"
-  },
-  {
-    "time": 29.1,
-    "text": "Buồn vì những lời tổn thương"
   },
   {
     "time": 31.4,
-    "text": "Mà ta đã gửi đến nhau"
-  },
-  {
-    "time": 33.7,
-    "text": "Trong suốt bao nhiêu lâu qua"
-  },
-  {
-    "time": 36,
-    "text": "Dồn hết tâm tư vào câu ca"
-  },
-  {
-    "time": 38.6,
-    "text": "Rồi họ bảo rằng anh xấu xa"
-  },
-  {
-    "time": 41.3,
-    "text": "Nhưng ai mới là kẻ xấu xa?"
-  },
-  {
-    "time": 44.6,
-    "text": "Em nói cho anh nghe đi"
-  },
-  {
-    "time": 46.9,
-    "text": "Giận hờn buông trên khóe mi"
-  },
-  {
-    "time": 49.2,
-    "text": "Em nói em sẽ đi"
-  },
-  {
-    "time": 51.4,
-    "text": "Em nói em sẽ đi"
-  },
-  {
-    "time": 53.5,
-    "text": "Baby, em sẽ quên rằng ta từng êm đềm"
-  },
-  {
-    "time": 57.3,
-    "text": "Quên rằng khi trời khuya đường lên đèn"
-  },
-  {
-    "time": 60.3,
-    "text": "Hôn vào môi làm môi nàng thêm mềm"
-  },
-  {
-    "time": 63.4,
-    "text": "Xem hạt mưa nhẹ rơi ở bên thềm"
-  },
-  {
-    "time": 66.5,
-    "text": "Anh nhẹ đan tay vào tay nàng"
-  },
-  {
-    "time": 69.2,
-    "text": "Im lặng lâu đổi ra một khay vàng"
-  },
-  {
-    "time": 72.2,
-    "text": "Xuyên màn đêm, tăng gas thay làn"
-  },
-  {
-    "time": 75.2,
-    "text": "Run away là cách mà ta hay làm"
-  },
-  {
-    "time": 78.2,
-    "text": "Thì thôi ta chia đôi"
-  },
-  {
-    "time": 80.4,
-    "text": "Anh cũng không muốn OD"
-  },
-  {
-    "time": 82.6,
     "text": "Buồn vì những lời tổn thương"
   },
   {
-    "time": 84.9,
+    "time": 33.6,
     "text": "Mà ta đã gửi đến nhau"
   },
   {
-    "time": 87.2,
+    "time": 35.8,
     "text": "Trong suốt bao nhiêu lâu qua"
   },
   {
-    "time": 89.5,
+    "time": 38,
     "text": "Dồn hết tâm tư vào câu ca"
   },
   {
-    "time": 92.2,
+    "time": 40.6,
+    "text": "Rồi họ bảo rằng anh xấu xa"
+  },
+  {
+    "time": 43.1,
+    "text": "Nhưng ai mới là kẻ xấu xa?"
+  },
+  {
+    "time": 46.3,
+    "text": "Em nói cho anh nghe đi"
+  },
+  {
+    "time": 48.5,
+    "text": "Giận hờn buông trên khóe mi"
+  },
+  {
+    "time": 50.7,
+    "text": "Em nói em sẽ đi"
+  },
+  {
+    "time": 52.9,
+    "text": "Em nói em sẽ đi"
+  },
+  {
+    "time": 55.1,
+    "text": "Baby, em sẽ quên rằng ta từng êm đềm"
+  },
+  {
+    "time": 58.7,
+    "text": "Quên rằng khi trời khuya đường lên đèn"
+  },
+  {
+    "time": 61.6,
+    "text": "Hôn vào môi làm môi nàng thêm mềm"
+  },
+  {
+    "time": 64.6,
+    "text": "Xem hạt mưa nhẹ rơi ở bên thềm"
+  },
+  {
+    "time": 67.5,
+    "text": "Anh nhẹ đan tay vào tay nàng"
+  },
+  {
+    "time": 70.1,
+    "text": "Im lặng lâu đổi ra một khay vàng"
+  },
+  {
+    "time": 73,
+    "text": "Xuyên màn đêm, tăng gas thay làn"
+  },
+  {
+    "time": 75.9,
+    "text": "Run away là cách mà ta hay làm"
+  },
+  {
+    "time": 78.8,
+    "text": "Thì thôi ta chia đôi"
+  },
+  {
+    "time": 81,
+    "text": "Anh cũng không muốn OD"
+  },
+  {
+    "time": 83.2,
+    "text": "Buồn vì những lời tổn thương"
+  },
+  {
+    "time": 85.4,
+    "text": "Mà ta đã gửi đến nhau"
+  },
+  {
+    "time": 87.6,
+    "text": "Trong suốt bao nhiêu lâu qua"
+  },
+  {
+    "time": 89.8,
+    "text": "Dồn hết tâm tư vào câu ca"
+  },
+  {
+    "time": 92.4,
     "text": "Rồi họ bảo rằng anh xấu xa"
   },
   {
@@ -220,119 +220,119 @@ export const track14Lyrics: TrackLyrics = {
     "text": "Em nói cho anh nghe đi"
   },
   {
-    "time": 100.4,
+    "time": 100.3,
     "text": "Cho anh nghe đi"
   },
   {
-    "time": 102.6,
+    "time": 102.5,
     "text": "Cho anh nghe đi"
   },
   {
-    "time": 104.8,
+    "time": 104.7,
     "text": "Cho anh nghe đi"
   },
   {
-    "time": 107,
+    "time": 106.9,
     "text": "Mình kéo nhau về những câu chuyện"
   },
   {
-    "time": 109.7,
+    "time": 109.5,
     "text": "Vết thương lòng, uhm, là vết nhanh liền"
   },
   {
-    "time": 113,
+    "time": 112.7,
     "text": "Em muốn anh là chàng nghệ sĩ đa tài"
   },
   {
-    "time": 116.5,
+    "time": 116,
     "text": "Cuộc sống bên ngoài, yuh, họ thấy anh phiền"
   },
   {
-    "time": 120.2,
+    "time": 119.6,
     "text": "Anh không muốn bước ra ngoài kia"
   },
   {
-    "time": 122.9,
+    "time": 122.2,
     "text": "Phải quên đi giông bão, cùng mấy vại bia"
   },
   {
-    "time": 126.6,
+    "time": 125.8,
     "text": "Và giữa tâm trí, chỉ có em và anh"
   },
   {
-    "time": 130.3,
+    "time": 129.4,
     "text": "Vậy sao em quay đi? Tại sao em quay đi?"
   },
   {
-    "time": 134.7,
+    "time": 133.7,
     "text": "Thì thôi ta chia đôi"
   },
   {
-    "time": 136.9,
+    "time": 135.9,
     "text": "Anh cũng không muốn OD"
   },
   {
-    "time": 139.1,
+    "time": 138.1,
     "text": "Buồn vì những lời tổn thương"
   },
   {
-    "time": 141.4,
+    "time": 140.3,
     "text": "Mà ta đã gửi đến nhau, yeah"
   },
   {
-    "time": 144.4,
+    "time": 143.1,
     "text": "Thì thôi ta chia ly"
   },
   {
-    "time": 146.6,
+    "time": 145.3,
     "text": "Đừng để lệ vương trên khoé mi"
   },
   {
-    "time": 149.2,
+    "time": 147.9,
     "text": "Em nói em phải đi"
   },
   {
-    "time": 151.4,
+    "time": 150.1,
     "text": "Em nói em phải đi"
   },
   {
-    "time": 153.6,
+    "time": 152.3,
     "text": "Uh-huh"
   },
   {
-    "time": 155.8,
+    "time": 154.5,
     "text": "Thì thôi ta chia đôi"
   },
   {
-    "time": 158,
+    "time": 156.7,
     "text": "Anh cũng không muốn OD"
   },
   {
-    "time": 160.2,
+    "time": 158.9,
     "text": "Buồn vì những lời tổn thương"
   },
   {
-    "time": 162.5,
+    "time": 161.1,
     "text": "Mà ta đã gửi đến nhau"
   },
   {
-    "time": 164.8,
+    "time": 163.3,
     "text": "Trong suốt bao nhiêu lâu qua"
   },
   {
-    "time": 167.1,
+    "time": 165.5,
     "text": "Dồn hết tâm tư vào câu ca"
   },
   {
-    "time": 169.8,
+    "time": 168.1,
     "text": "Rồi họ bảo rằng anh xấu xa"
   },
   {
-    "time": 172.5,
+    "time": 170.6,
     "text": "Nhưng ai mới là kẻ xấu xa?"
   },
   {
-    "time": 175.7,
+    "time": 173.8,
     "text": "Em nói cho anh nghe đi"
   }
 ]

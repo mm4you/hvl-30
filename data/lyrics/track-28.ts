@@ -93,163 +93,163 @@ export const track28Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 15.5,
+    "time": 18,
     "text": "Everyday we try, we fly"
   },
   {
-    "time": 16.9,
+    "time": 19.4,
     "text": "Tự nhắc bản thân của tao là không sợ hãi"
   },
   {
-    "time": 19.3,
+    "time": 21.7,
     "text": "Nói là \"yêu\", \"thank you\", \"apologize\""
   },
   {
-    "time": 20.9,
+    "time": 23.3,
     "text": "Mọi thứ có thể fucked up, tao tin rằng it's gonna be alright"
   },
   {
-    "time": 24.2,
+    "time": 26.6,
     "text": "Không muốn tắm trong tiền, tao muốn tắm trong ánh nắng một sớm ban mai"
   },
   {
-    "time": 28,
+    "time": 30.3,
     "text": "Chỉ có khoảnh khắc gọi là tồn tại, và những thứ khác là không còn mãi"
   },
   {
-    "time": 32.1,
+    "time": 34.2,
     "text": "Bảo là có hiểu được không thì chắc chắn ở đây là không một ai"
   },
   {
-    "time": 35.7,
+    "time": 37.7,
     "text": "Tao yêu sự tự do vĩnh cửu này, say đắm và không mờ phai"
   },
   {
-    "time": 39.2,
+    "time": 41.2,
     "text": "Tao đã phải hi sinh đi đôi mắt, tìm tình yêu, love was blind"
   },
   {
-    "time": 42.8,
+    "time": 44.7,
     "text": "Tình cảm này luôn là thật, can't fake, never lied"
   },
   {
-    "time": 45.4,
+    "time": 47.2,
     "text": "Cho những người ở trong khoang ngực thằng MCK ở ngăn bên trái"
   },
   {
-    "time": 48.5,
+    "time": 50.3,
     "text": "Nó vẫn luôn mong nó là ngọn lửa cho mọi người băng qua những đêm dài"
   },
   {
-    "time": 52.4,
+    "time": 54,
     "text": "Okay, MC-MC-MCK, hyperpop star"
   },
   {
-    "time": 53.8,
+    "time": 55.4,
     "text": "Tao rep' Hà Nội, that's my city"
   },
   {
-    "time": 55.6,
+    "time": 57.2,
     "text": "Put V on the map, lên cổ tay tao đóng băng VV"
   },
   {
-    "time": 58.7,
+    "time": 60.2,
     "text": "Ghét tao nhưng vẫn follow, thế muốn như nào? Wanna be me?"
   },
   {
-    "time": 62.1,
+    "time": 63.6,
     "text": "They wanna be me"
   },
   {
-    "time": 63.5,
+    "time": 65,
     "text": "Nhưng mà tao thì lại không muốn là tao giống như ai cả"
   },
   {
-    "time": 66.7,
+    "time": 68.1,
     "text": "Only one be, thời gian không thể phai nhoà"
   },
   {
-    "time": 69,
+    "time": 70.4,
     "text": "Tao sẽ feat cả Jennie, Carti, Raye, Tyla"
   },
   {
-    "time": 71.1,
+    "time": 72.5,
     "text": "Bọn họ biết tao là MCK đẹp zai mà"
   },
   {
-    "time": 73.3,
+    "time": 74.6,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 76.5,
+    "time": 77.7,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 79.4,
+    "time": 80.5,
     "text": "Chặng đường dài ai cũng đã từng một mình chênh vênh"
   },
   {
-    "time": 82,
+    "time": 83.1,
     "text": "Để rồi sau này khi nhận ra lại mong bình yên như ngày đầu"
   },
   {
-    "time": 85.4,
+    "time": 86.4,
     "text": "Vậy thì còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 89.1,
+    "time": 90,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 92,
+    "time": 92.8,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau? (Nói nhau nghe người ơi)"
   },
   {
-    "time": 96,
+    "time": 96.8,
     "text": "(Còn điều gì chưa nói, điều gì để dành cho nhau?)"
   },
   {
-    "time": 98.8,
+    "time": 99.5,
     "text": "Nói nhau nghe người ơi"
   },
   {
-    "time": 100.2,
+    "time": 100.9,
     "text": "Ah, ah-ah-ah, ah-ah-ah"
   },
   {
-    "time": 101.6,
+    "time": 102.3,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   },
   {
-    "time": 103.7,
+    "time": 104.4,
     "text": "Nói nhau nghe người ơi (Ah, ah-ah-ah, ah-ah-ah)"
   },
   {
-    "time": 105.8,
+    "time": 106.5,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   },
   {
-    "time": 107.9,
+    "time": 108.5,
     "text": "Tao vẫn chưa thể nào hiểu hết được như thế nào là tình yêu"
   },
   {
-    "time": 111.3,
+    "time": 111.8,
     "text": "Tao vẫn đang loay hoay nhồi nhét cảm xúc vào nốt nhạc mình phiêu"
   },
   {
-    "time": 114.7,
+    "time": 115.1,
     "text": "Lại nuốt hết những cơn đau khi thấy ánh mắt em buồn thiu"
   },
   {
-    "time": 117.8,
+    "time": 118.1,
     "text": "Vì thứ khiến tao đau nhất có lẽ cũng chỉ là tình yêu"
   },
   {
-    "time": 121,
+    "time": 121.2,
     "text": "Tao muốn ngắm nhìn những tia nắng qua những ô kính đang rọi vào"
   },
   {
-    "time": 124.3,
+    "time": 124.5,
     "text": "Bỏ qua hết những đàm tiếu, cả những giả dối đang gọi chào"
   },
   {
@@ -257,123 +257,123 @@ export const track28Lyrics: TrackLyrics = {
     "text": "Nhìn mây cứ trôi lửng lơ, vẫn đang ngẩn ngơ trên bầu trời"
   },
   {
-    "time": 131,
+    "time": 130.9,
     "text": "Tự do khiến tao đắm say, tao không thể nói lên thành lời"
   },
   {
-    "time": 134.3,
+    "time": 134.2,
     "text": "Trưởng thành là khi mày đúng nhưng vẫn có thể nói câu \"Sorry\""
   },
   {
-    "time": 137.4,
+    "time": 137.2,
     "text": "Sau khi lần mà tao tiếc nuối, bài học tao nhận lại là cho đi"
   },
   {
-    "time": 141.2,
+    "time": 140.9,
     "text": "One, for my fam, two, for my freedom"
   },
   {
-    "time": 143.3,
+    "time": 143,
     "text": "Everything I do, yeah, I do it for a reason"
   },
   {
-    "time": 145.9,
+    "time": 145.5,
     "text": "Tao nhớ có lần mày nói bạn cũng là sói, đôi khi nên \"gọn\" vào"
   },
   {
-    "time": 149.7,
+    "time": 149.2,
     "text": "Lời nói mấy kẻ đàm tiếu thật ra chỉ muốn nhìn thấy mày xôn xao"
   },
   {
-    "time": 153.3,
+    "time": 152.7,
     "text": "Dạo này trông tao hơi lạ, tao nghĩ, \"Còn mày thế nào?\""
   },
   {
-    "time": 156.4,
+    "time": 155.7,
     "text": "Chuẩn bị tâm tư hàng tá, muốn giữ mọi chuyện truyền miệng mà không giao, uh"
   },
   {
-    "time": 160.5,
+    "time": 159.7,
     "text": "Phóng đi trong lặng im, tao đâu phải xác sống"
   },
   {
-    "time": 163,
+    "time": 162.2,
     "text": "Không muốn là những thân quen cùng ký ức từ đâu lại trở về"
   },
   {
-    "time": 166.4,
+    "time": 165.5,
     "text": "Từng câu, từng chữ, từng cuộc đấu đá, nghĩ lại chỉ thấy mình không nên"
   },
   {
-    "time": 170.2,
+    "time": 169.2,
     "text": "Tình bạn như mảnh chắp vá, tao vẫn giữ lấy dù biết nó không bền"
   },
   {
-    "time": 174,
+    "time": 172.9,
     "text": "Mọi thứ cứ thế đến, xin đừng nói mà quên"
   },
   {
-    "time": 176.6,
+    "time": 175.4,
     "text": "Thiếu gì đâu những chuyện ngoài tai, họ chỉ quen thói mà man"
   },
   {
-    "time": 179.9,
+    "time": 178.7,
     "text": "Cánh cửa này sẽ thành vật cản nếu mày cố bám lấy nó"
   },
   {
-    "time": 183.1,
+    "time": 181.7,
     "text": "Còn phòng tao vẫn sẽ luôn mở, có việc cứ thế mà lên"
   },
   {
-    "time": 186.4,
+    "time": 185,
     "text": "Vậy thì còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 190,
+    "time": 188.6,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 192.9,
+    "time": 191.4,
     "text": "Chặng đường dài, ai cũng đã từng một mình chênh vênh"
   },
   {
-    "time": 195.8,
+    "time": 194.2,
     "text": "Để rồi sau này khi nhận ra lại mong bình yên như ngày đầu"
   },
   {
-    "time": 199.1,
+    "time": 197.5,
     "text": "Vậy thì còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 202.8,
+    "time": 201.1,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 205.7,
+    "time": 203.9,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau? (Nói nhau nghe người ơi)"
   },
   {
-    "time": 209.7,
+    "time": 207.8,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 212.9,
+    "time": 211,
     "text": "Nói nhau nghe người ơi"
   },
   {
-    "time": 214.3,
+    "time": 212.4,
     "text": "Ah, ah-ah-ah, ah-ah-ah"
   },
   {
-    "time": 215.7,
+    "time": 213.8,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   },
   {
-    "time": 217.8,
+    "time": 215.9,
     "text": "Nói nhau nghe người ơi (Ah, ah-ah-ah, ah-ah-ah)"
   },
   {
-    "time": 219.9,
+    "time": 217.9,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   }
 ]

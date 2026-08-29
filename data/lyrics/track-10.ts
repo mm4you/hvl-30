@@ -54,163 +54,163 @@ export const track10Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 14.5,
+    "time": 17.5,
     "text": "Muốn đi, đi khắp nơi cả, cậu ấy"
   },
   {
-    "time": 18.5,
+    "time": 21.4,
     "text": "Muốn sáng tạo"
   },
   {
-    "time": 21.2,
+    "time": 24.1,
     "text": "Muốn là niềm cảm hứng của cậu luôn"
   },
   {
-    "time": 24.9,
+    "time": 27.6,
     "text": "Nhiều thứ lắm, mẹ, để mà nói câu chuyện muốn thì—"
   },
   {
-    "time": 30.3,
+    "time": 32.9,
     "text": "I don’t use to love before"
   },
   {
-    "time": 33,
+    "time": 35.5,
     "text": "I don’t use to love before"
   },
   {
-    "time": 35.8,
+    "time": 38.2,
     "text": "Có lẽ biết như thế thì đã không yêu"
   },
   {
-    "time": 39.9,
+    "time": 42.2,
     "text": "Cảm xúc đã không phiêu"
   },
   {
-    "time": 42.6,
+    "time": 44.8,
     "text": "Thổn thức biết bao đêm"
   },
   {
-    "time": 45.2,
+    "time": 47.5,
     "text": "Nghe xem con tim anh đặt điều"
   },
   {
-    "time": 48.5,
+    "time": 50.6,
     "text": "Có lẽ anh nên nghĩ ít hơn"
   },
   {
-    "time": 51.7,
+    "time": 53.7,
     "text": "Dùng cảm xúc ít hơn"
   },
   {
-    "time": 54.3,
+    "time": 56.3,
     "text": "Chắc là cũng phải lí trí hơn"
   },
   {
-    "time": 57.6,
+    "time": 59.4,
     "text": "Có lẽ chuyện này cũng chỉ là vui thôi"
   },
   {
-    "time": 61.7,
+    "time": 63.4,
     "text": "Chỉ là một trò chơi thôi, anh thua rồi"
   },
   {
-    "time": 66.2,
+    "time": 67.8,
     "text": "Ngồi lại và nghe cùng anh điệu valse cho sương rơi ướt mi"
   },
   {
-    "time": 72.2,
+    "time": 73.5,
     "text": "Chạm nhẹ làn môi của em vào anh, thật nhanh trước khi"
   },
   {
-    "time": 78.1,
+    "time": 79.2,
     "text": "Kim đồng hồ nhích sang bên và em, em bước đi"
   },
   {
-    "time": 83.5,
+    "time": 84.5,
     "text": "Chỉ còn lại có mỗi anh ngẩn ngơ, đến quên thời gian"
   },
   {
-    "time": 89.3,
+    "time": 90.1,
     "text": "Có mỗi anh ngẩn ngơ, quên thời gian"
   },
   {
-    "time": 93.3,
+    "time": 94.1,
     "text": "Có mỗi anh ngẩn ngơ, quên thời gian"
   },
   {
-    "time": 97.4,
+    "time": 98,
     "text": "Có biết anh ngẩn ngơ đến quên thời gian"
   },
   {
-    "time": 101.5,
+    "time": 102,
     "text": "Đừng để anh ngẩn ngơ"
   },
   {
-    "time": 104.2,
+    "time": 104.6,
     "text": "Có lẽ anh đã đúng khi vẫn yêu em"
   },
   {
-    "time": 108.3,
+    "time": 108.6,
     "text": "Dù biết trước không nên"
   },
   {
-    "time": 111,
+    "time": 111.3,
     "text": "Vì hình dáng ấy thân quen"
   },
   {
-    "time": 113.7,
+    "time": 113.9,
     "text": "Anh luôn sợ là một ngày ta (Anh luôn sợ là một—)"
   },
   {
-    "time": 119.3,
+    "time": 119.2,
     "text": "Lại phải rời xa, anh đau"
   },
   {
-    "time": 122.4,
+    "time": 122.3,
     "text": "Có lẽ anh nên nghĩ ít hơn"
   },
   {
-    "time": 125.6,
+    "time": 125.4,
     "text": "Dùng bàn tay của anh chỉ để ôm lấy em"
   },
   {
-    "time": 130.2,
+    "time": 129.8,
     "text": "Anh biết em chẳng thể làm thinh với anh"
   },
   {
-    "time": 134.4,
+    "time": 133.8,
     "text": "Bởi vì là anh cũng đang làm em phát điên"
   },
   {
-    "time": 139,
+    "time": 138.2,
     "text": "Vậy thì lại đan bàn tay vào nhau cho sương rơi ướt mi"
   },
   {
-    "time": 145,
+    "time": 144,
     "text": "Chạm nhẹ làn môi của ta vào nhau thật nhanh trước khi"
   },
   {
-    "time": 150.5,
+    "time": 149.3,
     "text": "Kim đồng hồ nhích sang bên và ta chẳng ai muốn đi"
   },
   {
-    "time": 156,
+    "time": 154.6,
     "text": "Và chẳng cần nói với nhau câu gì, cứ tan vào nhau"
   },
   {
-    "time": 161.9,
+    "time": 160.3,
     "text": "Nói với nhau câu gì, cứ tan vào nhau"
   },
   {
-    "time": 166.4,
+    "time": 164.6,
     "text": "Nói với nhau câu gì, cứ tan vào nhau"
   },
   {
-    "time": 170.9,
+    "time": 169,
     "text": "Chẳng cần nói với nhau, cứ tan vào nhau"
   },
   {
-    "time": 175.4,
+    "time": 173.3,
     "text": "Chẳng cần nói với nhau"
   }
 ]

@@ -50,163 +50,163 @@ export const track18Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 10.5,
+    "time": 13,
     "text": "(Tùng ơi)"
   },
   {
-    "time": 11.8,
+    "time": 14.3,
     "text": "MCK, MCK, MCK"
   },
   {
-    "time": 13,
+    "time": 15.5,
     "text": "Hi-hi-hi, MCK, MCK (Chyeah)"
   },
   {
-    "time": 14.3,
+    "time": 16.8,
     "text": "Yeah, ah-ah-ah, yeah"
   },
   {
-    "time": 15.5,
+    "time": 18,
     "text": "Không động tay vào phone nhưng tao vẫn biết là mấy giờ, yeah"
   },
   {
-    "time": 18.6,
+    "time": 20.9,
     "text": "Xuất hiện trên mặt báo hàng trăm tờ raw paper, yeah"
   },
   {
-    "time": 21.2,
+    "time": 23.4,
     "text": "Money rơi vào túi, tao gạt tay vào fader, yeah"
   },
   {
-    "time": 23.5,
+    "time": 25.7,
     "text": "Ôm mặt chơi đi mà, chơi đi mà, okay, okay vãi lờ, yeah"
   },
   {
-    "time": 26.5,
+    "time": 28.6,
     "text": "Quen với những thứ tao có, những lời khen này, ôi-ồ-ôi"
   },
   {
-    "time": 29.1,
+    "time": 31.1,
     "text": "Phải làm sao để cho con số nó không tăng lên nữa, ôi-ồ-ôi, yeah"
   },
   {
-    "time": 32.4,
+    "time": 34.2,
     "text": "Tao chỉ hút và hút thôi không cần xem là mấy giờ, ah"
   },
   {
-    "time": 35.4,
+    "time": 37.1,
     "text": "Tao chỉ flow một tí mà okay vãi lồn thế nhờ, yeah"
   },
   {
-    "time": 38.2,
+    "time": 39.8,
     "text": "Bao nhiêu tiền mà thích phô phô ra, vẫn đang ngồi mà trap thôi thật là bất cập (Thật là bất cập)"
   },
   {
-    "time": 43.2,
+    "time": 44.6,
     "text": "Tao vẫn đang ngồi trap trong phòng, cố để mà phân tích kiểu thực chất thì gọi là fuck up"
   },
   {
-    "time": 47.8,
+    "time": 49,
     "text": "Chơi mày như là chiếc tay cầm four by four like a motherfuckin' trucker"
   },
   {
-    "time": 50.9,
+    "time": 51.9,
     "text": "Flow này gọi là, flow này gọi là, trap my phone like a motherfuckin' trap phone, chyeah"
   },
   {
-    "time": 54.8,
+    "time": 55.7,
     "text": "Chúng nó vẫn sẽ thấy tao, nhưng không biết tao đang đâu (Uh-huh)"
   },
   {
-    "time": 57.8,
+    "time": 58.6,
     "text": "Ghét tao xong phán xét tao chúng mày quá ngây thơ (Chúng mày quá là non)"
   },
   {
-    "time": 61.3,
+    "time": 61.9,
     "text": "Giọng nói trên cao kêu tên tao là God’s favorite (MCK, chyuh)"
   },
   {
-    "time": 64.1,
+    "time": 64.6,
     "text": "Sắp xếp rồi nghe rất hay nhưng mà can’t follow (MCK, MCK; swag)"
   },
   {
-    "time": 67.2,
+    "time": 67.5,
     "text": "Anh chỉ hút và hút thôi, không cần biết là mấy giờ, uh (Hút)"
   },
   {
-    "time": 70.4,
+    "time": 70.6,
     "text": "Anh chỉ hút và hút thôi, không phải lo về giấy tờ, uh"
   },
   {
-    "time": 73.4,
+    "time": 73.5,
     "text": "Anh chỉ hút và hút thôi, không cần xem là mấy giờ, uh"
   },
   {
-    "time": 76.5,
+    "time": 76.4,
     "text": "Anh chỉ hút và hút thôi, mấy em gái này quấy nhờ, uh"
   },
   {
-    "time": 79.5,
+    "time": 79.3,
     "text": "Anh chỉ hút và hút thôi, gotta see you later, uh"
   },
   {
-    "time": 82.1,
+    "time": 81.8,
     "text": "Anh ở khu Hồ Tây và trong lòng fan hâm mộ, uh"
   },
   {
-    "time": 84.9,
+    "time": 84.5,
     "text": "Đêm chạy qua nhà anh, baby girl muốn đóng làm giang hồ (Bitch)"
   },
   {
-    "time": 87.9,
+    "time": 87.4,
     "text": "Em bảo em bị đau ở đâu? Để đấy anh khám hộ (Fwah)"
   },
   {
-    "time": 90.8,
+    "time": 90.2,
     "text": "Okay, okay, okay, okay, okay, okay, oh (Okay)"
   },
   {
-    "time": 92.7,
+    "time": 92,
     "text": "Đang trên phố, em đang đâu, anh đang bờ hồ"
   },
   {
-    "time": 95.1,
+    "time": 94.3,
     "text": "Anh đi mua cho bố anh iPhone 16 Pro (Vuýp)"
   },
   {
-    "time": 97.3,
+    "time": 96.4,
     "text": "Mua thêm sim cho bố, con dâu nó add số Zalo (Fwah)"
   },
   {
-    "time": 100.1,
+    "time": 99.1,
     "text": "Anh là ngôi sao xa xôi, em cho anh ra khơi, anh đưa em vào đời"
   },
   {
-    "time": 103.8,
+    "time": 102.6,
     "text": "Dưới anh là mặt đất thôi còn trên anh là giời"
   },
   {
-    "time": 106.2,
+    "time": 104.9,
     "text": "Nhắn cho anh mấy hôm rồi mà vẫn chưa thấy anh này trả lời"
   },
   {
-    "time": 109.3,
+    "time": 107.9,
     "text": "Anh này người nhà giời à? Cứ bắt em chờ mà— (Chyeah)"
   },
   {
-    "time": 111.9,
+    "time": 110.4,
     "text": "Tao chỉ hút và hút mà không cần biết là mấy giờ"
   },
   {
-    "time": 114.6,
+    "time": 112.9,
     "text": "Từ ngày chết đói, từng ngày mưa rơi, (Gọi là) Camel flavor"
   },
   {
-    "time": 117.4,
+    "time": 115.6,
     "text": "Tao đã đi từ đáy mà bây giờ oke vãi lờ"
   },
   {
-    "time": 119.8,
+    "time": 117.9,
     "text": "Long đẹp zai represent Hoàng Mai see you later (Vuýp)"
   }
 ]

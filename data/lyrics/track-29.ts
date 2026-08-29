@@ -52,131 +52,131 @@ export const track29Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 13.5,
+    "time": 16,
     "text": "Thôi, cứ như vậy đi, đã đến lúc dừng lại"
   },
   {
-    "time": 18.7,
+    "time": 21.1,
     "text": "Nhưng sẽ luôn còn khao khát được yêu"
   },
   {
-    "time": 22.6,
+    "time": 24.9,
     "text": "Thôi, cứ như vậy đi, đã đến lúc dừng lại"
   },
   {
-    "time": 27.9,
+    "time": 30,
     "text": "Vì anh biết yêu là không dễ dàng"
   },
   {
-    "time": 31.8,
+    "time": 33.8,
     "text": "Cùng bao nhiêu tổn thương đang mang"
   },
   {
-    "time": 35.2,
+    "time": 37.1,
     "text": "Và nếu lúc ấy, anh nhìn vào đôi mắt em"
   },
   {
-    "time": 40.4,
+    "time": 42.2,
     "text": "Để biết em đang nghĩ gì, lau đi giọt lệ trên mi"
   },
   {
-    "time": 46.6,
+    "time": 48.2,
     "text": "Và nếu lúc ấy, vẫn quan tâm nhau như giây phút đầu"
   },
   {
-    "time": 52.8,
+    "time": 54.3,
     "text": "Vì em chẳng thể yêu một người vô tâm"
   },
   {
-    "time": 57.2,
+    "time": 58.5,
     "text": "Không yêu một người vô tâm"
   },
   {
-    "time": 60.1,
+    "time": 61.4,
     "text": "Thật sự rất khó để yêu, để tin, để thương, để nhớ một người, oh-oh-oh"
   },
   {
-    "time": 67.8,
+    "time": 68.9,
     "text": "Vì chẳng ai muốn bỏ ra thời gian để nhận về bao tiếc nuối"
   },
   {
-    "time": 74.6,
+    "time": 75.5,
     "text": "Tìm lại trong hai ta bao nhiêu những kí ức đẹp"
   },
   {
-    "time": 80,
+    "time": 80.6,
     "text": "Đôi khi câu yêu thương em đã giấu đi, những khi anh không ở đây"
   },
   {
-    "time": 87.7,
+    "time": 88.1,
     "text": "Và nếu lúc ấy, đã không đánh mất em"
   },
   {
-    "time": 92.4,
+    "time": 92.8,
     "text": "Anh đã không quay lại trước khi ta gặp"
   },
   {
-    "time": 96.8,
+    "time": 97,
     "text": "Gió đông đã chẳng còn lạnh lẽo"
   },
   {
-    "time": 100.2,
+    "time": 100.3,
     "text": "Và nếu lúc ấy, anh nhìn vào đôi mắt em"
   },
   {
-    "time": 105.5,
+    "time": 105.4,
     "text": "Để biết em đang nghĩ gì, lau đi giọt lệ trên mi"
   },
   {
-    "time": 111.7,
+    "time": 111.5,
     "text": "Và nếu lúc ấy, vẫn quan tâm nhau như giây phút đầu"
   },
   {
-    "time": 117.9,
+    "time": 117.5,
     "text": "Vì em chẳng thể yêu một người vô tâm"
   },
   {
-    "time": 122.3,
+    "time": 121.8,
     "text": "Không yêu một người vô tâm"
   },
   {
-    "time": 125.2,
+    "time": 124.6,
     "text": "(Huh-uh-uh-uh, uh-uh-huh-uh-uh-uh-uh)"
   },
   {
-    "time": 128,
+    "time": 127.4,
     "text": "Nếu thực sự ta xa rời thì anh không thể viết về người anh yêu tràn đầy sức sống"
   },
   {
-    "time": 137.2,
+    "time": 136.4,
     "text": "Giống như một giấc mơ chưa kịp đặt tên"
   },
   {
-    "time": 141.6,
+    "time": 140.7,
     "text": "Dắt anh đi xa dần bóng hình em"
   },
   {
-    "time": 145.5,
+    "time": 144.4,
     "text": "Và nếu lúc ấy, anh nhìn vào đôi mắt em"
   },
   {
-    "time": 150.8,
+    "time": 149.5,
     "text": "Để biết em đang nghĩ gì (Biết em đang nghĩ gì)"
   },
   {
-    "time": 156.1,
+    "time": 154.7,
     "text": "Lau đi giọt lệ trên mi (Lau đi giọt lệ trên mi)"
   },
   {
-    "time": 162,
+    "time": 160.4,
     "text": "Và nếu lúc ấy, vẫn quan tâm nhau như giây phút đầu (Huh-uh)"
   },
   {
-    "time": 168.7,
+    "time": 166.9,
     "text": "Vì em chẳng thể yêu một người vô tâm"
   },
   {
-    "time": 173.1,
+    "time": 171.2,
     "text": "Không yêu một người vô tâm"
   }
 ]
