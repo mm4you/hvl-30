@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import Image from "next/image";
 import { usePlayer } from "@/context/PlayerContext";
 import { 
@@ -44,46 +44,62 @@ export function MainPlayer({
   const [lyricsOpen, setLyricsOpen] = useState(false);
   const activeLineRef = useRef<HTMLDivElement | null>(null);
   const lyricsScrollRef = useRef<HTMLDivElement | null>(null);
+  const [userScrolling, setUserScrolling] = useState(false);
+  const scrollTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const trackLyrics = currentTrack ? getLyricsForTrack(currentTrack.id) : null;
-  const syncedLines = (trackLyrics?.syncedLyrics || []).filter((line) => {
-    const clean = line.text.replace(/^\[.*?\]\s*/g, "").trim();
-    return clean.length > 0;
-  });
+  
+  // Clean real vocal lines only
+  const syncedLines = useMemo(() => {
+    return (trackLyrics?.syncedLyrics || []).filter((line) => {
+      const clean = line.text.replace(/^\[.*?\]\s*/g, "").trim();
+      return clean.length > 0;
+    });
+  }, [trackLyrics]);
 
-  // Acoustic Vocal Lead (+0.15s) for instant real-time sync matching Apple Music
-  const activeLyricIdx = React.useMemo(() => {
-    const leadTime = currentTime + 0.15;
-    let index = -1;
+  // Exact timestamp matching with 0.1s natural acoustic lead
+  const activeLyricIdx = useMemo(() => {
+    if (!syncedLines.length || currentTime < syncedLines[0].time) return -1;
+    let idx = -1;
+    const timeWithLead = currentTime + 0.1;
     for (let i = 0; i < syncedLines.length; i++) {
-      if (leadTime >= syncedLines[i].time) {
-        index = i;
+      if (timeWithLead >= syncedLines[i].time) {
+        idx = i;
       } else {
         break;
       }
     }
-    return index;
+    return idx;
   }, [currentTime, syncedLines]);
 
-  // Smooth scroll
+  // Smooth scroll to active line
   useEffect(() => {
-    if (lyricsOpen && activeLineRef.current && lyricsScrollRef.current) {
+    if (!lyricsOpen || userScrolling || activeLyricIdx < 0) return;
+    if (activeLineRef.current) {
       activeLineRef.current.scrollIntoView({
         behavior: "smooth",
         block: "center",
       });
     }
-  }, [activeLyricIdx, lyricsOpen]);
+  }, [activeLyricIdx, lyricsOpen, userScrolling]);
+
+  const handleUserScroll = useCallback(() => {
+    setUserScrolling(true);
+    if (scrollTimerRef.current) clearTimeout(scrollTimerRef.current);
+    scrollTimerRef.current = setTimeout(() => {
+      setUserScrolling(false);
+    }, 2600);
+  }, []);
 
   if (!currentTrack) return null;
 
   return (
     <section className="relative overflow-hidden rounded-3xl bg-[#120a0b]/90 border border-white/10 shadow-[0_24px_70px_rgba(0,0,0,0.6)] p-5 sm:p-7 md:p-8 backdrop-blur-2xl transition-all duration-300">
-      {/* Dynamic Ambient Red Back-Glow behind player */}
+      {/* Dynamic Ambient Red Back-Glow */}
       <div className={`absolute -top-20 -left-20 w-96 h-96 bg-[#ff3725]/15 rounded-full blur-[140px] pointer-events-none transition-opacity duration-1000 ${isPlaying ? "opacity-100" : "opacity-40"}`} />
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#600a06]/20 rounded-full blur-[140px] pointer-events-none" />
 
-      {/* When Lyrics View is Opened */}
+      {/* Lyrics View */}
       {lyricsOpen ? (
         <div className="flex flex-col h-[400px] sm:h-[450px] relative animate-in fade-in duration-200">
           {/* Top Bar of Lyrics View */}
@@ -102,20 +118,19 @@ export function MainPlayer({
               {onOpenCinema && (
                 <button
                   onClick={onOpenCinema}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all active:scale-95 cursor-pointer"
-                  title="Toàn màn hình Cinema"
+                  className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all active:scale-95 cursor-pointer"
+                  title="Chế độ Cinema toàn màn hình"
                 >
-                  <Maximize2 className="w-3.5 h-3.5 text-[#ff3725]" />
-                  <span>Cinema</span>
+                  <Maximize2 className="w-4 h-4 text-[#ff3725]" />
                 </button>
               )}
 
               <button
                 onClick={() => setLyricsOpen(false)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all cursor-pointer active:scale-95"
+                className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all cursor-pointer active:scale-95"
+                title="Đóng lời bài hát"
               >
-                <X className="w-3.5 h-3.5" />
-                Đóng lời
+                <X className="w-4 h-4" />
               </button>
             </div>
           </div>
@@ -123,6 +138,8 @@ export function MainPlayer({
           {/* Smooth Real-Time Synced Lyrics (Pure Typography) */}
           <div 
             ref={lyricsScrollRef}
+            onWheel={handleUserScroll}
+            onTouchMove={handleUserScroll}
             className="flex-1 overflow-y-auto space-y-4 py-8 px-2 sm:px-6 scroll-smooth text-center"
             style={{
               maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
@@ -139,7 +156,10 @@ export function MainPlayer({
                   <div
                     key={idx}
                     ref={isActive ? activeLineRef : null}
-                    onClick={() => seek(line.time)}
+                    onClick={() => {
+                      seek(line.time);
+                      setUserScrolling(false);
+                    }}
                     className={`cursor-pointer transition-all duration-300 ease-out select-none leading-relaxed ${
                       isActive
                         ? "text-xl sm:text-2xl md:text-3xl font-extrabold text-white drop-shadow-[0_2px_24px_rgba(255,55,35,0.9)] scale-[1.03]"
@@ -161,7 +181,7 @@ export function MainPlayer({
           {/* Mini Playback Controls in Lyrics View */}
           <div className="flex items-center justify-between border-t border-white/10 pt-3 mt-1 flex-shrink-0">
             <div className="flex items-center gap-3">
-              <button onClick={prevTrack} className="p-1.5 text-zinc-400 hover:text-white cursor-pointer active:scale-90 transition-transform">
+              <button onClick={prevTrack} className="p-2 text-zinc-400 hover:text-white cursor-pointer active:scale-90 transition-transform">
                 <SkipBack className="w-4 h-4 fill-current" />
               </button>
               <button 
@@ -170,7 +190,7 @@ export function MainPlayer({
               >
                 {isPlaying ? <Pause className="w-4 h-4 fill-white" /> : <Play className="w-4 h-4 fill-white ml-0.5" />}
               </button>
-              <button onClick={nextTrack} className="p-1.5 text-zinc-400 hover:text-white cursor-pointer active:scale-90 transition-transform">
+              <button onClick={nextTrack} className="p-2 text-zinc-400 hover:text-white cursor-pointer active:scale-90 transition-transform">
                 <SkipForward className="w-4 h-4 fill-current" />
               </button>
             </div>
@@ -183,7 +203,7 @@ export function MainPlayer({
       ) : (
         /* Standard Hi-Fi Studio Player View with 3:2 Landscape Artwork */
         <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 md:gap-10 animate-in fade-in duration-200">
-          {/* 3:2 Landscape Artwork with Ambient Back-Glow & Lossless Chip */}
+          {/* 3:2 Landscape Artwork with Ambient Back-Glow */}
           <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-zinc-950 flex-shrink-0 group">
             <Image
               src={currentTrack.artworkUrl}
@@ -196,12 +216,9 @@ export function MainPlayer({
             {/* Soft ambient inner shadow */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
             
-            {/* Lossless Audio Floating Badge */}
+            {/* Minimalist Index Badge */}
             <span className="absolute top-2.5 left-2.5 text-[11px] font-mono font-bold bg-black/80 backdrop-blur-md text-white px-2.5 py-0.5 rounded-lg border border-white/15 shadow-sm">
               #{String(currentTrack.trackNumber).padStart(2, "0")}
-            </span>
-            <span className="absolute bottom-2.5 right-2.5 text-[10px] font-mono font-extrabold bg-[#ff3725] text-white px-2 py-0.5 rounded-md shadow-md">
-              HVL 30
             </span>
           </div>
 
@@ -270,7 +287,7 @@ export function MainPlayer({
               </button>
             </div>
 
-            {/* Bottom Controls Bar */}
+            {/* Bottom Controls Bar (Pure Icons Only) */}
             <div className="flex flex-wrap items-center justify-between gap-2.5 w-full border-t border-white/10 pt-3.5 text-xs">
               {/* Volume with Headphone detection */}
               <div className="flex items-center gap-2">
@@ -298,7 +315,7 @@ export function MainPlayer({
                 />
               </div>
 
-              {/* Actions, Lyrics & Cinema Mode Trigger Buttons */}
+              {/* Actions, Lyrics & Cinema Mode Trigger Buttons (Pure Icons) */}
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleShuffle}
@@ -309,7 +326,7 @@ export function MainPlayer({
                   }`}
                   title={shuffle ? "Trộn bài: Đã bật" : "Trộn bài: Đã tắt"}
                 >
-                  <Shuffle className="w-3.5 h-3.5" />
+                  <Shuffle className="w-4 h-4" />
                 </button>
 
                 <button
@@ -321,40 +338,40 @@ export function MainPlayer({
                   }`}
                   title={repeatMode === "one" ? "Lặp 1 bài" : repeatMode === "all" ? "Lặp toàn bộ" : "Không lặp"}
                 >
-                  {repeatMode === "one" ? <Repeat1 className="w-3.5 h-3.5" /> : <Repeat className="w-3.5 h-3.5" />}
+                  {repeatMode === "one" ? <Repeat1 className="w-4 h-4" /> : <Repeat className="w-4 h-4" />}
                 </button>
 
-                {/* Lyrics Toggle */}
+                {/* Lyrics Toggle (Pure Icon) */}
                 <button
                   onClick={() => setLyricsOpen(true)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs bg-white/5 hover:bg-[#ff3725]/20 hover:text-[#ff3725] text-zinc-300 border-white/10 hover:border-[#ff3725]/40 transition-all cursor-pointer active:scale-95"
+                  className="p-2 rounded-xl border bg-white/5 hover:bg-[#ff3725]/20 text-zinc-300 hover:text-[#ff3725] border-white/10 hover:border-[#ff3725]/40 transition-all cursor-pointer active:scale-90"
+                  title="Lời bài hát"
                 >
-                  <AppleLyricsIcon className="w-3.5 h-3.5 text-[#ff3725]" />
-                  <span>Lời bài hát</span>
+                  <AppleLyricsIcon className="w-4 h-4" />
                 </button>
 
-                {/* Fullscreen Cinema Mode */}
+                {/* Fullscreen Cinema Mode (Pure Icon) */}
                 {onOpenCinema && (
                   <button
                     onClick={onOpenCinema}
-                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs bg-white/5 hover:bg-white/15 text-zinc-300 border-white/10 transition-all cursor-pointer active:scale-95"
+                    className="p-2 rounded-xl border bg-white/5 hover:bg-white/15 text-zinc-300 hover:text-white border-white/10 transition-all cursor-pointer active:scale-90"
                     title="Chế độ Cinema toàn màn hình"
                   >
-                    <Maximize2 className="w-3.5 h-3.5 text-[#ff3725]" />
-                    <span>Cinema</span>
+                    <Maximize2 className="w-4 h-4" />
                   </button>
                 )}
 
+                {/* Playlist Toggle (Pure Icon) */}
                 <button
                   onClick={onTogglePlaylist}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-bold text-xs transition-all active:scale-95 ${
+                  className={`p-2 rounded-xl border transition-all active:scale-90 ${
                     playlistVisible
-                      ? "bg-[#ff3725]/20 text-rose-300 border-[#ff3725]/40 shadow-sm"
+                      ? "bg-[#ff3725]/20 text-[#ff3725] border-[#ff3725]/40 shadow-sm"
                       : "bg-white/5 text-zinc-300 border-white/10 hover:text-white"
                   }`}
+                  title={playlistVisible ? "Ẩn danh sách bài hát" : "Hiện danh sách bài hát"}
                 >
-                  <ListMusic className="w-3.5 h-3.5" />
-                  <span>{playlistVisible ? "Ẩn DS" : "Hiện DS"}</span>
+                  <ListMusic className="w-4 h-4" />
                 </button>
               </div>
             </div>
