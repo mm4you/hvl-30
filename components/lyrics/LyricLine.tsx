@@ -17,19 +17,11 @@ export const LyricLine = React.memo(function LyricLine({
   isUpcoming,
   onSeek,
 }: LyricLineProps) {
-  const isSectionHeader = line.text.startsWith("[") && line.text.endsWith("]");
-  const isEmpty = line.text.trim() === "";
+  const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
 
-  if (isEmpty) {
-    return <div aria-hidden="true" className="lyric-line-spacer" />;
-  }
-
-  if (isSectionHeader) {
-    return (
-      <div aria-hidden="true" className="lyric-section-header">
-        <span>{line.text.slice(1, -1)}</span>
-      </div>
-    );
+  // If empty or was only a section header, do not render
+  if (!text || line.text.trim().startsWith("[")) {
+    return null;
   }
 
   return (
@@ -37,10 +29,10 @@ export const LyricLine = React.memo(function LyricLine({
       type="button"
       className={`lyric-line ${isActive ? "active" : ""} ${isPast ? "past" : ""} ${isUpcoming ? "upcoming" : ""}`}
       onClick={() => onSeek(line.time)}
-      aria-label={`Tua đến ${line.text}`}
+      aria-label={`Tua đến ${text}`}
       aria-current={isActive ? "true" : undefined}
     >
-      <span className="lyric-line-text">{line.text}</span>
+      <span className="lyric-line-text">{text}</span>
     </button>
   );
 });
