@@ -994,3 +994,44 @@ footer a:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Apple-Music Ambient Glow & Premium Styling */
+.player-card {
+  position: relative;
+  overflow: visible !important;
+}
+
+.player-card .artwork {
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 50px rgba(255, 55, 35, 0.18);
+  transition: box-shadow 400ms ease, transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.player-card:hover .artwork {
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7), 0 0 65px rgba(255, 55, 35, 0.28);
+}
+
+/* Glowing Neon Progress Bar */
+.progress-bar-wrap input[type="range"]::-webkit-slider-thumb {
+  box-shadow: 0 0 14px rgba(255, 55, 35, 0.8), 0 0 4px #ff3723;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.progress-bar-wrap:hover input[type="range"]::-webkit-slider-thumb {
+  transform: scale(1.25);
+  box-shadow: 0 0 20px rgba(255, 55, 35, 1), 0 0 8px #fff;
+}
+
+/* Play/Pause Button Spring Feedback */
+.primary-play-button {
+  transition: transform 160ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 200ms ease;
+}
+
+.primary-play-button:active {
+  transform: scale(0.92) !important;
+}
+
+.primary-play-button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 30px rgba(255, 55, 35, 0.55);
+}
