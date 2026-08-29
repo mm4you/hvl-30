@@ -578,6 +578,8 @@ function syncStatusLabel(status: SyncStatus) {
   return "Chỉ lưu trên thiết bị";
 }
 
+const audioEnergyCache = new Map<string, Float32Array>();
+
 export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const preloadAudioRef = useRef<HTMLAudioElement>(null);
@@ -619,6 +621,8 @@ export default function Home() {
   const ambientRef = useRef<HTMLDivElement>(null);
   const blastRef = useRef<HTMLDivElement>(null);
   const beatRafRef = useRef<number>(0);
+  const trackEnergyRef = useRef<Float32Array | null>(null);
+  const peakLevelRef = useRef<number>(0);
   const [playlists, setPlaylists] = useState<MusicPlaylist[]>([
     { id: "default", name: "Playlist của tôi", tracks: [] },
   ]);
@@ -822,7 +826,76 @@ export default function Home() {
     repeatCompletionRef.current = 0;
   }, [currentTrack?.id]);
 
-  /* ── Smooth 808 Sub-Bass Ambient Pulse Engine ── */
+  /* ── 100% Real Audio Waveform Energy Decoder & Beat Glow Engine ── */
+  const currentLyricsRef = useRef(currentTrackLyrics);
+  currentLyricsRef.current = currentTrackLyrics;
+
+  useEffect(() => {
+    if (!currentTrack) {
+      trackEnergyRef.current = null;
+      return;
+    }
+    const trackId = currentTrack.id;
+    if (audioEnergyCache.has(trackId)) {
+      trackEnergyRef.current = audioEnergyCache.get(trackId) ?? null;
+      return;
+    }
+
+    const streamUrl = sourceCandidates(currentTrack.originalUrl)[0];
+    if (!streamUrl) return;
+
+    let cancelled = false;
+    fetch(streamUrl)
+      .then((res) => {
+        if (!res.ok) throw new Error("Audio fetch failed");
+        return res.arrayBuffer();
+      })
+      .then((buffer) => {
+        if (cancelled) return;
+        const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        return ctx.decodeAudioData(buffer);
+      })
+      .then((decoded) => {
+        if (cancelled || !decoded) return;
+        const channel = decoded.getChannelData(0);
+        const sr = decoded.sampleRate;
+        const step = Math.floor(sr / 50); // 50 samples per second (20ms)
+        const windowSize = Math.floor(sr * 0.04); // 40ms RMS window
+        const count = Math.floor(channel.length / step);
+        const map = new Float32Array(count);
+        let maxVal = 0.001;
+
+        for (let i = 0; i < count; i++) {
+          const start = i * step;
+          const end = Math.min(start + windowSize, channel.length);
+          let sum = 0;
+          for (let j = start; j < end; j++) {
+            sum += channel[j] * channel[j];
+          }
+          const rms = Math.sqrt(sum / (end - start));
+          map[i] = rms;
+          if (rms > maxVal) maxVal = rms;
+        }
+
+        // Normalize 0.0 to 1.0 with soft knee
+        for (let i = 0; i < count; i++) {
+          map[i] = Math.min(1, Math.pow(map[i] / maxVal, 0.85));
+        }
+
+        audioEnergyCache.set(trackId, map);
+        if (activeTrackIdRef.current === trackId) {
+          trackEnergyRef.current = map;
+        }
+      })
+      .catch(() => undefined);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [currentTrack?.id]);
+
   useEffect(() => {
     const audio = audioRef.current;
     const el = ambientRef.current;
@@ -834,27 +907,52 @@ export default function Home() {
       if (!running) return;
       if (!audio.paused && audio.currentTime > 0) {
         const t = audio.currentTime;
-        // Relaxed Half-Time Hip-hop pulse (~68 BPM, ~0.88s per smooth bass swell)
-        const cycleSec = 60 / 68;
-        const phase = (t % cycleSec) / cycleSec; // 0 to 1
+        const energyMap = trackEnergyRef.current;
+        let rawLevel = 0;
 
-        // Smooth analog swell (attack ~10%) and gentle exponential decay
-        let bassWave = 0;
-        if (phase < 0.1) {
-          bassWave = phase / 0.1;
+        if (energyMap && energyMap.length > 0) {
+          const idx = Math.floor(t * 50);
+          rawLevel = energyMap[idx] ?? 0;
         } else {
-          bassWave = Math.exp(-(phase - 0.1) * 3.6);
+          // Accurate lyric timestamp onset fallback while decoding:
+          const lyrics = currentLyricsRef.current?.syncedLyrics;
+          if (lyrics && lyrics.length > 0) {
+            for (let i = 0; i < lyrics.length; i++) {
+              const cur = lyrics[i];
+              const next = lyrics[i + 1];
+              if (t >= cur.time && (!next || t < next.time)) {
+                const delta = t - cur.time;
+                if (delta < 0.35) {
+                  rawLevel = Math.exp(-delta * 6.0) * 0.85;
+                } else {
+                  rawLevel = 0.22;
+                }
+                break;
+              }
+            }
+          }
         }
 
-        // Resting baseline (0.1) + smooth relaxed swell up to 0.85
-        const glowVal = 0.1 + bassWave * 0.75;
+        // Peak follower (instant attack for punchy transients, smooth analog decay)
+        let peak = peakLevelRef.current;
+        if (rawLevel > peak) {
+          peak = rawLevel;
+        } else {
+          peak += (rawLevel - peak) * 0.15;
+        }
+        peakLevelRef.current = peak;
+
+        // Base glow (0.08) + real waveform energy
+        const glowVal = Math.min(1, Math.max(0, 0.08 + peak * 0.88));
         el.style.setProperty("--beat", glowVal.toFixed(3));
 
         if (blastEl) {
-          const blastVal = bassWave > 0.35 ? (bassWave - 0.35) * 1.3 : 0;
+          // Heavy 808 drop threshold: triggers when real audio energy hits above 0.55
+          const blastVal = peak > 0.55 ? (peak - 0.55) / 0.45 : 0;
           blastEl.style.setProperty("--bass", Math.min(1, blastVal).toFixed(3));
         }
       } else {
+        peakLevelRef.current = 0;
         el.style.setProperty("--beat", "0");
         if (blastEl) blastEl.style.setProperty("--bass", "0");
       }
@@ -2499,7 +2597,7 @@ export default function Home() {
 
       <footer>
         <a href="https://github.com/mm4you" rel="noreferrer" target="_blank">
-          <Icon name="github" size={15} /> Built by Khang with Codex · @mm4you
+          <Icon name="github" size={15} /> Built by Khang · @mm4you
         </a>
       </footer>
     </main>

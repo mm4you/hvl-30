@@ -35,6 +35,6 @@
 - Artwork đứng yên hoàn toàn, chỉ viền sáng đỏ nhấp nháy theo sóng nhạc
 - Lyrics highlight nguyên dòng (không từng chữ)
 - Label "Đôi lời" (không phải "Giới thiệu")
-- Footer chỉ có: `Built by Khang with Codex · @mm4you`
+- Footer chỉ có: `Built by Khang · @mm4you`
 - Không cần tài khoản đăng nhập
 - `overflow: visible` trên `.player-card` để glow không bị cắt
