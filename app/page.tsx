@@ -2425,7 +2425,7 @@ export default function Home() {
       <footer>
         <p>Không cần tài khoản. 30 bài nhạc dùng chung được phát từ kho của HVL 30; file giữ nguyên định dạng gốc, không chuyển mã hoặc giảm chất lượng.</p>
         <a href="https://github.com/mm4you" rel="noreferrer" target="_blank">
-          <Icon name="github" size={15} /> Làm bởi Khang · @mm4you
+          <Icon name="github" size={15} /> Built by Khang · @mm4you
         </a>
       </footer>
     </main>
