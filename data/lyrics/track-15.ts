@@ -92,259 +92,259 @@ export const track15Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 17.6,
+    "time": 18.6,
     "text": "Chúng mày thì biết cái đéo gì về tao (Chúng mày thì biết cái đéo gì)"
   },
   {
-    "time": 21.2,
+    "time": 22.6,
     "text": "Rockstar made, tao đéo ngại thằng nào (Rockstar made)"
   },
   {
-    "time": 23.4,
+    "time": 25.1,
     "text": "Da vàng trẻ, tao nhét tiền vào bao (Stack it up, stack it up, stack it up)"
   },
   {
-    "time": 27.4,
+    "time": 29.5,
     "text": "Cho đến khi tao chết, tao vẫn lowkey flex"
   },
   {
-    "time": 29.6,
+    "time": 31.9,
     "text": "Đừng nói về đời tao, bởi vì tao không thích"
   },
   {
-    "time": 32.1,
+    "time": 34.6,
     "text": "Tao không thích"
   },
   {
-    "time": 33.7,
+    "time": 36.4,
     "text": "Tao không—"
   },
   {
-    "time": 35.3,
+    "time": 38.2,
     "text": "Tao không thích"
   },
   {
-    "time": 38.5,
+    "time": 41.8,
     "text": "Tao không thích mấy thằng hai mặt đâu, bitch (Lil' bitch; Bitch)"
   },
   {
-    "time": 42,
+    "time": 45.6,
     "text": "Tao sẽ không gặp đâu, bitch (Bitch)"
   },
   {
-    "time": 44.5,
+    "time": 48.3,
     "text": "Trái Tim Chrome outfit (Say what?)"
   },
   {
-    "time": 46.7,
+    "time": 50.8,
     "text": "Trái Tim Chrome outfit, bitch"
   },
   {
-    "time": 49.1,
+    "time": 53.5,
     "text": "Yeah, tao bước đi vào pit (Yeah)"
   },
   {
-    "time": 51.6,
+    "time": 56.2,
     "text": "Yeah, tao bước đi vào pit (Pit)"
   },
   {
-    "time": 54,
+    "time": 58.9,
     "text": "Mấy cô em trông lit"
   },
   {
-    "time": 56.3,
+    "time": 61.4,
     "text": "Mấy quả cảnh sâu tít"
   },
   {
-    "time": 60.1,
+    "time": 65.7,
     "text": "Way (Hoh), way (Hoh)"
   },
   {
-    "time": 62.6,
+    "time": 68.4,
     "text": "Way (Hoh), way (Hoh)"
   },
   {
-    "time": 65,
+    "time": 71.1,
     "text": "Way (Hoh), way (Hoh)"
   },
   {
-    "time": 67.5,
+    "time": 73.7,
     "text": "Way (Hoh), way (What?)"
   },
   {
-    "time": 69.9,
+    "time": 76.4,
     "text": "Đi đâu mấy con chó này?"
   },
   {
-    "time": 72.5,
+    "time": 79.3,
     "text": "Mở mắt ra xem các bố mày (Way, hoh, way, hoh)"
   },
   {
-    "time": 75.8,
+    "time": 82.8,
     "text": "Đi đâu mấy con chó này? (Way, hoh, way, what?)"
   },
   {
-    "time": 80.4,
+    "time": 87.6,
     "text": "Tao đang thích nghi, nó quá slippery, cả người tao trơn trượt"
   },
   {
-    "time": 83.3,
+    "time": 90.8,
     "text": "Yeah, tao thích bay dưới những đám mây đéo thể nào cao hơn được (Wo-oh-ah)"
   },
   {
-    "time": 86.8,
+    "time": 94.8,
     "text": "Mày muốn respect của tao? Muốn trust của tao? Thử dành lấy đi bố mày xem nào"
   },
   {
-    "time": 90.7,
+    "time": 99,
     "text": "N0L4B3L là công ty riêng, mấy thằng ngoài kia đừng cố mà xen vào"
   },
   {
-    "time": 95.7,
+    "time": 104.5,
     "text": "Bởi vì tao không thích mấy thằng hai mặt đâu, bitch (Lil' bitch; Bitch)"
   },
   {
-    "time": 99.7,
+    "time": 108.9,
     "text": "Tao sẽ không gặp đâu, bitch (Bitch)"
   },
   {
-    "time": 102.2,
+    "time": 111.6,
     "text": "Trái Tim Chrome outfit (Say what?)"
   },
   {
-    "time": 104.5,
+    "time": 114.1,
     "text": "Trái Tim Chrome outfit, bitch"
   },
   {
-    "time": 106.9,
+    "time": 116.8,
     "text": "Yeah, tao bước đi vào pit (Pit)"
   },
   {
-    "time": 109.3,
+    "time": 119.5,
     "text": "Yeah, tao bước đi vào pit (Pit)"
   },
   {
-    "time": 111.7,
+    "time": 122.2,
     "text": "Mấy cô em trông lit"
   },
   {
-    "time": 114,
+    "time": 124.7,
     "text": "Mấy quả cảnh sâu tít"
   },
   {
-    "time": 125.8,
+    "time": 139.7,
     "text": "Way, way, way, way, way, way"
   },
   {
-    "time": 128.3,
+    "time": 142.4,
     "text": "Tao không thích mấy thằng hai mặt đâu, bitch"
   },
   {
-    "time": 131,
+    "time": 145.4,
     "text": "(Lil' bitch, bitch, say what?)"
   },
   {
-    "time": 133.4,
+    "time": 148,
     "text": "(Bitch, yeah)"
   },
   {
-    "time": 139.1,
+    "time": 154.1,
     "text": "Tao không thích mấy thằng hai mặt đâu, bitch (Lil' bitch)"
   },
   {
-    "time": 142.4,
+    "time": 157.6,
     "text": "Tao sẽ không gặp đâu, bitch (Bitch)"
   },
   {
-    "time": 144.8,
+    "time": 160.3,
     "text": "Trái Tim Chrome outfit (Tao thích)"
   },
   {
-    "time": 147.1,
+    "time": 162.8,
     "text": "Trái Tim Chrome outfit, bitch"
   },
   {
-    "time": 149.5,
+    "time": 165.5,
     "text": "Yeah, tao bước đi vào pit"
   },
   {
-    "time": 151.9,
+    "time": 168.2,
     "text": "Yeah, tao bước đi vào pit (Tao thích)"
   },
   {
-    "time": 154.4,
+    "time": 170.9,
     "text": "Mấy cô em trông lit"
   },
   {
-    "time": 156.7,
+    "time": 173.4,
     "text": "Mấy quả cảnh sâu—"
   },
   {
-    "time": 160.5,
+    "time": 177.5,
     "text": "Mẹ ơi, dưới đất trời con cúi lạy"
   },
   {
-    "time": 162.5,
+    "time": 179.6,
     "text": "Nuh-uh-huh-ah"
   },
   {
-    "time": 164.1,
+    "time": 181.4,
     "text": "Trên đỉnh núi cao chơi vơi quá"
   },
   {
-    "time": 165.7,
+    "time": 183.2,
     "text": "Trong vô định, con tìm về nơi bắt đầu"
   },
   {
-    "time": 167.9,
+    "time": 185.7,
     "text": "Thích như nào, thích như nào, thích như nào, như nào? Huh?"
   },
   {
-    "time": 171.1,
+    "time": 189.2,
     "text": "Cách số phận lôi tao vào rap game này, tao bước ra đằng trước, huh-huh"
   },
   {
-    "time": 174.7,
+    "time": 193.2,
     "text": "Tham vọng lan khắp phòng, uh-huh"
   },
   {
-    "time": 176.5,
+    "time": 195.1,
     "text": "Từng đường nét chroma, chroma"
   },
   {
-    "time": 178.4,
+    "time": 197.1,
     "text": "Từng đường nét chroma, chroma"
   },
   {
-    "time": 181.7,
+    "time": 200.9,
     "text": "Tao không thích mấy thằng hai mặt đâu, bitch (Uh-huh)"
   },
   {
-    "time": 184.8,
+    "time": 204.1,
     "text": "Tao sẽ không gặp đâu, bitch (Bitch)"
   },
   {
-    "time": 187.2,
+    "time": 206.8,
     "text": "Trái Tim Chrome outfit"
   },
   {
-    "time": 189.4,
+    "time": 209.3,
     "text": "Chrome outfit"
   },
   {
-    "time": 191.6,
+    "time": 211.8,
     "text": "Yeah, tao bước đi vào pit (Pit)"
   },
   {
-    "time": 194.1,
+    "time": 214.5,
     "text": "Yeah, tao bước đi vào pit"
   },
   {
-    "time": 196.5,
+    "time": 217.1,
     "text": "Mấy cô em trông lit (Chất, chất, chất, chất)"
   },
   {
-    "time": 199.2,
+    "time": 220.1,
     "text": "Tao không thích mấy thằng hai mặt đâu, bitch"
   }
 ]

@@ -57,19 +57,19 @@ export const track23Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 11,
+    "time": 10.5,
     "text": "(Turn it) Yah"
   },
   {
-    "time": 12.9,
+    "time": 12.5,
     "text": "Whoo (Tùng ơi), woah"
   },
   {
-    "time": 15,
+    "time": 14.7,
     "text": "Yah"
   },
   {
-    "time": 18.7,
+    "time": 18.5,
     "text": "Tao không bao giờ muốn nghe đâu, chúng mày cap, cap (Cap, cap)"
   },
   {
@@ -77,139 +77,139 @@ export const track23Lyrics: TrackLyrics = {
     "text": "Purple Haze, mùi Purple Haze gọi là khét lẹt (Whoo, woah)"
   },
   {
-    "time": 25.4,
+    "time": 25.6,
     "text": "Fuck, tao đói rồi, bụng tao lép kẹp (Cái gì?)"
   },
   {
-    "time": 28.2,
+    "time": 28.6,
     "text": "Tao là chỉ đi ngang qua đây, now she's wet, wet (She's wet)"
   },
   {
-    "time": 31.9,
+    "time": 32.5,
     "text": "Nhắn cho anh là, \"Please give me a chance\" (Give me, yah)"
   },
   {
-    "time": 35.2,
+    "time": 36,
     "text": "Anh không thích là phải làm việc qua middleman (Middle, woah)"
   },
   {
-    "time": 38.3,
+    "time": 39.3,
     "text": "Anh thích ký cho fan của anh bằng bút bi đen (Woah)"
   },
   {
-    "time": 41.5,
+    "time": 42.7,
     "text": "Blown her back out, fill her coochie"
   },
   {
-    "time": 43.6,
+    "time": 44.9,
     "text": "I love that juicy pussy, bring it to me"
   },
   {
-    "time": 46.1,
+    "time": 47.6,
     "text": "Bọn chó này ghét xong rồi lại thích à? (Woah)"
   },
   {
-    "time": 48.7,
+    "time": 50.4,
     "text": "Đéo muốn giải thích, uh"
   },
   {
-    "time": 50.9,
+    "time": 52.6,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 52.9,
+    "time": 54.8,
     "text": "Đéo muốn giải thích, chyah"
   },
   {
-    "time": 55,
+    "time": 57,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 57.1,
+    "time": 59.3,
     "text": "Đéo muốn giải thích, chyah"
   },
   {
-    "time": 59.2,
+    "time": 61.5,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 61.3,
+    "time": 63.7,
     "text": "Không cần phải giải thích"
   },
   {
-    "time": 65,
+    "time": 67.5,
     "text": "Tao thích ngắm gái nhưng em nào vibe mới được tao follow"
   },
   {
-    "time": 68.2,
+    "time": 70.9,
     "text": "Thấy mình quá là bay nhưng đéo hiểu đấy là do đâu (Yah)"
   },
   {
-    "time": 71.5,
+    "time": 74.5,
     "text": "MCK nó đã trở lại rồi, đéo còn lo âu"
   },
   {
-    "time": 74.3,
+    "time": 77.5,
     "text": "Tao set the trend, chúng mày follow (Nhìn xem này)"
   },
   {
-    "time": 77.2,
+    "time": 80.5,
     "text": "Tao vẫn đang trên top (Trên top), cùng Thành Draw đi xem Van Gogh (Okay)"
   },
   {
-    "time": 81.3,
+    "time": 84.9,
     "text": "Bọn tao làm Vietnamese hot (She's hot), hip-hop pha với pop (Pop)"
   },
   {
-    "time": 84.8,
+    "time": 88.5,
     "text": "Rick Owens mob (Mob), tequila shots (Shots)"
   },
   {
-    "time": 86.8,
+    "time": 90.7,
     "text": "Vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp"
   },
   {
-    "time": 89.7,
+    "time": 93.7,
     "text": "Chúng nó ghét xong lại thích à? (Woah)"
   },
   {
-    "time": 91.7,
+    "time": 95.9,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 93.8,
+    "time": 98.1,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 95.7,
+    "time": 100.1,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 97.8,
+    "time": 102.3,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 99.7,
+    "time": 104.3,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 101.7,
+    "time": 106.5,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 103.6,
+    "time": 108.5,
     "text": "Đéo cần phải giải thích"
   },
   {
-    "time": 105.4,
+    "time": 110.5,
     "text": "Woah"
   },
   {
-    "time": 109.6,
+    "time": 112.5,
     "text": "Turn it"
   },
   {
-    "time": 111.7,
+    "time": 114.5,
     "text": "Whoo, woah"
   }
 ]

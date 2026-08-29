@@ -77,247 +77,247 @@ export const track25Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 15.5,
+    "time": 16,
     "text": "Làng nước ơi, thằng chó nó dụ tôi về đây để nó giết tôi làng nước ơi"
   },
   {
-    "time": 21.5,
+    "time": 22.6,
     "text": "Tao đéo biết tại sao mấy thằng khốn này ghen tị, yuh"
   },
   {
-    "time": 24.6,
+    "time": 26,
     "text": "Chúng nó bị che mắt bằng mấy tờ, mấy tờ VND, yuh"
   },
   {
-    "time": 27.6,
+    "time": 29.5,
     "text": "VSLY, Rick, tao cần thêm cả Balenci'"
   },
   {
-    "time": 29.6,
+    "time": 31.7,
     "text": "Đéo thể cản được tao kiếm tiền đâu, chúng mày nên làm quen đi"
   },
   {
-    "time": 33.1,
+    "time": 35.7,
     "text": "Tiền tươi, thóc thật, uh, đẹp zai mọi góc mặt, uh"
   },
   {
-    "time": 36,
+    "time": 38.9,
     "text": "Suy nghĩ vẫn cứ giữ là người tốt, nếu mày đéo hiểu mày óc cặc (Bitch)"
   },
   {
-    "time": 40,
+    "time": 43.4,
     "text": "Cỏ nhập, và đây là sativa, young boy đi cảnh mafia"
   },
   {
-    "time": 42.9,
+    "time": 46.6,
     "text": "Tao phang hết gái của chúng mày, burn the club để đánh dấu nơi mà tao đi qua"
   },
   {
-    "time": 47.4,
+    "time": 51.7,
     "text": "Tao trả, tao trả, tao trả, tao trả, tao trả, tao trả, tao trả"
   },
   {
-    "time": 51,
+    "time": 55.7,
     "text": "Tao chỉ sống cuộc đời của tao, mày thấy đéo vừa mắt à? Sao hả? Sao hả?"
   },
   {
-    "time": 55.7,
+    "time": 60.9,
     "text": "Show up và tao không cần truyền thông vì lý tưởng của tao nó đã quá là cao cả"
   },
   {
-    "time": 60.2,
+    "time": 66.1,
     "text": "Còn tài năng và âm nhạc thì đéo nói, tao đánh sập bảng xếp hạng khi tao bước sang tuổi hai ba"
   },
   {
-    "time": 65.7,
+    "time": 72.2,
     "text": "Uh, nhắn với chúng nó là, \"You don't know this shit\""
   },
   {
-    "time": 68.6,
+    "time": 75.4,
     "text": "Fuck, mấy cái thằng ngu này, where your crew at?"
   },
   {
-    "time": 71.6,
+    "time": 78.8,
     "text": "Hàng mỹ ký thì đừng gọi đấy là cubans"
   },
   {
-    "time": 73.7,
+    "time": 81.2,
     "text": "Tao để moi, mọi người gọi nó là mullet"
   },
   {
-    "time": 76.1,
+    "time": 83.9,
     "text": "Mày đéo ngầu đâu, you ain't cool"
   },
   {
-    "time": 78.1,
+    "time": 86.1,
     "text": "Tầm nhìn chúng mày nó đã bị thu hẹp"
   },
   {
-    "time": 80.2,
+    "time": 88.5,
     "text": "Thiếu hiểu biết, drink up the Kool-Aid"
   },
   {
-    "time": 82.1,
+    "time": 90.6,
     "text": "Đứng trước mặt mày eat my full plate"
   },
   {
-    "time": 84.1,
+    "time": 92.8,
     "text": "Bet you hate it when I do that"
   },
   {
-    "time": 96.2,
+    "time": 108.6,
     "text": "(Đĩ, đĩ, đĩ) Fuck"
   },
   {
-    "time": 98.2,
+    "time": 110.8,
     "text": "(Đĩ, đĩ, đĩ) Fuck"
   },
   {
-    "time": 100.1,
+    "time": 112.9,
     "text": "(Đĩ, đĩ, đĩ) Mày xấu vãi cả lồn"
   },
   {
-    "time": 102.2,
+    "time": 115.2,
     "text": "(Đĩ, đĩ, đĩ) Fuck, do that"
   },
   {
-    "time": 104.1,
+    "time": 117.4,
     "text": "(Đĩ, đĩ, đĩ) Fuck"
   },
   {
-    "time": 106.1,
+    "time": 119.5,
     "text": "(Đĩ, đĩ, đĩ) Fuck"
   },
   {
-    "time": 107.9,
+    "time": 121.7,
     "text": "(Đĩ, đĩ, đĩ) Mày xấu vãi cả lồn"
   },
   {
-    "time": 110.1,
+    "time": 124,
     "text": "(Đĩ, đĩ, đĩ)"
   },
   {
-    "time": 113.8,
+    "time": 127.9,
     "text": "Take off that shit, xem mày như nào? (Đĩ, đĩ, đĩ)"
   },
   {
-    "time": 116.6,
+    "time": 131.1,
     "text": "Take off that shit, xem mày như nào? (Đĩ, đĩ, đĩ)"
   },
   {
-    "time": 119.4,
+    "time": 134.3,
     "text": "Put down that shit, xem mày như nào? (Đĩ, đĩ, đĩ)"
   },
   {
-    "time": 122.3,
+    "time": 137.5,
     "text": "Take off that shit, xem mày như nào? (Đĩ, đĩ)"
   },
   {
-    "time": 124.9,
+    "time": 140.4,
     "text": "Put down that shit, xem mày như nào?"
   },
   {
-    "time": 127.4,
+    "time": 143.2,
     "text": "Huh, yeah, yeah, sao đây?"
   },
   {
-    "time": 129.8,
+    "time": 145.7,
     "text": "Quay đi quay lại đã làm sao đây? (Huh)"
   },
   {
-    "time": 132,
+    "time": 148.1,
     "text": "Tao đang ăn sáng đã phải callin' (What?)"
   },
   {
-    "time": 133.9,
+    "time": 150.4,
     "text": "Đến đây nói chuyện, khuyên mày mau lên (Hah)"
   },
   {
-    "time": 136.2,
+    "time": 153,
     "text": "Thiên thần sa lầy"
   },
   {
-    "time": 138,
+    "time": 154.9,
     "text": "Muốn tao chứng kiến cảnh tượng này tiếp tục bao lần"
   },
   {
-    "time": 140.6,
+    "time": 158,
     "text": "Mỗi lần mày sống thay mặt bao lần"
   },
   {
-    "time": 142.5,
+    "time": 160.1,
     "text": "Thích thì cứ nói không phải ganh tị, tao phần (What?)"
   },
   {
-    "time": 145.4,
+    "time": 163.3,
     "text": "Suốt ngày đòi gang, gang, gang, không có thông điệp rồi lại bảo chơi cho thật vui"
   },
   {
-    "time": 149.7,
+    "time": 168.2,
     "text": "Kiếm tiền đầy túi nhớ dành cho mình đường lui (I'm bogeyman), bắt mày giấu đầu hở đuôi"
   },
   {
-    "time": 154.2,
+    "time": 173.2,
     "text": "Cạn tình cạn nghĩa thì lí nào mà chả xuôi, xắn tay áo lên, nghĩ cho cùng cũng phải thôi"
   },
   {
-    "time": 159.2,
+    "time": 178.9,
     "text": "Nằm gai nếm mật nên ong nào tao chả nuôi, nên cứ ghét tiếp đi, yah"
   },
   {
-    "time": 163.2,
+    "time": 183.4,
     "text": "Swagged out (Woah, swag), swag"
   },
   {
-    "time": 165.2,
+    "time": 185.6,
     "text": "Huh, take off my shit cho mày ghét luôn"
   },
   {
-    "time": 167.5,
+    "time": 188.2,
     "text": "Huh, swagged out, nhịn mày lần này gọi là xong"
   },
   {
-    "time": 170.1,
+    "time": 191.1,
     "text": "Cho mày lấy giấy bút ra mà chép luôn, bọn tao là dân chơi thì không được phép buồn"
   },
   {
-    "time": 174.9,
+    "time": 196.5,
     "text": "Huh, huh, huh, huh, coi như xưa nay chưa quen nhau (Lil' bitch)"
   },
   {
-    "time": 178.2,
+    "time": 200.3,
     "text": "Để tao phải thấy thêm lần nữa, khuyên mày nhớ lấy (I'm bogeyman), rượu đâu mang ra đê"
   },
   {
-    "time": 182.8,
+    "time": 205.3,
     "text": "Uh, cho tiền vào bank xong tao skrt like woah"
   },
   {
-    "time": 185.3,
+    "time": 208.3,
     "text": "Không cần nhìn giá, tao skrt like woah"
   },
   {
-    "time": 187.5,
+    "time": 210.6,
     "text": "Anh em tao vâm, bố mày skrt, we roll"
   },
   {
-    "time": 189.9,
+    "time": 213.3,
     "text": "Yeah, anh em tao trap, không hùa được đâu"
   },
   {
-    "time": 194.3,
+    "time": 215.9,
     "text": "Trap it, trap it, trap it, trap it (Được đấy, hmm)"
   },
   {
-    "time": 197.4,
+    "time": 219.2,
     "text": "Trap it, trap it, trap it, trap it"
   },
   {
-    "time": 199.6,
+    "time": 221.5,
     "text": "Trap it, trap it, trap it, trap it"
   },
   {
-    "time": 201.9,
+    "time": 223.8,
     "text": "Được đấy, uh, được"
   }
 ]

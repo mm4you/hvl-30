@@ -84,251 +84,251 @@ export const track03Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 10,
+    "time": 9.4,
     "text": "In the game, baby, I'm lit"
   },
   {
-    "time": 12.4,
+    "time": 11.6,
     "text": "Không cần filter, anh ít khi điêu"
   },
   {
-    "time": 14.7,
+    "time": 13.8,
     "text": "Bôi nhiều son vào, hôn anh chi chít"
   },
   {
-    "time": 17,
+    "time": 15.9,
     "text": "On the beat, anh lead em phiêu"
   },
   {
-    "time": 19.3,
+    "time": 18.1,
     "text": "Đi quanh club, họ nhận ra anh nhiều quá"
   },
   {
-    "time": 21.9,
+    "time": 20.5,
     "text": "Rít một hơi, thổi làn khói tan ra"
   },
   {
-    "time": 24.3,
+    "time": 22.6,
     "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
   },
   {
-    "time": 26.5,
+    "time": 24.8,
     "text": "Chúng ngã vào nhau ở trong một tấm canvas"
   },
   {
-    "time": 30.5,
+    "time": 28.2,
     "text": "What the fuck? Baby, I'm still lit"
   },
   {
-    "time": 32.2,
+    "time": 29.8,
     "text": "Bóc đồ đi, xem outfit bao nhiêu"
   },
   {
-    "time": 33.9,
+    "time": 31.4,
     "text": "Second-hand tao vẫn bring the heat"
   },
   {
-    "time": 35.4,
+    "time": 32.9,
     "text": "Quá là fresh nên tao thích thì tao kiêu"
   },
   {
-    "time": 37.3,
+    "time": 34.7,
     "text": "Mấy thứ chúng mày coi là bình thường nhất"
   },
   {
-    "time": 39.2,
+    "time": 36.5,
     "text": "Lên người tao thành đồ rất cao siêu"
   },
   {
-    "time": 40.9,
+    "time": 38.1,
     "text": "Đừng săm soi chuyện đời tư của bố mày"
   },
   {
-    "time": 42.9,
+    "time": 39.9,
     "text": "Cuộc đời tao, yeah, tao thích thì tao yêu"
   },
   {
-    "time": 54.1,
+    "time": 51.9,
     "text": "Ah, ah-ah-ah-ah-ah, ah-ah-ah-ah-ah"
   },
   {
-    "time": 55.8,
+    "time": 53.5,
     "text": "Ah-ah-ah-ah-ah, ah, ah, ah, ah"
   },
   {
-    "time": 57.5,
+    "time": 55.1,
     "text": "Ah-ah-ah-ah-ah, ah-ah-ah-ah-ah"
   },
   {
-    "time": 59.3,
+    "time": 56.7,
     "text": "Ah-ah-ah-ah-ah, ah, ah, ah"
   },
   {
-    "time": 62.5,
+    "time": 59.6,
     "text": "Yeah, tim anh như đang nổ tung nhưng mà lại chẳng biết nói gì với em"
   },
   {
-    "time": 66.1,
+    "time": 63,
     "text": "Nhẹ nhàng, nhẹ nhàng dâng lên bao nhiêu cảm xúc này anh đang kìm nén (Ah)"
   },
   {
-    "time": 69.7,
+    "time": 66.4,
     "text": "Linh hồn mình đi tìm nhau, chìm vào cùng khoảnh khắc căn phòng tối đen"
   },
   {
-    "time": 73,
+    "time": 69.5,
     "text": "Nhẹ chạm vào bờ môi, đung đưa trôi khi hai ta say mèm"
   },
   {
-    "time": 76,
+    "time": 72.3,
     "text": "(Khẽ chạm vào bờ môi) Đung, đung đưa trôi khi hai ta say mèm"
   },
   {
-    "time": 79.2,
+    "time": 75.3,
     "text": "(Đến bên em người ơi) Đung đưa trôi khi mà hai ta say mèm (Khẽ chạm vào bờ môi)"
   },
   {
-    "time": 83.2,
+    "time": 79.1,
     "text": "(Cho đến khi anh chơi vơi)"
   },
   {
-    "time": 84.8,
+    "time": 80.5,
     "text": "(Cho đến khi anh chơi vơi)"
   },
   {
-    "time": 87.8,
+    "time": 83.4,
     "text": "Okay, in the game, baby, I'm lit"
   },
   {
-    "time": 90.2,
+    "time": 85.6,
     "text": "Ít khi điêu"
   },
   {
-    "time": 92.3,
+    "time": 87.6,
     "text": "Hôn anh chi chít"
   },
   {
-    "time": 94.4,
+    "time": 89.6,
     "text": "Anh lead em phiêu"
   },
   {
-    "time": 96.5,
+    "time": 91.6,
     "text": "Nhận ra anh nhiều quá"
   },
   {
-    "time": 98.7,
+    "time": 93.7,
     "text": "Khói tan ra"
   },
   {
-    "time": 100.8,
+    "time": 95.7,
     "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
   },
   {
-    "time": 103.1,
+    "time": 97.8,
     "text": "Chúng ngã vào nhau ở trong một tấm canvas"
   },
   {
-    "time": 107,
+    "time": 101.3,
     "text": "(Khi mà em) Khi mà em đang say"
   },
   {
-    "time": 108.7,
+    "time": 103,
     "text": "Đung đưa, đung đưa khi mà em đang say"
   },
   {
-    "time": 110.9,
+    "time": 104.9,
     "text": "Khi mà em đang say"
   },
   {
-    "time": 112.4,
+    "time": 106.3,
     "text": "Đung đưa, đung đưa khi mà em đang"
   },
   {
-    "time": 114.3,
+    "time": 108.1,
     "text": "Ngã ra trong một tấm canvas"
   },
   {
-    "time": 115.8,
+    "time": 109.5,
     "text": "Lướt qua chạm vào làn da"
   },
   {
-    "time": 117.3,
+    "time": 110.9,
     "text": "Your aura, your vibe"
   },
   {
-    "time": 119,
+    "time": 112.5,
     "text": "Ngã ra trong một tấm canvas"
   },
   {
-    "time": 120.5,
+    "time": 114,
     "text": "Anh giờ quá phê, anh trông như là tảng đá"
   },
   {
-    "time": 122.9,
+    "time": 116.1,
     "text": "My aura, my vibe"
   },
   {
-    "time": 126.1,
+    "time": 119.2,
     "text": "In the game, baby, I'm lit"
   },
   {
-    "time": 128.4,
+    "time": 121.3,
     "text": "Không cần filter, anh ít khi điêu"
   },
   {
-    "time": 130.7,
+    "time": 123.5,
     "text": "Bôi nhiều son vào, hôn anh chi chít"
   },
   {
-    "time": 133.1,
+    "time": 125.6,
     "text": "On the beat, anh lead em phiêu"
   },
   {
-    "time": 135.4,
+    "time": 127.8,
     "text": "Đi quanh club họ nhận ra anh nhiều quá"
   },
   {
-    "time": 137.8,
+    "time": 130,
     "text": "Rít một hơi, thổi làn khói tan ra"
   },
   {
-    "time": 140.1,
+    "time": 132.2,
     "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
   },
   {
-    "time": 142.4,
+    "time": 134.4,
     "text": "Chúng ngã vào nhau ở trong một tấm canvas"
   },
   {
-    "time": 146.7,
+    "time": 136.6,
     "text": "In the game, I'm-I'm lit"
   },
   {
-    "time": 148.6,
+    "time": 138.8,
     "text": "Ít, anh ít khi, ít khi"
   },
   {
-    "time": 150.4,
+    "time": 140.9,
     "text": "Bôi nhiều son vào, hôn chi chít"
   },
   {
-    "time": 152.3,
+    "time": 143.1,
     "text": "Anh lead em ph–"
   },
   {
-    "time": 154,
+    "time": 145.1,
     "text": "Nhận, nhận, nhận ra anh nhiều quá"
   },
   {
-    "time": 155.8,
+    "time": 147.3,
     "text": "Rít một hơi, khói tan ra"
   },
   {
-    "time": 157.7,
+    "time": 149.4,
     "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
   },
   {
-    "time": 159.7,
+    "time": 151.6,
     "text": "Chúng nó ngã vào nhau ở trong một tấm canvas"
   }
 ]

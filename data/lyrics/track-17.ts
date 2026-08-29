@@ -59,19 +59,19 @@ export const track17Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 9.5,
+    "time": 9,
     "text": "Tên tao là gì? MCK"
   },
   {
-    "time": 10.6,
+    "time": 10.2,
     "text": "Tên tao là gì? MCK"
   },
   {
-    "time": 11.6,
+    "time": 11.4,
     "text": "Tên tao là gì? MCK"
   },
   {
-    "time": 12.7,
+    "time": 12.6,
     "text": "Tên tao là gì? MCK"
   },
   {
@@ -79,147 +79,147 @@ export const track17Lyrics: TrackLyrics = {
     "text": "Anh Long, em fan anh, em xin kiểu ảnh"
   },
   {
-    "time": 15.3,
+    "time": 15.4,
     "text": "Anh Long, em fan anh, em xin kiểu ảnh"
   },
   {
-    "time": 16.7,
+    "time": 17,
     "text": "Anh Long, em fan anh, em xin kiểu ảnh"
   },
   {
-    "time": 18.2,
+    "time": 18.7,
     "text": "Anh Long, em fan anh, em xin kiểu ảnh"
   },
   {
-    "time": 20.8,
+    "time": 21.4,
     "text": "Uh, trốn tránh cái trách nhiệm này quá lâu nên truyền thông rất thích săn đuổi"
   },
   {
-    "time": 23.3,
+    "time": 24.2,
     "text": "Cạn chén nếu mà mày là fan tao bất kể ngành nghề hay là năm tuổi"
   },
   {
-    "time": 25.8,
+    "time": 26.8,
     "text": "Thả cả nếu mà đấy là anh em, tần số trở nên nó đéo thể ngăn nổi"
   },
   {
-    "time": 28.4,
+    "time": 29.8,
     "text": "Thông minh và không ăn xổi, chung sở thích là làm, làm tài khoản nhân đôi"
   },
   {
-    "time": 31,
+    "time": 32.6,
     "text": "Tao làm việc của tao (Kiếm tiền, kiếm tiền), hi vọng là mày thích nó"
   },
   {
-    "time": 33.4,
+    "time": 35.2,
     "text": "Đừng nói về thành công (Về tao), mày vẫn chưa chạm tới cái đích đó (Chuyện)"
   },
   {
-    "time": 35.9,
+    "time": 38,
     "text": "Mày thấy nó giống cái vòng vàng á? (Sao?) Tao lại tưởng nó là cái xích chó"
   },
   {
-    "time": 38.5,
+    "time": 40.8,
     "text": "Ai để mày đi lung tung ngoài đường này? Xích vô, xích vô, xích vô, xích vô"
   },
   {
-    "time": 42.2,
+    "time": 45,
     "text": "Khi tao pull up, pull up (Pull up)"
   },
   {
-    "time": 43.8,
+    "time": 46.8,
     "text": "Gái phải đẹp như Tây Thi"
-  },
-  {
-    "time": 45.3,
-    "text": "Bảo là, \"Em xinh quá đi\" (Quá ngon)"
-  },
-  {
-    "time": 47,
-    "text": "\"Wanna be my lady?\" (Húp luôn)"
   },
   {
     "time": 48.5,
-    "text": "Có thể gọi anh là bố (Bố)"
-  },
-  {
-    "time": 50,
-    "text": "Hoặc gọi anh là baby (Baby)"
-  },
-  {
-    "time": 51.5,
-    "text": "Mấy thằng ngoài kia ý kiến cái con cặc (Làm sao?)"
-  },
-  {
-    "time": 53.6,
-    "text": "Fuck you, pay me"
-  },
-  {
-    "time": 56.3,
-    "text": "Bố mày đéo gang, bố mày đéo gang, bố mày đéo gang, đéo phải gang, gang (Pam-pam)"
-  },
-  {
-    "time": 59,
-    "text": "Phong cách người chơi là chất chơi người dơi, chúng nó bảo tao là vamp, vamp (Vamp, vamp)"
-  },
-  {
-    "time": 61.8,
-    "text": "Bắt được con vợ ở Hàng Chiếu xong tao bảo nó làm điếu bởi thấy nó có vẻ quen quen"
-  },
-  {
-    "time": 64.8,
-    "text": "Nếu mà không phải thì thôi nhớ, dạo này (Sao đấy?), mắt anh hơi bị lem nhem (Uh)"
-  },
-  {
-    "time": 67.7,
-    "text": "Không thể hiểu rõ được nhân tình thế thái, đôi khi vạch dái vào chân mình cứ thế đái (Mát quá)"
-  },
-  {
-    "time": 70.9,
-    "text": "Chúng nó muốn có chỗ đứng còn tao thì mỏi rồi, cho tao tìm cái ghế cái (Tìm đi)"
-  },
-  {
-    "time": 73.9,
-    "text": "Đừng có cap, cap, cap, cap, cap, bố mày đéo tin, đéo phải loại dễ dãi"
-  },
-  {
-    "time": 76.5,
-    "text": "Thôi tao đi về đây, trông tao bễ vãi, nếu là công việc, thôi cứ để mai"
-  },
-  {
-    "time": 80.2,
-    "text": "Khi tao pull up, pull up (Pull up)"
-  },
-  {
-    "time": 81.9,
-    "text": "Gái phải đẹp như Tây Thi"
-  },
-  {
-    "time": 83.4,
     "text": "Bảo là, \"Em xinh quá đi\" (Quá ngon)"
   },
   {
-    "time": 85,
-    "text": "\"Wanna be my lady?\""
+    "time": 50.3,
+    "text": "\"Wanna be my lady?\" (Húp luôn)"
   },
   {
-    "time": 86.5,
+    "time": 51.9,
     "text": "Có thể gọi anh là bố (Bố)"
   },
   {
-    "time": 88,
+    "time": 53.6,
     "text": "Hoặc gọi anh là baby (Baby)"
   },
   {
-    "time": 89.5,
+    "time": 55.3,
     "text": "Mấy thằng ngoài kia ý kiến cái con cặc (Làm sao?)"
   },
   {
-    "time": 91.6,
+    "time": 57.5,
     "text": "Fuck you, pay me"
   },
   {
-    "time": 94.5,
+    "time": 60.3,
+    "text": "Bố mày đéo gang, bố mày đéo gang, bố mày đéo gang, đéo phải gang, gang (Pam-pam)"
+  },
+  {
+    "time": 63.3,
+    "text": "Phong cách người chơi là chất chơi người dơi, chúng nó bảo tao là vamp, vamp (Vamp, vamp)"
+  },
+  {
+    "time": 66.4,
+    "text": "Bắt được con vợ ở Hàng Chiếu xong tao bảo nó làm điếu bởi thấy nó có vẻ quen quen"
+  },
+  {
+    "time": 69.8,
+    "text": "Nếu mà không phải thì thôi nhớ, dạo này (Sao đấy?), mắt anh hơi bị lem nhem (Uh)"
+  },
+  {
+    "time": 72.9,
+    "text": "Không thể hiểu rõ được nhân tình thế thái, đôi khi vạch dái vào chân mình cứ thế đái (Mát quá)"
+  },
+  {
+    "time": 76.5,
+    "text": "Chúng nó muốn có chỗ đứng còn tao thì mỏi rồi, cho tao tìm cái ghế cái (Tìm đi)"
+  },
+  {
+    "time": 79.9,
+    "text": "Đừng có cap, cap, cap, cap, cap, bố mày đéo tin, đéo phải loại dễ dãi"
+  },
+  {
+    "time": 82.6,
+    "text": "Thôi tao đi về đây, trông tao bễ vãi, nếu là công việc, thôi cứ để mai"
+  },
+  {
+    "time": 86.8,
+    "text": "Khi tao pull up, pull up (Pull up)"
+  },
+  {
+    "time": 88.6,
+    "text": "Gái phải đẹp như Tây Thi"
+  },
+  {
+    "time": 90.3,
+    "text": "Bảo là, \"Em xinh quá đi\" (Quá ngon)"
+  },
+  {
+    "time": 92.1,
+    "text": "\"Wanna be my lady?\""
+  },
+  {
+    "time": 93.7,
+    "text": "Có thể gọi anh là bố (Bố)"
+  },
+  {
+    "time": 95.4,
+    "text": "Hoặc gọi anh là baby (Baby)"
+  },
+  {
+    "time": 97.1,
+    "text": "Mấy thằng ngoài kia ý kiến cái con cặc (Làm sao?)"
+  },
+  {
+    "time": 99.3,
+    "text": "Fuck you, pay me"
+  },
+  {
+    "time": 101.1,
     "text": "Hay là như này nhở?"
   }
 ]

@@ -31,27 +31,27 @@ export const track16Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 7.8,
+    "time": 7.7,
     "text": "(MCK, MCK, MCK)"
   },
   {
-    "time": 9.4,
+    "time": 9.2,
     "text": "Đứng ở dưới thì nhảy mạnh lên"
   },
   {
-    "time": 10.7,
+    "time": 10.5,
     "text": "Ai sợ thì đi về"
   },
   {
-    "time": 12,
+    "time": 11.9,
     "text": "Dân mạng vô cùng bức xúc trước lời chia sẻ của MC-mạng vô-dân mạng vô-vô cùng-vô cùng bức"
   },
   {
-    "time": 15.4,
+    "time": 15.3,
     "text": "Thậm chí, thái độ bị cho là đang thách thức khán-thậm chí-thậm chí-đang-thậm chí (Tin tức, MCK vấp phải nhiều lời chỉ trích-của khán-của [?] đang dành cho nam rapper [?])"
   },
   {
-    "time": 21.3,
+    "time": 21.2,
     "text": "(Đề cập, Phát Thanh Truyền Hình cũng đã đề cập-đề cập-đề cập)"
   },
   {
@@ -63,19 +63,19 @@ export const track16Lyrics: TrackLyrics = {
     "text": "Phát ngôn, hành động của [?]"
   },
   {
-    "time": 26.6,
+    "time": 26.5,
     "text": "K vẫn-K vẫn-K vẫn bị-vẫn bị"
   },
   {
-    "time": 27.9,
+    "time": 27.8,
     "text": "[?] ngông trên sân khấu"
   },
   {
-    "time": 29.3,
+    "time": 29.2,
     "text": "Bị tố-sân khấu-sân khấu-bị tố"
   },
   {
-    "time": 30.6,
+    "time": 30.5,
     "text": "Tự dưng nhiều view thế nhở"
   },
   {
@@ -83,7 +83,7 @@ export const track16Lyrics: TrackLyrics = {
     "text": "Nổi tiếng-nổi tiếng-nhiều vi-nhiều"
   },
   {
-    "time": 33.3,
+    "time": 33.2,
     "text": "Nhiều view-view"
   },
   {
@@ -91,7 +91,7 @@ export const track16Lyrics: TrackLyrics = {
     "text": "That's my mo'fucking ninja, MCK, man"
   },
   {
-    "time": 36.1,
+    "time": 36,
     "text": "Top một trending, và được chương trình giải trí với công chúng với- (Địt mẹ nó flow đỉnh vãi lồn)"
   },
   {
@@ -103,7 +103,7 @@ export const track16Lyrics: TrackLyrics = {
     "text": "[?] M-M-M"
   },
   {
-    "time": 42.7,
+    "time": 42.6,
     "text": "Rapper \"Ai sợ thì đi về\" [?]"
   },
   {

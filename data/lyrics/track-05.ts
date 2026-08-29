@@ -84,19 +84,19 @@ export const track05Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 15,
+    "time": 14.5,
     "text": "Way to go, girl"
   },
   {
-    "time": 16.5,
+    "time": 16.1,
     "text": "Way to go, go, go, go"
   },
   {
-    "time": 18,
+    "time": 17.7,
     "text": "Baby, baby, baby"
   },
   {
-    "time": 19.5,
+    "time": 19.3,
     "text": "Way to go, girl"
   },
   {
@@ -108,235 +108,235 @@ export const track05Lyrics: TrackLyrics = {
     "text": "Em ở đâu?"
   },
   {
-    "time": 25.5,
+    "time": 25.6,
     "text": "Hỏa tinh của anh là Xà Phu nên em mà hư là anh đem vào show"
   },
   {
-    "time": 28.5,
+    "time": 28.9,
     "text": "Nghe bảo gu của em là sang, hoặc là trên người anh, hoặc là lên hàng đầu"
   },
   {
-    "time": 31.8,
+    "time": 32.5,
     "text": "VIP thì đông và xa, không thể thấy được em thì cũng chỉ thế mà thôi"
   },
   {
-    "time": 35,
+    "time": 36,
     "text": "Backstage hôn nhau tê cả môi, xin luôn con yêu zai Hà Nội"
   },
   {
-    "time": 37.6,
+    "time": 38.8,
     "text": "Oh my, anh chàng này là ai mà lời đường mật này cứ rót tai là trôi"
   },
   {
-    "time": 40.9,
+    "time": 42.4,
     "text": "Anh thích tỏ ra không quan tâm để ta như nam châm ta sẽ hút nhau cả đời"
   },
   {
-    "time": 44.2,
+    "time": 46.2,
     "text": "Em là gu của anh, anh là gu của em, hai con át chung một đôi"
   },
   {
-    "time": 47.4,
+    "time": 49.6,
     "text": "Tay chạm tay, môi chạm môi, designers on you"
   },
   {
-    "time": 50.6,
+    "time": 53.1,
     "text": "Sáng, rất thích quậy ở một nhà hàng hạng sang"
   },
   {
-    "time": 53.1,
+    "time": 55.7,
     "text": "Những hoài niệm của em em coi là vàng"
   },
   {
-    "time": 55.2,
+    "time": 57.9,
     "text": "Bởi vì mình biết giá trị của mình rồi chẳng cần chứng minh"
   },
   {
-    "time": 58.2,
+    "time": 61.1,
     "text": "Nhưng mà anh sẽ thích khi em động tay vào làm"
   },
   {
-    "time": 60.7,
+    "time": 63.9,
     "text": "Anh yêu tâm hồn nên anh sẽ chẳng thấy chán"
   },
   {
-    "time": 63.1,
+    "time": 66.4,
     "text": "Nhan sắc cũng sẽ tàn phai màu thời gian"
   },
   {
-    "time": 65.2,
+    "time": 68.6,
     "text": "Rực cháy hết cả tuổi xuân cho đời bàn tán"
   },
   {
-    "time": 67.5,
+    "time": 71.1,
     "text": "Em muốn cái gì em cứ hỏi, anh sẽ làm"
   },
   {
-    "time": 71.3,
+    "time": 75.1,
     "text": "Baby, baby, baby (Mwoah)"
   },
   {
-    "time": 72.9,
+    "time": 76.7,
     "text": "Em yêu mau tới đây đi"
   },
   {
-    "time": 74.2,
+    "time": 78.2,
     "text": "Chạng vạng chiều hoàng hôn anh siêu nhớ em luôn"
   },
   {
-    "time": 76.1,
+    "time": 80.2,
     "text": "Mụ mị bủa vây xung quanh tâm trí anh lạc đường"
   },
   {
-    "time": 78.1,
+    "time": 82.5,
     "text": "Anh cần nghe giọng em mà"
   },
   {
-    "time": 79.4,
+    "time": 84,
     "text": "Baby, baby, baby"
   },
   {
-    "time": 80.9,
+    "time": 85.6,
     "text": "Anh yêu em, tới đây đi"
   },
   {
-    "time": 82.4,
+    "time": 87.2,
     "text": "I'll be your twin flame, your therapist"
   },
   {
-    "time": 83.9,
+    "time": 88.8,
     "text": "Con tim này cuồng si em như thế là vì"
   },
   {
-    "time": 85.8,
+    "time": 90.8,
     "text": "'Em designers on you"
   },
   {
-    "time": 88.4,
+    "time": 93.8,
     "text": "Sáng, rất thích quậy ở một nhà hàng hạng sang"
   },
   {
-    "time": 90.9,
+    "time": 96.4,
     "text": "Những hoài niệm của em, em coi là vàng"
   },
   {
-    "time": 93.2,
+    "time": 98.8,
     "text": "Bởi vì mình biết giá trị của mình rồi chẳng cần chứng minh"
   },
   {
-    "time": 96.2,
+    "time": 102.1,
     "text": "Nhưng mà anh sẽ thích khi em động tay vào làm"
   },
   {
-    "time": 98.8,
+    "time": 104.8,
     "text": "Anh yêu tâm hồn nên anh sẽ chẳng thấy chán"
   },
   {
-    "time": 101.1,
+    "time": 107.3,
     "text": "Nhan sắc cũng sẽ tàn phai màu thời gian"
   },
   {
-    "time": 103.2,
+    "time": 109.6,
     "text": "Rực cháy hết cả tuổi xuân cho đời bàn tán"
   },
   {
-    "time": 105.6,
+    "time": 112,
     "text": "Em muốn cái gì em cứ hỏi, anh sẽ làm"
   },
   {
-    "time": 108,
+    "time": 114.7,
     "text": "Baby, baby, baby"
   },
   {
-    "time": 110.1,
+    "time": 116.9,
     "text": "Way to go, girl"
   },
   {
-    "time": 112.1,
+    "time": 119.1,
     "text": "Way to go, go, go, go"
   },
   {
-    "time": 115.5,
+    "time": 122.6,
     "text": "Váy vóc với cả tóc tai, tóc tai"
   },
   {
-    "time": 117.2,
+    "time": 124.4,
     "text": "Vừa gai góc lại vừa thướt tha, thướt tha"
   },
   {
-    "time": 119,
+    "time": 126.4,
     "text": "Anh há hốc mồm khi em lướt qua, lướt qua"
   },
   {
-    "time": 121,
+    "time": 128.6,
     "text": "Gần rồi thì khó xa, baby biết mà"
   },
   {
-    "time": 122.7,
+    "time": 130.4,
     "text": "Nếu anh muốn cứ xé ra, anh cứ tàn phá"
   },
   {
-    "time": 124.7,
+    "time": 132.6,
     "text": "Em đang muốn được gào thét, muốn được tan ra"
   },
   {
-    "time": 126.7,
+    "time": 134.8,
     "text": "Anh hãy là nguồn cảm hứng cho từng câu ca"
   },
   {
-    "time": 128.6,
+    "time": 136.8,
     "text": "Và em là người ca sĩ hát, ah, ah, ah, ah"
   },
   {
-    "time": 130.8,
+    "time": 139.3,
     "text": "Baby hãy yêu em, yêu em thật điên cuồng"
   },
   {
-    "time": 132.7,
+    "time": 141.2,
     "text": "Như hai kẻ thù nằm chung giường"
   },
   {
-    "time": 134,
+    "time": 142.7,
     "text": "Khiến em muốn đâm đầu vô tường"
   },
   {
-    "time": 135.3,
+    "time": 144.2,
     "text": "Và nếu biết mai đây sẽ có lời từ khước"
   },
   {
-    "time": 137.2,
+    "time": 146.2,
     "text": "Hãy yêu như thể chúng ta là một điều ước"
   },
   {
-    "time": 139.1,
+    "time": 148.3,
     "text": "Anh phải rất muốn em thì anh mới có thể làm được, mm"
   },
   {
-    "time": 141.7,
+    "time": 151.1,
     "text": "Anh phải rất muốn em như cái cách em muốn anh, baby"
   },
   {
-    "time": 145.7,
+    "time": 153.7,
     "text": "Yeah, I like that, yeah"
   },
   {
-    "time": 147.3,
+    "time": 155.3,
     "text": "Như cái cách em muốn anh, baby"
   },
   {
-    "time": 149,
+    "time": 156.9,
     "text": "Em muốn gì em sẽ hỏi và anh cứ làm"
   },
   {
-    "time": 151,
+    "time": 159,
     "text": "Hai con át chung một đôi, um-hm"
   },
   {
-    "time": 152.6,
+    "time": 160.6,
     "text": "Tay chạm tay, môi chạm môi, yeah, oh-oh-oh"
   },
   {
-    "time": 154.4,
+    "time": 162.4,
     "text": "Baby, baby"
   }
 ]

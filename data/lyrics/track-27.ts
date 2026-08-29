@@ -48,123 +48,123 @@ export const track27Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 15.2,
+    "time": 15.4,
     "text": "Tao chỉ muốn được rong chơi, không còn cô đơn, vì đường tao đi rất xa"
   },
   {
-    "time": 20.4,
+    "time": 20.7,
     "text": "Không muốn làm vì sao rơi, chỉ muốn ngắm nhìn, chỉ muốn look from afar"
   },
   {
-    "time": 25.1,
+    "time": 25.7,
     "text": "Tao chỉ muốn người tao yêu, là cười tươi lên, dù đôi khi rất đau"
   },
   {
-    "time": 29.9,
+    "time": 30.7,
     "text": "We’re gonna do it again and again and again như là chưa từng mất nhau"
   },
   {
-    "time": 36.2,
+    "time": 37.3,
     "text": "Chỉ là vài chuyện buồn, làm mình muộn phiền"
   },
   {
-    "time": 38.6,
+    "time": 39.9,
     "text": "Làm mình quên đi bao nhiêu yêu thương đã nói từ ngày đầu"
   },
   {
-    "time": 41.8,
+    "time": 43.3,
     "text": "Tao không còn ngây thơ, nụ cười tươi trên môi bao lâu nay nó biến mất rồi còn đâu"
   },
   {
-    "time": 46.6,
+    "time": 48.5,
     "text": "Đôi khi muốn chìm vào, một nụ hôn của yêu thương si mê, say đắm, ngọt ngào"
   },
   {
-    "time": 51,
+    "time": 53.3,
     "text": "Sao tao không thể, sao tao không hiểu đâu mới là điều mà mình thật sự khát khao"
   },
   {
-    "time": 55.6,
+    "time": 58.2,
     "text": "Với tay lên trời tao muốn thoát ra khỏi đây"
   },
   {
-    "time": 58,
+    "time": 60.8,
     "text": "Từng nhịp từng nhịp như tan trong lòng bàn tay"
   },
   {
-    "time": 60.4,
+    "time": 63.5,
     "text": "Bao nhiêu yêu thương đong cho con tim tràn đầy?"
   },
   {
-    "time": 63.3,
+    "time": 66.5,
     "text": "Kệ mẹ muộn phiền ở dưới những đám mây"
   },
   {
-    "time": 65.5,
+    "time": 68.9,
     "text": "Vui đi men, sau chỉ còn lại những câu chuyện hài kỉ niệm và vài cọc polymer"
   },
   {
-    "time": 69.8,
+    "time": 73.6,
     "text": "Khi tao cô đơn tao buồn tao biết tao phải tìm đến chỗ chúng mày phàn nàn"
   },
   {
-    "time": 74,
+    "time": 78.2,
     "text": "Quá khứ và những tổn thương đã cùng tao xây những bức tường bằng vàng"
   },
   {
-    "time": 77.7,
+    "time": 82.1,
     "text": "Cám ơn những thằng bạn chó vẫn ngồi cùng tao những buổi chiều chạng vạng"
   },
   {
-    "time": 86.5,
+    "time": 91.8,
     "text": "Không cần lo cho tao, ah-ah"
   },
   {
-    "time": 88.4,
+    "time": 93.9,
     "text": "Không cần lo cho tao, ah"
   },
   {
-    "time": 90.4,
+    "time": 96,
     "text": "Không cần lo cho tao, yah"
   },
   {
-    "time": 94.1,
+    "time": 99.9,
     "text": "Tao chỉ muốn được rong chơi, không còn cô đơn, vì đường tao đi rất xa"
   },
   {
-    "time": 99.2,
+    "time": 105.2,
     "text": "Không muốn làm vì sao rơi, muốn ngắm nhìn, chỉ muốn look from afar"
   },
   {
-    "time": 103.6,
+    "time": 110,
     "text": "Tao chỉ muốn người tao yêu, cười tươi lên, dù đôi khi rất đau"
   },
   {
-    "time": 108.2,
+    "time": 114.6,
     "text": "We’re gonna do it again and again and again như là chưa từng mất nhau"
   },
   {
-    "time": 125.3,
+    "time": 132.7,
     "text": "Chỉ là vài chuyện buồn, làm mình muộn phiền"
   },
   {
-    "time": 127.9,
+    "time": 135.8,
     "text": "Làm mình quên đi bao nhiêu yêu thương đã nói từ ngày đầu"
   },
   {
-    "time": 131.3,
+    "time": 140,
     "text": "Tao vẫn còn ngây thơ, nụ cười tươi trên môi bao lâu nay nó không mất đi được đâu"
   },
   {
-    "time": 136.4,
+    "time": 146.3,
     "text": "Tao rất muốn chìm vào, một nụ hôn của yêu thương si mê, say đắm, ngọt ngào"
   },
   {
-    "time": 141.1,
+    "time": 151.9,
     "text": "Tao đã có thể, do tao đã hiểu"
   },
   {
-    "time": 143.4,
+    "time": 154.7,
     "text": "Đâu mới là điều mà mình thật sự khát khao"
   }
 ]

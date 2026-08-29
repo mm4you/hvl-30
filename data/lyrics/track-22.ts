@@ -90,259 +90,259 @@ export const track22Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 17.4,
+    "time": 17.9,
     "text": "Bố mày đánh mày bằng thước"
   },
   {
-    "time": 18.8,
+    "time": 19.5,
     "text": "Cho mày bắn ra đằng trước"
   },
   {
-    "time": 20.2,
+    "time": 21.2,
     "text": "Cái việc bố mày nhầm bước"
   },
   {
-    "time": 21.7,
+    "time": 22.8,
     "text": "Có phải là cái điều mày thầm ước?"
   },
   {
-    "time": 23.6,
+    "time": 24.9,
     "text": "Mấy chị em này nầm ướt"
   },
   {
-    "time": 25,
+    "time": 26.5,
     "text": "Còn tao như đang cần nước (Shh)"
   },
   {
-    "time": 26.5,
+    "time": 28.1,
     "text": "Nếu mà lỡ có mùi của tao"
   },
   {
-    "time": 27.9,
+    "time": 29.7,
     "text": "Xin lỗi, bố mày nhầm suốt, chyuh"
   },
   {
-    "time": 29.5,
+    "time": 31.5,
     "text": "Fuck 'em, fuck 'em, fuck 'em (Khoan, khoan, khoan)"
   },
   {
-    "time": 31.6,
+    "time": 33.8,
     "text": "Không bao giờ rung khi mà va chạm (Không bao giờ)"
   },
   {
-    "time": 33.7,
+    "time": 36.2,
     "text": "Tớ không bao giờ thích là làm việc qua mạng (Uh, uh)"
   },
   {
-    "time": 36.4,
+    "time": 39.1,
     "text": "E và Bò Húc trộn vào pha tạm ([?])"
   },
   {
-    "time": 38.1,
+    "time": 41.1,
     "text": "Tình bạn này là không cần gia hạn (Bất tử)"
   },
   {
-    "time": 40.2,
+    "time": 43.4,
     "text": "Bạn ơi, ở đâu đấy? Cho tớ qua tạm ([?])"
   },
   {
-    "time": 42.3,
+    "time": 45.8,
     "text": "Tớ có khẩu súng, bắn là ra đạn (Bắn phát một)"
   },
   {
-    "time": 44.7,
+    "time": 48.5,
     "text": "Bạn cũng lắt léo đấy, bạn cũng đa dạng (Quá hay, có lời khen, có lời khen), tớ hiểu (Shh) ([?])"
   },
   {
-    "time": 49.1,
+    "time": 53.5,
     "text": "Mặt là dân chơi nhưng mà rất là si tình (Quá là phiền)"
   },
   {
-    "time": 51.7,
+    "time": 56.4,
     "text": "Không thể đú được đâu, bạn chỉ có thể ghi hình (Chụp lại)"
   },
   {
-    "time": 54.5,
+    "time": 59.5,
     "text": "Alo, thực ra để là câu chuyện này tớ đéo phân tích cái kiểu có thứ không đâu vào đâu"
   },
   {
-    "time": 58.7,
+    "time": 64.2,
     "text": "Nhá? Nhớ chưa con chó?"
   },
   {
-    "time": 60.5,
+    "time": 66.2,
     "text": "Yeah, yeah"
   },
   {
-    "time": 63.5,
+    "time": 69.4,
     "text": "(Tùng ơi)"
   },
   {
-    "time": 64.9,
+    "time": 71,
     "text": "(Trai tráng Đại Trượng Fu)"
   },
   {
-    "time": 66.4,
+    "time": 72.6,
     "text": "Đụ má Fuji (Hah), (Fuck) đụ má Fuji (Fuji), (Fuck) đụ má Fuji (Tùng ơi)"
   },
   {
-    "time": 69.6,
+    "time": 76.2,
     "text": "Tao gọi cái này lit, lit, lit, lit, lit, lit"
   },
   {
-    "time": 71.8,
+    "time": 78.6,
     "text": "Huh"
   },
   {
-    "time": 74.6,
+    "time": 81.9,
     "text": "Như là những tên cowboy (Những tên cowboy), cách tao rong chơi (Long Vũ Hoàng)"
   },
   {
-    "time": 78.6,
+    "time": 86.2,
     "text": "Rút súng bóp cò (Click, clack), ngắm lên sao trời (Grrah, chết luôn)"
   },
   {
-    "time": 82,
+    "time": 89.9,
     "text": "Rockstar lifestyle (Rockstar life), Chapman No.4 (Rockstar life)"
   },
   {
-    "time": 84.2,
+    "time": 92.3,
     "text": "I can’t do no wrong (Hah), chất nhất trên đời, họ biết tên tao rồi (Aaargh)"
   },
   {
-    "time": 89.8,
+    "time": 98.3,
     "text": "Fashion rapper? Họ mặc so lame (Lame shit), Tùng Dương anh tao mặc Balmain (Bố mày chứ ai?)"
   },
   {
-    "time": 93.6,
+    "time": 102.6,
     "text": "Fuck a bitch with a Rick fit on Santa Fe được gọi là thâu đêm, huh"
   },
   {
-    "time": 97,
+    "time": 106.3,
     "text": "Huh? \"Một người như em\", Adele (Adele)"
   },
   {
-    "time": 98.6,
+    "time": 108.1,
     "text": "\"Yêu em anh nhé?\", Adele (Long)"
   },
   {
-    "time": 100.2,
+    "time": 109.9,
     "text": "I got that liêm shit from my old man (Quá được)"
   },
   {
-    "time": 102.4,
+    "time": 112.4,
     "text": "Chúng mày to được bằng móng chân nhưng mà thích call out (Hah, không thể)"
   },
   {
-    "time": 105.7,
+    "time": 116,
     "text": "Tao đốt Mơ Màng cháy luôn, tất cả vé sold out (Chyuh)"
   },
   {
-    "time": 108.2,
+    "time": 118.9,
     "text": "Huh, tao được bảo hộ ở trên cao, sáu cánh ngôi sao (Long)"
   },
   {
-    "time": 111,
+    "time": 121.9,
     "text": "Anh nhớ đã xôm như nào, cố mà bu khi my dick fall out (Huh)"
   },
   {
-    "time": 115.6,
+    "time": 127.1,
     "text": "Như là những tên cowboy (Những tên cowboy), cách tao rong chơi (Long Vũ Hoàng)"
   },
   {
-    "time": 119.6,
+    "time": 131.4,
     "text": "Rút súng bóp cò (Click, clack), ngắm lên sao trời (Grrah, chết luôn)"
   },
   {
-    "time": 123,
+    "time": 135.1,
     "text": "Rockstar lifestyle (Rockstar life), Chapman No.4 (Rockstar life)"
   },
   {
-    "time": 125.2,
+    "time": 137.6,
     "text": "(Vãi chất) I can’t do no wrong (Hah), chất nhất trên đời, họ biết tên tao rồi"
   },
   {
-    "time": 131.1,
+    "time": 143.9,
     "text": "Hmm, ai biết?"
   },
   {
-    "time": 133,
+    "time": 146,
     "text": "Không thể control, sai khiến"
   },
   {
-    "time": 134.7,
+    "time": 147.8,
     "text": "Crippled flow tai mày tai biến"
   },
   {
-    "time": 136.1,
+    "time": 149.4,
     "text": "MCK như là một cây kiếm"
   },
   {
-    "time": 137.5,
+    "time": 151,
     "text": "Ngông và tham vọng, tao không than phiền"
   },
   {
-    "time": 139.3,
+    "time": 153,
     "text": "Trăm phần trăm là trăm phần trăm, yeah"
   },
   {
-    "time": 141.1,
+    "time": 155,
     "text": "MCK như một cái khiên"
   },
   {
-    "time": 142.5,
+    "time": 156.6,
     "text": "Người đến rồi đi, tao không tiếc, hmm"
   },
   {
-    "time": 144.3,
+    "time": 158.5,
     "text": "Chất vãi lồn rồi mà đôi khi vẫn bị insecure? Thế mới đau"
   },
   {
-    "time": 146.9,
+    "time": 161.5,
     "text": "Chúng nó rời đi vì rắn và rồng thì không thể nào cùng sống với nhau"
   },
   {
-    "time": 150.2,
+    "time": 165.2,
     "text": "Máu mày có chảy thì hãy nhớ đến tao vì tao sẽ đến lau, hah"
   },
   {
-    "time": 154.7,
+    "time": 170.4,
     "text": "Như là những tên cowboy (Những tên cowboy), cách tao rong chơi (Long Vũ Hoàng)"
   },
   {
-    "time": 158.7,
+    "time": 174.6,
     "text": "Rút súng bóp cò (Click, clack), ngắm lên sao trời (Grrah, chết luôn)"
   },
   {
-    "time": 162.1,
+    "time": 178.4,
     "text": "Rockstar lifestyle (Rockstar life), Chapman No.4 (Rockstar life)"
   },
   {
-    "time": 164.3,
+    "time": 180.8,
     "text": "I can’t do no wrong (Hah), chất nhất trên đời, họ biết tên tao rồi"
   },
   {
-    "time": 170.1,
+    "time": 185.1,
     "text": "(Hah) Những tên cowboy (Hah)"
   },
   {
-    "time": 171.7,
+    "time": 187.4,
     "text": "Long Vũ Hoàng (Trai tráng Đại Trượng Fu)"
   },
   {
-    "time": 173.4,
+    "time": 189.6,
     "text": "(Click, clack), (Fuji) Grrah, chết luôn"
   },
   {
-    "time": 175.1,
+    "time": 192.1,
     "text": "Long rockstar life"
   },
   {
-    "time": 176.7,
+    "time": 194.3,
     "text": "Long rockstar life (Vãi chất)"
   },
   {
-    "time": 178.2,
+    "time": 196.6,
     "text": "Hah, aaargh"
   }
 ]
