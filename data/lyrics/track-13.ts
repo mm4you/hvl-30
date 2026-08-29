@@ -76,211 +76,211 @@ export const track13Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 21.8,
+    "time": 15.2,
     "text": "Vẫn luôn là anh bây giờ, muốn nói với em sau này"
   },
   {
-    "time": 25.4,
+    "time": 18.5,
     "text": "Dẫu có dối gian, em đừng trách than mùa đông đã làm ta tan vỡ"
   },
   {
-    "time": 29.8,
+    "time": 22.5,
     "text": "Vẫn luôn là anh nói câu giã từ muộn màng"
   },
   {
-    "time": 32.6,
+    "time": 25.1,
     "text": "Lòng giá băng, anh nhìn lại, tình đã xa"
   },
   {
-    "time": 35.3,
+    "time": 27.6,
     "text": "Và thật ra anh nhớ em sau đêm hôm qua vì anh tin lời yêu đó mà"
   },
   {
-    "time": 40,
+    "time": 32,
     "text": "Làm ơn đừng cho nỗi buồn tìm anh thêm một lần nào nữa"
   },
   {
-    "time": 43.7,
+    "time": 35.4,
     "text": "Nếu như ta chẳng còn quấn lấy nhau vì tình yêu làm cho ta héo mòn"
   },
   {
-    "time": 48.2,
+    "time": 39.6,
     "text": "Hẹn ước khi xưa không thành thì trách ai bây giờ?"
   },
   {
-    "time": 53.6,
+    "time": 44.2,
     "text": "Nếu mai sau này nhớ đến nhau, quay về giây phút đầu"
   },
   {
-    "time": 57.9,
+    "time": 48.2,
     "text": "Hãy nói với anh \"Ở bên nhau, đừng rời xa nữa\""
   },
   {
-    "time": 61.9,
+    "time": 51.9,
     "text": "Nếu em vô tình nhớ đến anh, đừng hát về anh"
   },
   {
-    "time": 65.8,
+    "time": 55.6,
     "text": "Coi anh như câu ca buồn trong giấc mơ thôi"
   },
   {
-    "time": 85,
+    "time": 70,
     "text": "Lá đã thay màu, sao vẫn không thôi mong đợi?"
   },
   {
-    "time": 88.4,
+    "time": 73,
     "text": "Vẫn luôn là anh, vẫn đi tìm em ở trong quá khứ"
   },
   {
-    "time": 92,
+    "time": 76.3,
     "text": "Đi tìm lại giấc mơ đã trao trong buổi chiều nát tan"
   },
   {
-    "time": 95.3,
+    "time": 79.4,
     "text": "Khi em đi, anh biết giấc mơ sẽ không ở lại"
   },
   {
-    "time": 98.6,
+    "time": 82.4,
     "text": "Chiều mưa vắng, thoáng bóng hình ở trên phố quen thuộc như ngày nào"
   },
   {
-    "time": 102.7,
+    "time": 86.2,
     "text": "Có khi nào ta lại được nhìn thấy nhau?"
   },
   {
-    "time": 107.6,
+    "time": 90.3,
     "text": "Nếu mai sau này nhớ đến nhau, quay về giây phút đầu"
   },
   {
-    "time": 111.9,
+    "time": 94.3,
     "text": "Hãy nói với anh \"Ở bên nhau, đừng rời xa nữa\""
   },
   {
-    "time": 115.9,
+    "time": 98,
     "text": "Nếu em vô tình nhớ đến anh, đừng hát về anh"
   },
   {
-    "time": 119.8,
+    "time": 101.7,
     "text": "Coi anh như câu ca buồn trong giấc mơ thôi"
   },
   {
-    "time": 143.2,
+    "time": 118.9,
     "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
   },
   {
-    "time": 146.2,
+    "time": 121.6,
     "text": "Coi anh như câu ca buồn"
   },
   {
-    "time": 149,
+    "time": 124.2,
     "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
   },
   {
-    "time": 152,
+    "time": 127,
     "text": "Coi anh như câu ca buồn"
   },
   {
-    "time": 154.8,
+    "time": 129.6,
     "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
   },
   {
-    "time": 157.8,
+    "time": 132.3,
     "text": "Coi anh như câu ca buồn"
   },
   {
-    "time": 160.6,
+    "time": 134.9,
     "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
   },
   {
-    "time": 163.6,
+    "time": 137.7,
     "text": "Coi anh như câu ca buồn"
   },
   {
-    "time": 166.4,
+    "time": 140.3,
     "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
   },
   {
-    "time": 169.4,
+    "time": 143,
     "text": "Coi anh như câu ca buồn"
+  },
+  {
+    "time": 145.6,
+    "text": "Trong giấc mơ thôi"
+  },
+  {
+    "time": 148.2,
+    "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
+  },
+  {
+    "time": 151,
+    "text": "Coi anh như câu ca buồn"
+  },
+  {
+    "time": 153.6,
+    "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
+  },
+  {
+    "time": 156.3,
+    "text": "Coi anh như câu ca buồn"
+  },
+  {
+    "time": 158.9,
+    "text": "Trong giấc mơ thôi"
+  },
+  {
+    "time": 161.5,
+    "text": "Coi anh như câu ca buồn"
+  },
+  {
+    "time": 164.1,
+    "text": "Trong giấc mơ thôi"
+  },
+  {
+    "time": 168.2,
+    "text": "Nếu mai sau này nhớ đến nhau, quay về giây phút đầu"
   },
   {
     "time": 172.2,
-    "text": "Trong giấc mơ thôi"
-  },
-  {
-    "time": 175,
-    "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
-  },
-  {
-    "time": 178,
-    "text": "Coi anh như câu ca buồn"
-  },
-  {
-    "time": 180.8,
-    "text": "Trong giấc mơ thôi, trong giấc mơ thôi"
-  },
-  {
-    "time": 183.8,
-    "text": "Coi anh như câu ca buồn"
-  },
-  {
-    "time": 186.6,
-    "text": "Trong giấc mơ thôi"
-  },
-  {
-    "time": 189.4,
-    "text": "Coi anh như câu ca buồn"
-  },
-  {
-    "time": 192.2,
-    "text": "Trong giấc mơ thôi"
-  },
-  {
-    "time": 197,
-    "text": "Nếu mai sau này nhớ đến nhau, quay về giây phút đầu"
-  },
-  {
-    "time": 201.3,
     "text": "Hãy nói với anh \"Ở bên nhau, đừng rời xa nữa\""
   },
   {
-    "time": 205.2,
+    "time": 175.9,
     "text": "Nếu em vô tình nhớ về anh, đừng hát về anh"
   },
   {
-    "time": 209.2,
+    "time": 179.5,
     "text": "Coi anh như câu ca buồn trong giấc mơ"
   },
   {
-    "time": 212.2,
+    "time": 182.4,
     "text": "Nếu mai sau này nhớ đến nhau, quay về giây phút đầu"
   },
   {
-    "time": 216.5,
+    "time": 186.4,
     "text": "Hãy nói với anh \"Ở bên nhau, đừng rời xa nữa\""
   },
   {
-    "time": 220.4,
+    "time": 190.1,
     "text": "Nếu em vô tình nhớ về anh, đừng hát về anh"
   },
   {
-    "time": 224.4,
+    "time": 193.8,
     "text": "Coi anh như câu ca buồn trong giấc mơ thôi"
   },
   {
-    "time": 227.8,
+    "time": 197,
     "text": "Sẽ có một ngày những nỗi đau không còn như lúc đầu (Không còn anh và em ngày trước)"
   },
   {
-    "time": 234.2,
+    "time": 203,
     "text": "Thôi không mong đợi và sẽ không tìm về anh nữa"
   },
   {
-    "time": 238,
+    "time": 206.6,
     "text": "Nếu đã vô tình nhớ đến em, đừng nói về em"
   },
   {
-    "time": 241.9,
+    "time": 210.2,
     "text": "Xem em như bao người từng bước qua anh thôi"
   }
 ]

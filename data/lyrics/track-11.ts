@@ -48,131 +48,131 @@ export const track11Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 26.5,
+    "time": 15.2,
     "text": "Chỉ là một cái ôm chạm được vào linh hồn, chạm được vào anh, vào em"
   },
   {
-    "time": 30.9,
+    "time": 20.2,
     "text": "Chạm được vào nơi sâu nhất của cảm xúc, bắt những cảm xúc đó trào lên"
   },
   {
-    "time": 35.4,
+    "time": 25,
     "text": "Khi đi qua hết chỉ còn lại kỉ niệm sau bao nhiêu kiếp cũng không thể nào quên"
   },
   {
-    "time": 40.1,
+    "time": 30.4,
     "text": "Chưa bao giờ là có khoảng cách, những đốm sáng của màn đêm"
   },
   {
-    "time": 45.3,
+    "time": 35.8,
     "text": "Anh đã khóc, anh đã khóc rất nhiều, anh căm ghét sự nổi tiếng, không thích mình nổi lên"
   },
   {
-    "time": 50.6,
+    "time": 41.6,
     "text": "Anh đã khóc, anh đã khóc rất nhiều, luôn là khóe mắt trái, anh hy vọng nó đổi bên"
   },
   {
-    "time": 55.7,
+    "time": 47.5,
     "text": "Anh đã khóc, anh đã khóc rất nhiều, anh muốn là vĩnh cửu chứ không phải nhớ rồi quên"
   },
   {
-    "time": 61,
+    "time": 53.3,
     "text": "Anh đã khóc, anh đã khóc thật nhiều, woah"
   },
   {
-    "time": 65,
+    "time": 57.2,
     "text": "Uh, có những thứ anh biết anh nên buông, anh nghĩ mình mạnh mẽ khi chọn giữ lại"
   },
   {
-    "time": 69,
+    "time": 61.7,
     "text": "Đôi khi chỉ là còn yêu, nên mặt anh dày và anh đéo biết đến chữ ngại"
   },
   {
-    "time": 72.9,
+    "time": 65.9,
     "text": "Muốn được một lần làm trẻ con, và có vẻ như thế sẽ khỏe hơn"
   },
   {
-    "time": 76.4,
+    "time": 69.8,
     "text": "Ngu si thì hưởng thái bình, anh nhường cho người khác làm kẻ khôn"
   },
   {
-    "time": 79.6,
+    "time": 73.3,
     "text": "Muốn móc con tim anh ra để treo thưởng, anh bắt buộc phải đi ngược vào trong"
   },
   {
-    "time": 83.4,
+    "time": 77.5,
     "text": "Đứng dưới hàng triệu những đốm sáng, có một cậu bé tên là Nghiêm Vũ Hoàng Long"
   },
   {
-    "time": 87.4,
+    "time": 81.8,
     "text": "Cậu bé này làm cho anh có động lực, làm nốt những thứ cần được làm xong"
   },
   {
-    "time": 91.3,
+    "time": 86.1,
     "text": "Nhưng anh vẫn chưa làm được gì cho nó, và những người muốn có anh ngày càng đông"
   },
   {
-    "time": 95.3,
+    "time": 90.6,
     "text": "Lãng du anh tìm kiếm tình yêu, anh quên mất là nó ở trong anh"
   },
   {
-    "time": 98.8,
+    "time": 94.4,
     "text": "Chạy ở trong từng nốt nhạc, trong đám mây ngày tiết trời trong xanh"
   },
   {
-    "time": 102,
+    "time": 97.8,
     "text": "Ở trong đồng tiền mà anh kiếm, anh đếm nó xong và cảm thấy mình xông xênh"
   },
   {
-    "time": 105.9,
+    "time": 102.1,
     "text": "Anh thấy nó ở trong em, đôi mắt em như mặt hồ long lanh"
   },
   {
-    "time": 109.1,
+    "time": 105.7,
     "text": "Anh đi rồi anh ngã, rồi anh đứng dậy, những niềm đau của anh thôi đành phải cất lại"
   },
   {
-    "time": 113.4,
+    "time": 110.4,
     "text": "Anh đã quen với chiến thắng? Đúng vậy, vì anh yêu giọt nước mắt những lần thất bại"
   },
   {
-    "time": 117.6,
+    "time": 114.9,
     "text": "Anh đi rồi anh ngã, rồi anh đứng dậy, những niềm đau của anh thôi đành phải cất lại"
   },
   {
-    "time": 121.9,
+    "time": 119.6,
     "text": "Anh đã quen với chiến thắng? Đúng vậy, vì anh yêu giọt nước mắt những lần thất bại"
   },
   {
-    "time": 127.5,
+    "time": 125.6,
     "text": "Chỉ là một cái ôm chạm được vào linh hồn, chạm được vào anh, vào em"
   },
   {
-    "time": 132,
+    "time": 130.5,
     "text": "Chạm được vào nơi sâu nhất của cảm xúc, bắt những cảm xúc đó trào lên"
   },
   {
-    "time": 136.4,
+    "time": 135.4,
     "text": "Khi đi qua hết chỉ còn lại kỉ niệm sau bao nhiêu kiếp cũng không thể nào quên"
   },
   {
-    "time": 141.1,
+    "time": 140.8,
     "text": "Chưa bao giờ là có khoảng cách, những đốm sáng của màn đêm"
   },
   {
-    "time": 144.7,
+    "time": 144.8,
     "text": "Chỉ là một cái ôm chạm được vào linh hồn, chạm được vào anh, vào em"
   },
   {
-    "time": 149.2,
+    "time": 149.7,
     "text": "Chạm được vào nơi sâu nhất của cảm xúc, bắt những cảm xúc đó trào lên"
   },
   {
-    "time": 153.6,
+    "time": 154.6,
     "text": "Khi đi qua hết chỉ còn lại kỉ niệm sau bao nhiêu kiếp cũng không thể nào quên"
   },
   {
-    "time": 158.4,
+    "time": 160,
     "text": "Chưa bao giờ là có khoảng cách, những đốm sáng của màn đêm"
   }
 ]

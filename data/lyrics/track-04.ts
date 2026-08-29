@@ -60,179 +60,179 @@ export const track04Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 18.6,
+    "time": 6.2,
     "text": "Có lẽ anh đã vội vàng, yeah"
   },
   {
-    "time": 20.8,
+    "time": 8.2,
     "text": "Khi mà ta chạm vào nhau đan bàn tay trao nhau những ánh mắt"
   },
   {
-    "time": 24.7,
+    "time": 11.8,
     "text": "Chầm chậm lướt lên trên đôi môi nàng, yeah"
   },
   {
-    "time": 27.4,
+    "time": 14.3,
     "text": "Tất cả chỉ là trò chơi tình yêu đến nhanh rồi lại mờ phai thôi"
   },
   {
-    "time": 31.6,
+    "time": 18.2,
     "text": "Eh-eh-eh"
   },
   {
-    "time": 37.2,
+    "time": 22.4,
     "text": "Anh vẫn mong là sẽ dễ dàng"
   },
   {
-    "time": 39.2,
+    "time": 24.2,
     "text": "Nói yêu với em"
   },
   {
-    "time": 41.2,
+    "time": 26,
     "text": "Hay là anh từ chối tất cả"
   },
   {
-    "time": 43.2,
+    "time": 27.8,
     "text": "Để nói yêu mình em"
   },
   {
-    "time": 45.2,
+    "time": 29.6,
     "text": "Quit playin', I ain’t get it (I ain't get it)"
   },
   {
-    "time": 48.2,
+    "time": 32.4,
     "text": "Thế có yêu hay không để anh còn biết nào?"
   },
   {
-    "time": 51.4,
+    "time": 35.3,
     "text": "Giá băng trong con tim là không cần thiết (Chẳng cần thiết)"
   },
   {
-    "time": 54.8,
+    "time": 38.4,
     "text": "Sự cô đơn nó đã theo chân em đến đây (Theo nhịp chân em)"
   },
   {
-    "time": 58.7,
+    "time": 42,
     "text": "Cứ gặp anh ở trong những giấc mơ, những giấc mơ"
   },
   {
-    "time": 62,
+    "time": 45.1,
     "text": "Và nó sẽ đem cho em cảm giác như lần đầu"
   },
   {
-    "time": 65.1,
+    "time": 47.9,
     "text": "Cứ gặp anh ở trong những giấc mơ, những giấc mơ"
   },
   {
-    "time": 68.4,
+    "time": 50.9,
     "text": "Và nó sẽ đem cho em cảm giác như lần đầu"
   },
   {
-    "time": 71.4,
+    "time": 53.8,
     "text": "Bởi vì anh biết yêu thương này không mờ phai (Không bao giờ phai)"
   },
   {
-    "time": 75.4,
+    "time": 57.4,
     "text": "Đừng đẩy anh ra xa và trong phòng em chỉ còn tiếng thở dài"
   },
   {
-    "time": 79.3,
+    "time": 61.1,
     "text": "Nhiều lần anh muốn quên đi em là ai"
   },
   {
-    "time": 81.8,
+    "time": 63.4,
     "text": "Fuck that, I can’t do that nên là anh trở lại"
   },
   {
-    "time": 85.1,
+    "time": 66.4,
     "text": "Người đừng tạo nỗi nhớ, để anh một mình bơ vơ"
   },
   {
-    "time": 88.4,
+    "time": 69.4,
     "text": "Anh chỉ muốn kêu lên là, \"Ối giời ơi\" (Quá đau, oh my god)"
   },
   {
-    "time": 92.5,
+    "time": 73.2,
     "text": "Để anh làm với nàng thế nhớ, để xem là có okay không?"
   },
   {
-    "time": 96.7,
+    "time": 77.1,
     "text": "Baby, em chơi anh như một món đồ chơi"
   },
   {
-    "time": 99.4,
+    "time": 79.5,
     "text": "Hết cách rồi (Bó tay), ten out of ten đấy là feedback"
   },
   {
-    "time": 103,
+    "time": 82.8,
     "text": "Cho bộ mông của em baby let me hit that"
   },
   {
-    "time": 105.8,
+    "time": 85.4,
     "text": "Chỉ cần nói với em vài câu, anh đã thấy bí bách quá đi"
   },
   {
-    "time": 109.9,
+    "time": 89.2,
     "text": "Phòng chỉ toàn là sương thôi nên là quá là mù mờ"
   },
   {
-    "time": 113.3,
+    "time": 92.3,
     "text": "Khói cứ bay ở đâu ra, anh tưởng anh ở Vancouver"
   },
   {
-    "time": 116.6,
+    "time": 95.3,
     "text": "Hút một bi tưởng pod chill, anh lăn quay cu đơ"
   },
   {
-    "time": 119.8,
+    "time": 98.3,
     "text": "Có lẽ ở cạnh bên em, nên là anh khù khờ"
   },
   {
-    "time": 123.1,
+    "time": 101.4,
     "text": "Tùng Mai đang on the track, baby, anh vu vơ"
   },
   {
-    "time": 126.1,
+    "time": 104.1,
     "text": "Không chỉ là đôi câu thơ mà baby khiến anh ngủ mơ (Chết dở)"
   },
   {
-    "time": 130,
+    "time": 107.7,
     "text": "Trói em luôn bắt baby phải bù cơ"
   },
   {
-    "time": 132.3,
+    "time": 109.8,
     "text": "I never gon' cheat, never do that thing to her"
   },
   {
-    "time": 135.3,
+    "time": 112.6,
     "text": "Bởi vì anh biết yêu thương này không mờ phai, anh sẽ đem niềm vui"
   },
   {
-    "time": 139.7,
+    "time": 116.6,
     "text": "Khi mà anh trở lại"
   },
   {
-    "time": 141.7,
+    "time": 118.4,
     "text": "Và vì anh biết, baby, you're my ride or die"
   },
   {
-    "time": 144.7,
+    "time": 121.2,
     "text": "Fuck the fame, ta cùng đi một đoạn đường dài"
   },
   {
-    "time": 147.7,
+    "time": 123.9,
     "text": "Ah-ah-ah-ah-ah-ah"
   },
   {
-    "time": 149.7,
+    "time": 125.7,
     "text": "Ah-ah-ah-ah-ah-ah-ah-ah"
   },
   {
-    "time": 151.7,
+    "time": 127.5,
     "text": "Ah-ah-ah-ah-ah-ah"
   },
   {
-    "time": 153.7,
+    "time": 129.3,
     "text": "Để anh nói yêu mình еm"
   }
 ]

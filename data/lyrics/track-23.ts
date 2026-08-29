@@ -57,159 +57,159 @@ export const track23Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 10.5,
+    "time": 3.5,
     "text": "(Turn it) Yah"
   },
   {
-    "time": 12.5,
+    "time": 5.3,
     "text": "Whoo (Tùng ơi), woah"
   },
   {
-    "time": 14.7,
+    "time": 7.3,
     "text": "Yah"
   },
   {
-    "time": 18.5,
+    "time": 10.3,
     "text": "Tao không bao giờ muốn nghe đâu, chúng mày cap, cap (Cap, cap)"
   },
   {
-    "time": 22.3,
+    "time": 13.8,
     "text": "Purple Haze, mùi Purple Haze gọi là khét lẹt (Whoo, woah)"
   },
   {
-    "time": 25.6,
+    "time": 16.8,
     "text": "Fuck, tao đói rồi, bụng tao lép kẹp (Cái gì?)"
   },
   {
-    "time": 28.6,
+    "time": 19.5,
     "text": "Tao là chỉ đi ngang qua đây, now she's wet, wet (She's wet)"
   },
   {
-    "time": 32.5,
+    "time": 23.1,
     "text": "Nhắn cho anh là, \"Please give me a chance\" (Give me, yah)"
   },
   {
-    "time": 36,
+    "time": 26.3,
     "text": "Anh không thích là phải làm việc qua middleman (Middle, woah)"
   },
   {
-    "time": 39.3,
+    "time": 29.4,
     "text": "Anh thích ký cho fan của anh bằng bút bi đen (Woah)"
   },
   {
-    "time": 42.7,
+    "time": 32.5,
     "text": "Blown her back out, fill her coochie"
   },
   {
-    "time": 44.9,
+    "time": 34.4,
     "text": "I love that juicy pussy, bring it to me"
   },
   {
-    "time": 47.6,
+    "time": 36.9,
     "text": "Bọn chó này ghét xong rồi lại thích à? (Woah)"
   },
   {
-    "time": 50.4,
+    "time": 39.5,
     "text": "Đéo muốn giải thích, uh"
   },
   {
-    "time": 52.6,
+    "time": 41.5,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 54.8,
+    "time": 43.6,
     "text": "Đéo muốn giải thích, chyah"
   },
   {
-    "time": 57,
+    "time": 45.5,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 59.3,
+    "time": 47.6,
     "text": "Đéo muốn giải thích, chyah"
   },
   {
-    "time": 61.5,
+    "time": 49.5,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 63.7,
+    "time": 51.6,
     "text": "Không cần phải giải thích"
   },
   {
-    "time": 67.5,
+    "time": 54.6,
     "text": "Tao thích ngắm gái nhưng em nào vibe mới được tao follow"
   },
   {
-    "time": 70.9,
+    "time": 57.7,
     "text": "Thấy mình quá là bay nhưng đéo hiểu đấy là do đâu (Yah)"
   },
   {
-    "time": 74.5,
+    "time": 61.1,
     "text": "MCK nó đã trở lại rồi, đéo còn lo âu"
   },
   {
-    "time": 77.5,
+    "time": 63.9,
     "text": "Tao set the trend, chúng mày follow (Nhìn xem này)"
   },
   {
-    "time": 80.5,
+    "time": 66.6,
     "text": "Tao vẫn đang trên top (Trên top), cùng Thành Draw đi xem Van Gogh (Okay)"
   },
   {
-    "time": 84.9,
+    "time": 70.7,
     "text": "Bọn tao làm Vietnamese hot (She's hot), hip-hop pha với pop (Pop)"
   },
   {
-    "time": 88.5,
+    "time": 73.9,
     "text": "Rick Owens mob (Mob), tequila shots (Shots)"
   },
   {
-    "time": 90.7,
+    "time": 75.9,
     "text": "Vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp"
   },
   {
-    "time": 93.7,
+    "time": 78.7,
     "text": "Chúng nó ghét xong lại thích à? (Woah)"
   },
   {
-    "time": 95.9,
+    "time": 80.7,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 98.1,
+    "time": 82.7,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 100.1,
+    "time": 84.5,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 102.3,
+    "time": 86.5,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 104.3,
+    "time": 88.3,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 106.5,
+    "time": 90.2,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 108.5,
+    "time": 92,
     "text": "Đéo cần phải giải thích"
   },
   {
-    "time": 110.5,
+    "time": 93.8,
     "text": "Woah"
   },
   {
-    "time": 112.5,
+    "time": 95.6,
     "text": "Turn it"
   },
   {
-    "time": 114.5,
+    "time": 97.4,
     "text": "Whoo, woah"
   }
 ]

@@ -61,147 +61,147 @@ export const track19Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 14.9,
+    "time": 6,
     "text": "Uh, hay ơi là hay, bật beat lên, cậu thích cậu rap luôn"
   },
   {
-    "time": 18.1,
+    "time": 9.5,
     "text": "Siêu bảnh, siêu chảnh, cà phê phiêu cảnh, mắt mày nhìn đểu là lác luôn (Lác)"
   },
   {
-    "time": 22,
+    "time": 13.7,
     "text": "Dập cả dìu, nhún cả nhảy, buổi chiều thứ Bảy anh em tao vi vu, uh, huh, uh"
   },
   {
-    "time": 26.4,
+    "time": 18.5,
     "text": "Gọi là mấy thằng bạn thôi nhưng mà sát sườn, lời vàng ý ngọc, flow thác tuôn"
   },
   {
-    "time": 31.8,
+    "time": 24,
     "text": "Mười triệu để thấy rõ bộ mặt của mấy thằng fake này, đời này còn dài lắm nhé các em ơi"
   },
   {
-    "time": 36,
+    "time": 28.5,
     "text": "Đừng để tao phải nói khi mà tao đã không muốn nói, giữ được chữ tín thì mới đáng mặt dân chơi (Chơi)"
   },
   {
-    "time": 40.6,
+    "time": 33.4,
     "text": "Đấm rơi bao cát, nhức mỏi hai vai, massage Tài Thu bọn tao tắm xông hơi"
   },
   {
-    "time": 43.9,
+    "time": 36.9,
     "text": "Suốt ngày cắn nhau, thế thì gọi là kém rồi, bọn tao trap xuyên lục địa rồi, khắp muôn nơi"
   },
   {
-    "time": 47.9,
+    "time": 41.2,
     "text": "Huh, huh, huh, huh, huh, tao vẫn freestyle không cần bài bản, uh"
   },
   {
-    "time": 50.5,
+    "time": 44,
     "text": "Flow tao lạnh cóng, khuyên mày đóng hai viên oresol, gọi là giải cảm, uh"
   },
   {
-    "time": 53.6,
+    "time": 47.3,
     "text": "Mấy em tao quen đều thơm, không tanh, tao không thể gọi là ghệ, không phải hải sản, uh"
   },
   {
-    "time": 57.4,
+    "time": 51.5,
     "text": "Không thể cản, không cần phải cản, nơi tao đi đấy là đường chúng mày trải thảm, uh"
   },
   {
-    "time": 61.1,
+    "time": 55.3,
     "text": "Uh, tao reclaim the power nên càng tham vọng thâm trầm"
   },
   {
-    "time": 63.3,
+    "time": 57.7,
     "text": "Tao thích năng lượng mới của mấy thằng trẻ trẻ muốn feat, uh, đang làm thân dần"
   },
   {
-    "time": 66.8,
+    "time": 61.5,
     "text": "Tao thích năng lượng trẻ của mấy em gái mười tám, hút nó luôn, đi bằng chân trần"
   },
   {
-    "time": 70.4,
+    "time": 65.3,
     "text": "Đón tiếp anh bằng thái độ ân cần, anh là thiện xạ, anh sẽ bắn ngay vào trong tâm"
   },
   {
-    "time": 74.3,
+    "time": 69.4,
     "text": "Gái ngoan gặp anh là hết ngại, gái hư gặp anh ngại luôn"
   },
   {
-    "time": 76.9,
+    "time": 72.2,
     "text": "Gu anh là gái mình dây, nên mặt phải xinh, và eo phải thuôn"
   },
   {
-    "time": 79.8,
+    "time": 75.3,
     "text": "Mấy gái thịt thà nhìn thấy được phen lại ghen, chị em lại buôn"
   },
   {
-    "time": 82.6,
+    "time": 78.4,
     "text": "Thôi thì anh là people pleaser, sang chơi với anh đi rồi anh lại thương (Thương)"
   },
   {
-    "time": 85.9,
+    "time": 81.8,
     "text": "Anh có nhiều vấn đề và anh không thích lừa bịp, chúng nó đuổi theo anh nhưng mà khó để mà kịp"
   },
   {
-    "time": 90.3,
+    "time": 86.6,
     "text": "Tài năng cho mọi người mà baby, it's a gift, anh bỏ chất gây nghiện dù anh đã có nhiều dịp"
   },
   {
-    "time": 94.5,
+    "time": 91.1,
     "text": "Anh rockin' this shit, I fuck on this shit, I fuck on this shit and keep rockin' this shit"
   },
   {
-    "time": 98.4,
+    "time": 95.2,
     "text": "I fuck on this shit and keep rockin' this shit, schyeah, schyeah, schyeah"
   },
   {
-    "time": 101,
+    "time": 98,
     "text": "Quá là khủng, tao là cái thằng nó chất nhất cả vùng"
   },
   {
-    "time": 103.5,
+    "time": 100.7,
     "text": "Các bên công ty vẫn đang cố để mà lùng, tao đi ăn phở béo và mặc đúng cái quần thụng (Đẳng cấp)"
   },
   {
-    "time": 108.1,
+    "time": 105.6,
     "text": "Thụng và thấp, nhưng hàng của tao cao, cap cái ảnh nhưng mà tao lại sao sao"
   },
   {
-    "time": 111.5,
+    "time": 109.3,
     "text": "Sao chúng mày phải cố làm cho nó bé lại? Tao chụp lại phát nữa này cho chúng mày lao đao (Được chưa? Bitch)"
   },
   {
-    "time": 117.6,
+    "time": 115.5,
     "text": "Uh, hay ơi là hay, bật beat lên, cậu thích cậu rap luôn"
   },
   {
-    "time": 120.8,
+    "time": 119,
     "text": "Siêu bảnh, siêu chảnh, cà phê phiêu cảnh, mắt mày nhìn đểu là lác luôn"
   },
   {
-    "time": 124.4,
+    "time": 123,
     "text": "Dập cả dìu, nhún cả nhảy, buổi chiều thứ Bảy anh em tao vi vu, uh, huh, uh"
   },
   {
-    "time": 128.8,
+    "time": 127.8,
     "text": "Gọi là mấy thằng bạn thôi nhưng mà sát sườn, lời vàng ý ngọc, flow—"
   },
   {
-    "time": 133.7,
+    "time": 132.7,
     "text": "Mỗi ngày bố mày thức dậy, thứ mà tao nghĩ đến nó đều là tiền"
   },
   {
-    "time": 136.8,
+    "time": 136,
     "text": "Không nói chuyện với mấy thằng ngu, tốn nước bọt dành để đếm dollars"
   },
   {
-    "time": 139.7,
+    "time": 139.1,
     "text": "Mẹ tao dạy là không tin ai, I fuck then I leave, rê, dribble, drib', gọi tao là baller"
   },
   {
-    "time": 143.5,
+    "time": 143.2,
     "text": "Không qua lại cả mấy con méng cũ, đấy là luật, you broke, I’m up, yeah, that's your karma"
   },
   {
@@ -209,35 +209,35 @@ export const track19Lyrics: TrackLyrics = {
     "text": "Đừng hỏi tao kiểu \"Đây là ai? Đây là ai?\", đéo biết, hệ điều hành tao chạy nó gọi là undercover"
   },
   {
-    "time": 151.6,
+    "time": 151.8,
     "text": "Bọn tao đốt Berlin, Praha, Rick Owens Abstract, mắt trợn kính râm Balenciaga"
   },
   {
-    "time": 154.2,
+    "time": 154.6,
     "text": "Kẻ đường to như Quốc Lộ 1A, ống hút giấy, thằng đổ ra, cũng chơi drill, tên nó là Loco Montana (Gì nữa?)"
   },
   {
-    "time": 158.9,
+    "time": 159.5,
     "text": "Nó có mẹ trẻ sống cùng cả cha già (Gì nữa?), tuyết trắng, cỏ xanh, coke, zaza (Gì nữa?)"
   },
   {
-    "time": 162.7,
+    "time": 163.6,
     "text": "Anh em gọi nhau collab nhảy qua nhà (Gì nữa?), hút cỏ nhập, goo-goo-goo-ga-ga (Hah)"
   },
   {
-    "time": 165.7,
+    "time": 166.9,
     "text": "Quá là uyển, flow và bеat như cá và biển"
   },
   {
-    "time": 167.8,
+    "time": 169.1,
     "text": "Sáng dậy thức tỉnh như Johnny Trí Não, tự thấy vẻ đẹp này quá là tuyển"
   },
   {
-    "time": 171.1,
+    "time": 172.6,
     "text": "Gặp được nhau nó là cái duyên, thích làm gì cứ thế mà triển"
   },
   {
-    "time": 173.9,
+    "time": 175.6,
     "text": "Anh em tao không thích đi club nên đóng đến đoạn Lương Ngọc Quyến là tỏa"
   }
 ]
