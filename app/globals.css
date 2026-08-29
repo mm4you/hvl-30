@@ -1107,3 +1107,11 @@ footer a:hover { color: var(--accent); }
   transform: scale(1.1);
   box-shadow: 0 0 18px rgba(255, 55, 35, 0.35);
 }
+/* Whole-line Highlight Mode */
+.lyric-line.active .lyric-line-text {
+  color: #ffffff !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  text-shadow: 0 0 24px rgba(255, 55, 35, 0.65), 0 0 48px rgba(255, 55, 35, 0.3) !important;
+}
