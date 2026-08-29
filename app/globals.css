@@ -1035,3 +1035,75 @@ footer a:hover { color: var(--accent); }
   transform: scale(1.06);
   box-shadow: 0 0 30px rgba(255, 55, 35, 0.55);
 }
+/* 1. Rhythm Pulsing Ambient Glow */
+@keyframes ambientPulse {
+  0% {
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6), 0 0 45px rgba(255, 55, 35, 0.22);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 75px rgba(255, 55, 35, 0.45);
+    transform: scale(1.018);
+  }
+  100% {
+    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6), 0 0 45px rgba(255, 55, 35, 0.22);
+    transform: scale(1);
+  }
+}
+
+.player-card .artwork.is-playing {
+  animation: ambientPulse 2.2s ease-in-out infinite;
+}
+
+/* 4. Glassmorphism "Đôi Lời" Modal */
+.about-modal-backdrop {
+  background: rgba(0, 0, 0, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: opacity 240ms ease !important;
+}
+
+.about-modal {
+  position: relative;
+  width: min(92vw, 760px);
+  max-height: 88vh;
+  overflow-y: auto;
+  border-radius: 24px !important;
+  background: rgba(18, 10, 10, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 50px rgba(255, 55, 35, 0.25) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  animation: modalPopIn 280ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 5. Spring Button Feedback & Micro-Interactions */
+.control-button,
+.playback-options button,
+.view-toggle-button,
+.artwork-view-switch button {
+  transition: transform 160ms cubic-bezier(0.175, 0.885, 0.32, 1.275), background 180ms ease, color 180ms ease, box-shadow 180ms ease !important;
+}
+
+.control-button:active,
+.playback-options button:active,
+.view-toggle-button:active {
+  transform: scale(0.88) !important;
+}
+
+.control-button:hover,
+.playback-options button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px rgba(255, 55, 35, 0.35);
+}
