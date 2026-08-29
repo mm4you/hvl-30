@@ -46,17 +46,24 @@ export function MainPlayer({
   const lyricsScrollRef = useRef<HTMLDivElement | null>(null);
 
   const trackLyrics = currentTrack ? getLyricsForTrack(currentTrack.id) : null;
-  const syncedLines = trackLyrics?.syncedLyrics || [];
+  const syncedLines = (trackLyrics?.syncedLyrics || []).filter((line) => {
+    const clean = line.text.replace(/^\[.*?\]\s*/g, "").trim();
+    return clean.length > 0;
+  });
 
-  // Match active lyric
-  let activeLyricIdx = -1;
-  for (let i = 0; i < syncedLines.length; i++) {
-    if (currentTime >= syncedLines[i].time) {
-      activeLyricIdx = i;
-    } else {
-      break;
+  // Acoustic Vocal Lead (+0.15s) for instant real-time sync matching Apple Music
+  const activeLyricIdx = React.useMemo(() => {
+    const leadTime = currentTime + 0.15;
+    let index = -1;
+    for (let i = 0; i < syncedLines.length; i++) {
+      if (leadTime >= syncedLines[i].time) {
+        index = i;
+      } else {
+        break;
+      }
     }
-  }
+    return index;
+  }, [currentTime, syncedLines]);
 
   // Smooth scroll
   useEffect(() => {
@@ -191,7 +198,7 @@ export function MainPlayer({
             
             {/* Lossless Audio Floating Badge */}
             <span className="absolute top-2.5 left-2.5 text-[11px] font-mono font-bold bg-black/80 backdrop-blur-md text-white px-2.5 py-0.5 rounded-lg border border-white/15 shadow-sm">
-              #{String(currentTrack.trackNumber).padStart(2, "0")} • FLAC 24-bit
+              #{String(currentTrack.trackNumber).padStart(2, "0")}
             </span>
             <span className="absolute bottom-2.5 right-2.5 text-[10px] font-mono font-extrabold bg-[#ff3725] text-white px-2 py-0.5 rounded-md shadow-md">
               HVL 30
