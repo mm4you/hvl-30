@@ -46,11 +46,11 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
     const container = containerRef.current;
     if (!targetElement || !container) return;
 
-    const containerHeight = container.clientHeight;
-    const targetTop = targetElement.offsetTop;
-    const targetHeight = targetElement.clientHeight;
+    const targetRect = targetElement.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
 
-    const desiredScrollTop = targetTop - (containerHeight / 2) + (targetHeight / 2);
+    const relativeTop = targetRect.top - containerRect.top + container.scrollTop;
+    const desiredScrollTop = relativeTop - (container.clientHeight / 2) + (targetElement.clientHeight / 2);
 
     container.scrollTo({
       top: Math.max(0, desiredScrollTop),
