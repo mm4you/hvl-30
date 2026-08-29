@@ -1377,6 +1377,14 @@ export default function Home() {
     advanceToNext(true);
   }, [advanceToNext]);
 
+  const prefetchTrack = useCallback((track: Track) => {
+    if (!track?.originalUrl || typeof window === "undefined") return;
+    const streamUrl = sourceCandidates(track.originalUrl)[0];
+    if (streamUrl) {
+      fetch(streamUrl, { headers: { Range: "bytes=0-524288" } }).catch(() => undefined);
+    }
+  }, []);
+
   const playPrevious = useCallback(() => {
     const tracks = playlistRef.current;
     if (!tracks.length) return;
@@ -2410,7 +2418,7 @@ export default function Home() {
           <ol className="track-list">
             {playlist.map((track, index) => (
               <li className={currentTrack?.id === track.id ? "active" : ""} key={track.id}>
-                <button className="track-main" onClick={() => playFromActivePlaylist(index)} type="button">
+                <button className="track-main" onClick={() => playFromActivePlaylist(index)} onMouseEnter={() => prefetchTrack(track)} onTouchStart={() => prefetchTrack(track)} type="button">
                   <span className="track-cover">
                     {track.artworkUrl && <img alt="" loading="lazy" src={track.artworkUrl} />}
                     {currentTrack?.id === track.id && isPlaying && <span className="track-playing"><Icon name="pause" size={14} /></span>}

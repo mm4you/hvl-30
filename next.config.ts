@@ -45,7 +45,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  poweredByHeader: false, // OWASP: Remove X-Powered-By header
+  poweredByHeader: false,
+  compress: true,
   images: {
     remotePatterns: [
       {
@@ -66,7 +67,26 @@ const nextConfig: NextConfig = {
           { key: "Access-Control-Allow-Origin", value: "*" },
           { key: "Access-Control-Allow-Methods", value: "GET, HEAD, OPTIONS" },
           { key: "Access-Control-Allow-Headers", value: "Range, Accept-Ranges, Content-Range" },
-          { key: "Cache-Control", value: "public, max-age=86400, no-transform" },
+          { key: "Cache-Control", value: "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=604800, immutable" },
+        ],
+      },
+      {
+        source: "/api/drive",
+        headers: [
+          { key: "Access-Control-Allow-Origin", value: "*" },
+          { key: "Cache-Control", value: "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=604800, immutable" },
+        ],
+      },
+      {
+        source: "/artwork/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];
