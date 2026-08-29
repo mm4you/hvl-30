@@ -2238,7 +2238,12 @@ export default function Home() {
       )}
 
       <section className={`player-card ${isPlaying ? "is-playing" : ""}`} aria-label="Trình phát nhạc">
-        <div className={`artwork ${isPlaying ? "is-playing" : ""}`}>
+        <div className="artwork-stage">
+          <div
+            aria-hidden="true"
+            className={`artwork-ambient ${isPlaying ? "is-playing" : ""}`}
+          />
+          <div className={`artwork ${isPlaying ? "is-playing" : ""}`}>
           {lyricsVisible ? (
             <LyricsView
               currentTime={currentTime}
@@ -2262,6 +2267,7 @@ export default function Home() {
               <span className="source-badge"><strong>HVL</strong></span>
             </>
           )}
+          </div>
         </div>
 
         <div className="player-content">
