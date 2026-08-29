@@ -13,25 +13,25 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#060606] text-[#f4f0eb] flex flex-col selection:bg-rose-600 selection:text-white">
-      {/* Authentic Topbar */}
+      {/* Topbar */}
       <Header onOpenAbout={() => setAboutOpen(true)} />
 
-      {/* Main Container */}
-      <main className="flex-1 max-w-4xl mx-auto w-full px-4 md:px-8 py-6 md:py-10">
-        {/* Central Player Card with Artwork & Lyrics */}
+      {/* Main Container - Expansive & Spacious (Widescreen 1440px) */}
+      <main className="flex-1 max-w-[1440px] mx-auto w-full px-4 sm:px-8 lg:px-12 xl:px-16 py-6 md:py-10">
+        {/* Split-Screen Player (Left: Art & Controls, Right: Live Karaoke Lyrics) */}
         <MainPlayer 
           playlistVisible={playlistVisible}
           onTogglePlaylist={() => setPlaylistVisible(!playlistVisible)}
         />
 
-        {/* Collapsible / Scrollable Inner Playlist Panel */}
+        {/* Collapsible / Inner Scrollable Playlist Panel */}
         <PlaylistPanel isVisible={playlistVisible} />
 
         {/* Authentic Author Footer */}
         <Footer />
       </main>
 
-      {/* About Modal ("Đôi lời quan trọng của tôi") */}
+      {/* Cinematic Fullscreen About Modal */}
       <AboutModal 
         isOpen={aboutOpen}
         onClose={() => setAboutOpen(false)}

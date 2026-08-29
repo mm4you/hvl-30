@@ -1,18 +1,9 @@
 import { NextRequest } from "next/server";
 
-export const dynamic = "force-dynamic";
-export const maxDuration = 60;
+export const runtime = "edge";
 
-// OWASP A03 / A10: Strict File ID pattern (Only alphanumeric, underscore, hyphen)
-const DRIVE_FILE_ID_REGEX = /^[A-Za-z0-9_-]{15,100}$/;
-
-// OWASP A10: Allowed Upstream Hostnames for SSRF mitigation
-const ALLOWED_HOSTS = new Set([
-  "drive.usercontent.google.com",
-  "drive.google.com",
-  "doc-0s-94-docs.googleusercontent.com",
-  "doc-08-94-docs.googleusercontent.com",
-]);
+// Strict File ID pattern
+const DRIVE_FILE_ID_REGEX = /^[A-Za-z0-9_-]{10,200}$/;
 
 function decodeHtml(value: string): string {
   return value
@@ -23,25 +14,11 @@ function decodeHtml(value: string): string {
     .replace(/&gt;/g, ">");
 }
 
-function isAllowedUrl(urlString: string): boolean {
-  try {
-    const parsed = new URL(urlString);
-    if (parsed.protocol !== "https:") return false;
-    // Disallow IP literals, localhost, and private networks
-    if (/^(\d{1,3}\.){3}\d{1,3}$/.test(parsed.hostname)) return false;
-    if (parsed.hostname.includes("localhost") || parsed.hostname.endsWith(".internal")) return false;
-    return parsed.hostname.endsWith(".google.com") || parsed.hostname.endsWith(".googleusercontent.com");
-  } catch {
-    return false;
-  }
-}
-
 function confirmationUrl(html: string, fileId: string): URL | null {
   const form = html.match(/<form[^>]+action=["']([^"']+)["'][^>]*>([\s\S]*?)<\/form>/i);
   if (form) {
     const action = decodeHtml(form[1]);
     const targetUrl = new URL(action, "https://drive.google.com");
-    if (!isAllowedUrl(targetUrl.toString())) return null;
 
     const inputs = form[2].matchAll(/<input\b[^>]*>/gi);
     for (const input of inputs) {
@@ -56,16 +33,9 @@ function confirmationUrl(html: string, fileId: string): URL | null {
 
   const link = html.match(/https:\/\/[a-z0-9.-]*googleusercontent\.com\/download\?[^"'<>\s]+/i);
   if (link) {
-    const decoded = decodeHtml(link[0]);
-    if (isAllowedUrl(decoded)) return new URL(decoded);
+    return new URL(decodeHtml(link[0]));
   }
   return null;
-}
-
-function sanitizeHeader(value: string | null): string {
-  if (!value) return "";
-  // Strip CRLF to prevent HTTP response splitting
-  return value.replace(/[\r\n]/g, "").trim();
 }
 
 function upstreamHeaders(request: Request, cookie?: string | null): Headers {
@@ -75,10 +45,7 @@ function upstreamHeaders(request: Request, cookie?: string | null): Headers {
   });
   const range = request.headers.get("range");
   if (range) {
-    const sanitizedRange = sanitizeHeader(range);
-    if (/^bytes=\d*-\d*$/.test(sanitizedRange)) {
-      headers.set("Range", sanitizedRange);
-    }
+    headers.set("Range", range.replace(/[\r\n]/g, "").trim());
   }
   if (cookie) {
     const cookieHeader = cookie
@@ -86,7 +53,7 @@ function upstreamHeaders(request: Request, cookie?: string | null): Headers {
       .map((part) => part.split(";", 1)[0].trim())
       .filter(Boolean)
       .join("; ");
-    if (cookieHeader) headers.set("Cookie", sanitizeHeader(cookieHeader));
+    if (cookieHeader) headers.set("Cookie", cookieHeader.replace(/[\r\n]/g, "").trim());
   }
   return headers;
 }
@@ -107,7 +74,7 @@ async function fetchDriveAttempt(request: Request, fileId: string): Promise<Resp
     const cookie = response.headers.get("set-cookie");
     const html = await response.text();
     const confirmed = confirmationUrl(html, fileId);
-    if (confirmed && isAllowedUrl(confirmed.toString())) {
+    if (confirmed) {
       response = await fetch(confirmed.toString(), {
         headers: upstreamHeaders(request, cookie),
         redirect: "follow",
@@ -135,7 +102,7 @@ async function fetchDriveFile(request: Request, fileId: string): Promise<Respons
     await response.body?.cancel();
   } catch {}
 
-  await new Promise((resolve) => setTimeout(resolve, 300));
+  await new Promise((resolve) => setTimeout(resolve, 250));
   return fetchDriveAttempt(request, fileId);
 }
 
@@ -150,12 +117,12 @@ function streamedResponse(upstream: Response, headOnly = false): Response {
   ];
   for (const name of copyHeaders) {
     const value = upstream.headers.get(name);
-    if (value) headers.set(name, sanitizeHeader(value));
+    if (value) headers.set(name, value.replace(/[\r\n]/g, "").trim());
   }
 
   headers.set("Content-Type", "audio/flac");
   headers.set("Content-Disposition", "inline");
-  headers.set("Cache-Control", "public, max-age=86400, no-transform");
+  headers.set("Cache-Control", "public, max-age=31536000, immutable");
   headers.set("Vary", "Range");
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("Access-Control-Allow-Origin", "*");
@@ -182,11 +149,10 @@ export async function GET(
 ): Promise<Response> {
   const { id } = await context.params;
 
-  // OWASP A03 Input Validation
   if (!id || !DRIVE_FILE_ID_REGEX.test(id)) {
-    return new Response(JSON.stringify({ error: "Invalid or malformed File ID" }), {
+    return new Response(JSON.stringify({ error: "Invalid File ID" }), {
       status: 400,
-      headers: { "Content-Type": "application/json", "X-Content-Type-Options": "nosniff" },
+      headers: { "Content-Type": "application/json" },
     });
   }
 
@@ -195,16 +161,16 @@ export async function GET(
     const contentType = upstream.headers.get("content-type") ?? "";
     if (!upstream.ok || contentType.includes("text/html")) {
       upstream.body?.cancel();
-      return new Response(JSON.stringify({ error: "Audio resource currently unavailable" }), {
+      return new Response(JSON.stringify({ error: "Audio currently unavailable" }), {
         status: 502,
-        headers: { "Content-Type": "application/json", "X-Content-Type-Options": "nosniff" },
+        headers: { "Content-Type": "application/json" },
       });
     }
     return streamedResponse(upstream, false);
   } catch {
-    return new Response(JSON.stringify({ error: "Internal streaming error" }), {
+    return new Response(JSON.stringify({ error: "Stream error" }), {
       status: 500,
-      headers: { "Content-Type": "application/json", "X-Content-Type-Options": "nosniff" },
+      headers: { "Content-Type": "application/json" },
     });
   }
 }
