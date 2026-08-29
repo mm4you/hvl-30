@@ -79,7 +79,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
                 isActive={isActive}
                 isPast={isPast}
                 isUpcoming={isUpcoming}
-                onSeek={onSeek}
+                onSeek={() => onSeek(line.time)}
               />
             </div>
           );
