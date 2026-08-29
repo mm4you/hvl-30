@@ -616,6 +616,8 @@ export default function Home() {
   const sharedCatalogRef = useRef(false);
   const sharedCatalogAppliedRef = useRef(false);
   const aboutAutoOpenedRef = useRef(false);
+  const ambientRef = useRef<HTMLDivElement>(null);
+  const beatRafRef = useRef<number>(0);
   const [playlists, setPlaylists] = useState<MusicPlaylist[]>([
     { id: "default", name: "Playlist của tôi", tracks: [] },
   ]);
@@ -818,6 +820,50 @@ export default function Home() {
   useEffect(() => {
     repeatCompletionRef.current = 0;
   }, [currentTrack?.id]);
+
+  /* ── 808 Hip-hop Beat-Synchronized Border Pulse Engine ── */
+  useEffect(() => {
+    const audio = audioRef.current;
+    const el = ambientRef.current;
+    if (!audio || !el) return;
+
+    let running = true;
+    const tick = () => {
+      if (!running) return;
+      if (!audio.paused && audio.currentTime > 0) {
+        const t = audio.currentTime;
+        // 130 BPM = ~2.166 beats/sec (Standard MCK / HVL 808 tempo)
+        const bps = 130 / 60;
+        const beatPos = (t * bps) % 4; // 0 to 4 within a 4/4 bar
+        const beatNum = Math.floor(beatPos); // 0: Kick 1, 1: Snare 1, 2: Kick 2, 3: Snare 2
+        const beatFraction = beatPos % 1; // 0 to 1 within each beat
+
+        // Authentic 808 sub-bass kick vs crisp snare envelope
+        const isKick = beatNum === 0 || beatNum === 2;
+        const peak = isKick ? 1.0 : 0.72;
+        const decay = isKick ? 4.5 : 6.0;
+        const mainPulse = Math.exp(-beatFraction * decay) * peak;
+
+        // 8th-note bounce (hi-hat groove)
+        const eighthFraction = (beatFraction * 2) % 1;
+        const hihatBounce = Math.exp(-eighthFraction * 8.0) * 0.2;
+
+        const totalBeat = Math.min(1, Math.max(0, mainPulse + hihatBounce));
+        el.style.setProperty("--beat", totalBeat.toFixed(3));
+      } else {
+        el.style.setProperty("--beat", "0");
+      }
+      beatRafRef.current = requestAnimationFrame(tick);
+    };
+
+    beatRafRef.current = requestAnimationFrame(tick);
+
+    return () => {
+      running = false;
+      cancelAnimationFrame(beatRafRef.current);
+      if (el) el.style.setProperty("--beat", "0");
+    };
+  }, [isPlaying, currentTrack?.id]);
 
   const playControlClick = useCallback(() => {
     try {
@@ -2240,6 +2286,7 @@ export default function Home() {
       <section className={`player-card ${isPlaying ? "is-playing" : ""}`} aria-label="Trình phát nhạc">
         <div className="artwork-stage">
           <div
+            ref={ambientRef}
             aria-hidden="true"
             className={`artwork-ambient ${isPlaying ? "is-playing" : ""}`}
           />
