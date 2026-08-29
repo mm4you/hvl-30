@@ -174,7 +174,7 @@ export function AboutModal({ isOpen, onClose }: { isOpen: boolean; onClose: () =
                 30 ARTWORK / 30 CA KHÚC
               </p>
               <h3 className="text-xl md:text-2xl font-black text-white">
-                Danh sách album · Chạm vào để nghe
+                Danh sách bài hát · Chạm vào để nghe
               </h3>
             </div>
 
