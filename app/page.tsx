@@ -1997,9 +1997,9 @@ export default function Home() {
             <span className="sync-button-label">{accountLabel}</span>
             <span className="sync-dot" />
           </button>}
-          <button aria-label="Đôi lời về HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
+          <button aria-label="Giới thiệu HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
             <Icon name="info" size={18} />
-            <span>Đôi lời</span>
+            <span>Giới thiệu</span>
           </button>
           {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && <button className="add-button" onClick={() => setFormOpen((open) => !open)} type="button">
             <Icon name={formOpen ? "close" : "add"} size={18} />
@@ -2117,7 +2117,7 @@ export default function Home() {
 
               <section className="about-track-section" aria-labelledby="about-track-title">
                 <div className="about-section-heading">
-                  <div><p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p><h3 id="about-track-title">Danh sách bài hát</h3></div>
+                  <div><p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p><h3 id="about-track-title">Danh sách album</h3></div>
                   <p>Chạm vào một artwork để nghe bài đó.</p>
                 </div>
                 <ol className="about-track-grid">
@@ -2304,7 +2304,7 @@ export default function Home() {
                 type="range"
                 value={volume}
               />
-              
+              <span aria-hidden="true"><Icon name="volumeHigh" size={19} /></span>
             </div>
           )}
           <div className="playback-options-wrap">

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import type { SyncedLyricLine } from "@/data/lyrics/types";
 import { LyricLine } from "./LyricLine";
 
@@ -18,45 +18,32 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
 
-  // Clean vocal lines without bracket section headers
-  const vocalLines = useMemo(() => {
-    return syncedLyrics.filter((line) => {
-      const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
-      return text.length > 0 && !line.text.trim().startsWith("[");
-    });
-  }, [syncedLyrics]);
-
-  // Binary search for highest accuracy active index
+  // Calculate active index without heavy loops
   const activeIndex = useMemo(() => {
-    if (!vocalLines.length) return -1;
-    let low = 0;
-    let high = vocalLines.length - 1;
     let index = -1;
-
-    while (low <= high) {
-      const mid = Math.floor((low + high) / 2);
-      if (vocalLines[mid].time <= currentTime) {
-        index = mid;
-        low = mid + 1;
+    for (let i = 0; i < syncedLyrics.length; i++) {
+      if (syncedLyrics[i].time <= currentTime) {
+        index = i;
       } else {
-        high = mid - 1;
+        break;
       }
     }
     return index;
-  }, [currentTime, vocalLines]);
+  }, [currentTime, syncedLyrics]);
 
-  // Smooth centering with RAF lerping
+  // Smooth auto-scroll when active line changes and user is not manually scrolling
   useEffect(() => {
     if (isUserScrolling || activeIndex < 0) return;
     const targetElement = lineRefs.current[activeIndex];
     const container = containerRef.current;
     if (!targetElement || !container) return;
 
-    const targetRect = targetElement.getBoundingClientRect();
-    const containerRect = container.getBoundingClientRect();
+    const containerHeight = container.clientHeight;
+    const targetTop = targetElement.offsetTop;
+    const targetHeight = targetElement.clientHeight;
 
-    const relativeTop = targetRect.top - containerRect.top + container.scrollTop;
-    const desiredScrollTop = relativeTop - (container.clientHeight / 2) + (targetElement.clientHeight / 2);
+    // Center the active line or place it slightly above center
+    const desiredScrollTop = targetTop - (containerHeight / 2) + (targetHeight / 2);
 
     container.scrollTo({
       top: Math.max(0, desiredScrollTop),
@@ -65,13 +52,12 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   }, [activeIndex, isUserScrolling]);
 
   return (
-    <div className="synced-lyrics-container supreme-lyrics-scroll" ref={containerRef}>
-      <div className="synced-lyrics-list supreme-lyrics-flow" role="feed" aria-label="Lời bài hát đồng bộ">
-        {vocalLines.map((line, index) => {
+    <div className="synced-lyrics-container" ref={containerRef}>
+      <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
+        {syncedLyrics.map((line, index) => {
           const isActive = index === activeIndex;
           const isPast = activeIndex >= 0 && index < activeIndex;
           const isUpcoming = activeIndex < 0 || index > activeIndex;
-          const distanceFromActive = activeIndex >= 0 ? Math.abs(index - activeIndex) : 999;
 
           return (
             <div
@@ -87,7 +73,6 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
                 isActive={isActive}
                 isPast={isPast}
                 isUpcoming={isUpcoming}
-                distanceFromActive={distanceFromActive}
                 onSeek={onSeek}
               />
             </div>
