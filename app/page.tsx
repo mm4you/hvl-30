@@ -821,65 +821,42 @@ export default function Home() {
     repeatCompletionRef.current = 0;
   }, [currentTrack?.id]);
 
-  /* ── Musical Beat & Vocal Rhythm Border Glow Engine ── */
-  const currentLyricsRef = useRef(currentTrackLyrics);
-  currentLyricsRef.current = currentTrackLyrics;
-
+  /* ── Pure 16-Step Trap Drum & 808 Bass Beat Glow Engine ── */
   useEffect(() => {
     const audio = audioRef.current;
     const el = ambientRef.current;
     if (!audio || !el) return;
+
+    // Classic Trap / Hip-Hop 16-step drum pattern weights (Kick, Snare, 808, Hi-hat rolls)
+    const STEP_WEIGHTS = [
+      1.0,  0.15, 0.35, 0.15, // Beat 1: Heavy 808 Kick (1.0) -> ghost hats
+      0.88, 0.2,  0.92, 0.25, // Beat 2: Snare/Clap (0.88) -> Syncopated 808 (0.92)
+      0.75, 0.2,  0.85, 0.3,  // Beat 3: Mid Kick (0.75) -> Offbeat 808 (0.85)
+      0.88, 0.3,  0.55, 0.75   // Beat 4: Snare/Clap (0.88) -> Trap Hi-hat rolls (0.55, 0.75)
+    ];
 
     let running = true;
     const tick = () => {
       if (!running) return;
       if (!audio.paused && audio.currentTime > 0) {
         const t = audio.currentTime;
-        const lyrics = currentLyricsRef.current?.syncedLyrics;
+        // Standard Trap / Hip-Hop Tempo for MCK album HVL (~134 BPM)
+        const bpm = 134;
+        const beatSec = 60 / bpm;
+        const barSec = beatSec * 4;
+        const stepSec = beatSec / 4;
 
-        let vocalStrike = 0;
-        let isChorus = false;
-        let inSingingLine = false;
+        const barTime = t % barSec;
+        const stepIdx = Math.floor(barTime / stepSec) % 16;
+        const stepFrac = (barTime % stepSec) / stepSec;
 
-        if (lyrics && lyrics.length > 0) {
-          for (let i = 0; i < lyrics.length; i++) {
-            const cur = lyrics[i];
-            const next = lyrics[i + 1];
-            if (t >= cur.time && (!next || t < next.time)) {
-              const delta = t - cur.time;
-              const text = cur.text.trim();
-              if (text.startsWith("[") && text.endsWith("]")) {
-                if (/Chorus|Hook|Drop/i.test(text)) isChorus = true;
-              } else if (text.length > 0) {
-                inSingingLine = true;
-                // Punchy vocal strike on the onset of each line
-                if (delta < 0.45) {
-                  vocalStrike = Math.exp(-delta * 6.5);
-                }
-              }
-              // Detect if current section is Chorus/Hook
-              for (let j = i; j >= 0; j--) {
-                if (lyrics[j].text.startsWith("[")) {
-                  if (/Chorus|Hook|Drop/i.test(lyrics[j].text)) isChorus = true;
-                  break;
-                }
-              }
-              break;
-            }
-          }
-        }
+        const weight = STEP_WEIGHTS[stepIdx] ?? 0.3;
+        // 808 Kicks have heavier sustain (~3.2 decay), Snares/Hats decay faster (~5.8)
+        const is808 = stepIdx === 0 || stepIdx === 6 || stepIdx === 10;
+        const decayRate = is808 ? 3.4 : 5.6;
 
-        // Dynamic base energy: Chorus/Drop is hyped, Singing is warm, Instrumental is subtle
-        const baseLevel = isChorus ? 0.42 : inSingingLine ? 0.24 : 0.1;
-        const vocalImpact = vocalStrike * (isChorus ? 0.95 : 0.76);
-
-        // Natural musical pulse (waves undulating with vocal flow)
-        const wave = inSingingLine
-          ? Math.sin(t * 4.8) * 0.16 + Math.cos(t * 2.4) * 0.1
-          : Math.sin(t * 1.6) * 0.06;
-
-        const totalEnergy = Math.min(1, Math.max(0, baseLevel + vocalImpact + wave));
-        el.style.setProperty("--beat", totalEnergy.toFixed(3));
+        const beatIntensity = Math.exp(-stepFrac * decayRate) * weight;
+        el.style.setProperty("--beat", beatIntensity.toFixed(3));
       } else {
         el.style.setProperty("--beat", "0");
       }
