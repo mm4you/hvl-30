@@ -1998,7 +1998,7 @@ export default function Home() {
             <span className="sync-button-label">{accountLabel}</span>
             <span className="sync-dot" />
           </button>}
-          <button aria-label="Giới thiệu HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
+          <button aria-label="Đôi lời về HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
             <Icon name="info" size={18} />
             <span>Đôi lời</span>
           </button>
@@ -2229,12 +2229,13 @@ export default function Home() {
       )}
 
       <section className="player-card" aria-label="Trình phát nhạc">
-        <div className={`artwork ${isPlaying ? "is-playing" : ""}`} style={{ "--audio-scale": 1 + audioLevel * 0.032, "--audio-glow": `${24 + audioLevel * 70}px`, "--audio-opacity": 0.22 + audioLevel * 0.55 } as CSSProperties}>
+        <div className={`artwork ${isPlaying ? "is-playing" : ""}`}>
           {lyricsVisible ? (
             <LyricsView
               currentTime={currentTime}
               duration={duration}
               isPlaying={isPlaying}
+              mediaElement={audioRef.current}
               onClose={() => setLyricsVisible(false)}
               onSeek={seek}
               trackArtist={currentTrack?.artist}
@@ -2424,7 +2425,6 @@ export default function Home() {
       </section>
 
       <footer>
-        <p>Không cần tài khoản. 30 bài nhạc dùng chung được phát từ kho của HVL 30; file giữ nguyên định dạng gốc, không chuyển mã hoặc giảm chất lượng.</p>
         <a href="https://github.com/mm4you" rel="noreferrer" target="_blank">
           <Icon name="github" size={15} /> Built by Khang with Codex · @mm4you
         </a>
