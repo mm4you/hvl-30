@@ -1395,6 +1395,20 @@ export default function Home() {
   }, [currentIndex, isPlaying, playbackQueue.length, preloadNextTrack, shuffleEnabled]);
 
   useEffect(() => {
+    if (!isPlaying) return;
+    let rafId: number;
+    const updateTimeLoop = () => {
+      const audio = audioRef.current;
+      if (audio && !audio.paused && Number.isFinite(audio.currentTime)) {
+        setCurrentTime(audio.currentTime);
+      }
+      rafId = requestAnimationFrame(updateTimeLoop);
+    };
+    rafId = requestAnimationFrame(updateTimeLoop);
+    return () => cancelAnimationFrame(rafId);
+  }, [isPlaying]);
+
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
