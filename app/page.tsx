@@ -821,7 +821,10 @@ export default function Home() {
     repeatCompletionRef.current = 0;
   }, [currentTrack?.id]);
 
-  /* ── 808 Hip-hop Beat-Synchronized Border Pulse Engine ── */
+  /* ── Musical Beat & Vocal Rhythm Border Glow Engine ── */
+  const currentLyricsRef = useRef(currentTrackLyrics);
+  currentLyricsRef.current = currentTrackLyrics;
+
   useEffect(() => {
     const audio = audioRef.current;
     const el = ambientRef.current;
@@ -832,24 +835,51 @@ export default function Home() {
       if (!running) return;
       if (!audio.paused && audio.currentTime > 0) {
         const t = audio.currentTime;
-        // 130 BPM = ~2.166 beats/sec (Standard MCK / HVL 808 tempo)
-        const bps = 130 / 60;
-        const beatPos = (t * bps) % 4; // 0 to 4 within a 4/4 bar
-        const beatNum = Math.floor(beatPos); // 0: Kick 1, 1: Snare 1, 2: Kick 2, 3: Snare 2
-        const beatFraction = beatPos % 1; // 0 to 1 within each beat
+        const lyrics = currentLyricsRef.current?.syncedLyrics;
 
-        // Authentic 808 sub-bass kick vs crisp snare envelope
-        const isKick = beatNum === 0 || beatNum === 2;
-        const peak = isKick ? 1.0 : 0.72;
-        const decay = isKick ? 4.5 : 6.0;
-        const mainPulse = Math.exp(-beatFraction * decay) * peak;
+        let vocalStrike = 0;
+        let isChorus = false;
+        let inSingingLine = false;
 
-        // 8th-note bounce (hi-hat groove)
-        const eighthFraction = (beatFraction * 2) % 1;
-        const hihatBounce = Math.exp(-eighthFraction * 8.0) * 0.2;
+        if (lyrics && lyrics.length > 0) {
+          for (let i = 0; i < lyrics.length; i++) {
+            const cur = lyrics[i];
+            const next = lyrics[i + 1];
+            if (t >= cur.time && (!next || t < next.time)) {
+              const delta = t - cur.time;
+              const text = cur.text.trim();
+              if (text.startsWith("[") && text.endsWith("]")) {
+                if (/Chorus|Hook|Drop/i.test(text)) isChorus = true;
+              } else if (text.length > 0) {
+                inSingingLine = true;
+                // Punchy vocal strike on the onset of each line
+                if (delta < 0.45) {
+                  vocalStrike = Math.exp(-delta * 6.5);
+                }
+              }
+              // Detect if current section is Chorus/Hook
+              for (let j = i; j >= 0; j--) {
+                if (lyrics[j].text.startsWith("[")) {
+                  if (/Chorus|Hook|Drop/i.test(lyrics[j].text)) isChorus = true;
+                  break;
+                }
+              }
+              break;
+            }
+          }
+        }
 
-        const totalBeat = Math.min(1, Math.max(0, mainPulse + hihatBounce));
-        el.style.setProperty("--beat", totalBeat.toFixed(3));
+        // Dynamic base energy: Chorus/Drop is hyped, Singing is warm, Instrumental is subtle
+        const baseLevel = isChorus ? 0.42 : inSingingLine ? 0.24 : 0.1;
+        const vocalImpact = vocalStrike * (isChorus ? 0.95 : 0.76);
+
+        // Natural musical pulse (waves undulating with vocal flow)
+        const wave = inSingingLine
+          ? Math.sin(t * 4.8) * 0.16 + Math.cos(t * 2.4) * 0.1
+          : Math.sin(t * 1.6) * 0.06;
+
+        const totalEnergy = Math.min(1, Math.max(0, baseLevel + vocalImpact + wave));
+        el.style.setProperty("--beat", totalEnergy.toFixed(3));
       } else {
         el.style.setProperty("--beat", "0");
       }
