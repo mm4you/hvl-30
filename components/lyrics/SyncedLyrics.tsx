@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef, useCallback } from "react";
 import type { SyncedLyricLine } from "@/data/lyrics/types";
 import { LyricLine } from "./LyricLine";
 
@@ -17,42 +17,88 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
 }: SyncedLyricsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
+  const animFrameRef = useRef<number | null>(null);
 
-  // Calculate active index without heavy loops
+  // Match active line with 0.2s lead time for instant vocal sync
   const activeIndex = useMemo(() => {
-    let index = -1;
+    const time = currentTime + 0.2;
+    let idx = -1;
     for (let i = 0; i < syncedLyrics.length; i++) {
-      if (syncedLyrics[i].time <= currentTime) {
-        index = i;
+      if (syncedLyrics[i].time <= time) {
+        idx = i;
       } else {
         break;
       }
     }
-    return index;
+    return idx;
   }, [currentTime, syncedLyrics]);
 
-  // Smooth auto-scroll when active line changes and user is not manually scrolling
+  // Smooth cubic-bezier scroll easing
+  const smoothScrollTo = useCallback((targetTop: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+
+    const start = container.scrollTop;
+    const change = targetTop - start;
+    const duration = 360;
+    const startTime = performance.now();
+
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      container.scrollTop = start + change * easeOutCubic(progress);
+
+      if (progress < 1) {
+        animFrameRef.current = requestAnimationFrame(step);
+      } else {
+        animFrameRef.current = null;
+      }
+    };
+
+    animFrameRef.current = requestAnimationFrame(step);
+  }, []);
+
+  // Smoothly center the active line
   useEffect(() => {
     if (isUserScrolling || activeIndex < 0) return;
-    const targetElement = lineRefs.current[activeIndex];
+    const el = lineRefs.current[activeIndex];
     const container = containerRef.current;
-    if (!targetElement || !container) return;
+    if (!el || !container) return;
 
-    const containerHeight = container.clientHeight;
-    const targetTop = targetElement.offsetTop;
-    const targetHeight = targetElement.clientHeight;
+    const desiredTop = el.offsetTop - container.clientHeight * 0.42 + el.clientHeight / 2;
+    smoothScrollTo(Math.max(0, desiredTop));
 
-    // Center the active line or place it slightly above center
-    const desiredScrollTop = targetTop - (containerHeight / 2) + (targetHeight / 2);
+    return () => {
+      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+    };
+  }, [activeIndex, isUserScrolling, smoothScrollTo]);
 
-    container.scrollTo({
-      top: Math.max(0, desiredScrollTop),
-      behavior: "smooth",
-    });
-  }, [activeIndex, isUserScrolling]);
+  const handleSeek = useCallback(
+    (time: number, index: number) => {
+      onSeek(time);
+      const el = lineRefs.current[index];
+      const container = containerRef.current;
+      if (el && container) {
+        const desiredTop = el.offsetTop - container.clientHeight * 0.42 + el.clientHeight / 2;
+        smoothScrollTo(Math.max(0, desiredTop));
+      }
+    },
+    [onSeek, smoothScrollTo]
+  );
 
   return (
-    <div className="synced-lyrics-container" ref={containerRef}>
+    <div 
+      className="synced-lyrics-container" 
+      ref={containerRef}
+      style={{
+        maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
+      }}
+    >
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
         {syncedLyrics.map((line, index) => {
           const isActive = index === activeIndex;
@@ -73,7 +119,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
                 isActive={isActive}
                 isPast={isPast}
                 isUpcoming={isUpcoming}
-                onSeek={onSeek}
+                onSeek={() => handleSeek(line.time, index)}
               />
             </div>
           );
