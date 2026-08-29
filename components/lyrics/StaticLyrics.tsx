@@ -13,8 +13,16 @@ export const StaticLyrics = React.memo(function StaticLyrics({ lyrics }: StaticL
           const isSectionHeader = trimmed.startsWith("[") && trimmed.endsWith("]");
           const isEmpty = trimmed === "";
 
-          if (isEmpty || isSectionHeader) {
-            return null;
+          if (isEmpty) {
+            return <div key={`spacer-${index}`} aria-hidden="true" className="lyric-line-spacer" />;
+          }
+
+          if (isSectionHeader) {
+            return (
+              <div key={`header-${index}`} aria-hidden="true" className="lyric-section-header">
+                <span>{trimmed.slice(1, -1)}</span>
+              </div>
+            );
           }
 
           return (
