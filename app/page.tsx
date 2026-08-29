@@ -100,6 +100,7 @@ type IconName =
   | "cloud"
   | "drive"
   | "github"
+  | "headphones"
   | "info"
   | "install"
   | "link"
@@ -151,6 +152,9 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
       </>
     ),
     close: <path d="m6 6 12 12M18 6 6 18" />,
+    headphones: (
+      <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" />
+    ),
     cloud: (
       <>
         <path d="M7 18h10a4 4 0 0 0 .7-7.9A6 6 0 0 0 6.4 8.4 4.8 4.8 0 0 0 7 18Z" />
@@ -636,6 +640,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [controlNotice, setControlNotice] = useState("");
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [isHeadphonesConnected, setIsHeadphonesConnected] = useState(false);
   const [driveMetadata, setDriveMetadata] = useState<DriveMetadata | null>(null);
   const [readingMetadata, setReadingMetadata] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
@@ -2301,7 +2306,7 @@ export default function Home() {
           {!usesSystemVolume && (
             <div className="volume-control">
               <button aria-label={volume > 0.01 ? "Tắt tiếng" : "Bật tiếng"} onClick={toggleMute} type="button">
-                <Icon name={volume > 0.01 ? "volumeHigh" : "volumeMute"} size={17} />
+                <Icon name={volume <= 0.01 ? "volumeMute" : isHeadphonesConnected ? "headphones" : "volumeHigh"} size={17} />
               </button>
               <input
                 aria-label="Âm lượng"
