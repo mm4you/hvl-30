@@ -2127,7 +2127,7 @@ export default function Home() {
 
               <section className="about-track-section" aria-labelledby="about-track-title">
                 <div className="about-section-heading">
-                  <div><p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p><h3 id="about-track-title">Danh sách album</h3></div>
+                  <div><p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p><h3 id="about-track-title">Danh sách bài hát</h3></div>
                   <p>Chạm vào một artwork để nghe bài đó.</p>
                 </div>
                 <ol className="about-track-grid">
