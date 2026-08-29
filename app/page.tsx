@@ -1,47 +1,41 @@
 "use client";
 
-import React from "react";
-import { usePlayer } from "@/context/PlayerContext";
-import { Navbar } from "@/components/layout/Navbar";
-import { AlbumHero } from "@/components/album/AlbumHero";
-import { TrackList } from "@/components/track/TrackList";
-import { SyncedLyricsView } from "@/components/lyrics/SyncedLyricsView";
-import { StoryGallery } from "@/components/gallery/StoryGallery";
-import { BottomPlayer } from "@/components/player/BottomPlayer";
-import { FullscreenPlayer } from "@/components/player/FullscreenPlayer";
-import { QueueDrawer } from "@/components/queue/QueueDrawer";
+import React, { useState } from "react";
+import { Header } from "@/components/layout/Header";
+import { MainPlayer } from "@/components/player/MainPlayer";
+import { PlaylistPanel } from "@/components/player/PlaylistPanel";
+import { AboutModal } from "@/components/modal/AboutModal";
+import { Footer } from "@/components/layout/Footer";
 
 export default function HomePage() {
-  const { activeTab } = usePlayer();
+  const [playlistVisible, setPlaylistVisible] = useState(true);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#060608] text-[#f4f0eb] pb-32">
-      <Navbar />
+    <div className="min-h-screen bg-[#060606] text-[#f4f0eb] flex flex-col selection:bg-rose-600 selection:text-white">
+      {/* Authentic Topbar */}
+      <Header onOpenAbout={() => setAboutOpen(true)} />
 
-      <main className="max-w-7xl mx-auto px-4 md:px-8 pt-6">
-        {activeTab === "tracks" && (
-          <div className="space-y-6">
-            <AlbumHero />
-            <TrackList />
-          </div>
-        )}
+      {/* Main Container */}
+      <main className="flex-1 max-w-4xl mx-auto w-full px-4 md:px-8 py-6 md:py-10">
+        {/* Central Player Card with Artwork & Lyrics */}
+        <MainPlayer 
+          playlistVisible={playlistVisible}
+          onTogglePlaylist={() => setPlaylistVisible(!playlistVisible)}
+        />
 
-        {activeTab === "lyrics" && (
-          <div className="py-2">
-            <SyncedLyricsView />
-          </div>
-        )}
+        {/* Collapsible / Scrollable Inner Playlist Panel */}
+        <PlaylistPanel isVisible={playlistVisible} />
 
-        {activeTab === "story" && (
-          <div className="py-2">
-            <StoryGallery />
-          </div>
-        )}
+        {/* Authentic Author Footer */}
+        <Footer />
       </main>
 
-      <BottomPlayer />
-      <FullscreenPlayer />
-      <QueueDrawer />
+      {/* About Modal ("Đôi lời quan trọng của tôi") */}
+      <AboutModal 
+        isOpen={aboutOpen}
+        onClose={() => setAboutOpen(false)}
+      />
     </div>
   );
 }
