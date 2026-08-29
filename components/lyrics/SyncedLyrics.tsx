@@ -1,128 +1,103 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import type { SyncedLyricLine } from "@/data/lyrics/types";
 import { LyricLine } from "./LyricLine";
 
 type SyncedLyricsProps = {
   syncedLyrics: SyncedLyricLine[];
   currentTime: number;
-  duration: number;
-  isPlaying: boolean;
+  duration?: number;
+  isPlaying?: boolean;
   isUserScrolling: boolean;
   mediaElement?: HTMLAudioElement | null;
   onSeek: (time: number) => void;
 };
 
-const FRAME_INTERVAL_MS = 32;
-
-function findActiveLine(lines: SyncedLyricLine[], playbackTime: number): number {
-  let low = 0;
-  let high = lines.length - 1;
-  let active = -1;
-
-  while (low <= high) {
-    const middle = (low + high) >> 1;
-    if (lines[middle].time <= playbackTime) {
-      active = middle;
-      low = middle + 1;
-    } else {
-      high = middle - 1;
-    }
-  }
-
-  return active;
-}
-
 export const SyncedLyrics = React.memo(function SyncedLyrics({
   syncedLyrics,
   currentTime,
-  duration,
-  isPlaying,
   isUserScrolling,
-  mediaElement,
   onSeek,
 }: SyncedLyricsProps) {
-  const [playbackTime, setPlaybackTime] = useState(currentTime);
   const containerRef = useRef<HTMLDivElement>(null);
-  const currentTimeRef = useRef(currentTime);
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
+  const isSeekingRef = useRef(false);
 
-  useEffect(() => {
-    currentTimeRef.current = currentTime;
-    if (!isPlaying || !mediaElement) setPlaybackTime(currentTime);
-  }, [currentTime, isPlaying, mediaElement]);
+  // Binary search for highest accuracy and performance
+  const activeIndex = useMemo(() => {
+    if (!syncedLyrics.length) return -1;
+    let low = 0;
+    let high = syncedLyrics.length - 1;
+    let index = -1;
 
-  useEffect(() => {
-    setPlaybackTime(mediaElement?.currentTime || currentTimeRef.current);
-  }, [mediaElement, syncedLyrics]);
-
-  useEffect(() => {
-    if (!isPlaying || !mediaElement) return;
-
-    let animationFrame = 0;
-    let lastFrameAt = 0;
-    const update = (frameAt: number) => {
-      if (frameAt - lastFrameAt >= FRAME_INTERVAL_MS) {
-        const nextTime = Number.isFinite(mediaElement.currentTime)
-          ? mediaElement.currentTime
-          : currentTimeRef.current;
-        setPlaybackTime((previous) => Math.abs(previous - nextTime) >= 0.015 ? nextTime : previous);
-        lastFrameAt = frameAt;
+    while (low <= high) {
+      const mid = (low + high) >> 1;
+      if (syncedLyrics[mid].time <= currentTime) {
+        index = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
       }
-      animationFrame = window.requestAnimationFrame(update);
-    };
+    }
+    return index;
+  }, [currentTime, syncedLyrics]);
 
-    animationFrame = window.requestAnimationFrame(update);
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, [isPlaying, mediaElement]);
-
-  const activeIndex = useMemo(
-    () => findActiveLine(syncedLyrics, playbackTime),
-    [playbackTime, syncedLyrics],
-  );
-
-  const activeProgress = useMemo(() => {
-    if (activeIndex < 0) return 0;
-    const line = syncedLyrics[activeIndex];
-    const endTime = line.endTime ?? syncedLyrics[activeIndex + 1]?.time ?? duration;
-    const lineDuration = Math.max(0.15, endTime - line.time);
-    return Math.min(100, Math.max(0, ((playbackTime - line.time) / lineDuration) * 100));
-  }, [activeIndex, duration, playbackTime, syncedLyrics]);
-
+  // Butter-smooth RAF auto-scroll
   useEffect(() => {
-    if (isUserScrolling || activeIndex < 0) return;
+    if (isUserScrolling || activeIndex < 0 || isSeekingRef.current) return;
     const targetElement = lineRefs.current[activeIndex];
     const container = containerRef.current;
     if (!targetElement || !container) return;
 
-    const desiredScrollTop =
-      targetElement.offsetTop - container.clientHeight * 0.42 + targetElement.clientHeight / 2;
+    const frame = requestAnimationFrame(() => {
+      const targetRect = targetElement.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
 
-    container.scrollTo({
-      top: Math.max(0, desiredScrollTop),
-      behavior: "smooth",
+      const relativeTop = targetRect.top - containerRect.top + container.scrollTop;
+      const desiredScrollTop = relativeTop - (container.clientHeight * 0.42) + (targetElement.clientHeight / 2);
+
+      container.scrollTo({
+        top: Math.max(0, desiredScrollTop),
+        behavior: "smooth",
+      });
     });
+
+    return () => cancelAnimationFrame(frame);
   }, [activeIndex, isUserScrolling]);
 
+  const handleLineSeek = useCallback(
+    (time: number) => {
+      isSeekingRef.current = true;
+      onSeek(time);
+      setTimeout(() => {
+        isSeekingRef.current = false;
+      }, 350);
+    },
+    [onSeek]
+  );
+
   return (
-    <div className="synced-lyrics-container" ref={containerRef}>
+    <div className="synced-lyrics-container ultra-smooth-lyrics" ref={containerRef}>
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
         {syncedLyrics.map((line, index) => {
           const isActive = index === activeIndex;
+          const isPast = activeIndex >= 0 && index < activeIndex;
+          const isUpcoming = activeIndex < 0 || index > activeIndex;
+
           return (
             <div
-              className="lyric-line-wrapper"
               key={`${index}-${line.time}`}
-              ref={(element) => {
-                lineRefs.current[index] = element;
+              ref={(el) => {
+                lineRefs.current[index] = el;
               }}
+              className="lyric-line-wrapper"
             >
               <LyricLine
-                isActive={isActive}
-                isPast={activeIndex >= 0 && index < activeIndex}
-                isUpcoming={activeIndex < 0 || index > activeIndex}
                 line={line}
-                onSeek={onSeek}
-                progress={isActive ? activeProgress : index < activeIndex ? 100 : 0}
+                isActive={isActive}
+                isPast={isPast}
+                isUpcoming={isUpcoming}
+                onSeek={handleLineSeek}
+                progress={isActive ? 100 : 0}
               />
             </div>
           );
