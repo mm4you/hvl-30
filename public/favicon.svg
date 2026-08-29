@@ -1,77 +1,38 @@
-<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background Gradient -->
-    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientTransform="translate(256 256) rotate(45) scale(340)">
-      <stop offset="0%" stop-color="#2a0604"/>
-      <stop offset="45%" stop-color="#120404"/>
+    <radialGradient id="hvlBg" cx="0" cy="0" r="1" gradientTransform="translate(64 64) rotate(45) scale(88)">
+      <stop offset="0%" stop-color="#240705"/>
+      <stop offset="60%" stop-color="#0e0606"/>
       <stop offset="100%" stop-color="#050303"/>
     </radialGradient>
-
-    <!-- Neon Crimson Gradient -->
-    <linearGradient id="neonRed" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FF5A43"/>
-      <stop offset="50%" stop-color="#FF2413"/>
-      <stop offset="100%" stop-color="#D60000"/>
-    </linearGradient>
-
-    <!-- Titanium White Gradient -->
-    <linearGradient id="titanium" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#D8D0C5"/>
-    </linearGradient>
-
-    <!-- Neon Glow Filter -->
-    <filter id="laserGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="12" result="blur1"/>
-      <feGaussianBlur stdDeviation="24" result="blur2"/>
+    <filter id="crimsonGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
-        <feMergeNode in="blur2"/>
-        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.9"/>
-    </filter>
   </defs>
 
-  <!-- App Icon Base Plate -->
-  <rect width="512" height="512" rx="120" fill="url(#bgGlow)"/>
-  <rect x="2" y="2" width="508" height="508" rx="118" stroke="url(#neonRed)" stroke-opacity="0.35" stroke-width="3"/>
-  <rect x="14" y="14" width="484" height="484" rx="106" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1.5"/>
+  <!-- Squircle Base -->
+  <rect width="128" height="128" rx="30" fill="url(#hvlBg)"/>
+  <rect x="1" y="1" width="126" height="126" rx="29" stroke="#FF3725" stroke-opacity="0.25" stroke-width="1.5"/>
 
-  <!-- Vinyl Grooves -->
-  <circle cx="256" cy="256" r="195" stroke="#FFFFFF" stroke-opacity="0.04" stroke-width="1.5"/>
-  <circle cx="256" cy="256" r="165" stroke="#FF2413" stroke-opacity="0.12" stroke-width="1.5" stroke-dasharray="12 6"/>
-  <circle cx="256" cy="256" r="135" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+  <!-- Subtle Vinyl Rings -->
+  <circle cx="64" cy="64" r="50" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1"/>
+  <circle cx="64" cy="64" r="38" stroke="#FF3725" stroke-opacity="0.08" stroke-width="1" stroke-dasharray="4 3"/>
 
-  <!-- Central Ambient Glow -->
-  <circle cx="256" cy="256" r="90" fill="#FF2413" fill-opacity="0.16" filter="url(#laserGlow)"/>
+  <!-- Minimalist Clean Monogram HVL -->
+  <!-- H -->
+  <path d="M28 40V88M48 40V88M28 64H48" stroke="#F4F0EB" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- V (Glowing Red) -->
+  <path d="M52 40L64 88L76 40" stroke="#FF3725" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#crimsonGlow)"/>
 
-  <!-- Iconic Monogram HVL -->
-  <g filter="url(#softShadow)">
-    <!-- H Left Bar -->
-    <path d="M120 148C120 141.373 125.373 136 132 136H152C158.627 136 164 141.373 164 148V364C164 370.627 158.627 376 152 376H132C125.373 376 120 370.627 120 364V148Z" fill="url(#titanium)"/>
-    <!-- H Crossbar -->
-    <path d="M164 236H216V276H164V236Z" fill="url(#titanium)"/>
-    <!-- H Right Bar -->
-    <path d="M216 148C216 141.373 221.373 136 228 136H248C254.627 136 260 141.373 260 148V364C260 370.627 254.627 376 248 376H228C221.373 376 216 370.627 216 364V148Z" fill="url(#titanium)"/>
+  <!-- L -->
+  <path d="M80 40V88H100" stroke="#F4F0EB" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
 
-    <!-- Glowing Dynamic Neon V (Centerpiece) -->
-    <g filter="url(#laserGlow)">
-      <path d="M236 138L284 366C286.2 372.5 292.3 377 299.2 377C306.1 377 312.2 372.5 314.4 366L362 138" stroke="url(#neonRed)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M236 138L284 366C286.2 372.5 292.3 377 299.2 377C306.1 377 312.2 372.5 314.4 366L362 138" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
-    </g>
-
-    <!-- L Vertical & Horizontal Bar -->
-    <path d="M348 148C348 141.373 353.373 136 360 136H380C386.627 136 392 141.373 392 148V332H444C450.627 332 456 337.373 456 344V364C456 370.627 450.627 376 444 376H360C353.373 376 348 370.627 348 364V148Z" fill="url(#titanium)"/>
-  </g>
-
-  <!-- Bottom Badge: 30 LOSSLESS -->
-  <g transform="translate(196, 408)">
-    <rect width="120" height="34" rx="17" fill="#0E0505" stroke="url(#neonRed)" stroke-width="1.8"/>
-    <circle cx="22" cy="17" r="4" fill="#FF2413" filter="url(#laserGlow)"/>
-    <text x="68" y="23" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', Inter, sans-serif" font-size="13" font-weight="900" letter-spacing="2" text-anchor="middle">30 FLAC</text>
-  </g>
+  <!-- Subtle 30 tag at bottom -->
+  <rect x="52" y="98" width="24" height="12" rx="6" fill="#FF3725" fill-opacity="0.18"/>
+  <text x="64" y="107" fill="#FF3725" font-family="-apple-system, system-ui, sans-serif" font-size="7.5" font-weight="900" text-anchor="middle" letter-spacing="1">30</text>
 </svg>
