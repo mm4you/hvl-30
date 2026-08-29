@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase/client";
 import { INITIAL_TRACKS } from "@/lib/supabase/seed-data";
 
-export const dynamic = "force-dynamic";
+export const runtime = "edge";
 
 export async function GET() {
   try {
@@ -29,12 +29,19 @@ export async function GET() {
           likesCount: Number(t.likes_count) || 0,
         }));
 
-        return NextResponse.json({
-          complete: true,
-          imported: tracks.length,
-          total: 30,
-          tracks,
-        });
+        return NextResponse.json(
+          {
+            complete: true,
+            imported: tracks.length,
+            total: 30,
+            tracks,
+          },
+          {
+            headers: {
+              "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+            },
+          }
+        );
       }
     }
   } catch (err) {
@@ -46,10 +53,17 @@ export async function GET() {
     originalUrl: `https://drive.google.com/file/d/${t.sourceDriveId}/view`,
   }));
 
-  return NextResponse.json({
-    complete: true,
-    imported: fallbackTracks.length,
-    total: 30,
-    tracks: fallbackTracks,
-  });
+  return NextResponse.json(
+    {
+      complete: true,
+      imported: fallbackTracks.length,
+      total: 30,
+      tracks: fallbackTracks,
+    },
+    {
+      headers: {
+        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+      },
+    }
+  );
 }
