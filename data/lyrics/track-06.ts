@@ -57,203 +57,203 @@ export const track06Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 11.5,
+    "time": 11,
     "text": "Anh ta luôn đạt được những gì mình muốn"
   },
   {
-    "time": 14.1,
+    "time": 13.7,
     "text": "Đôi khi là cũng tùy tình huống"
   },
   {
-    "time": 16.6,
+    "time": 15.9,
     "text": "Anh bảo cô ta nếu vui thì mình uống"
   },
   {
-    "time": 19.2,
+    "time": 18.6,
     "text": "Cầm cốc trên tay, cô ta chỉ rình uống"
   },
   {
-    "time": 21.8,
+    "time": 21.3,
     "text": "Cô ta muốn anh tối nay ghì mình xuống"
   },
   {
-    "time": 24.4,
+    "time": 24,
     "text": "Để nhau làm thể chỉ là vì mình muốn"
   },
   {
-    "time": 26.9,
+    "time": 26.8,
     "text": "Shawty wanna fuck, những lúc cô đơn"
   },
   {
-    "time": 29.5,
+    "time": 28.9,
     "text": "Callin' my, called up my phone"
   },
   {
-    "time": 32.1,
+    "time": 30.7,
     "text": "Cho anh nghe em, ah-ah-ah-ah-ah-ah"
   },
   {
-    "time": 34.6,
+    "time": 32.3,
     "text": "I just wanna link, now she want love"
   },
   {
-    "time": 37.2,
+    "time": 34.7,
     "text": "Things got real nhưng mà em hơi bớp"
   },
   {
-    "time": 39.8,
+    "time": 37.1,
     "text": "Sao mà anh lại cho là do anh không tốt"
   },
   {
-    "time": 42.3,
+    "time": 40.2,
     "text": "Dã man, thật là dã man"
   },
   {
-    "time": 44.9,
+    "time": 42,
     "text": "Voodoo Voo như là Shaman"
   },
   {
-    "time": 47.5,
+    "time": 43.6,
     "text": "Đeo bịt mắt vào rồi, I just wanna fuck"
   },
   {
-    "time": 50.1,
+    "time": 46.3,
     "text": "Situationship thật là quá toang"
   },
   {
-    "time": 52.6,
+    "time": 47.8,
     "text": "Dễ thôi, tháo ra, bốt đen, cùng với áo da"
   },
   {
-    "time": 55.2,
+    "time": 50.9,
     "text": "Va vào nhau để mình nhão ra"
   },
   {
-    "time": 57.8,
+    "time": 53,
     "text": "Những cảm xúc lại tuôn như là pháo hoa"
   },
   {
-    "time": 60.3,
+    "time": 55.7,
     "text": "Ah-ah-ah-ah, ah, ah, ah, ah, ah-ah-ah-ah"
   },
   {
-    "time": 62.9,
+    "time": 57.6,
     "text": "Ah-ah-ah-ah, ah, ah, ah, ah, ah-ah-ah-ah"
   },
   {
-    "time": 65.5,
+    "time": 59.4,
     "text": "Cứ hôn thật lâu, nhỡ đâu lại yêu"
   },
   {
-    "time": 68,
+    "time": 61.8,
     "text": "Cứ chạm vào nhau (Lâu, lâu, hmm-hmm, lâu, lâu)"
   },
   {
-    "time": 70.6,
+    "time": 64.5,
     "text": "Cứ hôn thật lâu (Lâu, lâu), nhỡ đâu lại yêu"
   },
   {
-    "time": 73.2,
+    "time": 67.6,
     "text": "Cứ chạm vào nhau (Lâu, lâu, lâu, lâu, lâu, lâu)"
   },
   {
-    "time": 75.7,
+    "time": 70.6,
     "text": "Biết nhau còn cô đơn nhưng mà sao mà cô đơn, tò mò ít thôi"
   },
   {
-    "time": 78.3,
+    "time": 75.2,
     "text": "Chẳng thể mãi là của nhau thì kêu tên của nhau, đặt cho nhau là \"Mê Nhất Ở Trên Đời\""
   },
   {
-    "time": 80.9,
+    "time": 81.2,
     "text": "Chạm vào mắt hay vào môi, vào mông, vào hông lại càng trôi, quăng em nằm trên gối"
   },
   {
-    "time": 83.5,
+    "time": 86.7,
     "text": "Từng ngón tay em đan vào nhau, còn tay anh ở đâu?"
   },
   {
-    "time": 86,
+    "time": 90.8,
     "text": "Anh cho sâu vào em rồi"
   },
   {
-    "time": 88.6,
+    "time": 92.6,
     "text": "Cô ta kiêu ngạo với những gì mình có (Kiêu ngạo)"
   },
   {
-    "time": 91.2,
+    "time": 95.9,
     "text": "Anh ta nên cẩn thận điều đó"
   },
   {
-    "time": 93.7,
+    "time": 98,
     "text": "Keep it down, low, low, undercover"
   },
   {
-    "time": 96.3,
+    "time": 99.9,
     "text": "Thích đi cửa sau nên là chạy đường vòng"
   },
   {
-    "time": 98.9,
+    "time": 102.6,
     "text": "Cứ va vào nhau thôi một lần chẳng bõ (Va vào nhau)"
   },
   {
-    "time": 101.4,
+    "time": 106.2,
     "text": "Vậy thì lại bên nhau, just keep comin' up"
   },
   {
-    "time": 104,
+    "time": 109,
     "text": "Shawty wanna fuck những lúc cô đơn"
   },
   {
-    "time": 106.6,
+    "time": 111.1,
     "text": "Callin' my, yeah, called up my phone"
   },
   {
-    "time": 109.2,
+    "time": 113.2,
     "text": "Cho anh nghe em, ah, ah-ah, ah-ah-ah-ah-ah-ah"
   },
   {
-    "time": 111.7,
+    "time": 115.3,
     "text": "I just wanna link, now she want love"
   },
   {
-    "time": 114.3,
+    "time": 117.8,
     "text": "Things got real nhưng mà em hơi bớp"
   },
   {
-    "time": 116.9,
+    "time": 120.2,
     "text": "Sao mà anh lại cho là do anh không tốt"
   },
   {
-    "time": 119.4,
+    "time": 123.2,
     "text": "Sao mà anh lại cho là do anh không— (Uh)"
   },
   {
-    "time": 122,
+    "time": 126.3,
     "text": "Shawty wanna fuck những lúc cô đơn"
   },
   {
-    "time": 124.6,
+    "time": 128.4,
     "text": "Callin' my, yeah, called up my phone"
   },
   {
-    "time": 127.1,
+    "time": 130.5,
     "text": "Shawty wanna uh-huh-uh-huh"
   },
   {
-    "time": 129.7,
+    "time": 132.1,
     "text": "Shawty wanna uh-huh-uh-huh"
   },
   {
-    "time": 132.3,
+    "time": 133.6,
     "text": "Shawty wanna fuck, những lúc cô đơn"
   },
   {
-    "time": 134.9,
+    "time": 135.8,
     "text": "Callin' my, yeah, called up my phone"
   },
   {
-    "time": 137.4,
+    "time": 137.9,
     "text": "Cho anh nghe em, ah, ah-ah, ah-ah-ah-ah-ah-ah"
   }
 ]

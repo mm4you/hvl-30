@@ -100,7 +100,6 @@ type IconName =
   | "cloud"
   | "drive"
   | "github"
-  | "headphones"
   | "info"
   | "install"
   | "link"
@@ -152,9 +151,6 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
       </>
     ),
     close: <path d="m6 6 12 12M18 6 6 18" />,
-    headphones: (
-      <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3" />
-    ),
     cloud: (
       <>
         <path d="M7 18h10a4 4 0 0 0 .7-7.9A6 6 0 0 0 6.4 8.4 4.8 4.8 0 0 0 7 18Z" />
@@ -640,7 +636,6 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [controlNotice, setControlNotice] = useState("");
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [isHeadphonesConnected, setIsHeadphonesConnected] = useState(false);
   const [driveMetadata, setDriveMetadata] = useState<DriveMetadata | null>(null);
   const [readingMetadata, setReadingMetadata] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
@@ -1395,20 +1390,6 @@ export default function Home() {
   }, [currentIndex, isPlaying, playbackQueue.length, preloadNextTrack, shuffleEnabled]);
 
   useEffect(() => {
-    if (!isPlaying) return;
-    let rafId: number;
-    const updateTimeLoop = () => {
-      const audio = audioRef.current;
-      if (audio && !audio.paused && Number.isFinite(audio.currentTime)) {
-        setCurrentTime(audio.currentTime);
-      }
-      rafId = requestAnimationFrame(updateTimeLoop);
-    };
-    rafId = requestAnimationFrame(updateTimeLoop);
-    return () => cancelAnimationFrame(rafId);
-  }, [isPlaying]);
-
-  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
@@ -2118,28 +2099,18 @@ export default function Home() {
               </header>
 
               <section className="about-statement">
-                <div className="about-statement-header">
-                  <p className="eyebrow">MCK · HVL · VĂN HOÁ RAP</p>
-                  <h3>Có những điều người trẻ chỉ biết nói ra bằng rap.</h3>
-                  <blockquote className="about-pullquote">
-                    "Nếu mọi điều khó chịu đều bị xoá đi, thứ còn lại có còn là lời thật của một thế hệ không?"
-                  </blockquote>
-                </div>
-
-                <div className="about-statement-grid">
-                  <div className="about-col">
-                    <p>Có một nỗi ấm ức rất khó gọi tên trong người trẻ hôm nay. Họ được bảo phải ngoan hơn, bình thường hơn, dễ nghe hơn. Họ đi qua áp lực, cô đơn, tiền bạc, tình yêu và cảm giác không ai thật sự hiểu mình. Nhiều điều không thể kể với gia đình, không thể nói trong lớp học, cũng không vừa vặn với một dòng trạng thái đẹp đẽ. Rap trở thành nơi họ được phép nói thật, kể cả khi sự thật ấy xấu xí, vụng về và đầy vết xước.</p>
-                    <p>Vì vậy, nỗi lo rap đang mất chất không chỉ nằm ở âm thanh. Nó nằm trong cảm giác mọi góc cạnh dần bị mài phẳng để vừa với thuật toán, nhãn hàng và những khuôn mẫu an toàn. Khi một tiếng nói từng thuộc về bên lề bước vào trung tâm, người nghe vừa tự hào vừa sợ rằng nó sẽ quên mất vì sao mình đã cất tiếng từ đầu.</p>
-                  </div>
-
-                  <div className="about-col">
-                    <p>HVL đặt MCK ngay giữa mâu thuẫn ấy. Album có bản năng, kiêu hãnh, sai lầm, những vết thương tình cảm và cả những câu chữ khiến công chúng phản ứng. Không phải câu nào cũng cần được bênh vực. Tự do biểu đạt không có nghĩa là đứng ngoài trách nhiệm. Nhưng với nhiều người nghe, việc một phần lớn album biến mất vẫn để lại cảm giác hụt hẫng, như một trang nhật ký vừa kịp đọc đã bị xé khỏi cuốn sách.</p>
-                    <p><strong>Điều đã xảy ra:</strong> sau khi làm việc với cơ quan chức năng, MCK xin lỗi về ngôn từ chưa phù hợp và cho biết sẽ gỡ các bản ghi liên quan để chỉnh sửa trước khi cân nhắc phát hành lại. Ngày 31 tháng 7 năm 2026, 19 trong 30 bài không còn hiển thị, còn 11 bài được giữ lại trên YouTube Music. Sự việc không chỉ đặt câu hỏi cho riêng MCK. Nó buộc văn hoá rap Việt nhìn lại cách giữ bản sắc, bảo vệ không gian sáng tạo và đồng thời chịu trách nhiệm khi tiếng nói của mình đã chạm tới hàng triệu người.</p>
-                    <p className="about-closing">Một album có thể được chỉnh sửa. Một nghệ sĩ có thể nhận sai. Nhưng những đối thoại mà HVL mở ra không nên biến mất cùng nút gỡ bài.</p>
-                    <div className="about-source-links">
-                      <a href="https://vov.vn/giai-tri/mck-xin-loi-thong-bao-go-bo-cac-noi-dung-khong-phu-hop-trong-album-moi-post1320186.vov" rel="noreferrer" target="_blank">Thông báo và hướng khắc phục ↗</a>
-                      <a href="https://kenh14.vn/19-bai-hat-bi-go-cua-mck-215260731173623501.chn" rel="noreferrer" target="_blank">Danh sách 19 bài bị ẩn ↗</a>
-                    </div>
+                <p className="eyebrow">MCK · HVL · VĂN HOÁ RAP</p>
+                <h3>Có những điều người trẻ chỉ biết nói ra bằng rap.</h3>
+                <div className="about-essay">
+                  <p>Có một nỗi ấm ức rất khó gọi tên trong người trẻ hôm nay. Họ được bảo phải ngoan hơn, bình thường hơn, dễ nghe hơn. Họ đi qua áp lực, cô đơn, tiền bạc, tình yêu và cảm giác không ai thật sự hiểu mình. Nhiều điều không thể kể với gia đình, không thể nói trong lớp học, cũng không vừa vặn với một dòng trạng thái đẹp đẽ. Rap trở thành nơi họ được phép nói thật, kể cả khi sự thật ấy xấu xí, vụng về và đầy vết xước.</p>
+                  <p>Vì vậy, nỗi lo rap đang mất chất không chỉ nằm ở âm thanh. Nó nằm trong cảm giác mọi góc cạnh dần bị mài phẳng để vừa với thuật toán, nhãn hàng và những khuôn mẫu an toàn. Khi một tiếng nói từng thuộc về bên lề bước vào trung tâm, người nghe vừa tự hào vừa sợ rằng nó sẽ quên mất vì sao mình đã cất tiếng từ đầu.</p>
+                  <blockquote className="about-pullquote">Nếu mọi điều khó chịu đều bị xoá đi, thứ còn lại có còn là lời thật của một thế hệ không?</blockquote>
+                  <p>HVL đặt MCK ngay giữa mâu thuẫn ấy. Album có bản năng, kiêu hãnh, sai lầm, những vết thương tình cảm và cả những câu chữ khiến công chúng phản ứng. Không phải câu nào cũng cần được bênh vực. Tự do biểu đạt không có nghĩa là đứng ngoài trách nhiệm. Nhưng với nhiều người nghe, việc một phần lớn album biến mất vẫn để lại cảm giác hụt hẫng, như một trang nhật ký vừa kịp đọc đã bị xé khỏi cuốn sách.</p>
+                  <p><strong>Điều đã xảy ra:</strong> sau khi làm việc với cơ quan chức năng, MCK xin lỗi về ngôn từ chưa phù hợp và cho biết sẽ gỡ các bản ghi liên quan để chỉnh sửa trước khi cân nhắc phát hành lại. Ngày 31 tháng 7 năm 2026, 19 trong 30 bài không còn hiển thị, còn 11 bài được giữ lại trên YouTube Music. Sự việc không chỉ đặt câu hỏi cho riêng MCK. Nó buộc văn hoá rap Việt nhìn lại cách giữ bản sắc, bảo vệ không gian sáng tạo và đồng thời chịu trách nhiệm khi tiếng nói của mình đã chạm tới hàng triệu người.</p>
+                  <p className="about-closing">Một album có thể được chỉnh sửa. Một nghệ sĩ có thể nhận sai. Nhưng những đối thoại mà HVL mở ra không nên biến mất cùng nút gỡ bài.</p>
+                  <div className="about-source-links">
+                    <a href="https://vov.vn/giai-tri/mck-xin-loi-thong-bao-go-bo-cac-noi-dung-khong-phu-hop-trong-album-moi-post1320186.vov" rel="noreferrer" target="_blank">Thông báo và hướng khắc phục</a>
+                    <a href="https://kenh14.vn/19-bai-hat-bi-go-cua-mck-215260731173623501.chn" rel="noreferrer" target="_blank">Danh sách 19 bài bị ẩn</a>
                   </div>
                 </div>
               </section>
@@ -2320,7 +2291,7 @@ export default function Home() {
           {!usesSystemVolume && (
             <div className="volume-control">
               <button aria-label={volume > 0.01 ? "Tắt tiếng" : "Bật tiếng"} onClick={toggleMute} type="button">
-                <Icon name={volume <= 0.01 ? "volumeMute" : isHeadphonesConnected ? "headphones" : "volumeHigh"} size={17} />
+                <Icon name={volume > 0.01 ? "volumeHigh" : "volumeMute"} size={17} />
               </button>
               <input
                 aria-label="Âm lượng"
@@ -2452,9 +2423,9 @@ export default function Home() {
       </section>
 
       <footer>
-        
+        <p>Không cần tài khoản. 30 bài nhạc dùng chung được phát từ kho của HVL 30; file giữ nguyên định dạng gốc, không chuyển mã hoặc giảm chất lượng.</p>
         <a href="https://github.com/mm4you" rel="noreferrer" target="_blank">
-          <Icon name="github" size={15} /> Built by Khang · @mm4you
+          <Icon name="github" size={15} /> Built by Khang with Codex · @mm4you
         </a>
       </footer>
     </main>

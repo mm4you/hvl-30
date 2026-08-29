@@ -52,183 +52,183 @@ export const track08Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 10,
+    "time": 9.5,
     "text": "Sẽ không tin vào tình yêu thêm một lần nào nữa đâu"
   },
   {
-    "time": 12.2,
+    "time": 12,
     "text": "Vì lỡ mau tin vào tình yêu đã luôn mong cầu"
   },
   {
-    "time": 14.4,
+    "time": 14.3,
     "text": "Ah-ah, ah-ah, uh"
   },
   {
-    "time": 16.7,
+    "time": 15.4,
     "text": "You callin' me on my phone, và nói là em muốn ra khỏi đây"
   },
   {
-    "time": 18.9,
+    "time": 18.3,
     "text": "Làm một hơi sâu, lồng ngực căng phồng, bảo là thích hôn anh, đôi môi anh dày"
   },
   {
-    "time": 21.1,
+    "time": 21.9,
     "text": "Và xốc nhau lên ngay trong thang máy"
   },
   {
-    "time": 23.3,
+    "time": 23.6,
     "text": "Anh dẫn em yêu đi ra khỏi đây"
   },
   {
-    "time": 25.6,
+    "time": 25.3,
     "text": "Anh biết em đang đưa anh vào bẫy"
   },
   {
-    "time": 27.8,
+    "time": 26.9,
     "text": "Và anh biết em đang đưa anh vào—"
   },
   {
-    "time": 30,
+    "time": 28.6,
     "text": "Uh, uh, uh"
   },
   {
-    "time": 32.2,
+    "time": 29.7,
     "text": "Và anh biết em đang đưa anh vào—"
   },
   {
-    "time": 34.4,
+    "time": 31.4,
     "text": "Uh, uh, uh"
   },
   {
-    "time": 36.7,
+    "time": 32.5,
     "text": "Anh biết em đang đưa anh vào—"
   },
   {
-    "time": 38.9,
+    "time": 33.9,
     "text": "Uh, uh, uh"
   },
   {
-    "time": 41.1,
+    "time": 35,
     "text": "Và anh biết em đang đưa anh vào—"
   },
   {
-    "time": 43.3,
+    "time": 36.7,
     "text": "Yah, ah, ah"
   },
   {
-    "time": 45.6,
+    "time": 37.8,
     "text": "Ta như đang được sống, em đến với nó đi"
   },
   {
-    "time": 47.8,
+    "time": 39.9,
     "text": "Cầm bút anh mà ghi, xem con tim anh nó đang nói lên điều gì, uh, uhm"
   },
   {
-    "time": 50,
+    "time": 43.4,
     "text": "Anh như đang được sống, em xuống dưới đó đi"
   },
   {
-    "time": 52.2,
+    "time": 45.5,
     "text": "Em cuốn lấy nó đi, giữ lấy nó đi, I'm fallin' in love, fuck it, fall"
   },
   {
-    "time": 54.4,
+    "time": 48.9,
     "text": "Anh muốn có được nó"
   },
   {
-    "time": 56.7,
+    "time": 50,
     "text": "Anh muốn có tình yêu của em but I'm way too careful"
   },
   {
-    "time": 58.9,
+    "time": 52.5,
     "text": "Bởi cảm xúc anh rất to mà chẳng thể nào đo, nhưng mà con tim anh bé nhỏ"
   },
   {
-    "time": 61.1,
+    "time": 56.3,
     "text": "Vậy tại sao nụ hôn này say mê mà làm anh bị gây tê, yeah, I'm tryin' to focus"
   },
   {
-    "time": 63.3,
+    "time": 60.2,
     "text": "Và đừng thắp hy vọng trong anh, tia nắng đó thật mong manh"
   },
   {
-    "time": 65.6,
+    "time": 63,
     "text": "Đừng lấy nó từ anh, em ơi, đâu cần"
   },
   {
-    "time": 67.8,
+    "time": 64.9,
     "text": "Anh như đang được sống, em đã lấy nó đi"
   },
   {
-    "time": 70,
+    "time": 67,
     "text": "Em cuốn lấy nó đi, em giữ lấy nó đi, chẳng có những nghĩ suy"
   },
   {
-    "time": 72.2,
+    "time": 70.1,
     "text": "Em như đang được sống, vì em đã lấy nó đi"
   },
   {
-    "time": 74.4,
+    "time": 72.4,
     "text": "Cất nó đi, chìm xuống dưới đáy ly, hay là ta tới đó đi, uh, uh"
   },
   {
-    "time": 76.7,
+    "time": 75.8,
     "text": "Và khi ta làm xong, chẳng muốn phải đợi mong"
   },
   {
-    "time": 78.9,
+    "time": 77.9,
     "text": "Cảm xúc này bẻ cong, em giữ nó ở trong, tên anh vẫn là Hoàng Long"
   },
   {
-    "time": 81.1,
+    "time": 81.2,
     "text": "Và anh giữ những đường cong, để anh đính lên hàm răng"
   },
   {
-    "time": 83.3,
+    "time": 83.7,
     "text": "Bọn họ muốn có được anh nhưng không thể chạm vào anh, vào bộ răng anh vàng ròng, uh, uh"
   },
   {
-    "time": 85.6,
+    "time": 87.9,
     "text": "Và nó là vàng ròng"
   },
   {
-    "time": 87.8,
+    "time": 89,
     "text": "Tên trộm này ngu si, nó vẫn đi lòng vòng"
   },
   {
-    "time": 90,
+    "time": 91.1,
     "text": "Chạm được vào em, chẳng phải vứt đi là xong"
   },
   {
-    "time": 92.2,
+    "time": 93.2,
     "text": "Khi em ra đi em đã vẽ nên mùa đông"
   },
   {
-    "time": 94.4,
+    "time": 95.3,
     "text": "Giao em con tim, anh tự đưa anh vào còng"
   },
   {
-    "time": 96.7,
+    "time": 97.4,
     "text": "Vứt đi con tim, anh đang bơi đi ngược dòng"
   },
   {
-    "time": 98.9,
+    "time": 99.5,
     "text": "Chẳng thể làm cho anh quên đi một hình bóng"
   },
   {
-    "time": 101.1,
+    "time": 101.6,
     "text": "Hôn lên đôi môi anh làm cho anh lạnh cóng, yeah-eh-eh"
   },
   {
-    "time": 103.3,
+    "time": 103.9,
     "text": "Vị Lạc Đà đầu môi đã khiến cho em nhung nhớ"
   },
   {
-    "time": 105.6,
+    "time": 106.2,
     "text": "Cảm nhận được qua phone, telephone call"
   },
   {
-    "time": 107.8,
+    "time": 107.7,
     "text": "Anh chỉ giữ cho em, uh-uh, uh, yeah, uh, yeah, uh"
   }
 ]

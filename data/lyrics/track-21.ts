@@ -64,59 +64,59 @@ export const track21Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 12,
+    "time": 11.5,
     "text": "Đã apologize chưa? Huh, quan tâm làm gì?"
   },
   {
-    "time": 14.1,
+    "time": 13.8,
     "text": "Thấy nó chưa vibe, thấy sai sai, từng lời nói rất xuôi tai, yeah"
   },
   {
-    "time": 16.3,
+    "time": 17.1,
     "text": "Lấy anh telephone, hẹn thằng chó đó trưa mai, yeah"
   },
   {
-    "time": 18.4,
+    "time": 19.5,
     "text": "Kí tên xong rồi mà lại đéo biết đưa ai, yeah"
   },
   {
-    "time": 20.6,
+    "time": 22.1,
     "text": "Bây giờ anh đầu cua rồi nhưng mà anh vốn rất ngon zai, yeah"
   },
   {
-    "time": 22.7,
+    "time": 25.4,
     "text": "Aight, that's my fault, anh đẻ ra hai đứa con trai, yeah"
   },
   {
-    "time": 24.8,
+    "time": 28.3,
     "text": "Chúng nó nhắc tên anh, anh làm mẹ chúng nó mang thai, yeah"
   },
   {
-    "time": 27,
+    "time": 31.4,
     "text": "Beef xong xuôi rồi mà khó nói chuyện quá"
   },
   {
-    "time": 29.1,
+    "time": 33.6,
     "text": "Lắm khói quá, mây mù che phủ"
   },
   {
-    "time": 31.3,
+    "time": 35.2,
     "text": "Chúng nó đang ở đâu? Yeah"
   },
   {
-    "time": 33.4,
+    "time": 36.7,
     "text": "Khói quá, mây mù che phủ"
   },
   {
-    "time": 35.5,
+    "time": 38.1,
     "text": "Đéo biết đang đâu, yeah"
   },
   {
-    "time": 37.7,
+    "time": 39.3,
     "text": "Khói quá, mây mù che phủ"
   },
   {
-    "time": 39.8,
+    "time": 40.8,
     "text": "Chúng nó đang đâu? Yeah"
   },
   {
@@ -124,171 +124,171 @@ export const track21Lyrics: TrackLyrics = {
     "text": "Khói quá mây mù che phủ"
   },
   {
-    "time": 44.1,
+    "time": 43.4,
     "text": "I don’t give a fuck"
   },
   {
-    "time": 46.2,
+    "time": 44.6,
     "text": "Huh, vậy mày đừng có nói nhiều"
   },
   {
-    "time": 48.4,
+    "time": 46.3,
     "text": "Bơm vào tai tao, tao đã hết năng lượng rồi"
   },
   {
-    "time": 50.5,
+    "time": 48.7,
     "text": "Cố bơm cho tao noid"
   },
   {
-    "time": 52.7,
+    "time": 49.9,
     "text": "Nhưng mà sao mà tao có thể rơi được, uhm"
   },
   {
-    "time": 54.8,
+    "time": 52.3,
     "text": "Trap all over, trap is all over"
   },
   {
-    "time": 56.9,
+    "time": 54,
     "text": "Aight that’s my fault, alright that’s my fault"
   },
   {
-    "time": 59.1,
+    "time": 55.9,
     "text": "Chúng mày cần một thằng chất như tao, phải không bọn chó này? Ạ đi tao cho"
   },
   {
-    "time": 61.2,
+    "time": 59.9,
     "text": "Chúng mày cần một thằng chất như tao, phải không bọn chó này? Ạ đi tao ch—"
   },
   {
-    "time": 63.4,
+    "time": 64,
     "text": "Chúng mày cần một thằng chất như tao, ạ đi bọn chó này, vào đây tao cho"
   },
   {
-    "time": 65.5,
+    "time": 68.1,
     "text": "Chúng nó cần một thằng chất như tao, chúng nó cần một thằng chất như—"
   },
   {
-    "time": 67.6,
+    "time": 71.6,
     "text": "Chúng mày cần một thằng chất như tao, phải không bọn chó này? Ạ đi tao cho"
   },
   {
-    "time": 69.8,
+    "time": 75.7,
     "text": "Năm lít tip nhét vào đít rồi đốt thuốc và hít, đấy là cách tao bo mày"
   },
   {
-    "time": 71.9,
+    "time": 79.8,
     "text": "Không thể trách móc mấy thằng oắt con này khi tao vẫn đứng trên trang đầu cover"
   },
   {
-    "time": 74.1,
+    "time": 83.8,
     "text": "Ở bên dưới chân tao là monitor, chúng mày gào thét tên tao thật to"
   },
   {
-    "time": 76.2,
+    "time": 87.4,
     "text": "Lắm khói quá, mây mù che phủ"
-  },
-  {
-    "time": 78.4,
-    "text": "Chúng nó đang ở đâu? Yeah"
-  },
-  {
-    "time": 80.5,
-    "text": "Khói quá, mây mù che phủ"
-  },
-  {
-    "time": 82.6,
-    "text": "Đéo biết đang đâu, yeah"
-  },
-  {
-    "time": 84.8,
-    "text": "Khói quá, mây mù che phủ"
-  },
-  {
-    "time": 86.9,
-    "text": "Chúng nó đang đâu? Yeah"
   },
   {
     "time": 89.1,
-    "text": "Khói quá mây mù che phủ"
-  },
-  {
-    "time": 91.2,
-    "text": "I don’t give a fuck"
-  },
-  {
-    "time": 93.3,
-    "text": "Huh, thằng bạn tao bảo thế này là chết rồi"
-  },
-  {
-    "time": 95.5,
-    "text": "Ừ thì chết thôi có thế thôi mà cũng— (Huh)"
-  },
-  {
-    "time": 97.6,
-    "text": "Hah, quá là bừa phứa nên tao sẽ không hứa nếu như không làm được"
-  },
-  {
-    "time": 99.8,
-    "text": "Anh pop và anh giữ được cái flavor"
-  },
-  {
-    "time": 101.9,
-    "text": "Em muốn như nào, thích như nào? Huh-huh"
-  },
-  {
-    "time": 104,
-    "text": "Tại sao đôi tay anh luôn trầy xước?"
-  },
-  {
-    "time": 106.2,
-    "text": "Tạ ơn trên đã ban phước"
-  },
-  {
-    "time": 108.3,
-    "text": "Quỳ xuống anh xin cho họ sức mạnh"
-  },
-  {
-    "time": 110.5,
-    "text": "Thêm mấy tấm bè để có chỗ cho họ lươn"
-  },
-  {
-    "time": 112.6,
-    "text": "Ganh ghét thì sẽ luôn bị từ khước"
-  },
-  {
-    "time": 114.7,
-    "text": "Mấy thằng hai mặt này nợ anh từ kiếp trước"
-  },
-  {
-    "time": 116.9,
-    "text": "Lắm khói quá, mây mù che phủ"
-  },
-  {
-    "time": 119,
     "text": "Chúng nó đang ở đâu? Yeah"
   },
   {
-    "time": 121.2,
+    "time": 90.5,
     "text": "Khói quá, mây mù che phủ"
   },
   {
-    "time": 123.3,
+    "time": 91.9,
     "text": "Đéo biết đang đâu, yeah"
   },
   {
-    "time": 125.4,
+    "time": 93.2,
     "text": "Khói quá, mây mù che phủ"
   },
   {
-    "time": 127.6,
+    "time": 94.6,
     "text": "Chúng nó đang đâu? Yeah"
   },
   {
-    "time": 129.7,
+    "time": 95.8,
     "text": "Khói quá mây mù che phủ"
   },
   {
-    "time": 131.9,
+    "time": 97.2,
+    "text": "I don’t give a fuck"
+  },
+  {
+    "time": 98.5,
+    "text": "Huh, thằng bạn tao bảo thế này là chết rồi"
+  },
+  {
+    "time": 100.9,
+    "text": "Ừ thì chết thôi có thế thôi mà cũng— (Huh)"
+  },
+  {
+    "time": 103.2,
+    "text": "Hah, quá là bừa phứa nên tao sẽ không hứa nếu như không làm được"
+  },
+  {
+    "time": 106.8,
+    "text": "Anh pop và anh giữ được cái flavor"
+  },
+  {
+    "time": 108.7,
+    "text": "Em muốn như nào, thích như nào? Huh-huh"
+  },
+  {
+    "time": 110.6,
+    "text": "Tại sao đôi tay anh luôn trầy xước?"
+  },
+  {
+    "time": 112.9,
+    "text": "Tạ ơn trên đã ban phước"
+  },
+  {
+    "time": 114.3,
+    "text": "Quỳ xuống anh xin cho họ sức mạnh"
+  },
+  {
+    "time": 116.2,
+    "text": "Thêm mấy tấm bè để có chỗ cho họ lươn"
+  },
+  {
+    "time": 118.6,
+    "text": "Ganh ghét thì sẽ luôn bị từ khước"
+  },
+  {
+    "time": 120.5,
+    "text": "Mấy thằng hai mặt này nợ anh từ kiếp trước"
+  },
+  {
+    "time": 122.9,
+    "text": "Lắm khói quá, mây mù che phủ"
+  },
+  {
+    "time": 124.6,
+    "text": "Chúng nó đang ở đâu? Yeah"
+  },
+  {
+    "time": 126,
+    "text": "Khói quá, mây mù che phủ"
+  },
+  {
+    "time": 127.5,
+    "text": "Đéo biết đang đâu, yeah"
+  },
+  {
+    "time": 128.7,
+    "text": "Khói quá, mây mù che phủ"
+  },
+  {
+    "time": 130.1,
+    "text": "Chúng nó đang đâu? Yeah"
+  },
+  {
+    "time": 131.3,
+    "text": "Khói quá mây mù che phủ"
+  },
+  {
+    "time": 132.8,
     "text": "I don’t give a fuck"
   }
 ]

@@ -51,179 +51,179 @@ export const track26Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 11,
+    "time": 10.5,
     "text": "Haha, ayy, yeah"
   },
   {
-    "time": 13.3,
+    "time": 11.4,
     "text": "Gửi cái này cho tất cả các homie của tao"
   },
   {
-    "time": 15.7,
+    "time": 13,
     "text": "My bro, my bro (Hahaha)"
   },
   {
-    "time": 18,
+    "time": 13.9,
     "text": "(Yo, yo, yo, yo, yo, listen) Yo, yo, listen"
   },
   {
-    "time": 20.4,
+    "time": 15.4,
     "text": "You ain't gotta worry 'bout nothin' (Đéo phải nghĩ gì cả)"
   },
   {
-    "time": 22.7,
+    "time": 17.3,
     "text": "Things gon' be alright (Mọi thứ sẽ ổn thôi)"
   },
   {
-    "time": 25,
+    "time": 18.8,
     "text": "Tao tin vào những mối lương duyên (Yeah, hahahaha)"
   },
   {
-    "time": 27.4,
+    "time": 20.3,
     "text": "Nếu mà anh em có duyên thật thì anh em sẽ gặp thôi (Will meet), cùng tần sóng (Will, will, will speak, okay?)"
   },
   {
-    "time": 29.7,
+    "time": 24.1,
     "text": "Cho tất cả những người ở lại và tất cả những người đã rời đi:"
   },
   {
-    "time": 32.1,
+    "time": 26.6,
     "text": "\"Thanks for creating me, wish you all the best\" (Yes sir)"
   },
   {
-    "time": 34.4,
+    "time": 28.5,
     "text": "Fuck what they think about me, 29, 23, Hoàng Long, MCK (Hold on; yeah)"
   },
   {
-    "time": 36.8,
+    "time": 30.8,
     "text": "Fuck what they say about me, kệ mẹ cho chúng nó nói, tao cứ thế mà lao đi (Sao nữa?)"
   },
   {
-    "time": 39.1,
+    "time": 34.2,
     "text": "Fuck what they think about me, xin cảm ơn vì đã ở đấy vào những cái lúc mà tao suy (Chân thành cảm ơn)"
   },
   {
-    "time": 41.4,
+    "time": 38.2,
     "text": "Fuck what they say about me (Fuck, fuck, fuck, fuck), they ain't really know shit, they don't know about me (Alright; ha)"
   },
   {
-    "time": 43.8,
+    "time": 41.9,
     "text": "Và đúng thật là có những lầm lỡ"
   },
   {
-    "time": 46.1,
+    "time": 43.2,
     "text": "Tao từ một thằng nhóc con sau bốn năm trở thành thằng tầm cỡ"
   },
   {
-    "time": 48.5,
+    "time": 45.6,
     "text": "Ngã để đau, đau để lớn, nếu thế thì tao không cần đỡ"
   },
   {
-    "time": 50.8,
+    "time": 47.8,
     "text": "Chỉ có những nút thắt trong tâm là những thứ bây giờ tao đang cần gỡ (Yeah, aight)"
   },
   {
-    "time": 53.1,
+    "time": 50.8,
     "text": "Và thằng nào cũng nói về may mắn"
   },
   {
-    "time": 55.5,
+    "time": 52.1,
     "text": "Tao ở ga Kasumi, kiếm tiền yên bằng đôi bàn tay trắng"
   },
   {
-    "time": 57.8,
+    "time": 54.1,
     "text": "Vì thành quả sẽ ngọt nhất sau khi mày được nếm trải cay đắng"
   },
   {
-    "time": 60.2,
+    "time": 56.5,
     "text": "Tao mong một ngày chúng mày làm được, tao sẽ vỗ tay bảo là, \"Hay lắm\" (Hay lắm)"
   },
   {
-    "time": 62.5,
+    "time": 59.5,
     "text": "Tao đi thật xa để quay trở về"
   },
   {
-    "time": 64.8,
+    "time": 60.8,
     "text": "Biết ơn những người đã tin vào thằng nhóc vô tâm suy tư bộn bề"
   },
   {
-    "time": 67.2,
+    "time": 63.4,
     "text": "Trái tim tao lớn hơn, những niềm đau này không còn đau đến thế"
   },
   {
-    "time": 69.5,
+    "time": 65.7,
     "text": "Cụ công tằng tao tên Chiến, tao cúi đầu thắp hương lúc tao về thăm quê"
   },
   {
-    "time": 71.9,
+    "time": 68.4,
     "text": "Cho những đứa trẻ lớn lên giống như tao, muốn một lần được sống như tao"
   },
   {
-    "time": 74.2,
+    "time": 71.1,
     "text": "Hi vọng tao truyền được lửa cho chúng mày cuộc sống này sắc màu"
   },
   {
-    "time": 76.5,
+    "time": 73.4,
     "text": "Cho người anh em ở bên, những người yêu không kể tên"
   },
   {
-    "time": 78.9,
+    "time": 75.4,
     "text": "Những niềm vui này không không thể quên, là lí do mà chúng mình bắt đầu"
   },
   {
-    "time": 81.2,
+    "time": 78.1,
     "text": "Cám ơn cả những ngày nắng ban mai"
   },
   {
-    "time": 83.6,
+    "time": 79.4,
     "text": "Tao đã yêu bao hạt mưa giờ tao lại yêu thêm cả nắng, uh"
   },
   {
-    "time": 85.9,
+    "time": 81.8,
     "text": "Cám ơn người đàn ông luôn thầm lặng"
   },
   {
-    "time": 88.3,
+    "time": 83.1,
     "text": "Ủng hộ, dõi theo con, cho flow của con thêm hăng"
   },
   {
-    "time": 90.6,
+    "time": 85,
     "text": "Cái đoạn mà bố, vừa đẻ con ra xong, mấy ngày đầu cảm giác như nào?"
   },
   {
-    "time": 92.9,
+    "time": 87.9,
     "text": "Lạ cực kì luôn"
   },
   {
-    "time": 95.3,
+    "time": 88.8,
     "text": "(Như hai—) Lạ cực kì á?"
   },
   {
-    "time": 97.6,
+    "time": 90,
     "text": "Như hai thằng chưa gặp nhau bao giờ (Hahaha)"
   },
   {
-    "time": 100,
+    "time": 91.5,
     "text": "Cái cảm giác rất buồn cười, kiểu đi ra, kiểu đi ra xem mắt ấy, rất muốn xem nhưng mà nhìn ngượng ngượng, ngại ngại, ngượng ngượng, mặc dù là cũng gọi là vai bố đấy, mà rất ngượng thật, chưa, chưa nghĩ ra mình lại, mình là bố"
   },
   {
-    "time": 102.3,
+    "time": 99.7,
     "text": "Fuck what they think about me, 29, 23, Hoàng Long, MCK (Hold on; yeah)"
   },
   {
-    "time": 104.6,
+    "time": 102.1,
     "text": "Fuck what they say about me, kệ mẹ cho chúng nó nói, tao cứ thế mà lao đi (Sao nữa?)"
   },
   {
-    "time": 107,
+    "time": 105.4,
     "text": "Fuck what they think about me, xin cảm ơn vì đã ở đấy vào những cái lúc mà tao suy (Chân thành cảm ơn)"
   },
   {
-    "time": 109.3,
+    "time": 109.5,
     "text": "Fuck what they say about me (Fuck, fuck, fuck, fuck), they ain't rеally know shit, they don't know about me (Alright; ha)"
   },
   {
-    "time": 111.7,
+    "time": 113.1,
     "text": "Yeah, aight"
   }
 ]
