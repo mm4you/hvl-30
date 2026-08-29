@@ -1,91 +1,350 @@
 import type { TrackLyrics } from "./types";
 
 export const track12Lyrics: TrackLyrics = {
-  "trackId": "track-12",
-  "title": "Liệm",
-  "lyrics": [
-    "[Chorus]",
-    "Anh đã nói quá nhiều về tình yêu",
-    "Nhưng lại chẳng biết anh muốn điều gì từ tình yêu",
-    "Và đã có những vết cắt rất sâu, nhắc anh bao điều",
-    "Đừng có tin khi con tim này còn phiêu",
-    "Ừ thì viết nốt lần này thôi",
-    "Chẳng thể để cảm xúc cứ mãi tồn đọng ở bờ môi",
-    "Và anh sẽ xóa hết những thước phim khi em đi xa rồi",
-    "Chẳng còn đớn đau, chỉ là do con tim anh rã rời",
-    "",
-    "[Verse 1]",
-    "Thêm một party, thêm một ly on the weekend",
-    "Vậy đừng đỡ anh ra khỏi đây, anh đang say mèm",
-    "Anh chẳng biết thế nào là tốt đâu",
-    "Anh đang đi tìm chính mình",
-    "Giết em luôn, không để cho em thay đổi tính tình",
-    "Fuck all the bitches, không thể tin, không thể phiêu được",
-    "I got no chill dù anh trip hơi sâu, eh-eh-eh-eh",
-    "Và thế nào là một thằng đàn ông?",
-    "Là phải giang tay và ôm em vào lòng?",
-    "Sẽ trao cho em bao nụ hôn dù là chẳng còn lại gì ở bên trong?",
-    "Và nếu cho anh quay ngược thời gian",
-    "Anh sẽ yêu em như là yêu một người bạn",
-    "Như cách em đã từng yêu một người bạn (Yeah)",
-    "",
-    "[Chorus]",
-    "Yeah, yeah, vậy đừng có nói quá nhiều về tình yêu (Nói quá nhiều về tình yêu)",
-    "Như là mình biết tất cả mọi chuyện về tình yêu (Hah-uh-huh)",
-    "Đã có những vết cắt rất sâu, nhắc anh bao điều",
-    "Đừng có tin khi con tim này còn phiêu (Huh-huh-huh)",
-    "Và anh chỉ viết nốt lần này thôi",
-    "Chẳng thể để cảm xúc cứ mãi tồn đọng ở bờ môi",
-    "Và anh sẽ xóa hết những thước phim khi em đi xa rồi",
-    "Chẳng còn gì nữa đâu bởi vì con tim anh rã rời",
-    "",
-    "[Verse 2]",
-    "Ah, hết rồi (Huh), anh chưa từng nghĩ ngợi",
-    "Hãy để, cho anh được nghỉ ngơi",
-    "Nói hết, ra những lời trong lòng",
-    "Hiên ngang không quan tâm ai quy tội",
-    "Trào lên bao nhiêu nghi ngờ vùi dập đi những khúc ca tình (Những khúc ca)",
-    "Cảm ơn vì những bài học này làm cho anh nhận ra mình (Hah-hah)",
-    "Em làm đúng những thứ anh suy luận giờ đã sáng tỏ khung hình",
-    "Và bước đi anh cần tôn trọng thằng đàn ông ở trong mình, yeah-eh",
-    "",
-    "[Interlude]",
-    "Eh-eh",
-    "Eh-eh",
-    "Eh-eh",
-    "Eh-eh, eh-eh",
-    "",
-    "[Verse 3]",
-    "Uh-uh, mọc đâu ra cây hoa ở ngoài hiên nhà",
-    "Mong cho hoa đưa hương bay thật xa",
-    "Anh đã cảm thấy nơi đây như là thiên đường",
-    "Mặc người đời nói rằng anh điêu toa",
-    "Ngân nga câu hát ta và hoa đã từng đắm chìm",
-    "Nhưng anh biết, không phải bông hoa của riêng anh",
-    "Và nếu anh muốn, chắc chắn anh sẽ làm",
-    "Anh đủ yêu hoa để anh rời xa",
-    "",
-    "[Chorus]",
-    "Nói, về tình yêu",
-    "Mà chẳng biết, về tình yêu",
-    "Cắt rất sâu, bao điều",
-    "Đừng tin khi tim còn phiêu",
-    "Viết, lần này thôi",
-    "Cảm xúc, đọng bờ môi",
-    "Xóa phim, đi xa rồi",
-    "Đớn đau, tim rã rời, yeah",
-    "",
-    "[Outro]",
-    "Vậy đừng có nói quá nhiều về tình yêu (Quá nhiều về tình yêu)",
-    "Như là mình sẽ mãi mãi luôn bên nhau (Huh-huh), anh không bao giờ chạm vào nữa đâu",
-    "(Nhưng tại sao mà anh lại tin khi con tim này còn phiêu, uh-huh)",
-    "(Trao cho ai nhờ?)",
-    "Anh chỉ viết nốt lần này (Viết nốt lần này)",
-    "(Viết nốt lần này)",
-    "Chẳng còn cách nào có thể xóa được những buồn phiền khi em đi xa rồi",
-    "Chẳng còn đớn đau chẳng còn phù hợp (Uh-huh) thì giữ lại làm gì",
-    "(Em đừng nói gì với tình yêu nữa)",
-    "(Anh nghe chán rồi, yeah)",
-    "(Em đừng nói gì với tình yêu nữa)"
-  ]
+  trackId: "track-12",
+  title: "Liệm",
+  lyrics: [
+  "Anh đã nói quá nhiều về tình yêu",
+  "Nhưng lại chẳng biết anh muốn điều gì từ tình yêu",
+  "Và đã có những vết cắt rất sâu, nhắc anh bao điều",
+  "Đừng có tin khi con tim này còn phiêu",
+  "Ừ thì viết nốt lần này thôi",
+  "Chẳng thể để cảm xúc cứ mãi tồn đọng ở bờ môi",
+  "Và anh sẽ xóa hết những thước phim khi em đi xa rồi",
+  "Chẳng còn đớn đau, chỉ là do con tim anh rã rời",
+  "Thêm một party, thêm một ly on the weekend",
+  "Vậy đừng đỡ anh ra khỏi đây, anh đang say mèm",
+  "Anh chẳng biết thế nào là tốt đâu",
+  "Anh đang đi tìm chính mình",
+  "Giết em luôn, không để cho em thay đổi tính tình",
+  "Fuck all the bitches, không thể tin, không thể phiêu được",
+  "I got no chill dù anh trip hơi sâu, eh-eh-eh-eh",
+  "Và thế nào là một thằng đàn ông?",
+  "Là phải giang tay và ôm em vào lòng?",
+  "Sẽ trao cho em bao nụ hôn dù là chẳng còn lại gì ở bên trong?",
+  "Và nếu cho anh quay ngược thời gian",
+  "Anh sẽ yêu em như là yêu một người bạn",
+  "Như cách em đã từng yêu một người bạn (Yeah)",
+  "Yeah, yeah, vậy đừng có nói quá nhiều về tình yêu (Nói quá nhiều về tình yêu)",
+  "Như là mình biết tất cả mọi chuyện về tình yêu (Hah-uh-huh)",
+  "Đã có những vết cắt rất sâu, nhắc anh bao điều",
+  "Đừng có tin khi con tim này còn phiêu (Huh-huh-huh)",
+  "Và anh chỉ viết nốt lần này thôi",
+  "Chẳng thể để cảm xúc cứ mãi tồn đọng ở bờ môi",
+  "Và anh sẽ xóa hết những thước phim khi em đi xa rồi",
+  "Chẳng còn gì nữa đâu bởi vì con tim anh rã rời",
+  "Ah, hết rồi (Huh), anh chưa từng nghĩ ngợi",
+  "Hãy để, cho anh được nghỉ ngơi",
+  "Nói hết, ra những lời trong lòng",
+  "Hiên ngang không quan tâm ai quy tội",
+  "Trào lên bao nhiêu nghi ngờ vùi dập đi những khúc ca tình (Những khúc ca)",
+  "Cảm ơn vì những bài học này làm cho anh nhận ra mình (Hah-hah)",
+  "Em làm đúng những thứ anh suy luận giờ đã sáng tỏ khung hình",
+  "Và bước đi anh cần tôn trọng thằng đàn ông ở trong mình, yeah-eh",
+  "Eh-eh",
+  "Eh-eh",
+  "Eh-eh",
+  "Eh-eh, eh-eh",
+  "Uh-uh, mọc đâu ra cây hoa ở ngoài hiên nhà",
+  "Mong cho hoa đưa hương bay thật xa",
+  "Anh đã cảm thấy nơi đây như là thiên đường",
+  "Mặc người đời nói rằng anh điêu toa",
+  "Ngân nga câu hát ta và hoa đã từng đắm chìm",
+  "Nhưng anh biết, không phải bông hoa của riêng anh",
+  "Và nếu anh muốn, chắc chắn anh sẽ làm",
+  "Anh đủ yêu hoa để anh rời xa",
+  "Nói, về tình yêu",
+  "Mà chẳng biết, về tình yêu",
+  "Cắt rất sâu, bao điều",
+  "Đừng tin khi tim còn phiêu",
+  "Viết, lần này thôi",
+  "Cảm xúc, đọng bờ môi",
+  "Xóa phim, đi xa rồi",
+  "Đớn đau, tim rã rời, yeah",
+  "Vậy đừng có nói quá nhiều về tình yêu (Quá nhiều về tình yêu)",
+  "Như là mình sẽ mãi mãi luôn bên nhau (Huh-huh), anh không bao giờ chạm vào nữa đâu",
+  "(Nhưng tại sao mà anh lại tin khi con tim này còn phiêu, uh-huh)",
+  "(Trao cho ai nhờ?)",
+  "Anh chỉ viết nốt lần này (Viết nốt lần này)",
+  "(Viết nốt lần này)",
+  "Chẳng còn cách nào có thể xóa được những buồn phiền khi em đi xa rồi",
+  "Chẳng còn đớn đau chẳng còn phù hợp (Uh-huh) thì giữ lại làm gì",
+  "(Em đừng nói gì với tình yêu nữa)",
+  "(Anh nghe chán rồi, yeah)",
+  "(Em đừng nói gì với tình yêu nữa)"
+],
+  syncedLyrics: [
+  {
+    "time": 16,
+    "text": "Anh đã nói quá nhiều về tình yêu"
+  },
+  {
+    "time": 18.8,
+    "text": "Nhưng lại chẳng biết anh muốn điều gì từ tình yêu"
+  },
+  {
+    "time": 21.5,
+    "text": "Và đã có những vết cắt rất sâu, nhắc anh bao điều"
+  },
+  {
+    "time": 24.3,
+    "text": "Đừng có tin khi con tim này còn phiêu"
+  },
+  {
+    "time": 27.1,
+    "text": "Ừ thì viết nốt lần này thôi"
+  },
+  {
+    "time": 29.8,
+    "text": "Chẳng thể để cảm xúc cứ mãi tồn đọng ở bờ môi"
+  },
+  {
+    "time": 32.6,
+    "text": "Và anh sẽ xóa hết những thước phim khi em đi xa rồi"
+  },
+  {
+    "time": 35.4,
+    "text": "Chẳng còn đớn đau, chỉ là do con tim anh rã rời"
+  },
+  {
+    "time": 38.1,
+    "text": "Thêm một party, thêm một ly on the weekend"
+  },
+  {
+    "time": 40.9,
+    "text": "Vậy đừng đỡ anh ra khỏi đây, anh đang say mèm"
+  },
+  {
+    "time": 43.6,
+    "text": "Anh chẳng biết thế nào là tốt đâu"
+  },
+  {
+    "time": 46.4,
+    "text": "Anh đang đi tìm chính mình"
+  },
+  {
+    "time": 49.2,
+    "text": "Giết em luôn, không để cho em thay đổi tính tình"
+  },
+  {
+    "time": 51.9,
+    "text": "Fuck all the bitches, không thể tin, không thể phiêu được"
+  },
+  {
+    "time": 54.7,
+    "text": "I got no chill dù anh trip hơi sâu, eh-eh-eh-eh"
+  },
+  {
+    "time": 57.5,
+    "text": "Và thế nào là một thằng đàn ông?"
+  },
+  {
+    "time": 60.2,
+    "text": "Là phải giang tay và ôm em vào lòng?"
+  },
+  {
+    "time": 63,
+    "text": "Sẽ trao cho em bao nụ hôn dù là chẳng còn lại gì ở bên trong?"
+  },
+  {
+    "time": 65.8,
+    "text": "Và nếu cho anh quay ngược thời gian"
+  },
+  {
+    "time": 68.5,
+    "text": "Anh sẽ yêu em như là yêu một người bạn"
+  },
+  {
+    "time": 71.3,
+    "text": "Như cách em đã từng yêu một người bạn (Yeah)"
+  },
+  {
+    "time": 74.1,
+    "text": "Yeah, yeah, vậy đừng có nói quá nhiều về tình yêu (Nói quá nhiều về tình yêu)"
+  },
+  {
+    "time": 76.8,
+    "text": "Như là mình biết tất cả mọi chuyện về tình yêu (Hah-uh-huh)"
+  },
+  {
+    "time": 79.6,
+    "text": "Đã có những vết cắt rất sâu, nhắc anh bao điều"
+  },
+  {
+    "time": 82.4,
+    "text": "Đừng có tin khi con tim này còn phiêu (Huh-huh-huh)"
+  },
+  {
+    "time": 85.1,
+    "text": "Và anh chỉ viết nốt lần này thôi"
+  },
+  {
+    "time": 87.9,
+    "text": "Chẳng thể để cảm xúc cứ mãi tồn đọng ở bờ môi"
+  },
+  {
+    "time": 90.6,
+    "text": "Và anh sẽ xóa hết những thước phim khi em đi xa rồi"
+  },
+  {
+    "time": 93.4,
+    "text": "Chẳng còn gì nữa đâu bởi vì con tim anh rã rời"
+  },
+  {
+    "time": 96.2,
+    "text": "Ah, hết rồi (Huh), anh chưa từng nghĩ ngợi"
+  },
+  {
+    "time": 98.9,
+    "text": "Hãy để, cho anh được nghỉ ngơi"
+  },
+  {
+    "time": 101.7,
+    "text": "Nói hết, ra những lời trong lòng"
+  },
+  {
+    "time": 104.5,
+    "text": "Hiên ngang không quan tâm ai quy tội"
+  },
+  {
+    "time": 107.2,
+    "text": "Trào lên bao nhiêu nghi ngờ vùi dập đi những khúc ca tình (Những khúc ca)"
+  },
+  {
+    "time": 110,
+    "text": "Cảm ơn vì những bài học này làm cho anh nhận ra mình (Hah-hah)"
+  },
+  {
+    "time": 112.8,
+    "text": "Em làm đúng những thứ anh suy luận giờ đã sáng tỏ khung hình"
+  },
+  {
+    "time": 115.5,
+    "text": "Và bước đi anh cần tôn trọng thằng đàn ông ở trong mình, yeah-eh"
+  },
+  {
+    "time": 118.3,
+    "text": "Eh-eh"
+  },
+  {
+    "time": 121.1,
+    "text": "Eh-eh"
+  },
+  {
+    "time": 123.8,
+    "text": "Eh-eh"
+  },
+  {
+    "time": 126.6,
+    "text": "Eh-eh, eh-eh"
+  },
+  {
+    "time": 129.4,
+    "text": "Uh-uh, mọc đâu ra cây hoa ở ngoài hiên nhà"
+  },
+  {
+    "time": 132.1,
+    "text": "Mong cho hoa đưa hương bay thật xa"
+  },
+  {
+    "time": 134.9,
+    "text": "Anh đã cảm thấy nơi đây như là thiên đường"
+  },
+  {
+    "time": 137.6,
+    "text": "Mặc người đời nói rằng anh điêu toa"
+  },
+  {
+    "time": 140.4,
+    "text": "Ngân nga câu hát ta và hoa đã từng đắm chìm"
+  },
+  {
+    "time": 143.2,
+    "text": "Nhưng anh biết, không phải bông hoa của riêng anh"
+  },
+  {
+    "time": 145.9,
+    "text": "Và nếu anh muốn, chắc chắn anh sẽ làm"
+  },
+  {
+    "time": 148.7,
+    "text": "Anh đủ yêu hoa để anh rời xa"
+  },
+  {
+    "time": 151.5,
+    "text": "Nói, về tình yêu"
+  },
+  {
+    "time": 154.2,
+    "text": "Mà chẳng biết, về tình yêu"
+  },
+  {
+    "time": 157,
+    "text": "Cắt rất sâu, bao điều"
+  },
+  {
+    "time": 159.8,
+    "text": "Đừng tin khi tim còn phiêu"
+  },
+  {
+    "time": 162.5,
+    "text": "Viết, lần này thôi"
+  },
+  {
+    "time": 165.3,
+    "text": "Cảm xúc, đọng bờ môi"
+  },
+  {
+    "time": 168.1,
+    "text": "Xóa phim, đi xa rồi"
+  },
+  {
+    "time": 170.8,
+    "text": "Đớn đau, tim rã rời, yeah"
+  },
+  {
+    "time": 173.6,
+    "text": "Vậy đừng có nói quá nhiều về tình yêu (Quá nhiều về tình yêu)"
+  },
+  {
+    "time": 176.4,
+    "text": "Như là mình sẽ mãi mãi luôn bên nhau (Huh-huh), anh không bao giờ chạm vào nữa đâu"
+  },
+  {
+    "time": 179.1,
+    "text": "(Nhưng tại sao mà anh lại tin khi con tim này còn phiêu, uh-huh)"
+  },
+  {
+    "time": 181.9,
+    "text": "(Trao cho ai nhờ?)"
+  },
+  {
+    "time": 184.6,
+    "text": "Anh chỉ viết nốt lần này (Viết nốt lần này)"
+  },
+  {
+    "time": 187.4,
+    "text": "(Viết nốt lần này)"
+  },
+  {
+    "time": 190.2,
+    "text": "Chẳng còn cách nào có thể xóa được những buồn phiền khi em đi xa rồi"
+  },
+  {
+    "time": 192.9,
+    "text": "Chẳng còn đớn đau chẳng còn phù hợp (Uh-huh) thì giữ lại làm gì"
+  },
+  {
+    "time": 195.7,
+    "text": "(Em đừng nói gì với tình yêu nữa)"
+  },
+  {
+    "time": 198.5,
+    "text": "(Anh nghe chán rồi, yeah)"
+  },
+  {
+    "time": 201.2,
+    "text": "(Em đừng nói gì với tình yêu nữa)"
+  }
+]
 };
