@@ -4,332 +4,154 @@ export const track03Lyrics: TrackLyrics = {
   trackId: "track-03",
   title: "Wtf Bby I'm Lit",
   lyrics: [
-  "[Chorus]",
-  "In the game, baby, I'm lit",
-  "Không cần filter, anh ít khi điêu",
-  "Bôi nhiều son vào, hôn anh chi chít",
-  "On the beat, anh lead em phiêu",
-  "Đi quanh club, họ nhận ra anh nhiều quá",
-  "Rít một hơi, thổi làn khói tan ra",
-  "Xanh rồi đen, rồi lục, lam, chàm, tím",
-  "Chúng ngã vào nhau ở trong một tấm canvas",
-  "",
-  "[Verse 1]",
-  "What the fuck? Baby, I'm still lit",
-  "Bóc đồ đi, xem outfit bao nhiêu",
-  "Second-hand tao vẫn bring the heat",
-  "Quá là fresh nên tao thích thì tao kiêu",
-  "Mấy thứ chúng mày coi là bình thường nhất",
-  "Lên người tao thành đồ rất cao siêu",
-  "Đừng săm soi chuyện đời tư của bố mày",
-  "Cuộc đời tao, yeah, tao thích thì tao yêu",
-  "",
-  "[Interlude]",
-  "Ah, ah-ah-ah-ah-ah, ah-ah-ah-ah-ah",
-  "Ah-ah-ah-ah-ah, ah, ah, ah, ah",
-  "Ah-ah-ah-ah-ah, ah-ah-ah-ah-ah",
-  "Ah-ah-ah-ah-ah, ah, ah, ah",
-  "",
-  "[Verse 2]",
-  "Yeah, tim anh như đang nổ tung nhưng mà lại chẳng biết nói gì với em",
-  "Nhẹ nhàng, nhẹ nhàng dâng lên bao nhiêu cảm xúc này anh đang kìm nén (Ah)",
-  "Linh hồn mình đi tìm nhau, chìm vào cùng khoảnh khắc căn phòng tối đen",
-  "Nhẹ chạm vào bờ môi, đung đưa trôi khi hai ta say mèm",
-  "(Khẽ chạm vào bờ môi) Đung, đung đưa trôi khi hai ta say mèm",
-  "(Đến bên em người ơi) Đung đưa trôi khi mà hai ta say mèm (Khẽ chạm vào bờ môi)",
-  "(Cho đến khi anh chơi vơi)",
-  "(Cho đến khi anh chơi vơi)",
-  "",
-  "[Chorus]",
-  "Okay, in the game, baby, I'm lit",
-  "Ít khi điêu",
-  "Hôn anh chi chít",
-  "Anh lead em phiêu",
-  "Nhận ra anh nhiều quá",
-  "Khói tan ra",
-  "Xanh rồi đen, rồi lục, lam, chàm, tím",
-  "Chúng ngã vào nhau ở trong một tấm canvas",
-  "",
-  "[Verse 3]",
-  "(Khi mà em) Khi mà em đang say",
-  "Đung đưa, đung đưa khi mà em đang say",
-  "Khi mà em đang say",
-  "Đung đưa, đung đưa khi mà em đang",
-  "Ngã ra trong một tấm canvas",
-  "Lướt qua chạm vào làn da",
-  "Your aura, your vibe",
-  "Ngã ra trong một tấm canvas",
-  "Anh giờ quá phê, anh trông như là tảng đá",
-  "My aura, my vibe",
-  "",
-  "[Chorus]",
-  "In the game, baby, I'm lit",
-  "Không cần filter, anh ít khi điêu",
-  "Bôi nhiều son vào, hôn anh chi chít",
-  "On the beat, anh lead em phiêu",
-  "Đi quanh club họ nhận ra anh nhiều quá",
-  "Rít một hơi, thổi làn khói tan ra",
-  "Xanh rồi đen, rồi lục, lam, chàm, tím",
-  "Chúng ngã vào nhau ở trong một tấm canvas",
-  "",
-  "[Outro]",
-  "In the game, I'm-I'm lit",
-  "Ít, anh ít khi, ít khi",
-  "Bôi nhiều son vào, hôn chi chít",
-  "Anh lead em ph–",
-  "Nhận, nhận, nhận ra anh nhiều quá",
-  "Rít một hơi, khói tan ra",
-  "Xanh rồi đen, rồi lục, lam, chàm, tím",
-  "Chúng nó ngã vào nhau ở trong một tấm canvas"
-],
+    "[Chorus]",
+    "In the game, baby, I'm lit",
+    "Không cần filter, anh ít khi điêu",
+    "Bôi nhiều son vào, hôn anh chi chít",
+    "On the beat, anh lead em phiêu",
+    "Đi quanh club, họ nhận ra anh nhiều quá",
+    "Rít một hơi, thổi làn khói tan ra",
+    "Xanh rồi đen, rồi lục, lam, chàm, tím",
+    "Chúng ngã vào nhau ở trong một tấm canvas",
+    "",
+    "[Verse 1]",
+    "What the fuck? Baby, I'm still lit",
+    "Bóc đồ đi, xem outfit bao nhiêu",
+    "Second-hand tao vẫn bring the heat",
+    "Quá là fresh nên tao thích thì tao kiêu",
+    "Mấy thứ chúng mày coi là bình thường nhất",
+    "Lên người tao thành đồ rất cao siêu",
+    "Đừng săm soi chuyện đời tư của bố mày",
+    "Cuộc đời tao, yeah, tao thích thì tao yêu",
+    "",
+    "[Interlude]",
+    "Ah, ah-ah-ah-ah-ah, ah-ah-ah-ah-ah",
+    "Ah-ah-ah-ah-ah, ah, ah, ah, ah",
+    "Ah-ah-ah-ah-ah, ah-ah-ah-ah-ah",
+    "Ah-ah-ah-ah-ah, ah, ah, ah",
+    "",
+    "[Verse 2]",
+    "Yeah, tim anh như đang nổ tung nhưng mà lại chẳng biết nói gì với em",
+    "Nhẹ nhàng, nhẹ nhàng dâng lên bao nhiêu cảm xúc này anh đang kìm nén (Ah)",
+    "Linh hồn mình đi tìm nhau, chìm vào cùng khoảnh khắc căn phòng tối đen",
+    "Nhẹ chạm vào bờ môi, đung đưa trôi khi hai ta say mèm",
+    "(Khẽ chạm vào bờ môi) Đung, đung đưa trôi khi hai ta say mèm",
+    "(Đến bên em người ơi) Đung đưa trôi khi mà hai ta say mèm (Khẽ chạm vào bờ môi)",
+    "(Cho đến khi anh chơi vơi)",
+    "(Cho đến khi anh chơi vơi)",
+    "",
+    "[Chorus]",
+    "Okay, in the game, baby, I'm lit",
+    "Ít khi điêu",
+    "Hôn anh chi chít",
+    "Anh lead em phiêu",
+    "Nhận ra anh nhiều quá",
+    "Khói tan ra",
+    "Xanh rồi đen, rồi lục, lam, chàm, tím",
+    "Chúng ngã vào nhau ở trong một tấm canvas",
+    "",
+    "[Verse 3]",
+    "(Khi mà em) Khi mà em đang say",
+    "Đung đưa, đung đưa khi mà em đang say",
+    "Khi mà em đang say",
+    "Đung đưa, đung đưa khi mà em đang",
+    "Ngã ra trong một tấm canvas",
+    "Lướt qua chạm vào làn da",
+    "Your aura, your vibe",
+    "Ngã ra trong một tấm canvas",
+    "Anh giờ quá phê, anh trông như là tảng đá",
+    "My aura, my vibe",
+    "",
+    "[Chorus]",
+    "In the game, baby, I'm lit",
+    "Không cần filter, anh ít khi điêu",
+    "Bôi nhiều son vào, hôn anh chi chít",
+    "On the beat, anh lead em phiêu",
+    "Đi quanh club họ nhận ra anh nhiều quá",
+    "Rít một hơi, thổi làn khói tan ra",
+    "Xanh rồi đen, rồi lục, lam, chàm, tím",
+    "Chúng ngã vào nhau ở trong một tấm canvas",
+    "",
+    "[Outro]",
+    "In the game, I'm-I'm lit",
+    "Ít, anh ít khi, ít khi",
+    "Bôi nhiều son vào, hôn chi chít",
+    "Anh lead em ph–",
+    "Nhận, nhận, nhận ra anh nhiều quá",
+    "Rít một hơi, khói tan ra",
+    "Xanh rồi đen, rồi lục, lam, chàm, tím",
+    "Chúng nó ngã vào nhau ở trong một tấm canvas",
+  ],
   syncedLyrics: [
-  {
-    "time": 14.2,
-    "text": "In the game, baby, I'm lit"
-  },
-  {
-    "time": 16.1,
-    "text": "Không cần filter, anh ít khi điêu"
-  },
-  {
-    "time": 18.3,
-    "text": "Bôi nhiều son vào, hôn anh chi chít"
-  },
-  {
-    "time": 20.7,
-    "text": "On the beat, anh lead em phiêu"
-  },
-  {
-    "time": 22.9,
-    "text": "Đi quanh club, họ nhận ra anh nhiều quá"
-  },
-  {
-    "time": 25.7,
-    "text": "Rít một hơi, thổi làn khói tan ra"
-  },
-  {
-    "time": 28.1,
-    "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
-  },
-  {
-    "time": 30.6,
-    "text": "Chúng ngã vào nhau ở trong một tấm canvas"
-  },
-  {
-    "time": 33.1,
-    "text": "What the fuck? Baby, I'm still lit"
-  },
-  {
-    "time": 35.3,
-    "text": "Bóc đồ đi, xem outfit bao nhiêu"
-  },
-  {
-    "time": 37.4,
-    "text": "Second-hand tao vẫn bring the heat"
-  },
-  {
-    "time": 39.1,
-    "text": "Quá là fresh nên tao thích thì tao kiêu"
-  },
-  {
-    "time": 41.6,
-    "text": "Mấy thứ chúng mày coi là bình thường nhất"
-  },
-  {
-    "time": 44.1,
-    "text": "Lên người tao thành đồ rất cao siêu"
-  },
-  {
-    "time": 46.3,
-    "text": "Đừng săm soi chuyện đời tư của bố mày"
-  },
-  {
-    "time": 48.9,
-    "text": "Cuộc đời tao, yeah, tao thích thì tao yêu"
-  },
-  {
-    "time": 51.6,
-    "text": "Ah, ah-ah-ah-ah-ah, ah-ah-ah-ah-ah"
-  },
-  {
-    "time": 53.3,
-    "text": "Ah-ah-ah-ah-ah, ah, ah, ah, ah"
-  },
-  {
-    "time": 54.9,
-    "text": "Ah-ah-ah-ah-ah, ah-ah-ah-ah-ah"
-  },
-  {
-    "time": 56.6,
-    "text": "Ah-ah-ah-ah-ah, ah, ah, ah"
-  },
-  {
-    "time": 58.3,
-    "text": "Yeah, tim anh như đang nổ tung nhưng mà lại chẳng biết nói gì với em"
-  },
-  {
-    "time": 63,
-    "text": "Nhẹ nhàng, nhẹ nhàng dâng lên bao nhiêu cảm xúc này anh đang kìm nén (Ah)"
-  },
-  {
-    "time": 67.6,
-    "text": "Linh hồn mình đi tìm nhau, chìm vào cùng khoảnh khắc căn phòng tối đen"
-  },
-  {
-    "time": 72,
-    "text": "Nhẹ chạm vào bờ môi, đung đưa trôi khi hai ta say mèm"
-  },
-  {
-    "time": 75.9,
-    "text": "(Khẽ chạm vào bờ môi) Đung, đung đưa trôi khi hai ta say mèm"
-  },
-  {
-    "time": 80,
-    "text": "(Đến bên em người ơi) Đung đưa trôi khi mà hai ta say mèm (Khẽ chạm vào bờ môi)"
-  },
-  {
-    "time": 85.3,
-    "text": "(Cho đến khi anh chơi vơi)"
-  },
-  {
-    "time": 87,
-    "text": "(Cho đến khi anh chơi vơi)"
-  },
-  {
-    "time": 88.7,
-    "text": "Okay, in the game, baby, I'm lit"
-  },
-  {
-    "time": 90.8,
-    "text": "Ít khi điêu"
-  },
-  {
-    "time": 92.5,
-    "text": "Hôn anh chi chít"
-  },
-  {
-    "time": 94.2,
-    "text": "Anh lead em phiêu"
-  },
-  {
-    "time": 95.8,
-    "text": "Nhận ra anh nhiều quá"
-  },
-  {
-    "time": 97.5,
-    "text": "Khói tan ra"
-  },
-  {
-    "time": 99.2,
-    "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
-  },
-  {
-    "time": 101.6,
-    "text": "Chúng ngã vào nhau ở trong một tấm canvas"
-  },
-  {
-    "time": 104.1,
-    "text": "(Khi mà em) Khi mà em đang say"
-  },
-  {
-    "time": 106.4,
-    "text": "Đung đưa, đung đưa khi mà em đang say"
-  },
-  {
-    "time": 109.1,
-    "text": "Khi mà em đang say"
-  },
-  {
-    "time": 110.8,
-    "text": "Đung đưa, đung đưa khi mà em đang"
-  },
-  {
-    "time": 113.2,
-    "text": "Ngã ra trong một tấm canvas"
-  },
-  {
-    "time": 114.9,
-    "text": "Lướt qua chạm vào làn da"
-  },
-  {
-    "time": 116.6,
-    "text": "Your aura, your vibe"
-  },
-  {
-    "time": 118.3,
-    "text": "Ngã ra trong một tấm canvas"
-  },
-  {
-    "time": 119.9,
-    "text": "Anh giờ quá phê, anh trông như là tảng đá"
-  },
-  {
-    "time": 122.9,
-    "text": "My aura, my vibe"
-  },
-  {
-    "time": 124.6,
-    "text": "In the game, baby, I'm lit"
-  },
-  {
-    "time": 126.5,
-    "text": "Không cần filter, anh ít khi điêu"
-  },
-  {
-    "time": 128.7,
-    "text": "Bôi nhiều son vào, hôn anh chi chít"
-  },
-  {
-    "time": 131.1,
-    "text": "On the beat, anh lead em phiêu"
-  },
-  {
-    "time": 133.3,
-    "text": "Đi quanh club họ nhận ra anh nhiều quá"
-  },
-  {
-    "time": 135.8,
-    "text": "Rít một hơi, thổi làn khói tan ra"
-  },
-  {
-    "time": 138.3,
-    "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
-  },
-  {
-    "time": 140.7,
-    "text": "Chúng ngã vào nhau ở trong một tấm canvas"
-  },
-  {
-    "time": 143.3,
-    "text": "In the game, I'm-I'm lit"
-  },
-  {
-    "time": 144.9,
-    "text": "Ít, anh ít khi, ít khi"
-  },
-  {
-    "time": 146.8,
-    "text": "Bôi nhiều son vào, hôn chi chít"
-  },
-  {
-    "time": 149,
-    "text": "Anh lead em ph–"
-  },
-  {
-    "time": 150.7,
-    "text": "Nhận, nhận, nhận ra anh nhiều quá"
-  },
-  {
-    "time": 152.9,
-    "text": "Rít một hơi, khói tan ra"
-  },
-  {
-    "time": 154.8,
-    "text": "Xanh rồi đen, rồi lục, lam, chàm, tím"
-  },
-  {
-    "time": 157.2,
-    "text": "Chúng nó ngã vào nhau ở trong một tấm canvas"
-  }
-]
+    { time: 0.0, text: "[Chorus]" },
+    { time: 0.8, text: "In the game, baby, I'm lit" },
+    { time: 3.2, text: "Không cần filter, anh ít khi điêu" },
+    { time: 6.0, text: "Bôi nhiều son vào, hôn anh chi chít" },
+    { time: 8.8, text: "On the beat, anh lead em phiêu" },
+    { time: 11.5, text: "Đi quanh club, họ nhận ra anh nhiều quá" },
+    { time: 14.5, text: "Rít một hơi, thổi làn khói tan ra" },
+    { time: 17.5, text: "Xanh rồi đen, rồi lục, lam, chàm, tím" },
+    { time: 20.5, text: "Chúng ngã vào nhau ở trong một tấm canvas" },
+    { time: 24.0, text: "[Verse 1]" },
+    { time: 24.8, text: "What the fuck? Baby, I'm still lit" },
+    { time: 27.5, text: "Bóc đồ đi, xem outfit bao nhiêu" },
+    { time: 30.5, text: "Second-hand tao vẫn bring the heat" },
+    { time: 33.2, text: "Quá là fresh nên tao thích thì tao kiêu" },
+    { time: 36.2, text: "Mấy thứ chúng mày coi là bình thường nhất" },
+    { time: 39.0, text: "Lên người tao thành đồ rất cao siêu" },
+    { time: 42.0, text: "Đừng săm soi chuyện đời tư của bố mày" },
+    { time: 45.0, text: "Cuộc đời tao, yeah, tao thích thì tao yêu" },
+    { time: 48.0, text: "[Interlude]" },
+    { time: 48.8, text: "Ah, ah-ah-ah-ah-ah, ah-ah-ah-ah-ah" },
+    { time: 54.0, text: "Ah-ah-ah-ah-ah, ah, ah, ah, ah" },
+    { time: 60.0, text: "Ah-ah-ah-ah-ah, ah-ah-ah-ah-ah" },
+    { time: 65.5, text: "Ah-ah-ah-ah-ah, ah, ah, ah" },
+    { time: 70.0, text: "[Verse 2]" },
+    { time: 71.0, text: "Yeah, tim anh như đang nổ tung nhưng mà lại chẳng biết nói gì với em" },
+    { time: 76.5, text: "Nhẹ nhàng, nhẹ nhàng dâng lên bao nhiêu cảm xúc này anh đang kìm nén (Ah)" },
+    { time: 82.2, text: "Linh hồn mình đi tìm nhau, chìm vào cùng khoảnh khắc căn phòng tối đen" },
+    { time: 88.0, text: "Nhẹ chạm vào bờ môi, đung đưa trôi khi hai ta say mèm" },
+    { time: 93.5, text: "(Khẽ chạm vào bờ môi) Đung, đung đưa trôi khi hai ta say mèm" },
+    { time: 99.0, text: "(Đến bên em người ơi) Đung đưa trôi khi mà hai ta say mèm (Khẽ chạm vào bờ môi)" },
+    { time: 104.5, text: "(Cho đến khi anh chơi vơi)" },
+    { time: 107.5, text: "(Cho đến khi anh chơi vơi)" },
+    { time: 110.0, text: "[Chorus]" },
+    { time: 111.0, text: "Okay, in the game, baby, I'm lit" },
+    { time: 113.2, text: "Ít khi điêu" },
+    { time: 115.0, text: "Hôn anh chi chít" },
+    { time: 117.2, text: "Anh lead em phiêu" },
+    { time: 119.5, text: "Nhận ra anh nhiều quá" },
+    { time: 122.0, text: "Khói tan ra" },
+    { time: 124.5, text: "Xanh rồi đen, rồi lục, lam, chàm, tím" },
+    { time: 127.5, text: "Chúng ngã vào nhau ở trong một tấm canvas" },
+    { time: 131.0, text: "[Verse 3]" },
+    { time: 131.8, text: "(Khi mà em) Khi mà em đang say" },
+    { time: 134.5, text: "Đung đưa, đung đưa khi mà em đang say" },
+    { time: 137.5, text: "Khi mà em đang say" },
+    { time: 140.2, text: "Đung đưa, đung đưa khi mà em đang" },
+    { time: 143.0, text: "Ngã ra trong một tấm canvas" },
+    { time: 145.8, text: "Lướt qua chạm vào làn da" },
+    { time: 148.5, text: "Your aura, your vibe" },
+    { time: 151.2, text: "Ngã ra trong một tấm canvas" },
+    { time: 154.0, text: "Anh giờ quá phê, anh trông như là tảng đá" },
+    { time: 157.0, text: "My aura, my vibe" },
+    { time: 160.0, text: "[Chorus]" },
+    { time: 160.8, text: "In the game, baby, I'm lit" },
+    { time: 163.5, text: "Không cần filter, anh ít khi điêu" },
+    { time: 166.2, text: "Bôi nhiều son vào, hôn anh chi chít" },
+    { time: 169.0, text: "On the beat, anh lead em phiêu" },
+    { time: 171.8, text: "Đi quanh club họ nhận ra anh nhiều quá" },
+    { time: 174.5, text: "Rít một hơi, thổi làn khói tan ra" },
+    { time: 177.5, text: "Xanh rồi đen, rồi lục, lam, chàm, tím" },
+    { time: 180.5, text: "Chúng ngã vào nhau ở trong một tấm canvas" },
+    { time: 184.0, text: "[Outro]" },
+    { time: 184.8, text: "In the game, I'm-I'm lit" },
+    { time: 187.0, text: "Ít, anh ít khi, ít khi" },
+    { time: 189.5, text: "Bôi nhiều son vào, hôn chi chít" },
+    { time: 192.0, text: "Anh lead em ph–" },
+    { time: 194.5, text: "Nhận, nhận, nhận ra anh nhiều quá" },
+    { time: 197.0, text: "Rít một hơi, khói tan ra" },
+    { time: 200.0, text: "Xanh rồi đen, rồi lục, lam, chàm, tím" },
+    { time: 203.0, text: "Chúng nó ngã vào nhau ở trong một tấm canvas" },
+  ],
 };
