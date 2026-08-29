@@ -2,29 +2,15 @@
   <!-- Solid 1:1 Deep Black Canvas -->
   <rect width="512" height="512" fill="#050505"/>
 
-  <!-- Chunky Bold Red HVL Monogram (Centered 1:1) -->
+  <!-- Pure Chunky Bold Red HVL Monogram (Perfect Center) -->
   <g fill="#FF3725">
     <!-- H -->
-    <path d="M72 170H120V246H168V170H216V326H168V282H120V326H72V170Z"/>
+    <path d="M72 166H120V242H168V166H216V346H168V298H120V346H72V166Z"/>
 
     <!-- V -->
-    <path d="M226 170H272L306 280L340 170H386L330 326H282L226 170Z"/>
+    <path d="M226 166H272L306 288L340 166H386L330 346H282L226 166Z"/>
 
     <!-- L -->
-    <path d="M394 170H440V286H488V326H394V170Z"/>
+    <path d="M394 166H440V298H488V346H394V166Z"/>
   </g>
-
-  <!-- Subtitle: RPT MCK -->
-  <text 
-    x="256" 
-    y="368" 
-    fill="#888888" 
-    font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Arial Black', sans-serif" 
-    font-size="20" 
-    font-weight="900" 
-    letter-spacing="10" 
-    text-anchor="middle"
-  >
-    RPT MCK
-  </text>
 </svg>
