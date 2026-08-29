@@ -7,6 +7,7 @@ type LyricLineProps = {
   isActive: boolean;
   isPast: boolean;
   isUpcoming: boolean;
+  distanceFromActive: number;
   onSeek: (time: number) => void;
 };
 
@@ -15,26 +16,32 @@ export const LyricLine = React.memo(function LyricLine({
   isActive,
   isPast,
   isUpcoming,
+  distanceFromActive,
   onSeek,
 }: LyricLineProps) {
   const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
   const isSectionHeader = line.text.trim().startsWith("[");
   const isEmpty = text === "";
 
-  // Never display [Intro], [Chorus], [Verse], or empty tags
   if (isEmpty || isSectionHeader) {
     return null;
   }
 
+  // Apple Music style visual depth based on distance from active line
+  let depthClass = "depth-far";
+  if (isActive) depthClass = "depth-active";
+  else if (distanceFromActive === 1) depthClass = "depth-adjacent";
+  else if (distanceFromActive === 2) depthClass = "depth-near";
+
   return (
     <button
       type="button"
-      className={`lyric-line ${isActive ? "active" : ""} ${isPast ? "past" : ""} ${isUpcoming ? "upcoming" : ""}`}
+      className={`supreme-lyric-line ${isActive ? "active" : ""} ${isPast ? "past" : ""} ${isUpcoming ? "upcoming" : ""} ${depthClass}`}
       onClick={() => onSeek(line.time)}
-      aria-label={`Tua đến ${text}`}
+      aria-label={`Tua đến: ${text}`}
       aria-current={isActive ? "true" : undefined}
     >
-      <span className="lyric-line-text">{text}</span>
+      <span className="lyric-text">{text}</span>
     </button>
   );
 });
