@@ -1035,24 +1035,15 @@ footer a:hover { color: var(--accent); }
   transform: scale(1.06);
   box-shadow: 0 0 30px rgba(255, 55, 35, 0.55);
 }
-/* 1. Rhythm Pulsing Ambient Glow */
-@keyframes ambientPulse {
-  0% {
-    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6), 0 0 45px rgba(255, 55, 35, 0.22);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 75px rgba(255, 55, 35, 0.45);
-    transform: scale(1.018);
-  }
-  100% {
-    box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6), 0 0 45px rgba(255, 55, 35, 0.22);
-    transform: scale(1);
-  }
+.player-card .artwork {
+  position: relative;
+  transform: none !important;
 }
 
 .player-card .artwork.is-playing {
-  animation: ambientPulse 2.2s ease-in-out infinite;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.6), 0 0 var(--audio-glow, 45px) rgba(255, 55, 35, var(--audio-opacity, 0.35)) !important;
+  transform: none !important;
+  transition: box-shadow 90ms ease-out !important;
 }
 
 /* 4. Glassmorphism "Đôi Lời" Modal */

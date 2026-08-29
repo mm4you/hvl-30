@@ -628,6 +628,7 @@ export default function Home() {
   const [volume, setVolume] = useState(0.85);
   const [libraryVisible, setLibraryVisible] = useState(true);
   const [lyricsVisible, setLyricsVisible] = useState(false);
+  const [audioLevel, setAudioLevel] = useState(0);
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
@@ -1999,7 +2000,7 @@ export default function Home() {
           </button>}
           <button aria-label="Giới thiệu HVL và RPT MCK" className="icon-button about-button" onClick={() => setAboutOpen(true)} type="button">
             <Icon name="info" size={18} />
-            <span>Giới thiệu</span>
+            <span>Đôi lời</span>
           </button>
           {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && <button className="add-button" onClick={() => setFormOpen((open) => !open)} type="button">
             <Icon name={formOpen ? "close" : "add"} size={18} />
@@ -2228,7 +2229,7 @@ export default function Home() {
       )}
 
       <section className="player-card" aria-label="Trình phát nhạc">
-        <div className={`artwork ${isPlaying ? "is-playing" : ""}`}>
+        <div className={`artwork ${isPlaying ? "is-playing" : ""}`} style={{ "--audio-scale": 1 + audioLevel * 0.032, "--audio-glow": `${24 + audioLevel * 70}px`, "--audio-opacity": 0.22 + audioLevel * 0.55 } as CSSProperties}>
           {lyricsVisible ? (
             <LyricsView
               currentTime={currentTime}
@@ -2304,7 +2305,7 @@ export default function Home() {
                 type="range"
                 value={volume}
               />
-              <span aria-hidden="true"><Icon name="volumeHigh" size={19} /></span>
+              
             </div>
           )}
           <div className="playback-options-wrap">
