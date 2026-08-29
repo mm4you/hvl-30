@@ -91,311 +91,279 @@ export const track07Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 1,
-    "text": "[Intro: RPT MCK]"
-  },
-  {
-    "time": 3.2,
+    "time": 14,
     "text": "Eh, eh, eh"
   },
   {
-    "time": 5.4,
+    "time": 15.3,
     "text": "Eh, eh"
   },
   {
-    "time": 7.6,
+    "time": 16.5,
     "text": "Mắt không thể nói dối, nàng có biết điều này không?"
-  },
-  {
-    "time": 9.8,
-    "text": "Môi không thể lên tiếng, nó đang tan ra trong—"
-  },
-  {
-    "time": 12,
-    "text": "Đôi tay này nếu không thể giữ em lại thì cứ vứt đi là—"
-  },
-  {
-    "time": 14.2,
-    "text": "Cho anh quỳ gối nói lời tin nàng được không?"
-  },
-  {
-    "time": 16.4,
-    "text": "Eh, eh"
   },
   {
     "time": 18.6,
+    "text": "Môi không thể lên tiếng, nó đang tan ra trong—"
+  },
+  {
+    "time": 20.4,
+    "text": "Đôi tay này nếu không thể giữ em lại thì cứ vứt đi là—"
+  },
+  {
+    "time": 22.5,
+    "text": "Cho anh quỳ gối nói lời tin nàng được không?"
+  },
+  {
+    "time": 24.4,
     "text": "Eh, eh"
   },
   {
-    "time": 20.8,
+    "time": 25.6,
+    "text": "Eh, eh"
+  },
+  {
+    "time": 26.9,
     "text": "Huh"
   },
   {
-    "time": 23,
+    "time": 28,
     "text": "(Mắt không thể nói dối, nàng có biết điều này không?)"
   },
   {
-    "time": 25.2,
+    "time": 29.8,
     "text": "(Môi không thể lên tiếng, nó đang tan ra trong—)"
   },
   {
-    "time": 27.4,
-    "text": "[Chorus: RPT MCK]"
-  },
-  {
-    "time": 29.6,
+    "time": 32.7,
     "text": "Mắt không thể nói dối, nàng có biết điều này không?"
   },
   {
-    "time": 31.8,
+    "time": 35.2,
     "text": "Môi không thể lên tiếng, nó đang tan ra trong phòng"
   },
   {
-    "time": 34,
+    "time": 37.5,
     "text": "Tay anh tạo ra mọi thứ trong đầu anh mơ, tâm anh mong"
   },
   {
-    "time": 36.2,
+    "time": 40.2,
     "text": "Đôi chân anh luôn đứng vững vì anh là một thằng đàn ông"
   },
   {
-    "time": 38.4,
+    "time": 42.7,
     "text": "2/3/99, có một vị vua tên là Hoàng Long"
   },
   {
-    "time": 40.6,
+    "time": 44.6,
     "text": "Được sinh ra ở thế giới biến mọi thứ, tất cả thành vàng ròng"
   },
   {
-    "time": 42.8,
+    "time": 47.5,
     "text": "Đi qua một vùng đất, nước đục chẳng còn trong"
   },
   {
-    "time": 45,
+    "time": 49.6,
     "text": "Đem lòng yêu một nàng thơ trong tim đêm ngày đợi mong"
   },
   {
-    "time": 47.2,
-    "text": "[Post-Chorus: RPT MCK]"
-  },
-  {
-    "time": 49.4,
+    "time": 53,
     "text": "Nếu em không tin, xin được lấy con tim anh ra"
   },
   {
-    "time": 51.6,
+    "time": 55.3,
     "text": "Cho con tim vào khuôn nhẫn, đeo tay em coi như là"
   },
   {
-    "time": 53.8,
+    "time": 57.8,
     "text": "Tặng cho em bức thư cùng vài lời nhắn hơi qua loa"
   },
   {
-    "time": 56,
+    "time": 60.1,
     "text": "Tưởng gọi là bình yên, từng gọi là nhà"
   },
   {
-    "time": 58.2,
-    "text": "[Verse 1: RPT MCK]"
-  },
-  {
-    "time": 60.4,
+    "time": 63.2,
     "text": "Đôi mắt này không thể nói dối, nàng có biết điều này không?"
   },
   {
-    "time": 62.6,
+    "time": 65.6,
     "text": "Đôi tai anh đang nghe tiếng, đôi môi đang tan ra trong phòng"
   },
   {
-    "time": 64.8,
+    "time": 67.8,
     "text": "Đôi tay này nếu không thể giữ em lại thì cứ vứt đi là xong"
   },
   {
-    "time": 67,
+    "time": 70.1,
     "text": "Em nhìn xuyên qua lớp da rồi nhìn xuyên qua được Hoàng Long"
   },
   {
-    "time": 69.2,
+    "time": 72.1,
     "text": "Mà chỉ là vài dòng chữ thôi mà anh cứ chờ đợi mãi một người"
   },
   {
-    "time": 71.4,
+    "time": 74.5,
     "text": "Anh sẽ phải đi tiếp thôi, tìm những thứ thuộc về anh"
   },
   {
-    "time": 73.6,
+    "time": 76.5,
     "text": "Hãy để dành lời xin lỗi đi, chỉ là đến lúc ta phải xa nhau rồi"
   },
   {
-    "time": 75.8,
+    "time": 79.1,
     "text": "Biển nhớ đến em, anh làm thành một bài thơ"
   },
   {
-    "time": 78,
+    "time": 80.8,
     "text": "Gọi \"Thuyền ơi\", thuyền trả lời"
   },
   {
-    "time": 80.2,
+    "time": 82.1,
     "text": "Thuyền nhìn xa xăm, thuyền hiểu cả rồi"
   },
   {
-    "time": 82.4,
+    "time": 83.4,
     "text": "Bảo là rời đi nhưng mà chẳng thể rời"
   },
   {
-    "time": 84.6,
+    "time": 84.9,
     "text": "Nàng bảo đợi em, anh sẽ đợi cả đời"
   },
   {
-    "time": 86.8,
+    "time": 86.4,
     "text": "Nhưng nếu mắt không thấy thì con tim không nhớ"
   },
   {
-    "time": 89,
+    "time": 88,
     "text": "Đôi môi thôi không nói và tâm không trông chờ"
   },
   {
-    "time": 91.2,
+    "time": 89.5,
     "text": "Đôi chân như không tiến, đôi tay như buông thõng"
   },
   {
-    "time": 93.4,
+    "time": 91.2,
     "text": "Thời gian như đứng im thì liệu còn ai ngồi đợi mong?"
   },
   {
-    "time": 95.6,
-    "text": "[Chorus: RPT MCK & Tage]"
-  },
-  {
-    "time": 97.8,
+    "time": 94.5,
     "text": "Đôi mắt đã biết nói dối, nàng có biết điều này không?"
   },
   {
-    "time": 100,
+    "time": 97.3,
     "text": "Anh chẳng phải là vua, anh chẳng phải là rồng"
   },
   {
-    "time": 102.2,
+    "time": 99.3,
     "text": "Chỉ là một chàng trai có con tim làm bằng vàng ròng"
   },
   {
-    "time": 104.4,
+    "time": 101.7,
     "text": "Anh đã trao cho em mà em có biết điều này không?"
   },
   {
-    "time": 106.6,
+    "time": 104.3,
     "text": "Mắt không thể nói dối, liệu nàng có biết điều này không?"
   },
   {
-    "time": 108.8,
+    "time": 107.1,
     "text": "Tai đã không còn nghe rõ để mặc tiếng nấc ai kia trong vô vọng"
   },
   {
-    "time": 111,
+    "time": 110,
     "text": "Giơ ra đôi bàn tay trắng, chân bước lên con thuyền nhà rồng"
   },
   {
-    "time": 113.2,
+    "time": 112.6,
     "text": "Coi như là một kẻ vô tâm, anh cũng không nghĩ mình cần được cảm thông, yah"
   },
   {
-    "time": 115.4,
-    "text": "[Verse 2: Tage]"
-  },
-  {
-    "time": 117.6,
+    "time": 117.2,
     "text": "Lao đầu vào cạm bẫy chỉ để muốn thấy được điều gì ở trong đấy"
   },
   {
-    "time": 119.8,
+    "time": 119.6,
     "text": "Rồi đưa nó ra khỏi tâm trí, những luồng suy nghĩ này cần được sàng lọc"
   },
   {
-    "time": 122,
+    "time": 122.2,
     "text": "Coi như tim này sắt đá, đôi chân này được làm bằng đồng"
   },
   {
-    "time": 124.2,
+    "time": 124.4,
     "text": "Ba anh dạy phải như thế mới được gọi là một thằng đàn ông"
   },
   {
-    "time": 126.4,
+    "time": 126.6,
     "text": "Nhưng thực ra anh chỉ mong mai này tự do cao bay xa chạy"
   },
   {
-    "time": 128.6,
+    "time": 128.8,
     "text": "Nói rằng tôi đang chỉ dạo chơi thôi, đâu cần phải chờ đợi"
   },
   {
-    "time": 130.8,
+    "time": 130.9,
     "text": "Có câu chuyện tuổi đôi mươi mà đôi khi ngỡ là cả đời người"
   },
   {
-    "time": 133,
+    "time": 133.1,
     "text": "Có dư vị của đôi môi mà đôi khi ngỡ chỉ mình tôi thôi"
   },
   {
-    "time": 135.2,
+    "time": 135.3,
     "text": "Chạm một tay lên làn da để lại vụt tan như giấc mơ"
   },
   {
-    "time": 137.4,
+    "time": 137.3,
     "text": "Bao đêm Sài Gòn chơ vơ mà sao anh tưởng là Hà Nội"
   },
   {
-    "time": 139.6,
+    "time": 139.3,
     "text": "Tại sao chọn rời xa mà hôm nay lòng mình vẫn nhớ?"
   },
   {
-    "time": 141.8,
+    "time": 141.5,
     "text": "Mà thôi, anh không tìm câu trả lời"
   },
   {
     "time": 144,
-    "text": "[Chorus: Tage & RPT MCK]"
-  },
-  {
-    "time": 146.2,
     "text": "Mắt đã không thể nói dối, liệu nàng có biết điều này không?"
   },
   {
-    "time": 148.4,
+    "time": 147,
     "text": "Tai đã không còn nghe rõ để mặc tiếng nấc ai kia trong vô vọng"
   },
   {
-    "time": 150.6,
+    "time": 149.9,
     "text": "Giơ ra đôi bàn tay trắng, chân bước lên con thuyền nhà rồng"
   },
   {
-    "time": 152.8,
+    "time": 152.6,
     "text": "Coi như là một kẻ vô tâm, anh cũng không nghĩ mình cần được cảm thông"
   },
   {
-    "time": 155,
+    "time": 155.8,
     "text": "Mắt không thể nói dối, nàng có biết điều này không?"
   },
   {
-    "time": 157.2,
+    "time": 158.4,
     "text": "Môi không thể lên tiếng, nó đang tan ra trong phòng"
   },
   {
-    "time": 159.4,
+    "time": 160.7,
     "text": "Tay anh tạo ra mọi thứ trong đầu anh mơ, tâm anh mong"
   },
   {
-    "time": 161.6,
+    "time": 163.4,
     "text": "Đôi chân anh luôn đứng vững vì anh là một thằng đàn ông"
   },
   {
-    "time": 163.8,
-    "text": "[Outro: RPT MCK]"
-  },
-  {
-    "time": 166,
+    "time": 167.3,
     "text": "Eh, eh"
   },
   {
-    "time": 168.2,
+    "time": 168.7,
     "text": "Eh, eh"
   }
 ]

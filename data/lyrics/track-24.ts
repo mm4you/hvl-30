@@ -89,311 +89,287 @@ export const track24Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 1,
-    "text": "[Instrumental Intro]"
-  },
-  {
-    "time": 3.2,
-    "text": "[Verse 1]"
-  },
-  {
-    "time": 5.4,
+    "time": 17.2,
     "text": "Yeah, tao đang không đeo bịt mắt"
   },
   {
-    "time": 7.6,
+    "time": 19.1,
     "text": "Take off that cover để xem không gian tối đen lan rộng"
   },
   {
-    "time": 9.8,
+    "time": 21.8,
     "text": "Yeah, không đeo bịt mắt"
   },
   {
-    "time": 12,
+    "time": 23.7,
     "text": "Nhìn xuyên qua trò lừa gạt này giờ lại thấy như không"
   },
   {
-    "time": 14.2,
+    "time": 26.5,
     "text": "Vụn vỡ nhưng đã trao"
   },
   {
-    "time": 16.4,
+    "time": 28.1,
     "text": "Niềm tin như vết dao họ đâm vào lưng khi tao đã quay đi rồi"
   },
   {
-    "time": 18.6,
+    "time": 31.6,
     "text": "Từng câu chuyện bị họ hiên ngang đánh tráo"
   },
   {
-    "time": 20.8,
+    "time": 33.7,
     "text": "Như là cách tao đang đứng dậy nhìn kẻ thù của tao"
   },
   {
-    "time": 23,
-    "text": "[Chorus]"
-  },
-  {
-    "time": 25.2,
+    "time": 38.2,
     "text": "Sao? Huh? Mày muốn thấy tao chết à?"
   },
   {
-    "time": 27.4,
+    "time": 40.9,
     "text": "Ngủ tiếp đi, cảnh đấy trong mơ thôi"
   },
   {
-    "time": 29.6,
+    "time": 43.4,
     "text": "Hạ tao xuống? Mày muốn hạ tao xuống?"
   },
   {
-    "time": 31.8,
+    "time": 46.2,
     "text": "Gọi thêm mười thằng, anh em tao cưa đôi"
   },
   {
-    "time": 34,
+    "time": 49,
     "text": "Bảo tao thay đổi chắc là nhà đéo có gương soi"
   },
   {
-    "time": 36.2,
+    "time": 52.2,
     "text": "Chúng mày phát triển chạy theo một đường lối"
   },
   {
-    "time": 38.4,
+    "time": 54.8,
     "text": "Bất quy tắc, tao mới là đương thời"
   },
   {
-    "time": 40.6,
+    "time": 57.4,
     "text": "Trồi lên từ sỏi để lại hương thơm"
   },
   {
-    "time": 42.8,
+    "time": 59.7,
     "text": "Phủi bụi, uhm, giày tao như mới"
   },
   {
-    "time": 45,
+    "time": 62.2,
     "text": "Đúng là lòng người đéo mẹ bạc như vôi"
   },
   {
-    "time": 47.2,
+    "time": 64.9,
     "text": "Đéo ai quan tâm khi mà tao chưa nổi"
   },
   {
-    "time": 49.4,
+    "time": 67.5,
     "text": "Sao bây giờ lại thay đổi hả mấy thằng ngu ơi?"
   },
   {
-    "time": 51.6,
+    "time": 71.1,
     "text": "Đặt điều về tao kiểu đấy quá xưa rồi"
   },
   {
-    "time": 53.8,
+    "time": 73.7,
     "text": "Đái vào mặt mày gọi là một ngày mưa rơi"
   },
   {
-    "time": 56,
+    "time": 76.6,
     "text": "Tao im lặng khi mà thông tin đưa tới"
   },
   {
-    "time": 58.2,
+    "time": 79.3,
     "text": "Tao im lặng cho chúng mày múa mép khua môi"
   },
   {
-    "time": 60.4,
-    "text": "[Bridge]"
-  },
-  {
-    "time": 62.6,
+    "time": 87.2,
     "text": "Huh-huh-huh-huh-huh-huh"
   },
   {
-    "time": 64.8,
+    "time": 89.5,
     "text": "(Chúng nó đéo biết đấu với cái gì)"
   },
   {
-    "time": 67,
+    "time": 91.8,
     "text": "Huh-huh-huh-huh-huh-huh"
   },
   {
-    "time": 69.2,
+    "time": 94.2,
     "text": "Chúng nó đéo biết đấu với cái gì"
   },
   {
-    "time": 71.4,
+    "time": 96.5,
     "text": "Huh-huh-huh-huh-huh-huh-huh-huh"
   },
   {
-    "time": 73.6,
+    "time": 98.8,
     "text": "Huh-huh-huh-huh-huh-huh-huh-huh"
   },
   {
-    "time": 75.8,
+    "time": 101.1,
     "text": "Huh-huh-huh-huh-huh-huh-huh-huh"
   },
   {
-    "time": 78,
+    "time": 103.5,
     "text": "Huh-huh-huh-huh-huh-huh-huh-huh"
   },
   {
-    "time": 80.2,
+    "time": 105.8,
     "text": "(Kẻ thù của tao)"
   },
   {
-    "time": 82.4,
-    "text": "[Chorus]"
-  },
-  {
-    "time": 84.6,
+    "time": 109.8,
     "text": "Sao? Huh? Mày muốn thấy tao chết à?"
   },
   {
-    "time": 86.8,
+    "time": 112.5,
     "text": "Ngủ tiếp đi, cảnh đấy trong mơ thôi"
   },
   {
-    "time": 89,
+    "time": 115.1,
     "text": "Hạ tao xuống? Mày muốn hạ tao xuống?"
   },
   {
-    "time": 91.2,
+    "time": 117.9,
     "text": "Gọi thêm mười thằng, anh em tao cưa đôi"
   },
   {
-    "time": 93.4,
+    "time": 120.7,
     "text": "Bảo tao thay đổi chắc là nhà đéo có gương soi"
   },
   {
-    "time": 95.6,
+    "time": 123.8,
     "text": "Chúng mày phát triển chạy theo một đường lối"
   },
   {
-    "time": 97.8,
+    "time": 126.5,
     "text": "Bất quy tắc, tao mới là đương thời"
   },
   {
-    "time": 100,
+    "time": 129,
     "text": "Trồi lên từ sỏi để lại hương thơm"
   },
   {
-    "time": 102.2,
+    "time": 131.3,
     "text": "Phủi bụi, uhm, giày tao như mới"
   },
   {
-    "time": 104.4,
+    "time": 133.9,
     "text": "Đúng là lòng người đéo mẹ bạc như vôi"
   },
   {
-    "time": 106.6,
+    "time": 136.5,
     "text": "Đéo ai quan tâm khi mà tao chưa nổi"
   },
   {
-    "time": 108.8,
+    "time": 139.1,
     "text": "Sao bây giờ lại thay đổi hả mấy thằng ngu ơi?"
   },
   {
-    "time": 111,
+    "time": 142.7,
     "text": "Đặt điều về tao kiểu đấy quá xưa rồi"
   },
   {
-    "time": 113.2,
+    "time": 145.4,
     "text": "Đái vào mặt mày gọi là một ngày mưa rơi"
   },
   {
-    "time": 115.4,
+    "time": 148.3,
     "text": "Tao im lặng khi mà thông tin đưa tới"
   },
   {
-    "time": 117.6,
+    "time": 150.9,
     "text": "Tao im lặng cho chúng mày múa mép khua môi"
   },
   {
-    "time": 119.8,
-    "text": "[Verse 2]"
-  },
-  {
-    "time": 122,
+    "time": 155.4,
     "text": "Bá hơn ai? Bá hơn tao?"
   },
   {
-    "time": 124.2,
+    "time": 157.5,
     "text": "Tao bắt đầu chán rồi tao ra khỏi đại lao"
   },
   {
-    "time": 126.4,
+    "time": 159.8,
     "text": "Bắt đầu thèm khát thứ sức mạnh chúng mày không thể"
   },
   {
-    "time": 128.6,
+    "time": 162.4,
     "text": "Kiểm soát được việc đó khiến cho chúng mày lại ngao à? (Huh)"
   },
   {
-    "time": 130.8,
+    "time": 165.4,
     "text": "Sống lại để chết xong lại sống rồi lại chết để con người trong gương vẫn là của tao"
   },
   {
-    "time": 133,
+    "time": 169.8,
     "text": "Của tao là của tao"
   },
   {
-    "time": 135.2,
+    "time": 171.5,
     "text": "Chúng mày không thể đánh tráo"
   },
   {
-    "time": 137.4,
+    "time": 173.1,
     "text": "Định cho tao vai ác? Motherfuckers tao sẽ khiến chúng mày điên lên"
   },
   {
-    "time": 139.6,
+    "time": 176.2,
     "text": "Bozo đen keep rocking my fit"
   },
   {
-    "time": 141.8,
+    "time": 177.9,
     "text": "Vẫn đang nghe xem mấy anh công ty rap cái gì"
   },
   {
-    "time": 144,
+    "time": 180.5,
     "text": "Yeah, I be cold, I stay low like this"
   },
   {
-    "time": 146.2,
+    "time": 182.7,
     "text": "Đã quá lâu tao không post lên IG"
   },
   {
-    "time": 148.4,
+    "time": 184.6,
     "text": "Rằng bọn khổng lồ sẽ gục dưới chân thằng bé tí"
   },
   {
-    "time": 150.6,
+    "time": 187.2,
     "text": "Fuck it, get lit, I be swerve"
   },
   {
-    "time": 152.8,
+    "time": 189,
     "text": "Tao đi như này đứng như này rap như này"
   },
   {
-    "time": 155,
+    "time": 191.3,
     "text": "Okay, nếu mày gan thì mày cop đi này"
   },
   {
-    "time": 157.2,
+    "time": 193.7,
     "text": "Cổ tay tao Rolex, không phải Cartier"
   },
   {
-    "time": 159.4,
+    "time": 195.5,
     "text": "Fuck your bitch fuck your fame fuck your polymer"
   },
   {
-    "time": 161.6,
+    "time": 197.6,
     "text": "Tao đi như này đứng như này rap như này"
   },
   {
-    "time": 163.8,
+    "time": 199.9,
     "text": "Đừng cố để bằng tao chọn kiếp khác đi vậy"
   },
   {
-    "time": 166,
+    "time": 202.2,
     "text": "Tao đi qua nó biến nó thành spotlight"
   },
   {
-    "time": 168.2,
+    "time": 204.2,
     "text": "Để cho chúng mày biết đâu là trap"
   }
 ]

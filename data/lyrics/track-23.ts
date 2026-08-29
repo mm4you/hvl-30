@@ -57,27 +57,19 @@ export const track23Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 1,
-    "text": "[Intro]"
-  },
-  {
-    "time": 4.6,
+    "time": 11,
     "text": "(Turn it) Yah"
   },
   {
-    "time": 8.1,
+    "time": 12.9,
     "text": "Whoo (Tùng ơi), woah"
   },
   {
-    "time": 11.7,
+    "time": 15,
     "text": "Yah"
   },
   {
-    "time": 15.2,
-    "text": "[Verse 1]"
-  },
-  {
-    "time": 18.8,
+    "time": 18.7,
     "text": "Tao không bao giờ muốn nghe đâu, chúng mày cap, cap (Cap, cap)"
   },
   {
@@ -85,155 +77,139 @@ export const track23Lyrics: TrackLyrics = {
     "text": "Purple Haze, mùi Purple Haze gọi là khét lẹt (Whoo, woah)"
   },
   {
-    "time": 25.9,
+    "time": 25.4,
     "text": "Fuck, tao đói rồi, bụng tao lép kẹp (Cái gì?)"
   },
   {
-    "time": 29.4,
+    "time": 28.2,
     "text": "Tao là chỉ đi ngang qua đây, now she's wet, wet (She's wet)"
   },
   {
-    "time": 33,
+    "time": 31.9,
     "text": "Nhắn cho anh là, \"Please give me a chance\" (Give me, yah)"
   },
   {
-    "time": 36.6,
+    "time": 35.2,
     "text": "Anh không thích là phải làm việc qua middleman (Middle, woah)"
   },
   {
-    "time": 40.1,
+    "time": 38.3,
     "text": "Anh thích ký cho fan của anh bằng bút bi đen (Woah)"
   },
   {
-    "time": 43.7,
+    "time": 41.5,
     "text": "Blown her back out, fill her coochie"
   },
   {
-    "time": 47.2,
+    "time": 43.6,
     "text": "I love that juicy pussy, bring it to me"
   },
   {
-    "time": 50.8,
-    "text": "[Refrain]"
-  },
-  {
-    "time": 54.3,
+    "time": 46.1,
     "text": "Bọn chó này ghét xong rồi lại thích à? (Woah)"
   },
   {
-    "time": 57.9,
+    "time": 48.7,
     "text": "Đéo muốn giải thích, uh"
   },
   {
-    "time": 61.4,
+    "time": 50.9,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 65,
+    "time": 52.9,
     "text": "Đéo muốn giải thích, chyah"
   },
   {
-    "time": 68.6,
+    "time": 55,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 72.1,
+    "time": 57.1,
     "text": "Đéo muốn giải thích, chyah"
   },
   {
-    "time": 75.7,
+    "time": 59.2,
     "text": "Ghét xong rồi lại thích à? (Turn it)"
   },
   {
-    "time": 79.2,
+    "time": 61.3,
     "text": "Không cần phải giải thích"
   },
   {
-    "time": 82.8,
-    "text": "[Verse 2]"
-  },
-  {
-    "time": 86.3,
+    "time": 65,
     "text": "Tao thích ngắm gái nhưng em nào vibe mới được tao follow"
   },
   {
-    "time": 89.9,
+    "time": 68.2,
     "text": "Thấy mình quá là bay nhưng đéo hiểu đấy là do đâu (Yah)"
   },
   {
-    "time": 93.4,
+    "time": 71.5,
     "text": "MCK nó đã trở lại rồi, đéo còn lo âu"
   },
   {
-    "time": 97,
+    "time": 74.3,
     "text": "Tao set the trend, chúng mày follow (Nhìn xem này)"
   },
   {
-    "time": 100.6,
+    "time": 77.2,
     "text": "Tao vẫn đang trên top (Trên top), cùng Thành Draw đi xem Van Gogh (Okay)"
   },
   {
-    "time": 104.1,
+    "time": 81.3,
     "text": "Bọn tao làm Vietnamese hot (She's hot), hip-hop pha với pop (Pop)"
   },
   {
-    "time": 107.7,
+    "time": 84.8,
     "text": "Rick Owens mob (Mob), tequila shots (Shots)"
   },
   {
-    "time": 111.2,
+    "time": 86.8,
     "text": "Vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp, vamp"
   },
   {
-    "time": 114.8,
-    "text": "[Refrain]"
-  },
-  {
-    "time": 118.3,
+    "time": 89.7,
     "text": "Chúng nó ghét xong lại thích à? (Woah)"
   },
   {
-    "time": 121.9,
+    "time": 91.7,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 125.4,
+    "time": 93.8,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 129,
+    "time": 95.7,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 132.6,
+    "time": 97.8,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 136.1,
+    "time": 99.7,
     "text": "Đéo cần phải giải thích, chyah"
   },
   {
-    "time": 139.7,
+    "time": 101.7,
     "text": "Ghét xong lại thích à? (Turn it)"
   },
   {
-    "time": 143.2,
+    "time": 103.6,
     "text": "Đéo cần phải giải thích"
   },
   {
-    "time": 146.8,
+    "time": 105.4,
     "text": "Woah"
   },
   {
-    "time": 150.3,
-    "text": "[Outro]"
-  },
-  {
-    "time": 153.9,
+    "time": 109.6,
     "text": "Turn it"
   },
   {
-    "time": 157.4,
+    "time": 111.7,
     "text": "Whoo, woah"
   }
 ]

@@ -54,179 +54,163 @@ export const track10Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 1,
-    "text": "[Intro]"
-  },
-  {
-    "time": 4.6,
+    "time": 16,
     "text": "Muốn đi, đi khắp nơi cả, cậu ấy"
   },
   {
-    "time": 8.3,
+    "time": 18.5,
     "text": "Muốn sáng tạo"
   },
   {
-    "time": 11.9,
+    "time": 20.5,
     "text": "Muốn là niềm cảm hứng của cậu luôn"
   },
   {
-    "time": 15.5,
+    "time": 22.7,
     "text": "Nhiều thứ lắm, mẹ, để mà nói câu chuyện muốn thì—"
   },
   {
-    "time": 19.2,
+    "time": 26.1,
     "text": "I don’t use to love before"
   },
   {
-    "time": 22.8,
+    "time": 28.1,
     "text": "I don’t use to love before"
   },
   {
-    "time": 26.5,
-    "text": "[Verse 1]"
-  },
-  {
-    "time": 30.1,
+    "time": 32.1,
     "text": "Có lẽ biết như thế thì đã không yêu"
   },
   {
-    "time": 33.7,
+    "time": 34.6,
     "text": "Cảm xúc đã không phiêu"
   },
   {
-    "time": 37.4,
+    "time": 36.6,
     "text": "Thổn thức biết bao đêm"
   },
   {
-    "time": 41,
+    "time": 38.6,
     "text": "Nghe xem con tim anh đặt điều"
   },
   {
-    "time": 44.6,
+    "time": 40.6,
     "text": "Có lẽ anh nên nghĩ ít hơn"
   },
   {
-    "time": 48.3,
+    "time": 42.6,
     "text": "Dùng cảm xúc ít hơn"
   },
   {
-    "time": 51.9,
+    "time": 44.6,
     "text": "Chắc là cũng phải lí trí hơn"
   },
   {
-    "time": 55.5,
+    "time": 46.6,
     "text": "Có lẽ chuyện này cũng chỉ là vui thôi"
   },
   {
-    "time": 59.2,
+    "time": 49.1,
     "text": "Chỉ là một trò chơi thôi, anh thua rồi"
   },
   {
-    "time": 62.8,
+    "time": 51.9,
     "text": "Ngồi lại và nghe cùng anh điệu valse cho sương rơi ướt mi"
   },
   {
-    "time": 66.5,
+    "time": 55.5,
     "text": "Chạm nhẹ làn môi của em vào anh, thật nhanh trước khi"
   },
   {
-    "time": 70.1,
+    "time": 59.1,
     "text": "Kim đồng hồ nhích sang bên và em, em bước đi"
   },
   {
-    "time": 73.7,
+    "time": 62.5,
     "text": "Chỉ còn lại có mỗi anh ngẩn ngơ, đến quên thời gian"
   },
   {
-    "time": 77.4,
+    "time": 66.1,
     "text": "Có mỗi anh ngẩn ngơ, quên thời gian"
   },
   {
-    "time": 81,
+    "time": 68.6,
     "text": "Có mỗi anh ngẩn ngơ, quên thời gian"
   },
   {
-    "time": 84.6,
+    "time": 71,
     "text": "Có biết anh ngẩn ngơ đến quên thời gian"
   },
   {
-    "time": 88.3,
+    "time": 73.6,
     "text": "Đừng để anh ngẩn ngơ"
   },
   {
-    "time": 91.9,
-    "text": "[Instrumental Break]"
-  },
-  {
-    "time": 95.5,
-    "text": "[Verse 2]"
-  },
-  {
-    "time": 99.2,
+    "time": 77.6,
     "text": "Có lẽ anh đã đúng khi vẫn yêu em"
   },
   {
-    "time": 102.8,
+    "time": 80.1,
     "text": "Dù biết trước không nên"
   },
   {
-    "time": 106.5,
+    "time": 82.1,
     "text": "Vì hình dáng ấy thân quen"
   },
   {
-    "time": 110.1,
+    "time": 84.1,
     "text": "Anh luôn sợ là một ngày ta (Anh luôn sợ là một—)"
   },
   {
-    "time": 113.7,
+    "time": 87.4,
     "text": "Lại phải rời xa, anh đau"
   },
   {
-    "time": 117.4,
+    "time": 89.7,
     "text": "Có lẽ anh nên nghĩ ít hơn"
   },
   {
-    "time": 121,
+    "time": 91.7,
     "text": "Dùng bàn tay của anh chỉ để ôm lấy em"
   },
   {
-    "time": 124.6,
+    "time": 94.5,
     "text": "Anh biết em chẳng thể làm thinh với anh"
   },
   {
-    "time": 128.3,
+    "time": 97,
     "text": "Bởi vì là anh cũng đang làm em phát điên"
   },
   {
-    "time": 131.9,
+    "time": 99.8,
     "text": "Vậy thì lại đan bàn tay vào nhau cho sương rơi ướt mi"
   },
   {
-    "time": 135.5,
+    "time": 103.4,
     "text": "Chạm nhẹ làn môi của ta vào nhau thật nhanh trước khi"
   },
   {
-    "time": 139.2,
+    "time": 106.8,
     "text": "Kim đồng hồ nhích sang bên và ta chẳng ai muốn đi"
   },
   {
-    "time": 142.8,
+    "time": 110.2,
     "text": "Và chẳng cần nói với nhau câu gì, cứ tan vào nhau"
   },
   {
-    "time": 146.5,
+    "time": 113.8,
     "text": "Nói với nhau câu gì, cứ tan vào nhau"
   },
   {
-    "time": 150.1,
+    "time": 116.5,
     "text": "Nói với nhau câu gì, cứ tan vào nhau"
   },
   {
-    "time": 153.7,
+    "time": 119.3,
     "text": "Chẳng cần nói với nhau, cứ tan vào nhau"
   },
   {
-    "time": 157.4,
+    "time": 122.1,
     "text": "Chẳng cần nói với nhau"
   }
 ]

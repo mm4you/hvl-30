@@ -93,319 +93,287 @@ export const track28Lyrics: TrackLyrics = {
 ],
   syncedLyrics: [
   {
-    "time": 1,
-    "text": "[Verse 1: RPT MCK]"
-  },
-  {
-    "time": 3.2,
+    "time": 18,
     "text": "Everyday we try, we fly"
   },
   {
-    "time": 5.4,
+    "time": 19.7,
     "text": "Tự nhắc bản thân của tao là không sợ hãi"
   },
   {
-    "time": 7.6,
+    "time": 21.7,
     "text": "Nói là \"yêu\", \"thank you\", \"apologize\""
   },
   {
-    "time": 9.8,
+    "time": 23.4,
     "text": "Mọi thứ có thể fucked up, tao tin rằng it's gonna be alright"
   },
   {
-    "time": 12,
+    "time": 26.2,
     "text": "Không muốn tắm trong tiền, tao muốn tắm trong ánh nắng một sớm ban mai"
   },
   {
-    "time": 14.2,
+    "time": 29.5,
     "text": "Chỉ có khoảnh khắc gọi là tồn tại, và những thứ khác là không còn mãi"
   },
   {
-    "time": 16.4,
+    "time": 33,
     "text": "Bảo là có hiểu được không thì chắc chắn ở đây là không một ai"
   },
   {
-    "time": 18.6,
+    "time": 36.1,
     "text": "Tao yêu sự tự do vĩnh cửu này, say đắm và không mờ phai"
   },
   {
-    "time": 20.8,
+    "time": 39.1,
     "text": "Tao đã phải hi sinh đi đôi mắt, tìm tình yêu, love was blind"
   },
   {
-    "time": 23,
+    "time": 42.2,
     "text": "Tình cảm này luôn là thật, can't fake, never lied"
   },
   {
-    "time": 25.2,
+    "time": 44.5,
     "text": "Cho những người ở trong khoang ngực thằng MCK ở ngăn bên trái"
   },
   {
-    "time": 27.4,
+    "time": 47.2,
     "text": "Nó vẫn luôn mong nó là ngọn lửa cho mọi người băng qua những đêm dài"
   },
   {
-    "time": 29.6,
-    "text": "[Verse 2: RPT MCK]"
-  },
-  {
-    "time": 31.8,
+    "time": 51.9,
     "text": "Okay, MC-MC-MCK, hyperpop star"
   },
   {
-    "time": 34,
+    "time": 53.6,
     "text": "Tao rep' Hà Nội, that's my city"
   },
   {
-    "time": 36.2,
+    "time": 55.3,
     "text": "Put V on the map, lên cổ tay tao đóng băng VV"
   },
   {
-    "time": 38.4,
+    "time": 57.9,
     "text": "Ghét tao nhưng vẫn follow, thế muốn như nào? Wanna be me?"
   },
   {
-    "time": 40.6,
+    "time": 60.9,
     "text": "They wanna be me"
   },
   {
-    "time": 42.8,
+    "time": 62.4,
     "text": "Nhưng mà tao thì lại không muốn là tao giống như ai cả"
   },
   {
-    "time": 45,
+    "time": 65.1,
     "text": "Only one be, thời gian không thể phai nhoà"
   },
   {
-    "time": 47.2,
+    "time": 67.1,
     "text": "Tao sẽ feat cả Jennie, Carti, Raye, Tyla"
   },
   {
-    "time": 49.4,
+    "time": 69,
     "text": "Bọn họ biết tao là MCK đẹp zai mà"
   },
   {
-    "time": 51.6,
-    "text": "[Chorus: RPT MCK]"
-  },
-  {
-    "time": 53.8,
+    "time": 72.3,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 56,
+    "time": 75.7,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 58.2,
+    "time": 78.8,
     "text": "Chặng đường dài ai cũng đã từng một mình chênh vênh"
   },
   {
-    "time": 60.4,
+    "time": 81.6,
     "text": "Để rồi sau này khi nhận ra lại mong bình yên như ngày đầu"
   },
   {
-    "time": 62.6,
+    "time": 85.3,
     "text": "Vậy thì còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 64.8,
+    "time": 89.2,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 67,
+    "time": 92.3,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau? (Nói nhau nghe người ơi)"
   },
   {
-    "time": 69.2,
+    "time": 96.5,
     "text": "(Còn điều gì chưa nói, điều gì để dành cho nhau?)"
   },
   {
-    "time": 71.4,
-    "text": "[Refrain: RPT MCK]"
-  },
-  {
-    "time": 73.6,
+    "time": 99.6,
     "text": "Nói nhau nghe người ơi"
   },
   {
-    "time": 75.8,
+    "time": 101.6,
     "text": "Ah, ah-ah-ah, ah-ah-ah"
   },
   {
-    "time": 78,
+    "time": 103.9,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   },
   {
-    "time": 80.2,
+    "time": 106.1,
     "text": "Nói nhau nghe người ơi (Ah, ah-ah-ah, ah-ah-ah)"
   },
   {
-    "time": 82.4,
+    "time": 108.4,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   },
   {
-    "time": 84.6,
-    "text": "[Verse 3: RPT Orijinn]"
-  },
-  {
-    "time": 86.8,
+    "time": 112.1,
     "text": "Tao vẫn chưa thể nào hiểu hết được như thế nào là tình yêu"
   },
   {
-    "time": 89,
+    "time": 115,
     "text": "Tao vẫn đang loay hoay nhồi nhét cảm xúc vào nốt nhạc mình phiêu"
   },
   {
-    "time": 91.2,
+    "time": 117.9,
     "text": "Lại nuốt hết những cơn đau khi thấy ánh mắt em buồn thiu"
   },
   {
-    "time": 93.4,
+    "time": 120.6,
     "text": "Vì thứ khiến tao đau nhất có lẽ cũng chỉ là tình yêu"
   },
   {
-    "time": 95.6,
+    "time": 123.2,
     "text": "Tao muốn ngắm nhìn những tia nắng qua những ô kính đang rọi vào"
   },
   {
-    "time": 97.8,
+    "time": 126.2,
     "text": "Bỏ qua hết những đàm tiếu, cả những giả dối đang gọi chào"
   },
   {
-    "time": 100,
+    "time": 129,
     "text": "Nhìn mây cứ trôi lửng lơ, vẫn đang ngẩn ngơ trên bầu trời"
   },
   {
-    "time": 102.2,
+    "time": 131.8,
     "text": "Tự do khiến tao đắm say, tao không thể nói lên thành lời"
   },
   {
-    "time": 104.4,
+    "time": 134.7,
     "text": "Trưởng thành là khi mày đúng nhưng vẫn có thể nói câu \"Sorry\""
   },
   {
-    "time": 106.6,
+    "time": 137.4,
     "text": "Sau khi lần mà tao tiếc nuối, bài học tao nhận lại là cho đi"
   },
   {
-    "time": 108.8,
+    "time": 140.7,
     "text": "One, for my fam, two, for my freedom"
   },
   {
-    "time": 111,
+    "time": 142.5,
     "text": "Everything I do, yeah, I do it for a reason"
   },
   {
-    "time": 113.2,
-    "text": "[Verse 4: THANHDRAW]"
-  },
-  {
-    "time": 115.4,
+    "time": 146.3,
     "text": "Tao nhớ có lần mày nói bạn cũng là sói, đôi khi nên \"gọn\" vào"
   },
   {
-    "time": 117.6,
+    "time": 149.5,
     "text": "Lời nói mấy kẻ đàm tiếu thật ra chỉ muốn nhìn thấy mày xôn xao"
   },
   {
-    "time": 119.8,
+    "time": 152.6,
     "text": "Dạo này trông tao hơi lạ, tao nghĩ, \"Còn mày thế nào?\""
   },
   {
-    "time": 122,
+    "time": 155.3,
     "text": "Chuẩn bị tâm tư hàng tá, muốn giữ mọi chuyện truyền miệng mà không giao, uh"
   },
   {
-    "time": 124.2,
+    "time": 158.7,
     "text": "Phóng đi trong lặng im, tao đâu phải xác sống"
   },
   {
-    "time": 126.4,
+    "time": 161,
     "text": "Không muốn là những thân quen cùng ký ức từ đâu lại trở về"
   },
   {
-    "time": 128.6,
+    "time": 163.9,
     "text": "Từng câu, từng chữ, từng cuộc đấu đá, nghĩ lại chỉ thấy mình không nên"
   },
   {
-    "time": 130.8,
+    "time": 167.2,
     "text": "Tình bạn như mảnh chắp vá, tao vẫn giữ lấy dù biết nó không bền"
   },
   {
-    "time": 133,
+    "time": 170.5,
     "text": "Mọi thứ cứ thế đến, xin đừng nói mà quên"
   },
   {
-    "time": 135.2,
+    "time": 172.7,
     "text": "Thiếu gì đâu những chuyện ngoài tai, họ chỉ quen thói mà man"
   },
   {
-    "time": 137.4,
+    "time": 175.6,
     "text": "Cánh cửa này sẽ thành vật cản nếu mày cố bám lấy nó"
   },
   {
-    "time": 139.6,
+    "time": 178.3,
     "text": "Còn phòng tao vẫn sẽ luôn mở, có việc cứ thế mà lên"
   },
   {
-    "time": 141.8,
-    "text": "[Chorus: RPT MCK]"
-  },
-  {
-    "time": 144,
+    "time": 182.6,
     "text": "Vậy thì còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 146.2,
+    "time": 186.5,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 148.4,
+    "time": 189.6,
     "text": "Chặng đường dài, ai cũng đã từng một mình chênh vênh"
   },
   {
-    "time": 150.6,
+    "time": 192.6,
     "text": "Để rồi sau này khi nhận ra lại mong bình yên như ngày đầu"
   },
   {
-    "time": 152.8,
+    "time": 196.2,
     "text": "Vậy thì còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 155,
+    "time": 200.2,
     "text": "Lời nói ấy sẽ khắc ghi như khi vẫn còn đậm sâu"
   },
   {
-    "time": 157.2,
+    "time": 203.3,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau? (Nói nhau nghe người ơi)"
   },
   {
-    "time": 159.4,
+    "time": 207.5,
     "text": "Còn điều gì chưa nói, điều gì để dành cho nhau?"
   },
   {
-    "time": 161.6,
-    "text": "[Refrain: RPT MCK]"
-  },
-  {
-    "time": 163.8,
+    "time": 210.9,
     "text": "Nói nhau nghe người ơi"
   },
   {
-    "time": 166,
+    "time": 213,
     "text": "Ah, ah-ah-ah, ah-ah-ah"
   },
   {
-    "time": 168.2,
+    "time": 215.3,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   },
   {
-    "time": 170.4,
+    "time": 217.5,
     "text": "Nói nhau nghe người ơi (Ah, ah-ah-ah, ah-ah-ah)"
   },
   {
-    "time": 172.6,
+    "time": 219.8,
     "text": "Nói nhau nghe người ơi (Ah, ah, ah-ah-ah)"
   }
 ]
