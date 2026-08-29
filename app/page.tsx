@@ -617,6 +617,7 @@ export default function Home() {
   const sharedCatalogAppliedRef = useRef(false);
   const aboutAutoOpenedRef = useRef(false);
   const ambientRef = useRef<HTMLDivElement>(null);
+  const blastRef = useRef<HTMLDivElement>(null);
   const beatRafRef = useRef<number>(0);
   const [playlists, setPlaylists] = useState<MusicPlaylist[]>([
     { id: "default", name: "Playlist của tôi", tracks: [] },
@@ -821,44 +822,41 @@ export default function Home() {
     repeatCompletionRef.current = 0;
   }, [currentTrack?.id]);
 
-  /* ── Pure 16-Step Trap Drum & 808 Bass Beat Glow Engine ── */
+  /* ── Smooth 808 Sub-Bass Ambient Pulse Engine ── */
   useEffect(() => {
     const audio = audioRef.current;
     const el = ambientRef.current;
+    const blastEl = blastRef.current;
     if (!audio || !el) return;
-
-    // Classic Trap / Hip-Hop 16-step drum pattern weights (Kick, Snare, 808, Hi-hat rolls)
-    const STEP_WEIGHTS = [
-      1.0,  0.15, 0.35, 0.15, // Beat 1: Heavy 808 Kick (1.0) -> ghost hats
-      0.88, 0.2,  0.92, 0.25, // Beat 2: Snare/Clap (0.88) -> Syncopated 808 (0.92)
-      0.75, 0.2,  0.85, 0.3,  // Beat 3: Mid Kick (0.75) -> Offbeat 808 (0.85)
-      0.88, 0.3,  0.55, 0.75   // Beat 4: Snare/Clap (0.88) -> Trap Hi-hat rolls (0.55, 0.75)
-    ];
 
     let running = true;
     const tick = () => {
       if (!running) return;
       if (!audio.paused && audio.currentTime > 0) {
         const t = audio.currentTime;
-        // Standard Trap / Hip-Hop Tempo for MCK album HVL (~134 BPM)
-        const bpm = 134;
-        const beatSec = 60 / bpm;
-        const barSec = beatSec * 4;
-        const stepSec = beatSec / 4;
+        // Relaxed Half-Time Hip-hop pulse (~68 BPM, ~0.88s per smooth bass swell)
+        const cycleSec = 60 / 68;
+        const phase = (t % cycleSec) / cycleSec; // 0 to 1
 
-        const barTime = t % barSec;
-        const stepIdx = Math.floor(barTime / stepSec) % 16;
-        const stepFrac = (barTime % stepSec) / stepSec;
+        // Smooth analog swell (attack ~10%) and gentle exponential decay
+        let bassWave = 0;
+        if (phase < 0.1) {
+          bassWave = phase / 0.1;
+        } else {
+          bassWave = Math.exp(-(phase - 0.1) * 3.6);
+        }
 
-        const weight = STEP_WEIGHTS[stepIdx] ?? 0.3;
-        // 808 Kicks have heavier sustain (~3.2 decay), Snares/Hats decay faster (~5.8)
-        const is808 = stepIdx === 0 || stepIdx === 6 || stepIdx === 10;
-        const decayRate = is808 ? 3.4 : 5.6;
+        // Resting baseline (0.1) + smooth relaxed swell up to 0.85
+        const glowVal = 0.1 + bassWave * 0.75;
+        el.style.setProperty("--beat", glowVal.toFixed(3));
 
-        const beatIntensity = Math.exp(-stepFrac * decayRate) * weight;
-        el.style.setProperty("--beat", beatIntensity.toFixed(3));
+        if (blastEl) {
+          const blastVal = bassWave > 0.35 ? (bassWave - 0.35) * 1.3 : 0;
+          blastEl.style.setProperty("--bass", Math.min(1, blastVal).toFixed(3));
+        }
       } else {
         el.style.setProperty("--beat", "0");
+        if (blastEl) blastEl.style.setProperty("--bass", "0");
       }
       beatRafRef.current = requestAnimationFrame(tick);
     };
@@ -869,6 +867,7 @@ export default function Home() {
       running = false;
       cancelAnimationFrame(beatRafRef.current);
       if (el) el.style.setProperty("--beat", "0");
+      if (blastEl) blastEl.style.setProperty("--bass", "0");
     };
   }, [isPlaying, currentTrack?.id]);
 
@@ -2292,6 +2291,11 @@ export default function Home() {
 
       <section className={`player-card ${isPlaying ? "is-playing" : ""}`} aria-label="Trình phát nhạc">
         <div className="artwork-stage">
+          <div
+            ref={blastRef}
+            aria-hidden="true"
+            className={`artwork-ambient-blast ${isPlaying ? "is-playing" : ""}`}
+          />
           <div
             ref={ambientRef}
             aria-hidden="true"

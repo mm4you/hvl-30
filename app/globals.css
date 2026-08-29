@@ -368,6 +368,25 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   overflow: visible !important;
 }
 
+.artwork-ambient-blast {
+  --bass: 0;
+  position: absolute;
+  inset: -20px;
+  border-radius: 24px;
+  background: radial-gradient(circle at center, rgba(255, 45, 20, 0.45) 0%, rgba(255, 20, 10, 0.2) 48%, transparent 76%);
+  filter: blur(24px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transform: scale(calc(0.95 + 0.12 * var(--bass)));
+  transition: opacity 250ms ease;
+  will-change: transform, opacity;
+}
+
+.artwork-ambient-blast.is-playing {
+  opacity: 1;
+}
+
 .artwork-ambient {
   --beat: 0;
   position: absolute;
