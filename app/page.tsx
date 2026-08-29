@@ -2237,7 +2237,7 @@ export default function Home() {
         </section>
       )}
 
-      <section className="player-card" aria-label="Trình phát nhạc">
+      <section className={`player-card ${isPlaying ? "is-playing" : ""}`} aria-label="Trình phát nhạc">
         <div className={`artwork ${isPlaying ? "is-playing" : ""}`}>
           {lyricsVisible ? (
             <LyricsView
