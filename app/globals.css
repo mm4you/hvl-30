@@ -369,23 +369,32 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 }
 
 .artwork-ambient {
-  --glow: 0;
   position: absolute;
-  inset: -5px;
+  inset: -6px;
   border-radius: 10px;
   background: transparent;
-  box-shadow:
-    0 0 calc(8px + 18px * var(--glow)) rgba(255, 50, 30, calc(0.25 + 0.65 * var(--glow))),
-    0 0 calc(16px + 40px * var(--glow)) rgba(255, 30, 15, calc(0.1 + 0.4 * var(--glow)));
+  box-shadow: 0 0 12px rgba(255, 55, 35, 0.5), 0 0 28px rgba(255, 35, 15, 0.3);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  transition: opacity 300ms ease;
-  will-change: box-shadow;
+  transition: opacity 350ms ease;
+  will-change: opacity, box-shadow;
 }
 
 .artwork-ambient.is-playing {
   opacity: 1;
+  animation: borderGlowPulse 1.6s ease-in-out infinite !important;
+}
+
+@keyframes borderGlowPulse {
+  0%, 100% {
+    opacity: 0.55;
+    box-shadow: 0 0 10px rgba(255, 55, 35, 0.4), 0 0 22px rgba(255, 35, 15, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 55, 35, 0.85), 0 0 45px rgba(255, 35, 15, 0.5), 0 0 70px rgba(255, 20, 10, 0.25);
+  }
 }
 
 .artwork {

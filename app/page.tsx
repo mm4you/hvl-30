@@ -616,11 +616,6 @@ export default function Home() {
   const sharedCatalogRef = useRef(false);
   const sharedCatalogAppliedRef = useRef(false);
   const aboutAutoOpenedRef = useRef(false);
-  const analyserCtxRef = useRef<AudioContext | null>(null);
-  const analyserRef = useRef<AnalyserNode | null>(null);
-  const analyserSourceRef = useRef<MediaElementAudioSourceNode | null>(null);
-  const glowRafRef = useRef<number>(0);
-  const ambientRef = useRef<HTMLDivElement>(null);
   const [playlists, setPlaylists] = useState<MusicPlaylist[]>([
     { id: "default", name: "Playlist của tôi", tracks: [] },
   ]);
@@ -822,53 +817,6 @@ export default function Home() {
 
   useEffect(() => {
     repeatCompletionRef.current = 0;
-  }, [currentTrack?.id]);
-
-  /* ── Audio-Reactive Border Glow (Web Audio AnalyserNode) ── */
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    let ctx = analyserCtxRef.current;
-    if (!ctx) {
-      ctx = new AudioContext();
-      analyserCtxRef.current = ctx;
-    }
-
-    if (!analyserSourceRef.current) {
-      const source = ctx.createMediaElementSource(audio);
-      const analyser = ctx.createAnalyser();
-      analyser.fftSize = 256;
-      analyser.smoothingTimeConstant = 0.7;
-      source.connect(analyser);
-      analyser.connect(ctx.destination);
-      analyserSourceRef.current = source;
-      analyserRef.current = analyser;
-    }
-
-    const analyser = analyserRef.current!;
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
-    const tick = () => {
-      glowRafRef.current = requestAnimationFrame(tick);
-      const el = ambientRef.current;
-      if (!el) return;
-
-      analyser.getByteFrequencyData(dataArray);
-      // Bass energy: average of bins 0-7 (roughly 0-350 Hz)
-      let bass = 0;
-      for (let i = 0; i < 8; i++) bass += dataArray[i];
-      bass /= 8;
-      // Normalize 0-255 → 0-1
-      const level = Math.min(bass / 200, 1);
-      el.style.setProperty("--glow", level.toFixed(3));
-    };
-
-    glowRafRef.current = requestAnimationFrame(tick);
-
-    return () => {
-      cancelAnimationFrame(glowRafRef.current);
-    };
   }, [currentTrack?.id]);
 
   const playControlClick = useCallback(() => {
@@ -2292,7 +2240,6 @@ export default function Home() {
       <section className={`player-card ${isPlaying ? "is-playing" : ""}`} aria-label="Trình phát nhạc">
         <div className="artwork-stage">
           <div
-            ref={ambientRef}
             aria-hidden="true"
             className={`artwork-ambient ${isPlaying ? "is-playing" : ""}`}
           />
