@@ -435,7 +435,7 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   padding: clamp(28px, 4.2vw, 52px);
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 28px;
+  border-radius: 8px 32px 8px 32px;
   background: linear-gradient(125deg, rgba(39,7,5,.96), rgba(12,10,10,.94) 44%, rgba(6,6,6,.98));
   box-shadow: 0 38px 110px rgba(0, 0, 0, 0.36), inset 0 1px rgba(255,255,255,.035);
   backdrop-filter: blur(34px) saturate(1.12);
@@ -462,7 +462,7 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.16);
-  border-radius: 18px;
+  border-radius: 3px;
   background: #090707;
   box-shadow: inset 0 0 80px rgba(255,255,255,0.035), 0 34px 90px rgba(0,0,0,0.46);
   transition: background 650ms ease, transform 350ms ease;
@@ -518,7 +518,7 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   width: 44px;
   height: 30px;
   border: 1px solid rgba(255,255,255,.12);
-  border-radius: 8px;
+  border-radius: 2px;
   background: rgba(8,10,12,.67);
   backdrop-filter: blur(10px);
 }
@@ -547,7 +547,7 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .controls .play-button:hover:not(:disabled) { background: white; color: #0d1011; transform: scale(1.03); }
 .buffer-ring { position: absolute; inset: -5px; border: 2px solid transparent; border-top-color: var(--accent); border-right-color: rgba(255,55,35,.28); border-radius: 50%; animation: buffer-spin .85s linear infinite; }
 @keyframes buffer-spin { to { transform: rotate(360deg); } }
-.volume-control { display: flex; align-items: center; align-items: center; gap: 7px; margin-top: 20px; color: rgba(238,241,238,.58); }
+.volume-control { display: flex; align-items: center; gap: 8px; margin-top: 20px; color: rgba(238,241,238,.58); }
 .volume-control button { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
 .volume-control button:hover { background: rgba(255,255,255,.06); color: white; }
 .volume-control > span { display: grid; place-items: center; }
@@ -595,9 +595,9 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .track-list li:hover { background: rgba(255,255,255,.045); }
 .track-list li.active { border-color: rgba(255,55,35,.15); background: rgba(255,55,35,.055); }
 .track-main { display: flex; flex: 1; align-items: center; gap: 11px; min-width: 0; padding: 6px 8px; border: 0; background: transparent; text-align: left; cursor: pointer; }
-.track-cover { position: relative; display: grid; flex: 0 0 auto; place-items: center; width: 60px; height: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: #111; color: rgba(255,255,255,.88); box-shadow: inset 0 1px rgba(255,255,255,.06); }
+.track-cover { position: relative; display: grid; flex: 0 0 auto; place-items: center; width: 60px; height: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 3px; background: #111; color: rgba(255,255,255,.88); box-shadow: inset 0 1px rgba(255,255,255,.06); }
 .track-cover > img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.track-cover small { position: absolute; right: 3px; bottom: 2px; padding: 1px 3px; border-radius: 8px; background: rgba(0,0,0,.58); color: rgba(255,255,255,.76); font-size: 7px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.track-cover small { position: absolute; right: 3px; bottom: 2px; padding: 1px 3px; border-radius: 2px; background: rgba(0,0,0,.58); color: rgba(255,255,255,.76); font-size: 7px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .track-playing { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.52); color: #fff; }
 .active .track-cover { color: var(--accent); box-shadow: 0 0 0 2px rgba(255,55,35,.14), inset 0 1px rgba(255,255,255,.08); }
 .track-copy { min-width: 0; }
@@ -631,7 +631,7 @@ footer a:hover { color: var(--accent); }
   .sync-actions { justify-content: flex-end; flex-wrap: wrap; }
   .sync-signin { width: 100%; }
   .player-card { grid-template-columns: 1fr; gap: 30px; min-height: 0; padding: 22px 18px 25px; border-radius: 5px 26px 5px 26px; background: linear-gradient(180deg, rgba(48,8,5,.86), rgba(11,9,9,.94) 56%, #070707); }
-  .artwork { width: 100%; margin: 0 auto; border-radius: 8px; }
+  .artwork { width: 100%; margin: 0 auto; border-radius: 2px; }
   .player-content { text-align: left; }
   .player-content h1 { font-size: clamp(26px, 8.2vw, 38px); }
   .artist-name { margin: 8px 0 16px; font-size: 16px; }
@@ -665,7 +665,7 @@ footer a:hover { color: var(--accent); }
   .install-dialog:not(.about-dialog) { padding: 22px; border-radius: 21px; }
   .add-panel { padding: 14px; border-radius: 15px; }
   .player-card { gap: 25px; padding: 13px 11px 21px; border-radius: 4px 22px 4px 22px; }
-  .artwork { width: 100%; border-radius: 8px; }
+  .artwork { width: 100%; border-radius: 2px; }
   .sound-bars { height: 82px; gap: 7px; }
   .sound-bars i { width: 8px; }
   .track-heading .eyebrow { margin-bottom: 8px; }
@@ -1050,22 +1050,3 @@ footer a:hover { color: var(--accent); }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
 
-
-/* Luxury Minimalist Scrollbar */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
-}
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 55, 35, 0.5);
-}

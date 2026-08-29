@@ -7,7 +7,7 @@ type LyricLineProps = {
   isActive: boolean;
   isPast: boolean;
   isUpcoming: boolean;
-  onSeek: () => void;
+  onSeek: (time: number) => void;
 };
 
 export const LyricLine = React.memo(function LyricLine({
@@ -17,21 +17,30 @@ export const LyricLine = React.memo(function LyricLine({
   isUpcoming,
   onSeek,
 }: LyricLineProps) {
-  const text = line.text.replace(/^\[.*?\]\s*/g, "").trim();
+  const isSectionHeader = line.text.startsWith("[") && line.text.endsWith("]");
+  const isEmpty = line.text.trim() === "";
 
-  if (!text) {
-    return null;
+  if (isEmpty) {
+    return <div aria-hidden="true" className="lyric-line-spacer" />;
+  }
+
+  if (isSectionHeader) {
+    return (
+      <div aria-hidden="true" className="lyric-section-header">
+        <span>{line.text.slice(1, -1)}</span>
+      </div>
+    );
   }
 
   return (
     <button
       type="button"
       className={`lyric-line ${isActive ? "active" : ""} ${isPast ? "past" : ""} ${isUpcoming ? "upcoming" : ""}`}
-      onClick={onSeek}
-      aria-label={`Tua đến ${text}`}
+      onClick={() => onSeek(line.time)}
+      aria-label={`Tua đến ${line.text}`}
       aria-current={isActive ? "true" : undefined}
     >
-      <span className="lyric-line-text">{text}</span>
+      <span className="lyric-line-text">{line.text}</span>
     </button>
   );
 });

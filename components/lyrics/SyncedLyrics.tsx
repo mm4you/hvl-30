@@ -18,7 +18,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRefs = useRef<Array<HTMLElement | null>>([]);
 
-  // Calculate active index reliably
+  // Calculate active index without heavy loops
   const activeIndex = useMemo(() => {
     let index = -1;
     for (let i = 0; i < syncedLyrics.length; i++) {
@@ -42,6 +42,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
     const targetTop = targetElement.offsetTop;
     const targetHeight = targetElement.clientHeight;
 
+    // Center the active line or place it slightly above center
     const desiredScrollTop = targetTop - (containerHeight / 2) + (targetHeight / 2);
 
     container.scrollTo({
@@ -51,14 +52,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   }, [activeIndex, isUserScrolling]);
 
   return (
-    <div 
-      className="synced-lyrics-container" 
-      ref={containerRef}
-      style={{
-        maskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)",
-      }}
-    >
+    <div className="synced-lyrics-container" ref={containerRef}>
       <div className="synced-lyrics-list" role="feed" aria-label="Lời bài hát đồng bộ">
         {syncedLyrics.map((line, index) => {
           const isActive = index === activeIndex;
@@ -79,7 +73,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
                 isActive={isActive}
                 isPast={isPast}
                 isUpcoming={isUpcoming}
-                onSeek={() => onSeek(line.time)}
+                onSeek={onSeek}
               />
             </div>
           );
