@@ -1118,13 +1118,14 @@ footer a:hover { color: var(--accent); }
 
 .artwork-ambient-glow {
   position: absolute;
-  inset: -35px;
-  border-radius: 36px;
-  background: radial-gradient(circle at center, #ff2a14 0%, rgba(255, 45, 25, 0.85) 40%, rgba(255, 25, 10, 0.45) 65%, transparent 85%) !important;
+  inset: -50px;
+  border-radius: 50px;
+  background: radial-gradient(circle at center, #ff1a05 0%, #ff3318 35%, rgba(255, 40, 20, 0.7) 55%, transparent 75%) !important;
+  box-shadow: 0 0 60px rgba(255, 35, 15, 0.85), 0 0 120px rgba(255, 55, 35, 0.6), 0 0 180px rgba(255, 20, 10, 0.4) !important;
   pointer-events: none;
   z-index: 0;
   will-change: transform, filter, opacity;
-  transition: opacity 250ms ease, filter 70ms ease-out, transform 70ms ease-out;
+  transition: opacity 200ms ease, filter 60ms ease-out, transform 60ms ease-out;
 }
 
 .player-card {

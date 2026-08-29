@@ -629,6 +629,7 @@ export default function Home() {
   const [libraryVisible, setLibraryVisible] = useState(true);
   const [lyricsVisible, setLyricsVisible] = useState(false);
   const [audioLevel, setAudioLevel] = useState(0);
+  const [scrubbingTime, setScrubbingTime] = useState<number | null>(null);
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [artist, setArtist] = useState("");
