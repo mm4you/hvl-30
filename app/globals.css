@@ -369,41 +369,44 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   overflow: visible !important;
 }
 
-/* Organic Stage Ambient Aura: Hào quang sân khấu thở mượt mà, sâu lắng (0% nhấp nháy giật cục) */
+/* Organic Stage Ambient Aura: 2 Lớp Âm Học Chuẩn Sân Khấu (Web Audio API Reactive) */
 .artwork-ambient-blast {
   position: absolute;
-  inset: -24px;
-  border-radius: 28px;
-  background: radial-gradient(circle at center, rgba(255, 35, 15, 0.45) 0%, rgba(255, 20, 10, 0.18) 52%, transparent 78%);
+  inset: -36px;
+  border-radius: 36px;
+  background: radial-gradient(circle at center, rgba(255, 45, 20, 0.6) 0%, rgba(255, 20, 10, 0.25) 52%, transparent 76%);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  transform: translateZ(0);
-  transition: opacity 600ms ease;
-  will-change: opacity;
+  transform: scale(0.96) translateZ(0);
+  transition: opacity 120ms ease-out, transform 160ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: opacity, transform;
 }
 
 .artwork-ambient-blast.is-playing {
-  opacity: var(--bass, 0.45);
+  /* Lớp 1: Sub-bass 808 nở rộng và bừng sáng theo tiếng trống kick */
+  opacity: calc(0.32 + var(--bass, 0) * 0.65);
+  transform: scale(calc(0.98 + var(--bass, 0) * 0.08)) translateZ(0);
 }
 
 .artwork-ambient {
   position: absolute;
-  inset: -5px;
-  border-radius: 9px;
+  inset: -6px;
+  border-radius: 10px;
   background: transparent;
-  box-shadow: 0 0 16px rgba(255, 55, 35, 0.75), 0 0 34px rgba(255, 35, 15, 0.4);
-  border: 1px solid rgba(255, 65, 45, 0.4);
+  box-shadow: 0 0 22px rgba(255, 60, 40, 0.85), 0 0 45px rgba(255, 35, 15, 0.5);
+  border: 1px solid rgba(255, 75, 50, 0.5);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
   transform: translateZ(0);
-  transition: opacity 500ms ease;
+  transition: opacity 80ms ease-out;
   will-change: opacity;
 }
 
 .artwork-ambient.is-playing {
-  opacity: var(--beat, 0.75);
+  /* Lớp 2: Rim Flare bùng sáng theo tiếng snare/clap và vocal accent */
+  opacity: calc(0.15 + var(--beat, 0) * 0.85);
 }
 
 .artwork {

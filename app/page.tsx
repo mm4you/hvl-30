@@ -843,9 +843,36 @@ export default function Home() {
     repeatCompletionRef.current = 0;
   }, [currentTrack?.id]);
 
-  /* ── Synced Beat & Vocal Rhythm Glow Engine (Zero Network Bandwidth) ── */
-  const currentLyricsRef = useRef(currentTrackLyrics);
-  currentLyricsRef.current = currentTrackLyrics;
+  /* ── Synced Beat & Sub-bass Audio Analyser Glow Engine ── */
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const audioSourceRef = useRef<MediaElementAudioSourceNode | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+
+  const initAudioAnalyser = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || audioSourceRef.current) return;
+
+    try {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      if (!AudioCtx) return;
+
+      const ctx = new AudioCtx();
+      audioContextRef.current = ctx;
+
+      const source = ctx.createMediaElementSource(audio);
+      audioSourceRef.current = source;
+
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 256;
+      analyser.smoothingTimeConstant = 0.82;
+      analyserRef.current = analyser;
+
+      source.connect(analyser);
+      analyser.connect(ctx.destination);
+    } catch {
+      // Graceful fallback: audio plays directly through element
+    }
+  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -854,16 +881,81 @@ export default function Home() {
     if (!audio || !el) return;
 
     let running = true;
+    let currentBass = 0;
+    let currentBeat = 0;
+    const freqData = new Uint8Array(128);
 
     const tick = () => {
       if (!running) return;
+
       if (!audio.paused && audio.currentTime > 0) {
-        el.style.setProperty("--beat", "0.75");
-        if (blastEl) blastEl.style.setProperty("--bass", "0.45");
+        if (audioContextRef.current && audioContextRef.current.state === "suspended") {
+          audioContextRef.current.resume().catch(() => {});
+        }
+
+        const analyser = analyserRef.current;
+        let targetBass = 0;
+        let targetBeat = 0;
+
+        if (analyser) {
+          try {
+            analyser.getByteFrequencyData(freqData);
+
+            // Sub-bass & Bass (Bins 1-4: ~30Hz - 150Hz) - Kick drum & 808
+            let bassSum = 0;
+            for (let i = 1; i <= 4; i++) bassSum += freqData[i];
+            const avgBass = bassSum / 4 / 255;
+            targetBass = avgBass > 0.15 ? Math.min(1, (avgBass - 0.15) * 1.55) : 0;
+
+            // Snare & Vocal Transients (Bins 8-20: ~300Hz - 1800Hz)
+            let midSum = 0;
+            for (let i = 8; i <= 20; i++) midSum += freqData[i];
+            const avgMid = midSum / 13 / 255;
+            targetBeat = avgMid > 0.18 ? Math.min(1, (avgMid - 0.18) * 1.65) : 0;
+          } catch {
+            targetBass = 0;
+            targetBeat = 0;
+          }
+        }
+
+        const hasRealSignal = targetBass > 0.01 || targetBeat > 0.01;
+        if (!hasRealSignal) {
+          // Organic resting pulse fallback (smooth 96 BPM breathing wave)
+          const cycle = (audio.currentTime * 1.6) % 1;
+          const pulse = Math.pow(Math.sin(cycle * Math.PI), 2);
+          targetBass = 0.25 + pulse * 0.35;
+          targetBeat = 0.15 + pulse * 0.4;
+        }
+
+        // Attack & Decay Envelope Follower (Acoustic dynamic physics):
+        // Bass: Fast attack (0.35), smooth deep decay (0.08)
+        if (targetBass > currentBass) {
+          currentBass += (targetBass - currentBass) * 0.35;
+        } else {
+          currentBass += (targetBass - currentBass) * 0.08;
+        }
+
+        // Beat/Rim: Very fast attack (0.50), quick crisp decay (0.14)
+        if (targetBeat > currentBeat) {
+          currentBeat += (targetBeat - currentBeat) * 0.50;
+        } else {
+          currentBeat += (targetBeat - currentBeat) * 0.14;
+        }
+
+        el.style.setProperty("--beat", currentBeat.toFixed(3));
+        if (blastEl) {
+          blastEl.style.setProperty("--bass", currentBass.toFixed(3));
+        }
       } else {
-        el.style.setProperty("--beat", "0");
-        if (blastEl) blastEl.style.setProperty("--bass", "0");
+        // Paused: smoothly fade out to zero
+        currentBass += (0 - currentBass) * 0.12;
+        currentBeat += (0 - currentBeat) * 0.15;
+        el.style.setProperty("--beat", currentBeat < 0.01 ? "0" : currentBeat.toFixed(3));
+        if (blastEl) {
+          blastEl.style.setProperty("--bass", currentBass < 0.01 ? "0" : currentBass.toFixed(3));
+        }
       }
+
       beatRafRef.current = requestAnimationFrame(tick);
     };
 
@@ -872,8 +964,6 @@ export default function Home() {
     return () => {
       running = false;
       cancelAnimationFrame(beatRafRef.current);
-      if (el) el.style.setProperty("--beat", "0");
-      if (blastEl) blastEl.style.setProperty("--bass", "0");
     };
   }, [isPlaying, currentTrack?.id]);
 
@@ -1289,6 +1379,7 @@ export default function Home() {
   }, [clearFallbackTimer]);
 
   const requestPlayback = useCallback(function attemptPlayback(audio: HTMLAudioElement) {
+    initAudioAnalyser();
     void audio.play().catch((error: unknown) => {
       if (!shouldResumeRef.current) return;
       const errorName = error && typeof error === "object" && "name" in error
@@ -1682,6 +1773,7 @@ export default function Home() {
     const tracks = playlistRef.current;
     if (!audio || !tracks.length) return;
     if (audio.paused) {
+      initAudioAnalyser();
       configurePlaybackAudioSession();
       clearRecoveryTimer();
       playPermissionRetryRef.current = 0;
