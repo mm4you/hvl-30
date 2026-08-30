@@ -902,13 +902,14 @@ footer a:hover { color: var(--accent); }
   font-size: clamp(18px, 2.35vw, 24px);
   font-weight: 850;
   color: #ffffff;
-  background: rgba(255, 55, 35, 0.09);
+  background: rgba(255, 55, 35, 0.12);
   border-left: 3px solid var(--accent);
   border-radius: 4px 12px 12px 4px;
   padding-left: 14px;
   transform: scale(1.02);
   transform-origin: left center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 20px rgba(255, 60, 40, 0.6);
 }
 
 .lyric-line.active .lyric-line-text {
@@ -1879,13 +1880,20 @@ body.is-zen-mode .artwork {
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 55, 35, 0.25) !important;
 }
 
-body.is-zen-mode .player-info {
+body.is-zen-mode .player-content {
   width: 100% !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: center !important;
-  align-items: stretch !important;
+  align-items: flex-start !important;
   text-align: left !important;
+  min-height: 320px !important;
+  transition: all 400ms ease;
+}
+
+body.is-zen-mode .track-heading {
+  width: 100% !important;
+  transition: margin 500ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 body.is-zen-mode .track-title-row {
@@ -1926,35 +1934,59 @@ body.is-zen-mode .utility-bar {
   gap: 14px !important;
 }
 
-
-
-
-/* Live Floating Lyric in Zen Mode */
-.zen-active-lyric {
-  margin: 12px 0 0;
-  font-size: clamp(16px, 2.2vw, 22px);
+/* Live Floating Lyric (Cả Chế Độ Thường & Zen Mode) */
+.live-active-lyric {
+  display: block;
+  margin: 6px 0 16px;
+  font-size: clamp(14px, 1.8vw, 18px);
   font-weight: 500;
   font-style: italic;
   color: #ff5540;
   line-height: 1.5;
   letter-spacing: -0.01em;
   text-shadow: 0 0 24px rgba(255, 60, 40, 0.55);
-  animation: zen-lyric-in 400ms ease-out;
+  animation: live-lyric-in 350ms ease-out;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-@keyframes zen-lyric-in {
-  from { opacity: 0; transform: translateY(6px); }
+@keyframes live-lyric-in {
+  from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── Auto-dim Controls (Ý tưởng 2: Chìm vào tĩnh lặng sau 3.5s) ── */
+body.is-zen-mode .live-active-lyric {
+  font-size: clamp(16px, 2.2vw, 22px);
+  margin-top: 12px;
+  white-space: normal;
+}
+
+/* ── Auto-dim Controls: Ẩn nút và dịch chuyển Tên bài hát + Lyrics xuống tâm giữa ── */
 body.is-zen-dimmed .timeline,
 body.is-zen-dimmed .controls,
 body.is-zen-dimmed .volume-control,
 body.is-zen-dimmed .utility-bar {
   opacity: 0 !important;
   pointer-events: none !important;
-  transition: opacity 750ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  height: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  transition: opacity 400ms ease, height 450ms ease, margin 450ms ease !important;
+}
+
+body.is-zen-dimmed .track-heading {
+  margin: auto 0 !important; /* Dịch chuyển tên và lời bài hát vào chính giữa chiều cao của ảnh bìa */
+}
+
+body.is-zen-dimmed .player-content h1 {
+  font-size: clamp(34px, 4.4vw, 52px) !important;
+  transition: font-size 400ms ease;
+}
+
+body.is-zen-dimmed .artist-name {
+  font-size: clamp(15px, 1.8vw, 20px) !important;
+  margin: 8px 0 14px !important;
 }
 
 body.is-zen-dimmed .zen-exit-pill {

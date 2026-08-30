@@ -2757,8 +2757,8 @@ export default function Home() {
             <p className="eyebrow">{isPlaying ? "ĐANG PHÁT" : "HVL 30"}</p>
             <h1>{currentTrack?.title ?? "Playlist của bạn đang trống"}</h1>
             <p className="artist-name">{currentTrack?.artist ?? "Thêm một link nhạc để bắt đầu"}</p>
-            {zenMode && activeLyricLine && (
-              <p className="zen-active-lyric" key={activeLyricLine}>
+            {activeLyricLine && (
+              <p className="live-active-lyric" key={activeLyricLine}>
                 “{activeLyricLine}”
               </p>
             )}
