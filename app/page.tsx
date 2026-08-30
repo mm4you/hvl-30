@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore
 import { getLyricsForTrack } from "@/data/lyrics";
 import { LyricsView } from "@/components/lyrics/LyricsView";
 import { LyricShareModal } from "@/components/lyrics/LyricShareModal";
+import { calculateEqualPowerGains, getSmartDJNextTrack, DEFAULT_CROSSFADE_SECONDS } from "@/lib/automix-engine";
 
 type Track = {
   id: string;
@@ -96,6 +97,7 @@ type SharedCatalogSnapshot = {
 
 type IconName =
   | "add"
+  | "automix"
   | "autoplay"
   | "clock"
   | "close"
@@ -136,6 +138,7 @@ const LAST_ACCOUNT_KEY = "drive-music-last-account-v1";
 const VOLUME_KEY = "drive-music-volume-v1";
 const LIBRARY_VISIBILITY_KEY = "drive-music-library-visible-v1";
 const ABOUT_SEEN_KEY = "hvl-30-about-seen-v1";
+const AUTOMIX_KEY = "hvl-30-automix-enabled-v1";
 const STARTUP_FALLBACK_MS = 8000;
 const SOURCE_RETRY_DELAYS = [450, 1100, 2400];
 const PLAY_PERMISSION_RETRY_DELAYS = [180, 650, 1600];
@@ -145,6 +148,15 @@ const ACCOUNT_FEATURES_ENABLED = false;
 function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
   const paths: Record<IconName, ReactNode> = {
     add: <path d="M12 5v14M5 12h14" />,
+    automix: (
+      <>
+        <circle cx="6.5" cy="12" r="4.5" />
+        <circle cx="17.5" cy="12" r="4.5" />
+        <path d="M11 12h2" strokeWidth="2" />
+        <circle cx="6.5" cy="12" r="1.5" fill="currentColor" />
+        <circle cx="17.5" cy="12" r="1.5" fill="currentColor" />
+      </>
+    ),
     autoplay: (
       <>
         <path d="M5.2 8.2A7.5 7.5 0 0 1 18 5.8L20 8" />
@@ -595,8 +607,22 @@ function syncStatusLabel(status: SyncStatus) {
 }
 
 export default function Home() {
+  const deckARef = useRef<HTMLAudioElement>(null);
+  const deckBRef = useRef<HTMLAudioElement>(null);
+  const [activeDeck, setActiveDeck] = useState<"A" | "B">("A");
   const audioRef = useRef<HTMLAudioElement>(null);
   const preloadAudioRef = useRef<HTMLAudioElement>(null);
+
+  // Synchronize audioRef to currently active deck, and preloadAudioRef to standby deck
+  audioRef.current = activeDeck === "A" ? deckARef.current : deckBRef.current;
+  preloadAudioRef.current = activeDeck === "A" ? deckBRef.current : deckARef.current;
+
+  const [automixEnabled, setAutomixEnabled] = useState(true);
+  const [isCrossfading, setIsCrossfading] = useState(false);
+  const isCrossfadingRef = useRef(false);
+  const automixTimerRef = useRef<number | null>(null);
+  const playedTrackIdsRef = useRef<Set<string>>(new Set());
+
   const playlistRef = useRef<Track[]>([]);
   const sourceListRef = useRef<string[]>([]);
   const sourceIndexRef = useRef(0);
@@ -836,6 +862,8 @@ export default function Home() {
         }
         const savedLibraryVisibility = localStorage.getItem(LIBRARY_VISIBILITY_KEY);
         if (savedLibraryVisibility === "hidden") setLibraryVisible(false);
+        const savedAutomix = localStorage.getItem(AUTOMIX_KEY);
+        if (savedAutomix !== null) setAutomixEnabled(savedAutomix === "true");
       } catch {
         localStorage.removeItem(STORAGE_KEY);
       } finally {
@@ -1472,8 +1500,29 @@ export default function Home() {
     prepareTrack(currentTrack);
   }, [currentTrack, hydrated, prepareTrack]);
 
+  const cancelAutomixTransition = useCallback(() => {
+    if (!isCrossfadingRef.current) return;
+    if (automixTimerRef.current) {
+      cancelAnimationFrame(automixTimerRef.current);
+      automixTimerRef.current = null;
+    }
+    isCrossfadingRef.current = false;
+    setIsCrossfading(false);
+    const standby = activeDeck === "A" ? deckBRef.current : deckARef.current;
+    if (standby) {
+      standby.pause();
+      standby.currentTime = 0;
+      standby.volume = 0;
+    }
+    const active = activeDeck === "A" ? deckARef.current : deckBRef.current;
+    if (active) {
+      active.volume = volume;
+    }
+  }, [activeDeck, volume]);
+
   const playAt = useCallback(
     (index: number, preservePlaybackSession = false) => {
+      cancelAutomixTransition();
       const track = playlistRef.current[index];
       const audio = audioRef.current;
       if (!track || !audio) return;
@@ -1499,14 +1548,22 @@ export default function Home() {
       armFallbackTimer();
       requestPlayback(audio);
     },
-    [armFallbackTimer, clearFallbackTimer, clearRecoveryTimer, clearTrackWarmup, prepareTrack, requestPlayback],
+    [armFallbackTimer, cancelAutomixTransition, clearFallbackTimer, clearRecoveryTimer, clearTrackWarmup, prepareTrack, requestPlayback],
   );
 
-  const nextIndexFor = useCallback((tracks: Track[], index: number) => {
-    if (!shuffleEnabled || tracks.length < 2) return (index + 1) % tracks.length;
-    const randomOffset = 1 + Math.floor(Math.random() * (tracks.length - 1));
-    return (index + randomOffset) % tracks.length;
-  }, [shuffleEnabled]);
+  const nextIndexFor = useCallback(
+    (tracks: Track[], index: number) => {
+      if (!shuffleEnabled || tracks.length < 2) return (index + 1) % tracks.length;
+      if (automixEnabled) {
+        const activeTrack = tracks[index];
+        const smartPick = getSmartDJNextTrack(activeTrack?.id || "", tracks, playedTrackIdsRef.current);
+        if (smartPick) return smartPick.index;
+      }
+      const randomOffset = 1 + Math.floor(Math.random() * (tracks.length - 1));
+      return (index + randomOffset) % tracks.length;
+    },
+    [automixEnabled, shuffleEnabled],
+  );
 
   const preloadNextTrack = useCallback(() => {
     const tracks = playlistRef.current;
@@ -1543,7 +1600,81 @@ export default function Home() {
     }
   }, [nextIndexFor]);
 
-  useEffect(() => () => warmupAbortRef.current?.abort(), []);
+  const startAutomixTransition = useCallback(() => {
+    if (isCrossfadingRef.current) return;
+    const tracks = playlistRef.current;
+    if (tracks.length < 2) return;
+
+    const activeId = activeTrackIdRef.current;
+    const currentIdx = Math.max(0, tracks.findIndex((t) => t.id === activeId));
+    const nextIdx = nextIndexFor(tracks, currentIdx);
+    const nextTrack = tracks[nextIdx];
+    if (!nextTrack) return;
+
+    const outgoing = activeDeck === "A" ? deckARef.current : deckBRef.current;
+    const incoming = activeDeck === "A" ? deckBRef.current : deckARef.current;
+    if (!outgoing || !incoming) return;
+
+    const candidate = sourceCandidates(nextTrack.originalUrl)[0];
+    if (!candidate) return;
+
+    isCrossfadingRef.current = true;
+    setIsCrossfading(true);
+
+    incoming.src = candidate;
+    incoming.currentTime = 0;
+    incoming.volume = 0;
+
+    const playPromise = incoming.play();
+    if (playPromise) {
+      playPromise.catch(() => {
+        isCrossfadingRef.current = false;
+        setIsCrossfading(false);
+      });
+    }
+
+    const startTime = performance.now();
+    const durationMs = DEFAULT_CROSSFADE_SECONDS * 1000;
+    const baseVolume = volume;
+    let switchedUI = false;
+
+    const tick = (now: number) => {
+      if (!isCrossfadingRef.current) return;
+
+      const elapsed = now - startTime;
+      const progress = Math.min(1, Math.max(0, elapsed / durationMs));
+      const { outgoingGain, incomingGain } = calculateEqualPowerGains(progress);
+
+      if (outgoing) outgoing.volume = Math.max(0, Math.min(1, baseVolume * outgoingGain));
+      if (incoming) incoming.volume = Math.max(0, Math.min(1, baseVolume * incomingGain));
+
+      // At 50% through crossfade, update the UI (artwork, title, artist, lyrics)
+      if (progress >= 0.5 && !switchedUI) {
+        switchedUI = true;
+        setCurrentIndex(nextIdx);
+        activeTrackIdRef.current = nextTrack.id;
+        if (activeId) playedTrackIdsRef.current.add(activeId);
+        playedTrackIdsRef.current.add(nextTrack.id);
+      }
+
+      if (progress < 1 && !outgoing.paused) {
+        automixTimerRef.current = requestAnimationFrame(tick);
+      } else {
+        automixTimerRef.current = null;
+        isCrossfadingRef.current = false;
+        setIsCrossfading(false);
+        outgoing.pause();
+        outgoing.currentTime = 0;
+        outgoing.volume = 0;
+        incoming.volume = baseVolume;
+        setActiveDeck((prev) => (prev === "A" ? "B" : "A"));
+        setCurrentIndex(nextIdx);
+        activeTrackIdRef.current = nextTrack.id;
+      }
+    };
+
+    automixTimerRef.current = requestAnimationFrame(tick);
+  }, [activeDeck, nextIndexFor, volume]);
 
   const advanceToNext = useCallback((preservePlaybackSession: boolean) => {
     const tracks = playlistRef.current;
@@ -1595,6 +1726,23 @@ export default function Home() {
       setCurrentTime(audio.currentTime || 0);
       const activeTrackId = activeTrackIdRef.current;
       const remaining = audio.duration - audio.currentTime;
+
+      // Smart DJ Automix trigger (5 seconds before track end)
+      if (
+        automixEnabled &&
+        repeatMode === "off" &&
+        !isCrossfadingRef.current &&
+        !audio.paused &&
+        audio.duration > 15 &&
+        Number.isFinite(remaining) &&
+        remaining > 0.8 &&
+        remaining <= DEFAULT_CROSSFADE_SECONDS &&
+        playlistRef.current.length > 1
+      ) {
+        startAutomixTransition();
+        return;
+      }
+
       if (
         autoPlayEnabled &&
         repeatMode === "off" &&
@@ -1772,7 +1920,7 @@ export default function Home() {
       clearFallbackTimer();
       clearRecoveryTimer();
     };
-  }, [armFallbackTimer, autoPlayEnabled, clearFallbackTimer, clearRecoveryTimer, playNextAutomatically, repeatMode, requestPlayback]);
+  }, [activeDeck, armFallbackTimer, autoPlayEnabled, automixEnabled, clearFallbackTimer, clearRecoveryTimer, playNextAutomatically, repeatMode, requestPlayback, startAutomixTransition]);
 
   useEffect(() => {
     const recoverInterruptedPlayback = () => {
@@ -1826,12 +1974,18 @@ export default function Home() {
       setIsBuffering(true);
       armFallbackTimer();
       requestPlayback(audio);
+      if (isCrossfadingRef.current && preloadAudioRef.current) {
+        preloadAudioRef.current.play().catch(() => {});
+      }
     } else {
       shouldResumeRef.current = false;
       clearFallbackTimer();
       clearRecoveryTimer();
       setIsBuffering(false);
       audio.pause();
+      if (isCrossfadingRef.current && preloadAudioRef.current) {
+        preloadAudioRef.current.pause();
+      }
     }
   };
 
@@ -2051,6 +2205,7 @@ export default function Home() {
   };
 
   const seek = (value: number) => {
+    cancelAutomixTransition();
     const audio = audioRef.current;
     if (!audio || !duration) return;
     const target = Math.max(0, Math.min(value, duration));
@@ -2310,8 +2465,8 @@ export default function Home() {
         </div>
       )}
 
-      <audio ref={audioRef} crossOrigin="anonymous" playsInline preload="auto" />
-      <audio aria-hidden="true" ref={preloadAudioRef} preload="metadata" />
+      <audio ref={deckARef} crossOrigin="anonymous" playsInline preload="auto" />
+      <audio ref={deckBRef} crossOrigin="anonymous" playsInline preload="auto" />
       {controlNotice && <p aria-live="polite" className="control-notice" role="status">{controlNotice}</p>}
 
       <header className="topbar">
@@ -2943,7 +3098,14 @@ export default function Home() {
 
         <div className="player-content">
           <div className="track-heading">
-            <p className="eyebrow">{isPlaying ? "ĐANG PHÁT" : "HVL 30"}</p>
+            <div className="eyebrow-row">
+              <p className="eyebrow">{isPlaying ? "ĐANG PHÁT" : "HVL 30"}</p>
+              {isCrossfading && (
+                <span className="dj-mixing-pill">
+                  <span className="dj-mixing-dot" /> DJ MIXING
+                </span>
+              )}
+            </div>
             <h1>{currentTrack?.title ?? "Playlist của bạn đang trống"}</h1>
             <p className="artist-name">{currentTrack?.artist ?? "Thêm một link nhạc để bắt đầu"}</p>
             <div className="lyric-slot">
@@ -3125,6 +3287,25 @@ export default function Home() {
               type="button"
             >
               <Icon name="zen" size={17} />
+            </button>
+
+            <button
+              aria-label={automixEnabled ? "Tắt Smart DJ Automix" : "Bật Smart DJ Automix"}
+              aria-pressed={automixEnabled}
+              className={`utility-icon-btn ${automixEnabled ? "active" : ""}`}
+              onClick={() => {
+                const next = !automixEnabled;
+                setAutomixEnabled(next);
+                if (typeof window !== "undefined") {
+                  localStorage.setItem(AUTOMIX_KEY, String(next));
+                }
+                showControlNotice(`Smart DJ Automix · ${next ? "Đã bật" : "Đã tắt"}`);
+              }}
+              title={automixEnabled ? "Smart DJ Automix (Đang bật)" : "Smart DJ Automix (Đã tắt)"}
+              type="button"
+            >
+              <Icon name="automix" size={17} />
+              {isCrossfading && <span className="utility-badge-pulse" />}
             </button>
           </div>
         </div>
