@@ -665,6 +665,8 @@ export default function Home() {
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [zenMode, setZenMode] = useState(false);
+  const [zenDimmed, setZenDimmed] = useState(false);
+  const zenInactivityTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [sleepTimer, setSleepTimer] = useState<number>(0);
   const [sleepRemaining, setSleepRemaining] = useState<number | null>(null);
   const [timerModalOpen, setTimerModalOpen] = useState(false);
@@ -2050,14 +2052,50 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [sleepTimer]);
 
-  // Zen Mode body class
+  // Zen Mode body class & Auto-dimming after 3.5s inactivity
   useEffect(() => {
-    if (zenMode) {
-      document.body.classList.add("is-zen-mode");
-    } else {
+    if (!zenMode) {
       document.body.classList.remove("is-zen-mode");
+      document.body.classList.remove("is-zen-dimmed");
+      setZenDimmed(false);
+      if (zenInactivityTimerRef.current) {
+        clearTimeout(zenInactivityTimerRef.current);
+        zenInactivityTimerRef.current = null;
+      }
+      return;
     }
-    return () => { document.body.classList.remove("is-zen-mode"); };
+
+    document.body.classList.add("is-zen-mode");
+
+    const resetTimer = () => {
+      setZenDimmed(false);
+      document.body.classList.remove("is-zen-dimmed");
+      if (zenInactivityTimerRef.current) {
+        clearTimeout(zenInactivityTimerRef.current);
+      }
+      zenInactivityTimerRef.current = setTimeout(() => {
+        setZenDimmed(true);
+        document.body.classList.add("is-zen-dimmed");
+      }, 3500);
+    };
+
+    resetTimer();
+
+    window.addEventListener("pointermove", resetTimer);
+    window.addEventListener("keydown", resetTimer);
+    window.addEventListener("touchstart", resetTimer);
+
+    return () => {
+      document.body.classList.remove("is-zen-mode");
+      document.body.classList.remove("is-zen-dimmed");
+      if (zenInactivityTimerRef.current) {
+        clearTimeout(zenInactivityTimerRef.current);
+        zenInactivityTimerRef.current = null;
+      }
+      window.removeEventListener("pointermove", resetTimer);
+      window.removeEventListener("keydown", resetTimer);
+      window.removeEventListener("touchstart", resetTimer);
+    };
   }, [zenMode]);
 
   // Desktop Keyboard Shortcuts (Space, ArrowLeft, ArrowRight, J, K, L, M, F, Escape)
@@ -2218,7 +2256,15 @@ export default function Home() {
 
   return (
     <main className="app-shell" onClickCapture={handleButtonFeedback} style={{ "--track-hue": activeHue } as CSSProperties}>
-      <audio ref={audioRef} playsInline preload="auto" />
+      {/* ── Zen Mode Dynamic Blurred Backdrop (Ý tưởng 3) ── */}
+      {zenMode && currentTrack?.artworkUrl && (
+        <div aria-hidden="true" className="zen-backdrop">
+          <img alt="" src={currentTrack.artworkUrl} />
+          <div className="zen-backdrop-overlay" />
+        </div>
+      )}
+
+      <audio ref={audioRef} crossOrigin="anonymous" playsInline preload="auto" />
       {!usesSystemVolume && <audio aria-hidden="true" ref={preloadAudioRef} preload="metadata" />}
       {controlNotice && <p aria-live="polite" className="control-notice" role="status">{controlNotice}</p>}
 
