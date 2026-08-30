@@ -13,6 +13,7 @@ type LyricsViewProps = {
   mediaElement?: HTMLAudioElement | null;
   onSeek: (time: number) => void;
   onClose?: () => void;
+  onOpenShare?: () => void;
   isCompact?: boolean;
 };
 
@@ -26,6 +27,7 @@ export const LyricsView = React.memo(function LyricsView({
   mediaElement,
   onSeek,
   onClose,
+  onOpenShare,
   isCompact = false,
 }: LyricsViewProps) {
   const [isUserScrolling, setIsUserScrolling] = useState(false);
@@ -82,6 +84,22 @@ export const LyricsView = React.memo(function LyricsView({
           <h3>{trackTitle || trackLyrics?.title || "HVL 30"}</h3>
           {trackArtist && <p className="lyrics-artist">{trackArtist}</p>}
         </div>
+        {onOpenShare && (
+          <button
+            type="button"
+            className="lyrics-share-btn"
+            onClick={onOpenShare}
+            aria-label="Tạo thẻ câu rap"
+            title="Tạo thẻ câu rap 4:5"
+          >
+            <svg aria-hidden="true" fill="none" height="14" viewBox="0 0 24 24" width="14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+              <polyline points="16 6 12 2 8 6"/>
+              <line x1="12" y1="2" x2="12" y2="15"/>
+            </svg>
+            <span>Tạo thẻ</span>
+          </button>
+        )}
         {onClose && (
           <button
             type="button"

@@ -5,6 +5,7 @@ import type { CSSProperties, FormEvent, MouseEvent as ReactMouseEvent, ReactNode
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import { getLyricsForTrack } from "@/data/lyrics";
 import { LyricsView } from "@/components/lyrics/LyricsView";
+import { LyricShareModal } from "@/components/lyrics/LyricShareModal";
 
 type Track = {
   id: string;
@@ -104,6 +105,7 @@ type IconName =
   | "install"
   | "link"
   | "lyrics"
+  | "moon"
   | "music"
   | "next"
   | "pause"
@@ -120,7 +122,8 @@ type IconName =
   | "trash"
   | "volumeHigh"
   | "volumeMute"
-  | "youtube";
+  | "youtube"
+  | "zen";
 
 const STORAGE_KEY = "drive-music-playlists-v2";
 const LEGACY_STORAGE_KEY = "drive-music-playlist-v1";
@@ -195,6 +198,7 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
         <path d="M8 9h8M8 13h5" />
       </>
     ),
+    moon: <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />,
     music: (
       <>
         <path d="M9 18V5l10-2v13" />
@@ -303,6 +307,11 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
       <>
         <path d="M21 8.2a3 3 0 0 0-2.1-2.1C17.1 5.6 12 5.6 12 5.6s-5.1 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12 31 31 0 0 0 3 15.8a3 3 0 0 0 2.1 2.1c1.8.5 6.9.5 6.9.5s5.1 0 6.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8Z" />
         <path d="m10 9 5 3-5 3Z" />
+      </>
+    ),
+    zen: (
+      <>
+        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
       </>
     ),
   };
@@ -647,6 +656,11 @@ export default function Home() {
   const [folderImport, setFolderImport] = useState<FolderImportProgress | null>(null);
   const [isBuffering, setIsBuffering] = useState(false);
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [zenMode, setZenMode] = useState(false);
+  const [sleepTimer, setSleepTimer] = useState<number>(0);
+  const [sleepRemaining, setSleepRemaining] = useState<number | null>(null);
+  const [timerDropdownOpen, setTimerDropdownOpen] = useState(false);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
   const [repeatMode, setRepeatMode] = useState<RepeatMode>("off");
   const [sharedCatalogTracks, setSharedCatalogTracks] = useState<Track[]>([]);
@@ -1584,6 +1598,13 @@ export default function Home() {
       }
     };
     const onEnded = () => {
+      if (sleepTimer === -1) {
+        setSleepTimer(0);
+        shouldResumeRef.current = false;
+        setIsPlaying(false);
+        setMessage("Đã dừng phát theo hẹn giờ (Hết bài).");
+        return;
+      }
       const repeatLimit = repeatMode === "once" ? 1 : repeatMode === "twice" ? 2 : 0;
       if (repeatCompletionRef.current < repeatLimit) {
         repeatCompletionRef.current += 1;
@@ -1976,6 +1997,84 @@ export default function Home() {
     setVolume(Math.max(0.1, lastAudibleVolumeRef.current));
   };
 
+  // Zen Mode body class
+  useEffect(() => {
+    if (zenMode) {
+      document.body.classList.add("is-zen-mode");
+    } else {
+      document.body.classList.remove("is-zen-mode");
+    }
+    return () => { document.body.classList.remove("is-zen-mode"); };
+  }, [zenMode]);
+
+  // Sleep timer interval
+  useEffect(() => {
+    if (sleepTimer <= 0) {
+      setSleepRemaining(null);
+      return;
+    }
+    setSleepRemaining(sleepTimer * 60);
+
+    const interval = setInterval(() => {
+      setSleepRemaining((prev) => {
+        if (prev === null || prev <= 1) {
+          audioRef.current?.pause();
+          setSleepTimer(0);
+          setMessage("Đã dừng phát theo hẹn giờ ngủ.");
+          return null;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [sleepTimer]);
+
+  // Desktop Keyboard Shortcuts (Space, ArrowLeft, ArrowRight, J, K, L, M, F, Escape)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)) {
+        return;
+      }
+
+      if (e.code === "Space") {
+        e.preventDefault();
+        togglePlayback();
+      } else if (e.code === "ArrowLeft") {
+        e.preventDefault();
+        const audio = audioRef.current;
+        if (audio) seek(Math.max(0, audio.currentTime - 5));
+      } else if (e.code === "ArrowRight") {
+        e.preventDefault();
+        const audio = audioRef.current;
+        if (audio) seek(Math.min(duration || 0, audio.currentTime + 5));
+      } else if (e.code === "KeyJ") {
+        e.preventDefault();
+        playPrevious();
+      } else if (e.code === "KeyK") {
+        e.preventDefault();
+        playNext();
+      } else if (e.code === "KeyL") {
+        e.preventDefault();
+        setLyricsVisible((v) => !v);
+      } else if (e.code === "KeyM") {
+        e.preventDefault();
+        toggleMute();
+      } else if (e.code === "KeyF") {
+        e.preventDefault();
+        setZenMode((z) => !z);
+      } else if (e.code === "Escape") {
+        if (zenMode) setZenMode(false);
+        if (timerDropdownOpen) setTimerDropdownOpen(false);
+        if (shareModalOpen) setShareModalOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [duration, playNext, playPrevious, shareModalOpen, timerDropdownOpen, zenMode]);
+
   useEffect(() => {
     if (!("mediaSession" in navigator)) return;
     const mediaSession = navigator.mediaSession;
@@ -2254,10 +2353,85 @@ export default function Home() {
                 </div>
                 <p>30 file FLAC được phát từ kho riêng của HVL 30, giữ nguyên định dạng và không cần tài khoản.</p>
               </section>
+
+              <section className="about-section-block">
+                <p className="eyebrow">TRẢI NGHIỆM ĐỈNH CAO</p>
+                <h3>Tính Năng Của HVL 30</h3>
+                <div className="about-features-grid">
+                  <div className="feature-box">
+                    <strong><Icon name="music" size={17} /> 30 Bản FLAC Lossless</strong>
+                    <p>Chất lượng âm thanh 24-bit phòng thu nguyên bản, không nén, nghe chuẩn từng nốt bass.</p>
+                  </div>
+                  <div className="feature-box">
+                    <strong><Icon name="lyrics" size={17} /> Lời Bài Hát Đồng Bộ (Synced)</strong>
+                    <p>Theo dõi lời theo thời gian thực. Chạm vào câu bất kỳ để tua nhạc đến đúng đoạn đó.</p>
+                  </div>
+                  <div className="feature-box">
+                    <strong><Icon name="share" size={17} /> Thẻ Chia Sẻ Câu Rap (4:5)</strong>
+                    <p>Xuất ảnh câu rap trích dẫn nghệ thuật chuẩn tỉ lệ vàng 4:5 để chia sẻ lên Story và mạng xã hội.</p>
+                  </div>
+                  <div className="feature-box">
+                    <strong><Icon name="moon" size={17} /> Hẹn Giờ Tắt Nhạc (Sleep Timer)</strong>
+                    <p>Tự động dừng phát sau 15 - 60 phút hoặc khi phát hết bài hiện tại, thoải mái nghe trước khi ngủ.</p>
+                  </div>
+                  <div className="feature-box">
+                    <strong><Icon name="zen" size={17} /> Chế Độ Tập Trung (Zen Display)</strong>
+                    <p>Ẩn toàn bộ giao diện rối mắt, đưa ảnh bìa lớn và hào quang đỏ vào tâm điểm như một chiếc đồng hồ nhạc.</p>
+                  </div>
+                  <div className="feature-box">
+                    <strong><Icon name="install" size={17} /> Cài Đặt Ứng Dụng (PWA)</strong>
+                    <p>Cài đặt trực tiếp lên iPhone, Android hoặc máy tính để mở nghe tức thì không cần mở trình duyệt.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="about-section-block">
+                <p className="eyebrow">TIỆN ÍCH TRÊN MÁY TÍNH</p>
+                <h3>Phím Tắt Bàn Phím</h3>
+                <div className="shortcuts-grid">
+                  <div className="shortcut-row">
+                    <span className="shortcut-desc">Phát / Tạm dừng</span>
+                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">Space</kbd></span>
+                  </div>
+                  <div className="shortcut-row">
+                    <span className="shortcut-desc">Tua lùi / Tiến 5 giây</span>
+                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">←</kbd><kbd className="shortcut-key">→</kbd></span>
+                  </div>
+                  <div className="shortcut-row">
+                    <span className="shortcut-desc">Bài trước / Bài sau</span>
+                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">J</kbd><kbd className="shortcut-key">K</kbd></span>
+                  </div>
+                  <div className="shortcut-row">
+                    <span className="shortcut-desc">Bật / Tắt lời bài hát</span>
+                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">L</kbd></span>
+                  </div>
+                  <div className="shortcut-row">
+                    <span className="shortcut-desc">Bật / Tắt âm thanh</span>
+                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">M</kbd></span>
+                  </div>
+                  <div className="shortcut-row">
+                    <span className="shortcut-desc">Chế độ tập trung (Zen)</span>
+                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">F</kbd></span>
+                  </div>
+                </div>
+              </section>
             </div>
           </section>
         </div>
       )}
+
+      {/* ── Lyric Share Card Modal (4:5) ── */}
+      <LyricShareModal
+        artworkUrl={currentTrack?.artworkUrl || "/artwork/01.jpg"}
+        currentActiveLine={currentTrackLyrics?.syncedLyrics?.find(
+          (l, i, arr) => currentTime >= l.time && (!arr[i + 1] || currentTime < arr[i + 1].time)
+        )?.text}
+        isOpen={shareModalOpen}
+        onClose={() => setShareModalOpen(false)}
+        syncedLyrics={currentTrackLyrics?.syncedLyrics || []}
+        trackArtist={currentTrack?.artist || "RPT MCK"}
+        trackTitle={currentTrack?.title || "HVL 30"}
+      />
 
       {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && formOpen && (
         <section className={`add-panel ${folderLinkId ? "folder-mode" : ""}`} aria-label="Thêm bài hát hoặc thư mục">
@@ -2363,6 +2537,7 @@ export default function Home() {
               trackArtist={currentTrack?.artist}
               trackLyrics={currentTrackLyrics}
               trackTitle={currentTrack?.title}
+              onOpenShare={() => setShareModalOpen(true)}
             />
           ) : (
             <>
@@ -2508,6 +2683,72 @@ export default function Home() {
                 type="button"
               >
                 <Icon name="queue" size={18} />
+              </button>
+              <div style={{ position: "relative" }}>
+                <button
+                  aria-label="Hẹn giờ tắt nhạc"
+                  aria-pressed={sleepTimer !== 0}
+                  className={`timer-toggle-btn ${sleepTimer !== 0 ? "active" : ""}`}
+                  onClick={() => setTimerDropdownOpen((open) => !open)}
+                  title="Hẹn giờ tắt nhạc"
+                  type="button"
+                >
+                  <Icon name="moon" size={18} />
+                  {sleepTimer !== 0 && (
+                    <span className="timer-badge">
+                      {sleepTimer === -1
+                        ? "Hết bài"
+                        : sleepRemaining !== null
+                          ? `${Math.ceil(sleepRemaining / 60)}p`
+                          : `${sleepTimer}p`}
+                    </span>
+                  )}
+                </button>
+                {timerDropdownOpen && (
+                  <div className="timer-dropdown" role="menu">
+                    <button
+                      className={`timer-option ${sleepTimer === 0 ? "selected" : ""}`}
+                      onClick={() => { setSleepTimer(0); setTimerDropdownOpen(false); showControlNotice("Hẹn giờ · Đã tắt"); }}
+                      type="button"
+                    >
+                      <span>Tắt hẹn giờ</span>
+                      {sleepTimer === 0 && <span>✓</span>}
+                    </button>
+                    {[15, 30, 45, 60].map((mins) => (
+                      <button
+                        key={mins}
+                        className={`timer-option ${sleepTimer === mins ? "selected" : ""}`}
+                        onClick={() => { setSleepTimer(mins); setTimerDropdownOpen(false); showControlNotice(`Hẹn giờ tắt sau ${mins} phút`); }}
+                        type="button"
+                      >
+                        <span>{mins} phút</span>
+                        {sleepTimer === mins && <span>✓</span>}
+                      </button>
+                    ))}
+                    <button
+                      className={`timer-option ${sleepTimer === -1 ? "selected" : ""}`}
+                      onClick={() => { setSleepTimer(-1); setTimerDropdownOpen(false); showControlNotice("Hẹn giờ · Hết bài hiện tại"); }}
+                      type="button"
+                    >
+                      <span>Hết bài hiện tại</span>
+                      {sleepTimer === -1 && <span>✓</span>}
+                    </button>
+                  </div>
+                )}
+              </div>
+              <button
+                aria-label={zenMode ? "Thoát chế độ tập trung" : "Chế độ tập trung"}
+                aria-pressed={zenMode}
+                className={`zen-toggle-btn ${zenMode ? "active" : ""}`}
+                onClick={() => {
+                  const next = !zenMode;
+                  setZenMode(next);
+                  showControlNotice(`Chế độ tập trung · ${next ? "Đã bật (Bấm Esc hoặc F để thoát)" : "Đã tắt"}`);
+                }}
+                title={zenMode ? "Thoát Zen Mode (F)" : "Chế độ tập trung (F)"}
+                type="button"
+              >
+                <Icon name="zen" size={18} />
               </button>
             </div>
           </div>

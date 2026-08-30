@@ -1135,3 +1135,454 @@ footer a:hover { color: var(--accent); }
   background-clip: unset !important;
   text-shadow: 0 0 24px rgba(255, 55, 35, 0.65), 0 0 48px rgba(255, 55, 35, 0.3) !important;
 }
+
+/* ── Lyric Share Card Modal (4:5 Ratio) ── */
+.lyric-share-backdrop {
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.lyric-share-dialog {
+  width: min(100%, 480px);
+  max-height: min(92vh, 880px);
+  display: flex;
+  flex-direction: column;
+  background: #0d0909;
+  border: 1px solid rgba(255, 55, 35, 0.28);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 55, 35, 0.15);
+  animation: modalPopIn 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lyric-share-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lyric-share-title strong {
+  display: block;
+  font-size: 15px;
+  color: #f7f2ed;
+}
+
+.lyric-share-title small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.lyric-card-stage {
+  padding: 20px 24px 12px;
+  display: flex;
+  justify-content: center;
+  background: #080505;
+}
+
+.lyric-card-preview {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4 / 5;
+  background: radial-gradient(circle at 50% 30%, #1e0b09 0%, #0c0606 50%, #050303 100%);
+  border: 1px solid rgba(255, 55, 35, 0.25);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 55, 35, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.lyric-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lyric-card-art {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 55, 35, 0.4);
+}
+
+.lyric-card-info strong {
+  display: block;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.lyric-card-info span {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+.lyric-card-quote {
+  margin: auto 0;
+  padding: 10px 0;
+}
+
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.quote-line {
+  font-size: clamp(14px, 4vw, 17px);
+  font-weight: 800;
+  color: #f7f2ed;
+  line-height: 1.38;
+  margin: 0 0 6px;
+  letter-spacing: -0.015em;
+}
+
+.lyric-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lyric-card-logo {
+  height: 16px;
+  width: auto;
+}
+
+.lyric-card-url {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.lyric-selector-container {
+  padding: 12px 20px;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.selector-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.lyric-selector-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 130px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.lyric-pick-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  color: #ddd;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.lyric-pick-item.selected {
+  background: rgba(255, 55, 35, 0.16);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.pick-checkbox {
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.lyric-pick-item.selected .pick-checkbox {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.pick-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lyric-share-actions {
+  display: flex;
+  gap: 10px;
+  padding: 14px 20px 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.share-btn {
+  flex: 1;
+  padding: 11px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 0;
+  cursor: pointer;
+  transition: all 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-btn.primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.share-btn.primary:hover {
+  background: #ff503e;
+}
+
+.share-btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f7f2ed;
+}
+
+.share-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.share-btn.share-native {
+  background: #2563eb;
+  color: #fff;
+  flex: 0 0 auto;
+  padding: 11px 18px;
+}
+
+/* Lyrics Share Button in Header */
+.lyrics-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  background: rgba(255, 55, 35, 0.15);
+  border: 1px solid rgba(255, 55, 35, 0.35);
+  border-radius: 20px;
+  color: #f7f2ed;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 150ms ease;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.lyrics-share-btn:hover {
+  background: rgba(255, 55, 35, 0.28);
+  border-color: var(--accent);
+}
+
+/* ── Sleep Timer & Zen Button Styling ── */
+.timer-toggle-btn, .zen-toggle-btn {
+  position: relative;
+}
+
+.timer-toggle-btn.active {
+  color: var(--accent) !important;
+  border-color: rgba(255, 55, 35, 0.45) !important;
+}
+
+.timer-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  font-size: 9px;
+  font-weight: 800;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 1px 4px;
+  border-radius: 10px;
+  letter-spacing: -0.02em;
+}
+
+.timer-dropdown {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  width: 180px;
+  background: #110c0c;
+  border: 1px solid rgba(255, 55, 35, 0.3);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 24px rgba(255, 55, 35, 0.15);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: modalPopIn 160ms ease-out;
+}
+
+.timer-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: #e2dbd5;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+
+.timer-option:hover {
+  background: rgba(255, 55, 35, 0.16);
+  color: #ffffff;
+}
+
+.timer-option.selected {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* Zen Display Mode */
+body.is-zen-mode .topbar,
+body.is-zen-mode .playlist-section,
+body.is-zen-mode .library-panel,
+body.is-zen-mode footer {
+  display: none !important;
+}
+
+body.is-zen-mode .player-card {
+  max-width: 580px;
+  margin: 40px auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body.is-zen-mode .artwork {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255, 55, 35, 0.25);
+}
+
+/* ── "Đôi Lời" Modal Enhancements: Shortcuts & Features ── */
+.about-section-block {
+  margin-top: 48px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-section-block h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 6px 0 20px;
+  letter-spacing: -0.025em;
+}
+
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.feature-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 18px;
+  transition: border-color 200ms ease;
+}
+
+.feature-box:hover {
+  border-color: rgba(255, 55, 35, 0.4);
+}
+
+.feature-box strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.feature-box p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  padding: 10px 14px;
+}
+
+.shortcut-desc {
+  font-size: 13px;
+  color: #dcd3cc;
+}
+
+.shortcut-key-wrap {
+  display: flex;
+  gap: 4px;
+}
+
+.shortcut-key {
+  display: inline-block;
+  padding: 3px 8px;
+  background: #1a1414;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
