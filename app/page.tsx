@@ -2726,7 +2726,7 @@ export default function Home() {
             <button
               aria-label={lyricsVisible ? "Ẩn lời bài hát" : "Hiện lời bài hát"}
               aria-pressed={lyricsVisible}
-              className={`utility-pill ${lyricsVisible ? "active" : ""}`}
+              className={`utility-icon-btn ${lyricsVisible ? "active" : ""}`}
               onClick={() => {
                 const next = !lyricsVisible;
                 setLyricsVisible(next);
@@ -2735,15 +2735,14 @@ export default function Home() {
               title="Lời bài hát (L)"
               type="button"
             >
-              <Icon name="lyrics" size={15} />
-              <span>Lời bài hát</span>
+              <Icon name="lyrics" size={17} />
             </button>
 
             <button
               aria-label={libraryVisible ? "Ẩn danh sách phát" : "Hiện danh sách phát"}
               aria-controls="playlist-library"
               aria-expanded={libraryVisible}
-              className={`utility-pill ${libraryVisible ? "active" : ""}`}
+              className={`utility-icon-btn ${libraryVisible ? "active" : ""}`}
               onClick={() => {
                 const next = !libraryVisible;
                 setLibraryVisible(next);
@@ -2752,36 +2751,40 @@ export default function Home() {
               title="Danh sách phát"
               type="button"
             >
-              <Icon name="queue" size={15} />
-              <span>Danh sách</span>
+              <Icon name="queue" size={17} />
             </button>
 
             <button
               aria-label="Hẹn giờ tắt nhạc"
               aria-pressed={sleepTimer !== 0}
-              className={`utility-pill ${sleepTimer !== 0 ? "active" : ""}`}
+              className={`utility-icon-btn ${sleepTimer !== 0 ? "active" : ""}`}
               onClick={() => setTimerModalOpen(true)}
-              title="Hẹn giờ tắt nhạc"
+              title={sleepTimer !== 0 ? `Hẹn giờ: ${sleepTimer === -1 ? "Hết bài" : `${Math.ceil((sleepRemaining ?? sleepTimer * 60) / 60)}p`}` : "Hẹn giờ tắt nhạc"}
               type="button"
             >
-              <Icon name="clock" size={15} />
-              <span>{sleepTimer !== 0 ? (sleepTimer === -1 ? "Hết bài" : `${Math.ceil((sleepRemaining ?? sleepTimer * 60) / 60)}p`) : "Hẹn giờ"}</span>
+              <Icon name="clock" size={17} />
+              {sleepTimer !== 0 && (
+                <span className="utility-badge">
+                  {sleepTimer === -1
+                    ? "•"
+                    : `${Math.ceil((sleepRemaining ?? sleepTimer * 60) / 60)}`}
+                </span>
+              )}
             </button>
 
             <button
               aria-label={zenMode ? "Thoát chế độ tập trung (F)" : "Chế độ tập trung (F)"}
               aria-pressed={zenMode}
-              className={`utility-pill ${zenMode ? "active" : ""}`}
+              className={`utility-icon-btn ${zenMode ? "active" : ""}`}
               onClick={() => {
                 const next = !zenMode;
                 setZenMode(next);
                 showControlNotice(`Chế độ tập trung · ${next ? "Bật (F / Esc)" : "Tắt"}`);
               }}
-              title="Tập trung (F)"
+              title="Chế độ tập trung (F)"
               type="button"
             >
-              <Icon name="zen" size={15} />
-              <span>Zen Mode</span>
+              <Icon name="zen" size={17} />
             </button>
           </div>
         </div>
