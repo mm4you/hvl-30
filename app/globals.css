@@ -1953,31 +1953,40 @@ body.is-zen-mode .zen-exit-pill {
 
 @media (max-width: 860px) {
   body.is-zen-mode {
-    overflow-y: auto;
+    overflow: hidden;
   }
 
   body.is-zen-mode .app-shell {
     min-height: 100dvh;
-    height: auto;
-    padding: 24px 16px;
+    height: 100dvh;
+    padding: max(20px, calc(env(safe-area-inset-top) + 10px)) 18px max(20px, calc(env(safe-area-inset-bottom) + 10px));
+    display: flex !important;
+    flex-direction: column !important;
     justify-content: center !important;
+    align-items: center !important;
   }
 
   body.is-zen-mode .player-card {
     display: flex !important;
     flex-direction: column !important;
-    max-width: 440px !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 380px !important;
     max-height: none !important;
     padding: 0 !important;
-    gap: 16px !important;
+    gap: 14px !important;
   }
 
   body.is-zen-mode .artwork-stage {
-    max-width: min(80vw, 320px) !important;
-    margin: 0 auto 8px !important;
+    width: 100% !important;
+    max-width: min(78vw, 300px) !important;
+    margin: 0 auto 6px !important;
   }
 
   body.is-zen-mode .player-info {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     text-align: center !important;
   }
@@ -1987,6 +1996,16 @@ body.is-zen-mode .zen-exit-pill {
   body.is-zen-mode .track-badges {
     justify-content: center !important;
     text-align: center !important;
+  }
+
+  body.is-zen-mode .controls {
+    gap: 14px !important;
+    margin-top: 10px !important;
+  }
+
+  body.is-zen-mode .utility-bar {
+    gap: 12px !important;
+    margin-top: 12px !important;
   }
 }
 

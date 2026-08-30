@@ -123,6 +123,8 @@ function streamedResponse(upstream: Response, headOnly = false): Response {
   headers.set("Content-Type", "audio/flac");
   headers.set("Content-Disposition", "inline");
   headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  headers.set("CDN-Cache-Control", "public, max-age=31536000, immutable");
+  headers.set("Vercel-CDN-Cache-Control", "public, max-age=31536000, immutable");
   headers.set("Vary", "Range");
   headers.set("X-Content-Type-Options", "nosniff");
   headers.set("Access-Control-Allow-Origin", "*");
