@@ -1928,6 +1928,63 @@ body.is-zen-mode .utility-bar {
   gap: 14px !important;
 }
 
+/* Khi ở Zen mode: Thêm transitions cho việc chuyển từ 2-cột sang căn giữa */
+body.is-zen-mode .player-card,
+body.is-zen-mode .artwork-stage,
+body.is-zen-mode .player-content {
+  transition: all 750ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Khi ẩn điều khiển (is-zen-dimmed): Bìa đĩa và tên bài hát dịch chuyển ra CHÍNH GIỮA MÀN HÌNH */
+body.is-zen-dimmed .player-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  max-width: 680px !important;
+}
+
+body.is-zen-dimmed .artwork-stage {
+  max-width: min(54vw, 440px) !important;
+  margin: 0 auto 18px !important;
+}
+
+body.is-zen-dimmed .player-content {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+body.is-zen-dimmed .track-heading {
+  align-items: center !important;
+  text-align: center !important;
+}
+
+body.is-zen-dimmed .quality-row {
+  justify-content: center !important;
+}
+
+/* Live Floating Lyric in Zen Mode */
+.zen-active-lyric {
+  margin: 12px 0 0;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 500;
+  font-style: italic;
+  color: #ff5540;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 24px rgba(255, 60, 40, 0.55);
+  animation: zen-lyric-in 400ms ease-out;
+}
+
+@keyframes zen-lyric-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Auto-dim Controls (Ý tưởng 2: Chìm vào tĩnh lặng sau 3.5s) ── */
 body.is-zen-dimmed .timeline,
 body.is-zen-dimmed .controls,

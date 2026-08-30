@@ -716,6 +716,17 @@ export default function Home() {
     () => (currentTrack ? getLyricsForTrack(currentTrack) : null),
     [currentTrack],
   );
+  const activeLyricLine = useMemo(() => {
+    if (!currentTrackLyrics?.syncedLyrics?.length) return null;
+    const lines = currentTrackLyrics.syncedLyrics;
+    for (let i = lines.length - 1; i >= 0; i--) {
+      if (currentTime >= lines[i].time) {
+        const text = lines[i].text.trim();
+        if (text && !text.startsWith("[")) return text;
+      }
+    }
+    return null;
+  }, [currentTrackLyrics, currentTime]);
   const activeHue = 3;
   const usesSystemVolume = useSyncExternalStore(
     subscribeDeviceCapability,
@@ -2746,6 +2757,11 @@ export default function Home() {
             <p className="eyebrow">{isPlaying ? "ĐANG PHÁT" : "HVL 30"}</p>
             <h1>{currentTrack?.title ?? "Playlist của bạn đang trống"}</h1>
             <p className="artist-name">{currentTrack?.artist ?? "Thêm một link nhạc để bắt đầu"}</p>
+            {zenMode && activeLyricLine && (
+              <p className="zen-active-lyric" key={activeLyricLine}>
+                “{activeLyricLine}”
+              </p>
+            )}
           </div>
           {currentTrack && (
             <div className="quality-row">
