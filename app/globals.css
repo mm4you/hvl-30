@@ -490,9 +490,7 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: .18em; }
 .player-content h1 { margin: 0; overflow: hidden; font-size: clamp(30px, 4vw, 46px); line-height: 1.04; letter-spacing: -.052em; text-overflow: ellipsis; white-space: nowrap; }
 .artist-name { margin: 10px 0 16px; overflow: hidden; color: rgba(238,241,238,.62); font-size: clamp(14px, 1.6vw, 18px); text-overflow: ellipsis; white-space: nowrap; }
-.quality-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 18px; }
-.quality-row span { padding: 5px 8px; border: 1px solid rgba(255,255,255,.085); border-radius: 8px; background: rgba(255,255,255,.04); color: #a5adaf; font-size: 9px; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; }
-.quality-row span:first-child { border-color: rgba(255,55,35,.18); color: var(--accent); }
+.quality-row { display: none !important; }
 .timeline input { display: block; width: 100%; height: 26px; margin: -6px 0; outline: 0; background: transparent; appearance: none; cursor: pointer; }
 .timeline input:disabled { cursor: default; opacity: .65; }
 .timeline input::-webkit-slider-runnable-track { height: 4px; border-radius: 999px; background: linear-gradient(to right, rgba(248,249,247,.94) 0 var(--progress), rgba(255,255,255,.17) var(--progress) 100%); box-shadow: inset 0 1px 2px rgba(0,0,0,.18); }
@@ -1928,40 +1926,7 @@ body.is-zen-mode .utility-bar {
   gap: 14px !important;
 }
 
-/* Khi ở Zen mode: Thêm transitions cho việc chuyển từ 2-cột sang căn giữa */
-body.is-zen-mode .player-card,
-body.is-zen-mode .artwork-stage,
-body.is-zen-mode .player-content {
-  transition: all 750ms cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
 
-/* Khi ẩn điều khiển (is-zen-dimmed): Bìa đĩa và tên bài hát dịch chuyển ra CHÍNH GIỮA MÀN HÌNH */
-body.is-zen-dimmed .player-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  max-width: 680px !important;
-}
-
-body.is-zen-dimmed .artwork-stage {
-  max-width: min(54vw, 440px) !important;
-  margin: 0 auto 18px !important;
-}
-
-body.is-zen-dimmed .player-content {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  width: 100% !important;
-}
-
-body.is-zen-dimmed .track-heading {
-  align-items: center !important;
-  text-align: center !important;
-}
 
 
 /* Live Floating Lyric in Zen Mode */
