@@ -900,20 +900,23 @@ footer a:hover { color: var(--accent); }
 .lyric-line.active {
   opacity: 1;
   font-size: clamp(18px, 2.35vw, 24px);
-  font-weight: 850;
-  color: #ffffff;
-  background: rgba(255, 55, 35, 0.12);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px 12px 12px 4px;
-  padding-left: 14px;
-  transform: scale(1.02);
+  font-weight: 700;
+  font-style: italic;
+  color: #ff5540;
+  background: transparent;
+  border-left: none;
+  border-radius: 0;
+  padding-left: 0;
+  transform: scale(1.03);
   transform-origin: left center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 0 20px rgba(255, 60, 40, 0.6);
+  box-shadow: none;
+  text-shadow: 0 0 24px rgba(255, 60, 40, 0.7);
 }
 
 .lyric-line.active .lyric-line-text {
-  filter: drop-shadow(0 0 9px rgba(255, 55, 35, .16));
+  color: #ff5540 !important;
+  font-style: italic !important;
+  text-shadow: 0 0 24px rgba(255, 60, 40, 0.7) !important;
 }
 
 .lyric-line:hover:not(.active) {
@@ -1125,26 +1128,28 @@ footer a:hover { color: var(--accent); }
   }
 }
 
-/* Whole-line Highlight Mode */
+/* Whole-line Highlight Mode - Đồng bộ phong cách Live Lyric bên phải */
 .lyric-line.active {
   opacity: 1 !important;
-  font-weight: 750 !important;
-  color: #ffffff !important;
-  background: rgba(255, 55, 35, 0.12) !important;
-  border-left: 3.5px solid var(--accent) !important;
-  border-radius: 4px 14px 14px 4px !important;
-  padding-left: 16px !important;
-  transform: scale(1.02) translate3d(0, 0, 0) !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+  color: #ff5540 !important;
+  background: transparent !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  transform: scale(1.04) translate3d(0, 0, 0) !important;
   transform-origin: left center !important;
-  box-shadow: 0 4px 24px rgba(255, 55, 35, 0.18) !important;
+  box-shadow: none !important;
 }
 
 .lyric-line.active .lyric-line-text {
-  color: #ffffff !important;
+  color: #ff5540 !important;
+  font-style: italic !important;
   background: none !important;
   -webkit-background-clip: unset !important;
   background-clip: unset !important;
-  text-shadow: 0 0 24px rgba(255, 55, 35, 0.65), 0 0 48px rgba(255, 55, 35, 0.3) !important;
+  text-shadow: 0 0 24px rgba(255, 60, 40, 0.75), 0 0 45px rgba(255, 40, 20, 0.4) !important;
 }
 
 /* ── Lyric Share Card Modal (4:5 Ratio) ── */
