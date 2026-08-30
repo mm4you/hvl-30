@@ -465,11 +465,11 @@ function replacePlaybackSource(
   source: string,
   preservePlaybackSession = false,
 ) {
+  if (audio.src === source) return;
   audio.autoplay = preservePlaybackSession;
   audio.src = source;
-  // Setting src already starts loading. Calling load() during an automatic
-  // handoff can reset WebKit's active playback session and require a new tap.
-  if (!preservePlaybackSession) audio.load();
+  // Setting audio.src already triggers instant streaming asynchronously in HTML5.
+  // Avoiding synchronous audio.load() completely eliminates the micro-stutter/freeze.
 }
 
 function libraryPayload(
