@@ -2451,57 +2451,5 @@ body.is-zen-mode .controls {
   }
 }
 
-/* ── Smart DJ Automix Styles ── */
-.eyebrow-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 22px;
-}
 
-.dj-mixing-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #ff3b2f;
-  background: rgba(255, 45, 20, 0.15);
-  border: 1px solid rgba(255, 60, 40, 0.4);
-  border-radius: 999px;
-  padding: 2px 8px;
-  animation: pulse-border 1.2s infinite ease-in-out;
-}
 
-.dj-mixing-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ff3b2f;
-  box-shadow: 0 0 8px #ff3b2f;
-  animation: pulse-dot 0.8s infinite alternate ease-in-out;
-}
-
-.utility-badge-pulse {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ff3b2f;
-  box-shadow: 0 0 6px #ff3b2f;
-  animation: pulse-dot 0.8s infinite alternate ease-in-out;
-}
-
-@keyframes pulse-dot {
-  0% { transform: scale(0.75); opacity: 0.5; }
-  100% { transform: scale(1.3); opacity: 1; }
-}
-
-@keyframes pulse-border {
-  0%, 100% { border-color: rgba(255, 60, 40, 0.35); }
-  50% { border-color: rgba(255, 60, 40, 0.85); box-shadow: 0 0 10px rgba(255, 45, 20, 0.3); }
-}
