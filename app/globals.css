@@ -411,8 +411,6 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   grid-template-columns: minmax(420px, 1.22fr) minmax(330px, .78fr);
   gap: clamp(34px, 5vw, 72px);
   align-items: center;
-  min-height: 520px;
-  height: 520px;
   padding: clamp(28px, 4.2vw, 52px);
   overflow: visible !important;
   border: 1px solid var(--line);
@@ -420,6 +418,13 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
   background: linear-gradient(125deg, rgba(39,7,5,.96), rgba(12,10,10,.94) 44%, rgba(6,6,6,.98));
   box-shadow: 0 38px 110px rgba(0, 0, 0, 0.45), inset 0 1px rgba(255,255,255,.035);
   backdrop-filter: blur(34px) saturate(1.12);
+}
+
+@media (min-width: 861px) {
+  .player-card {
+    min-height: 520px;
+    height: 520px;
+  }
 }
 .player-card::before { position: absolute; z-index: 2; top: 0; right: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--accent), #8b0e08 44%, transparent 88%); content: ""; border-radius: 8px 32px 0 0; }
 .player-card > * { position: relative; z-index: 1; }
@@ -697,7 +702,16 @@ footer a:hover { color: var(--accent); }
   .sync-actions, .sync-signin, .admin-stats { grid-column: 1 / -1; }
   .sync-actions { justify-content: flex-end; flex-wrap: wrap; }
   .sync-signin { width: 100%; }
-  .player-card { grid-template-columns: 1fr; gap: 30px; min-height: 0; padding: 22px 18px 25px; border-radius: 5px 26px 5px 26px; background: linear-gradient(180deg, rgba(48,8,5,.86), rgba(11,9,9,.94) 56%, #070707); }
+  .player-card {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 22px 18px 25px;
+    border-radius: 5px 26px 5px 26px;
+    background: linear-gradient(180deg, rgba(48,8,5,.86), rgba(11,9,9,.94) 56%, #070707);
+  }
   .artwork { width: 100%; margin: 0 auto; border-radius: 2px; }
   .player-content { text-align: left; }
   .player-content h1 { font-size: clamp(26px, 8.2vw, 38px); }
@@ -731,7 +745,14 @@ footer a:hover { color: var(--accent); }
   .add-button { width: 36px; min-height: 36px; border-radius: 11px; }
   .install-dialog:not(.about-dialog) { padding: 22px; border-radius: 21px; }
   .add-panel { padding: 14px; border-radius: 15px; }
-  .player-card { gap: 25px; padding: 13px 11px 21px; border-radius: 4px 22px 4px 22px; }
+  .player-card {
+    gap: 20px;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 14px 12px 22px;
+    border-radius: 4px 22px 4px 22px;
+  }
   .artwork { width: 100%; border-radius: 2px; }
   .sound-bars { height: 82px; gap: 7px; }
   .sound-bars i { width: 8px; }
@@ -2144,6 +2165,8 @@ body.is-zen-mode .zen-exit-pill {
     align-items: center !important;
     width: 100% !important;
     max-width: 380px !important;
+    height: auto !important;
+    min-height: 0 !important;
     max-height: none !important;
     padding: 0 !important;
     gap: 14px !important;
