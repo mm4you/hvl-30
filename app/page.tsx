@@ -2763,12 +2763,7 @@ export default function Home() {
               </p>
             )}
           </div>
-          {currentTrack && (
-            <div className="quality-row">
-              <span>{currentTrack.format || "AUDIO"}</span>
-              <span>Chất lượng gốc</span>
-            </div>
-          )}
+
 
           <div className="timeline">
             <input

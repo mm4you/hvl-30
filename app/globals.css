@@ -1963,9 +1963,6 @@ body.is-zen-dimmed .track-heading {
   text-align: center !important;
 }
 
-body.is-zen-dimmed .quality-row {
-  justify-content: center !important;
-}
 
 /* Live Floating Lyric in Zen Mode */
 .zen-active-lyric {
