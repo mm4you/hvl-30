@@ -2085,6 +2085,21 @@ body.is-zen-mode .zen-exit-pill {
     text-align: center !important;
   }
 
+  body.is-zen-mode .track-heading {
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  body.is-zen-mode .lyric-slot {
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  body.is-zen-mode .live-active-lyric {
+    text-align: center !important;
+  }
+
   body.is-zen-mode .track-title-row,
   body.is-zen-mode .track-artist,
   body.is-zen-mode .track-badges {
