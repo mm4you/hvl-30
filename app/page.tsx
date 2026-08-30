@@ -2304,7 +2304,7 @@ export default function Home() {
       )}
 
       <audio ref={audioRef} crossOrigin="anonymous" playsInline preload="auto" />
-      <audio aria-hidden="true" ref={preloadAudioRef} preload="auto" />
+      <audio aria-hidden="true" ref={preloadAudioRef} preload="metadata" />
       {controlNotice && <p aria-live="polite" className="control-notice" role="status">{controlNotice}</p>}
 
       <header className="topbar">
