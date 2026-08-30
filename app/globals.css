@@ -1755,7 +1755,7 @@ footer a:hover { color: var(--accent); }
   font-weight: 900;
 }
 
-/* Viewport Layout in Zen Mode */
+/* Viewport Layout in Zen Mode: Sân Khấu Điện Ảnh Rộng Rãi (Zero Clipping) */
 body.is-zen-mode {
   overflow: hidden;
 }
@@ -1764,42 +1764,46 @@ body.is-zen-mode .topbar,
 body.is-zen-mode .playlist-section,
 body.is-zen-mode .library-panel,
 body.is-zen-mode footer,
+body.is-zen-mode .status-message,
 body.is-zen-mode .control-notice {
   display: none !important;
 }
 
 body.is-zen-mode .app-shell {
   min-height: 100dvh;
+  height: 100dvh;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 24px !important;
-  max-width: 900px !important;
+  padding: clamp(16px, 3vh, 36px) clamp(20px, 4vw, 48px) !important;
+  max-width: 1280px !important;
   margin: 0 auto !important;
+  box-sizing: border-box !important;
 }
 
 body.is-zen-mode .player-card {
-  display: flex !important;
-  flex-direction: column !important;
+  display: grid !important;
+  grid-template-columns: minmax(360px, 1.15fr) minmax(300px, 0.85fr) !important;
+  gap: clamp(28px, 4.5vw, 64px) !important;
   align-items: center !important;
-  justify-content: center !important;
   width: 100% !important;
-  max-width: 520px !important;
-  min-height: auto !important;
+  max-width: 1080px !important;
+  max-height: min(580px, 85vh) !important;
   margin: 0 auto !important;
-  padding: 34px 28px !important;
-  background: rgba(14, 8, 8, 0.88) !important;
-  border: 1px solid rgba(255, 55, 35, 0.3) !important;
+  padding: clamp(24px, 3.8vw, 44px) !important;
+  background: linear-gradient(135deg, rgba(28, 8, 7, 0.94), rgba(12, 8, 8, 0.92) 50%, rgba(6, 4, 4, 0.96)) !important;
+  border: 1px solid rgba(255, 55, 35, 0.28) !important;
   border-radius: 28px !important;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 70px rgba(255, 55, 35, 0.16) !important;
-  backdrop-filter: blur(40px) saturate(1.25) !important;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9), 0 0 80px rgba(255, 55, 35, 0.16) !important;
+  backdrop-filter: blur(40px) saturate(1.2) !important;
+  box-sizing: border-box !important;
 }
 
 body.is-zen-mode .artwork-stage {
   width: 100% !important;
-  max-width: 360px !important;
-  margin: 0 auto 20px !important;
+  max-width: 520px !important;
+  margin: 0 !important;
 }
 
 body.is-zen-mode .artwork {
@@ -1810,21 +1814,22 @@ body.is-zen-mode .player-info {
   width: 100% !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  text-align: left !important;
 }
 
 body.is-zen-mode .track-title-row {
-  justify-content: center !important;
-  text-align: center !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
 }
 
 body.is-zen-mode .track-artist {
-  text-align: center !important;
+  text-align: left !important;
 }
 
 body.is-zen-mode .track-badges {
-  justify-content: center !important;
+  justify-content: flex-start !important;
 }
 
 body.is-zen-mode .timeline {
@@ -1836,13 +1841,50 @@ body.is-zen-mode .controls {
 }
 
 body.is-zen-mode .volume-control {
-  justify-content: center !important;
-  margin: 6px auto !important;
+  justify-content: flex-start !important;
 }
 
 body.is-zen-mode .playback-options-wrap {
   justify-content: center !important;
-  margin-top: 12px !important;
+  margin-top: 14px !important;
+}
+
+@media (max-width: 860px) {
+  body.is-zen-mode {
+    overflow-y: auto;
+  }
+
+  body.is-zen-mode .app-shell {
+    min-height: 100dvh;
+    height: auto;
+    padding: 20px 16px;
+  }
+
+  body.is-zen-mode .player-card {
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 440px !important;
+    max-height: none !important;
+    padding: 24px 20px !important;
+  }
+
+  body.is-zen-mode .artwork-stage {
+    max-width: 320px !important;
+    margin-bottom: 16px !important;
+  }
+
+  body.is-zen-mode .player-info {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  body.is-zen-mode .track-title-row,
+  body.is-zen-mode .track-artist,
+  body.is-zen-mode .track-badges,
+  body.is-zen-mode .volume-control {
+    justify-content: center !important;
+    text-align: center !important;
+  }
 }
 
 
