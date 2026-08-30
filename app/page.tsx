@@ -1510,9 +1510,8 @@ export default function Home() {
     const track = tracks[next];
     if (!track) return;
     queuedTrackIdRef.current = track.id;
-    if (isAppleTouchDevice()) {
-      preloadedTrackIdRef.current = null;
-      if (warmedTrackIdRef.current === track.id) return;
+
+    if (warmedTrackIdRef.current !== track.id && track.originalUrl?.includes("drive.google")) {
       warmupAbortRef.current?.abort();
       const controller = new AbortController();
       warmupAbortRef.current = controller;
@@ -1524,14 +1523,17 @@ export default function Home() {
         .finally(() => {
           if (warmupAbortRef.current === controller) warmupAbortRef.current = null;
         });
-      return;
     }
+
     const preloader = preloadAudioRef.current;
     if (!preloader) return;
     if (preloadedTrackIdRef.current === track.id && preloader.src) return;
     preloadedTrackIdRef.current = track.id;
-    preloader.src = sourceCandidates(track.originalUrl)[0];
-    preloader.load();
+    const candidate = sourceCandidates(track.originalUrl)[0];
+    if (candidate) {
+      preloader.src = candidate;
+      preloader.load();
+    }
   }, [nextIndexFor]);
 
   useEffect(() => () => warmupAbortRef.current?.abort(), []);
@@ -2302,7 +2304,7 @@ export default function Home() {
       )}
 
       <audio ref={audioRef} crossOrigin="anonymous" playsInline preload="auto" />
-      {!usesSystemVolume && <audio aria-hidden="true" ref={preloadAudioRef} preload="metadata" />}
+      <audio aria-hidden="true" ref={preloadAudioRef} preload="auto" />
       {controlNotice && <p aria-live="polite" className="control-notice" role="status">{controlNotice}</p>}
 
       <header className="topbar">
