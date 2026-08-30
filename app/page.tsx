@@ -2182,7 +2182,7 @@ export default function Home() {
         <div className="modal-backdrop about-backdrop" onClick={closeAbout} role="presentation">
           <section aria-labelledby="about-title" aria-modal="true" className="install-dialog about-dialog" onClick={(event) => event.stopPropagation()} role="dialog">
             <div className="about-topbar">
-              <span><img alt="" aria-hidden="true" className="about-brand-icon" src="/favicon.svg" /><strong>HVL 30</strong></span>
+              <span><img alt="HVL" className="about-brand-icon" src="/hvl-logo.svg" /></span>
               <button aria-label="Đóng phần giới thiệu" className="dialog-close" onClick={closeAbout} type="button">
                 <Icon name="close" size={19} />
               </button>
