@@ -2303,42 +2303,60 @@ export default function Home() {
                   <div className="about-feature-item">
                     <span className="feature-num">01</span>
                     <div className="feature-info">
-                      <strong>30 Bản FLAC Lossless 24-bit</strong>
+                      <div className="feature-title-row">
+                        <Icon name="music" size={16} />
+                        <strong>30 Bản FLAC Lossless 24-bit</strong>
+                      </div>
                       <p>Âm thanh phòng thu nguyên bản phát trực tiếp từ kho độc quyền, giữ trọn độ nét từng nốt nhạc.</p>
                     </div>
                   </div>
                   <div className="about-feature-item">
                     <span className="feature-num">02</span>
                     <div className="feature-info">
-                      <strong>Lời Bài Hát Đồng Bộ (Synced Lyrics)</strong>
+                      <div className="feature-title-row">
+                        <Icon name="lyrics" size={16} />
+                        <strong>Lời Bài Hát Đồng Bộ (Synced Lyrics)</strong>
+                      </div>
                       <p>Chữ chạy theo giọng hát thời gian thực. Chạm vào câu rap bất kỳ để tua nhạc chính xác.</p>
                     </div>
                   </div>
                   <div className="about-feature-item">
                     <span className="feature-num">03</span>
                     <div className="feature-info">
-                      <strong>Thẻ Trích Dẫn Câu Rap 4:5</strong>
+                      <div className="feature-title-row">
+                        <Icon name="share" size={16} />
+                        <strong>Thẻ Trích Dẫn Câu Rap 4:5</strong>
+                      </div>
                       <p>Xuất ảnh trích dẫn câu rap tỷ lệ 4:5 chuẩn mạng xã hội với artwork và monogram HVL.</p>
                     </div>
                   </div>
                   <div className="about-feature-item">
                     <span className="feature-num">04</span>
                     <div className="feature-info">
-                      <strong>Hẹn Giờ Tắt Nhạc (Sleep Timer)</strong>
+                      <div className="feature-title-row">
+                        <Icon name="clock" size={16} />
+                        <strong>Hẹn Giờ Tắt Nhạc (Sleep Timer)</strong>
+                      </div>
                       <p>Tự động dừng sau 15 - 60 phút hoặc khi hết bài hiện tại để bạn yên tâm chìm vào giấc ngủ.</p>
                     </div>
                   </div>
                   <div className="about-feature-item">
                     <span className="feature-num">05</span>
                     <div className="feature-info">
-                      <strong>Chế Đô Tập Trung (Zen Mode)</strong>
+                      <div className="feature-title-row">
+                        <Icon name="zen" size={16} />
+                        <strong>Chế Độ Tập Trung (Zen Mode)</strong>
+                      </div>
                       <p>Đưa ảnh bìa và nhịp nhạc vào trung tâm màn hình, ẩn mọi chi tiết thừa để thưởng thức trọn vẹn.</p>
                     </div>
                   </div>
                   <div className="about-feature-item">
                     <span className="feature-num">06</span>
                     <div className="feature-info">
-                      <strong>Cài Đặt PWA Mở Tức Thì</strong>
+                      <div className="feature-title-row">
+                        <Icon name="install" size={16} />
+                        <strong>Cài Đặt PWA Mở Tức Thì</strong>
+                      </div>
                       <p>Lưu về màn hình chính trên iOS, Android và PC để nghe nhạc mượt mà không cần mở trình duyệt.</p>
                     </div>
                   </div>
@@ -2613,13 +2631,78 @@ export default function Home() {
           </div>
 
           <div className="controls">
-            <button aria-label="Bài trước" data-notice="off" disabled={!playbackQueue.length} onClick={playPrevious} type="button"><Icon name="previous" size={25} /></button>
-            <button aria-label={isPlaying ? "Tạm dừng" : "Phát"} className={`play-button ${isBuffering ? "buffering" : ""}`} data-notice="off" disabled={!playbackQueue.length} onClick={togglePlayback} type="button">
-              <Icon name={isPlaying ? "pause" : "play"} size={30} />
+            <button
+              aria-label="Trộn bài"
+              aria-pressed={shuffleEnabled}
+              className={`control-sub-btn ${shuffleEnabled ? "active" : ""}`}
+              onClick={() => {
+                const next = !shuffleEnabled;
+                clearTrackWarmup();
+                queuedTrackIdRef.current = null;
+                preloadedTrackIdRef.current = null;
+                setShuffleEnabled(next);
+                showControlNotice(`Trộn bài · ${next ? "Đã bật" : "Đã tắt"}`);
+              }}
+              title={shuffleEnabled ? "Tắt trộn bài" : "Bật trộn bài"}
+              type="button"
+            >
+              <Icon name="shuffle" size={18} />
+            </button>
+
+            <button
+              aria-label="Bài trước"
+              className="control-step-btn"
+              data-notice="off"
+              disabled={!playbackQueue.length}
+              onClick={playPrevious}
+              title="Bài trước (J)"
+              type="button"
+            >
+              <Icon name="previous" size={24} />
+            </button>
+
+            <button
+              aria-label={isPlaying ? "Tạm dừng" : "Phát"}
+              className={`play-button ${isBuffering ? "buffering" : ""}`}
+              data-notice="off"
+              disabled={!playbackQueue.length}
+              onClick={togglePlayback}
+              title={isPlaying ? "Tạm dừng (Space)" : "Phát (Space)"}
+              type="button"
+            >
+              <Icon name={isPlaying ? "pause" : "play"} size={28} />
               {isBuffering && <span className="buffer-ring" />}
             </button>
-            <button aria-label="Bài sau" data-notice="off" disabled={!playbackQueue.length} onClick={playNext} type="button"><Icon name="next" size={25} /></button>
+
+            <button
+              aria-label="Bài sau"
+              className="control-step-btn"
+              data-notice="off"
+              disabled={!playbackQueue.length}
+              onClick={playNext}
+              title="Bài sau (K)"
+              type="button"
+            >
+              <Icon name="next" size={24} />
+            </button>
+
+            <button
+              aria-label={repeatMode === "off" ? "Phát lại bài hiện tại 1 lần" : repeatMode === "once" ? "Phát lại bài hiện tại 2 lần" : "Tắt lặp"}
+              aria-pressed={repeatMode !== "off"}
+              className={`control-sub-btn ${repeatMode !== "off" ? "active" : ""}`}
+              onClick={() => {
+                const next: RepeatMode = repeatMode === "off" ? "once" : repeatMode === "once" ? "twice" : "off";
+                setRepeatMode(next);
+                repeatCompletionRef.current = 0;
+                showControlNotice(next === "once" ? "Phát lại bài hiện tại 1 lần" : next === "twice" ? "Phát lại bài hiện tại 2 lần" : "Đã tắt lặp");
+              }}
+              title={repeatMode === "once" ? "Lặp 1 lần" : repeatMode === "twice" ? "Lặp 2 lần" : "Lặp"}
+              type="button"
+            >
+              <Icon name={repeatMode === "once" ? "repeatOne" : repeatMode === "twice" ? "repeatTwo" : "repeat"} size={18} />
+            </button>
           </div>
+
           {!usesSystemVolume && (
             <div className="volume-control">
               <button aria-label={volume > 0.01 ? "Tắt tiếng" : "Bật tiếng"} onClick={toggleMute} type="button">
@@ -2636,120 +2719,70 @@ export default function Home() {
                 type="range"
                 value={volume}
               />
-              
             </div>
           )}
-          <div className="playback-options-wrap">
-            <div className="playback-options">
-              <button
-                aria-label="Trộn bài"
-                aria-pressed={shuffleEnabled}
-                className={shuffleEnabled ? "active" : ""}
-                onClick={() => {
-                  const next = !shuffleEnabled;
-                  clearTrackWarmup();
-                  queuedTrackIdRef.current = null;
-                  preloadedTrackIdRef.current = null;
-                  setShuffleEnabled(next);
-                  showControlNotice(`Trộn bài · ${next ? "Đã bật" : "Đã tắt"}`);
-                }}
-                title="Trộn bài"
-                type="button"
-              >
-                <Icon name="shuffle" size={18} />
-              </button>
-              <button
-                aria-label="Tự động phát"
-                aria-pressed={autoPlayEnabled}
-                className={autoPlayEnabled ? "active" : ""}
-                onClick={() => {
-                  const next = !autoPlayEnabled;
-                  setAutoPlayEnabled(next);
-                  showControlNotice(`Tự động phát · ${next ? "Đã bật" : "Đã tắt"}`);
-                }}
-                title="Tự động phát"
-                type="button"
-              >
-                <Icon name="autoplay" size={18} />
-              </button>
-              <button
-                aria-label={repeatMode === "off" ? "Phát lại bài hiện tại 1 lần" : repeatMode === "once" ? "Phát lại bài hiện tại 2 lần" : "Tắt lặp"}
-                aria-pressed={repeatMode !== "off"}
-                className={repeatMode !== "off" ? "active" : ""}
-                onClick={() => {
-                  const next: RepeatMode = repeatMode === "off" ? "once" : repeatMode === "once" ? "twice" : "off";
-                  setRepeatMode(next);
-                  repeatCompletionRef.current = 0;
-                  showControlNotice(next === "once" ? "Phát lại bài hiện tại 1 lần" : next === "twice" ? "Phát lại bài hiện tại 2 lần" : "Đã tắt lặp");
-                }}
-                title={repeatMode === "once" ? "Lặp 1 lần" : repeatMode === "twice" ? "Lặp 2 lần" : "Lặp"}
-                type="button"
-              >
-                <Icon name={repeatMode === "once" ? "repeatOne" : repeatMode === "twice" ? "repeatTwo" : "repeat"} size={18} />
-              </button>
-              <button
-                aria-label={lyricsVisible ? "Ẩn lời bài hát" : "Hiện lời bài hát"}
-                aria-pressed={lyricsVisible}
-                className={lyricsVisible ? "active" : ""}
-                onClick={() => {
-                  const next = !lyricsVisible;
-                  setLyricsVisible(next);
-                  showControlNotice(`Lời bài hát · ${next ? "Đang hiện" : "Đã ẩn"}`);
-                }}
-                title="Lời bài hát"
-                type="button"
-              >
-                <Icon name="lyrics" size={18} />
-              </button>
-              <button
-                aria-label={libraryVisible ? "Ẩn danh sách phát" : "Hiện danh sách phát"}
-                aria-controls="playlist-library"
-                aria-expanded={libraryVisible}
-                className={libraryVisible ? "active" : ""}
-                onClick={() => {
-                  const next = !libraryVisible;
-                  setLibraryVisible(next);
-                  showControlNotice(`Danh sách phát · ${next ? "Đang hiện" : "Đã ẩn"}`);
-                }}
-                title="Danh sách phát"
-                type="button"
-              >
-                <Icon name="queue" size={18} />
-              </button>
-              <button
-                aria-label="Hẹn giờ tắt nhạc"
-                aria-pressed={sleepTimer !== 0}
-                className={`timer-toggle-btn ${sleepTimer !== 0 ? "active" : ""}`}
-                onClick={() => setTimerModalOpen(true)}
-                title="Hẹn giờ tắt nhạc"
-                type="button"
-              >
-                <Icon name="clock" size={18} />
-                {sleepTimer !== 0 && (
-                  <span className="timer-badge">
-                    {sleepTimer === -1
-                      ? "Hết bài"
-                      : sleepRemaining !== null
-                        ? `${Math.ceil(sleepRemaining / 60)}p`
-                        : `${sleepTimer}p`}
-                  </span>
-                )}
-              </button>
-              <button
-                aria-label={zenMode ? "Thoát chế độ tập trung (F)" : "Chế độ tập trung (F)"}
-                aria-pressed={zenMode}
-                className={`icon-button zen-toggle-btn ${zenMode ? "active" : ""}`}
-                onClick={() => {
-                  const next = !zenMode;
-                  setZenMode(next);
-                  showControlNotice(`Chế độ tập trung · ${next ? "Bật (F / Esc để thoát)" : "Tắt"}`);
-                }}
-                title={zenMode ? "Thoát Zen Mode (F)" : "Chế độ tập trung (F)"}
-                type="button"
-              >
-                <Icon name="zen" size={18} />
-              </button>
-            </div>
+
+          <div className="utility-bar">
+            <button
+              aria-label={lyricsVisible ? "Ẩn lời bài hát" : "Hiện lời bài hát"}
+              aria-pressed={lyricsVisible}
+              className={`utility-pill ${lyricsVisible ? "active" : ""}`}
+              onClick={() => {
+                const next = !lyricsVisible;
+                setLyricsVisible(next);
+                showControlNotice(`Lời bài hát · ${next ? "Đang hiện" : "Đã ẩn"}`);
+              }}
+              title="Lời bài hát (L)"
+              type="button"
+            >
+              <Icon name="lyrics" size={15} />
+              <span>Lời bài hát</span>
+            </button>
+
+            <button
+              aria-label={libraryVisible ? "Ẩn danh sách phát" : "Hiện danh sách phát"}
+              aria-controls="playlist-library"
+              aria-expanded={libraryVisible}
+              className={`utility-pill ${libraryVisible ? "active" : ""}`}
+              onClick={() => {
+                const next = !libraryVisible;
+                setLibraryVisible(next);
+                showControlNotice(`Danh sách phát · ${next ? "Đang hiện" : "Đã ẩn"}`);
+              }}
+              title="Danh sách phát"
+              type="button"
+            >
+              <Icon name="queue" size={15} />
+              <span>Danh sách</span>
+            </button>
+
+            <button
+              aria-label="Hẹn giờ tắt nhạc"
+              aria-pressed={sleepTimer !== 0}
+              className={`utility-pill ${sleepTimer !== 0 ? "active" : ""}`}
+              onClick={() => setTimerModalOpen(true)}
+              title="Hẹn giờ tắt nhạc"
+              type="button"
+            >
+              <Icon name="clock" size={15} />
+              <span>{sleepTimer !== 0 ? (sleepTimer === -1 ? "Hết bài" : `${Math.ceil((sleepRemaining ?? sleepTimer * 60) / 60)}p`) : "Hẹn giờ"}</span>
+            </button>
+
+            <button
+              aria-label={zenMode ? "Thoát chế độ tập trung (F)" : "Chế độ tập trung (F)"}
+              aria-pressed={zenMode}
+              className={`utility-pill ${zenMode ? "active" : ""}`}
+              onClick={() => {
+                const next = !zenMode;
+                setZenMode(next);
+                showControlNotice(`Chế độ tập trung · ${next ? "Bật (F / Esc)" : "Tắt"}`);
+              }}
+              title="Tập trung (F)"
+              type="button"
+            >
+              <Icon name="zen" size={15} />
+              <span>Zen Mode</span>
+            </button>
           </div>
         </div>
       </section>
