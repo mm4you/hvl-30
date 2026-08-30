@@ -2412,7 +2412,6 @@ export default function Home() {
                   <div className="about-links">
                     <a className="spotify-link" href="https://open.spotify.com/album/36e3pjcLAYabHjXlaSmWOe" rel="noreferrer" target="_blank"><Icon name="spotify" size={18} /><span>Spotify</span></a>
                     <a className="youtube-link" href="https://www.youtube.com/playlist?list=PLG5bpInXG8Sc" rel="noreferrer" target="_blank"><Icon name="youtube" size={18} /><span>YouTube</span></a>
-                    <a className="drive-link" href="https://drive.google.com/drive/folders/1EgLj3GXTI0oIMAlcZDXVnyacR8uW8iVk" rel="noreferrer" target="_blank"><Icon name="drive" size={18} /><span>Drive Artwork</span></a>
                     <a className="github-link" href="https://github.com/mm4you/hvl-30" rel="noreferrer" target="_blank"><Icon name="github" size={18} /><span>mm4you/hvl-30</span></a>
                   </div>
                 </div>
@@ -2449,27 +2448,15 @@ export default function Home() {
                     <p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p>
                     <h3 id="about-track-title">Bộ Sưu Tập 30 Artwork</h3>
                   </div>
-                  <div className="about-heading-btns">
-                    <button
-                      type="button"
-                      className="about-gallery-btn"
-                      onClick={() => setArtworkPreviewIndex(0)}
-                      title="Mở chế độ xem và tải trọn vẹn 30 artwork"
-                    >
-                      <svg fill="none" height="14" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="14"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                      <span>Xem & Lưu 30 Artwork</span>
-                    </button>
-                    <a
-                      className="about-drive-link-btn"
-                      href="https://drive.google.com/drive/folders/1EgLj3GXTI0oIMAlcZDXVnyacR8uW8iVk"
-                      target="_blank"
-                      rel="noreferrer"
-                      title="Mở thư mục Google Drive trọn bộ 30 Artwork"
-                    >
-                      <Icon name="drive" size={14} />
-                      <span>Thư mục Drive</span>
-                    </a>
-                  </div>
+                  <button
+                    type="button"
+                    className="about-gallery-btn"
+                    onClick={() => setArtworkPreviewIndex(0)}
+                    title="Mở chế độ xem và lưu trọn vẹn 30 artwork"
+                  >
+                    <svg fill="none" height="14" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="14"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                    <span>Xem & Lưu 30 Artwork</span>
+                  </button>
                 </div>
                 <p className="about-track-tip">Chạm vào ảnh để phóng to & tải về máy. Bấm tên bài để phát nhạc.</p>
                 <ol className="about-track-grid">
@@ -2708,36 +2695,33 @@ export default function Home() {
                 <a
                   href={albumTracks[artworkPreviewIndex]?.artworkUrl || `/artwork/${String(artworkPreviewIndex + 1).padStart(2, "0")}.jpg`}
                   download={`HVL-30-${String(artworkPreviewIndex + 1).padStart(2, "0")}-${albumTracks[artworkPreviewIndex]?.title}.jpg`}
-                  className="artwork-download-btn"
-                  title="Tải ảnh gốc độ nét cao về máy"
+                  className="artwork-icon-btn artwork-save-btn"
+                  title="Lưu ảnh về máy"
+                  aria-label="Lưu ảnh về máy"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg fill="none" height="16" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                  <span>Lưu Ảnh ({String(artworkPreviewIndex + 1).padStart(2, "0")}.jpg)</span>
-                </a>
-                <a
-                  href="https://drive.google.com/drive/folders/1EgLj3GXTI0oIMAlcZDXVnyacR8uW8iVk"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="artwork-drive-btn"
-                  title="Mở toàn bộ thư mục Google Drive chứa 30 ảnh gốc"
-                >
-                  <Icon name="drive" size={15} />
-                  <span>Mở Drive Bộ Ảnh</span>
+                  <svg fill="none" height="19" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="19">
+                    <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                    <polyline points="17 21 17 13 7 13 7 21"/>
+                    <polyline points="7 3 7 8 15 8"/>
+                  </svg>
                 </a>
                 <button
                   type="button"
-                  className="artwork-play-btn"
+                  className="artwork-icon-btn artwork-play-btn"
                   onClick={() => {
                     const idx = artworkPreviewIndex;
                     setArtworkPreviewIndex(null);
                     closeAbout();
                     playFromActivePlaylist(idx);
                   }}
+                  title={`Phát bài ${albumTracks[artworkPreviewIndex]?.title}`}
+                  aria-label="Phát bài này"
                 >
-                  <Icon name="music" size={15} />
-                  <span>Phát Bài Này</span>
+                  <svg fill="currentColor" height="19" viewBox="0 0 24 24" width="19" style={{ transform: "translateX(1px)" }}>
+                    <polygon points="6 4 20 12 6 20 6 4"/>
+                  </svg>
                 </button>
               </div>
             </div>
