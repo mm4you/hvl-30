@@ -369,42 +369,38 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 }
 
 .artwork-ambient-blast {
-  --bass: 0;
   position: absolute;
-  inset: -20px;
-  border-radius: 24px;
-  background: radial-gradient(circle at center, rgba(255, 45, 20, 0.45) 0%, rgba(255, 20, 10, 0.2) 48%, transparent 76%);
-  filter: blur(24px);
+  inset: -16px;
+  border-radius: 20px;
+  background: radial-gradient(circle at center, rgba(255, 45, 20, 0.38) 0%, rgba(255, 20, 10, 0.15) 50%, transparent 75%);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  transform: scale(calc(0.95 + 0.12 * var(--bass)));
-  transition: opacity 250ms ease;
-  will-change: transform, opacity;
+  transform: translateZ(0);
+  transition: opacity 300ms ease;
+  will-change: opacity;
 }
 
 .artwork-ambient-blast.is-playing {
-  opacity: 1;
+  opacity: var(--bass, 0.5);
 }
 
 .artwork-ambient {
-  --beat: 0;
   position: absolute;
   inset: -6px;
   border-radius: 10px;
   background: transparent;
-  box-shadow:
-    0 0 calc(8px + 22px * var(--beat)) rgba(255, 55, 35, calc(0.3 + 0.7 * var(--beat))),
-    0 0 calc(20px + 48px * var(--beat)) rgba(255, 35, 15, calc(0.12 + 0.48 * var(--beat)));
+  box-shadow: 0 0 16px rgba(255, 55, 35, 0.65), 0 0 36px rgba(255, 35, 15, 0.35);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  transition: opacity 300ms ease;
-  will-change: box-shadow;
+  transform: translateZ(0);
+  transition: opacity 250ms ease;
+  will-change: opacity;
 }
 
 .artwork-ambient.is-playing {
-  opacity: 1;
+  opacity: var(--beat, 0.75);
 }
 
 .artwork {

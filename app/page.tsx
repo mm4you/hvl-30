@@ -833,58 +833,63 @@ export default function Home() {
     if (!audio || !el) return;
 
     let running = true;
-    const tick = () => {
-      if (!running) return;
-      if (!audio.paused && audio.currentTime > 0) {
-        const t = audio.currentTime;
-        const lyrics = currentLyricsRef.current?.syncedLyrics;
-        let vocalStrike = 0;
-        let inSinging = false;
-        let isChorus = false;
+    let lastTick = 0;
 
-        if (lyrics && lyrics.length > 0) {
-          for (let i = 0; i < lyrics.length; i++) {
-            const cur = lyrics[i];
-            const next = lyrics[i + 1];
-            if (t >= cur.time && (!next || t < next.time)) {
-              const delta = t - cur.time;
-              const text = cur.text.trim();
-              if (text.startsWith("[") && text.endsWith("]")) {
-                if (/Chorus|Hook|Drop/i.test(text)) isChorus = true;
-              } else if (text.length > 0) {
-                inSinging = true;
-                if (delta < 0.45) {
-                  vocalStrike = Math.exp(-delta * 6.5);
+    const tick = (timestamp: number) => {
+      if (!running) return;
+      // Throttle DOM style writes to ~35fps (every 28ms) to prevent mobile Safari main thread hitching
+      if (timestamp - lastTick > 28) {
+        lastTick = timestamp;
+        if (!audio.paused && audio.currentTime > 0) {
+          const t = audio.currentTime;
+          const lyrics = currentLyricsRef.current?.syncedLyrics;
+          let vocalBloom = 0;
+          let inSinging = false;
+          let isChorus = false;
+
+          if (lyrics && lyrics.length > 0) {
+            for (let i = 0; i < lyrics.length; i++) {
+              const cur = lyrics[i];
+              const next = lyrics[i + 1];
+              if (t >= cur.time && (!next || t < next.time)) {
+                const delta = t - cur.time;
+                const text = cur.text.trim();
+                if (text.startsWith("[") && text.endsWith("]")) {
+                  if (/Chorus|Hook|Drop/i.test(text)) isChorus = true;
+                } else if (text.length > 0) {
+                  inSinging = true;
+                  // Vocal onset bloom when each line starts
+                  if (delta < 0.5) {
+                    vocalBloom = Math.exp(-delta * 4.0);
+                  }
                 }
-              }
-              for (let j = i; j >= 0; j--) {
-                if (lyrics[j].text.startsWith("[")) {
-                  if (/Chorus|Hook|Drop/i.test(lyrics[j].text)) isChorus = true;
-                  break;
+                for (let j = i; j >= 0; j--) {
+                  if (lyrics[j].text.startsWith("[")) {
+                    if (/Chorus|Hook|Drop/i.test(lyrics[j].text)) isChorus = true;
+                    break;
+                  }
                 }
+                break;
               }
-              break;
             }
           }
+
+          // Gentle ambient breathing (3.2s period) - natural, relaxing, and never out of sync
+          const breathing = 0.55 + Math.sin(t * 1.95) * 0.15;
+          const chorusBoost = isChorus ? 0.25 : inSinging ? 0.1 : 0;
+          const vocalImpact = vocalBloom * 0.25;
+
+          const glowLevel = Math.min(1, Math.max(0.2, breathing + chorusBoost + vocalImpact));
+          el.style.setProperty("--beat", glowLevel.toFixed(2));
+
+          if (blastEl) {
+            const blastLevel = isChorus ? 0.65 : inSinging ? 0.35 : 0.15;
+            blastEl.style.setProperty("--bass", blastLevel.toFixed(2));
+          }
+        } else {
+          el.style.setProperty("--beat", "0");
+          if (blastEl) blastEl.style.setProperty("--bass", "0");
         }
-
-        // Half-time 808 sub pulse
-        const cycle = 60 / 68;
-        const phase = (t % cycle) / cycle;
-        const subKick = phase < 0.12 ? phase / 0.12 : Math.exp(-(phase - 0.12) * 3.8);
-
-        const baseVal = isChorus ? 0.35 : inSinging ? 0.18 : 0.08;
-        const totalPulse = baseVal + vocalStrike * 0.65 + subKick * 0.45;
-        const glowVal = Math.min(1, Math.max(0, totalPulse));
-        el.style.setProperty("--beat", glowVal.toFixed(3));
-
-        if (blastEl) {
-          const blastVal = (isChorus && subKick > 0.6) || vocalStrike > 0.7 ? (vocalStrike * 0.8 + subKick * 0.5) : 0;
-          blastEl.style.setProperty("--bass", Math.min(1, blastVal).toFixed(3));
-        }
-      } else {
-        el.style.setProperty("--beat", "0");
-        if (blastEl) blastEl.style.setProperty("--bass", "0");
       }
       beatRafRef.current = requestAnimationFrame(tick);
     };
