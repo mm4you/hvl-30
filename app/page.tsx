@@ -837,32 +837,43 @@ export default function Home() {
 
     const tick = (timestamp: number) => {
       if (!running) return;
-      // Throttle DOM style writes to ~35fps (every 28ms) to prevent mobile Safari main thread hitching
+      // Throttle DOM style writes to ~35fps (every 28ms) for zero-jank Safari 120fps performance
       if (timestamp - lastTick > 28) {
         lastTick = timestamp;
         if (!audio.paused && audio.currentTime > 0) {
           const t = audio.currentTime;
           const lyrics = currentLyricsRef.current?.syncedLyrics;
-          let vocalBloom = 0;
-          let inSinging = false;
           let isChorus = false;
+          let inSinging = false;
+          let beatFraction = 0;
+          let isDownbeat = false;
+          let vocalImpact = 0;
 
           if (lyrics && lyrics.length > 0) {
             for (let i = 0; i < lyrics.length; i++) {
               const cur = lyrics[i];
               const next = lyrics[i + 1];
               if (t >= cur.time && (!next || t < next.time)) {
+                const lineDuration = next ? Math.max(1.2, next.time - cur.time) : 3.6;
                 const delta = t - cur.time;
                 const text = cur.text.trim();
+
                 if (text.startsWith("[") && text.endsWith("]")) {
                   if (/Chorus|Hook|Drop/i.test(text)) isChorus = true;
                 } else if (text.length > 0) {
                   inSinging = true;
-                  // Vocal onset bloom when each line starts
-                  if (delta < 0.5) {
-                    vocalBloom = Math.exp(-delta * 4.0);
+                  // Derive real beat step from the lyric phrase cadence
+                  const stepDuration = lineDuration / 4;
+                  const stepNum = Math.floor(delta / stepDuration);
+                  beatFraction = (delta % stepDuration) / stepDuration;
+                  isDownbeat = stepNum === 0 || stepNum === 2; // Heavy 808 downbeats
+
+                  // Vocal onset strike on line start
+                  if (delta < 0.38) {
+                    vocalImpact = Math.exp(-delta * 6.0);
                   }
                 }
+
                 for (let j = i; j >= 0; j--) {
                   if (lyrics[j].text.startsWith("[")) {
                     if (/Chorus|Hook|Drop/i.test(lyrics[j].text)) isChorus = true;
@@ -874,17 +885,27 @@ export default function Home() {
             }
           }
 
-          // Gentle ambient breathing (3.2s period) - natural, relaxing, and never out of sync
-          const breathing = 0.55 + Math.sin(t * 1.95) * 0.15;
-          const chorusBoost = isChorus ? 0.25 : inSinging ? 0.1 : 0;
-          const vocalImpact = vocalBloom * 0.25;
+          // ── LAYER 1: Sharp Inner Neon Rim (Viền sắc đanh nảy theo từng nhịp beat) ──
+          const rimPulse = inSinging ? Math.exp(-beatFraction * 4.2) : Math.exp(-(t % 0.48) * 4.6);
+          const rimVal = Math.min(1, Math.max(0.08, 0.12 + rimPulse * 0.72 + vocalImpact * 0.35));
+          el.style.setProperty("--beat", rimVal.toFixed(2));
 
-          const glowLevel = Math.min(1, Math.max(0.2, breathing + chorusBoost + vocalImpact));
-          el.style.setProperty("--beat", glowLevel.toFixed(2));
-
+          // ── LAYER 2: Deep Subwoofer Shockwave (CHỈ bùng khi có cú đập bass nặng hoặc điệp khúc) ──
           if (blastEl) {
-            const blastLevel = isChorus ? 0.65 : inSinging ? 0.35 : 0.15;
-            blastEl.style.setProperty("--bass", blastLevel.toFixed(2));
+            let blastVal = 0;
+            if (isChorus) {
+              // Điệp khúc: Hào quang luôn tỏa rộng và đập bùng nổ
+              blastVal = 0.35 + (isDownbeat ? rimPulse * 0.65 : rimPulse * 0.25);
+            } else if (isDownbeat && rimPulse > 0.42) {
+              // Đoạn thường: CHỈ nổ khi có cú đập bass chính
+              blastVal = rimPulse * 0.9;
+            } else if (vocalImpact > 0.6) {
+              blastVal = vocalImpact * 0.7;
+            } else {
+              // Nhịp phụ tĩnh lặng, tạo độ tương phản rõ rệt!
+              blastVal = 0;
+            }
+            blastEl.style.setProperty("--bass", Math.min(1, blastVal).toFixed(2));
           }
         } else {
           el.style.setProperty("--beat", "0");
@@ -2074,11 +2095,7 @@ export default function Home() {
 
       <header className="topbar">
         <div className="brand">
-          <img alt="" aria-hidden="true" className="brand-logo" src="/favicon.svg" />
-          <span>
-            <strong>HVL 30</strong>
-            <small>{`${sharedCatalogTracks.length || 30} bài · HVL`}</small>
-          </span>
+          <img alt="HVL 30" className="brand-logo" src="/favicon.svg" />
         </div>
         <div className="header-actions">
           {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && <button
