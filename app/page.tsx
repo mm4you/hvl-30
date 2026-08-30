@@ -882,6 +882,13 @@ export default function Home() {
     const audio = audioRef.current;
     if (!audio || audioSourceRef.current) return;
 
+    // On Android, routing HTMLAudioElement through Web Audio API (createMediaElementSource)
+    // causes Chrome Android to suspend audio output whenever the phone screen locks/sleeps.
+    // By keeping audio output direct on Android, lockscreen background playback works uninterrupted!
+    if (typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent)) {
+      return;
+    }
+
     try {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
       if (!AudioCtx) return;
