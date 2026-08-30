@@ -97,6 +97,7 @@ type SharedCatalogSnapshot = {
 type IconName =
   | "add"
   | "autoplay"
+  | "clock"
   | "close"
   | "cloud"
   | "drive"
@@ -151,6 +152,12 @@ function Icon({ name, size = 20 }: { name: IconName; size?: number }) {
         <path d="M18.8 15.8A7.5 7.5 0 0 1 6 18.2L4 16" />
         <path d="M4 20v-4h4" />
         <path d="m10 9 5 3-5 3Z" />
+      </>
+    ),
+    clock: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 6 12 12 16 14" />
       </>
     ),
     close: <path d="m6 6 12 12M18 6 6 18" />,
@@ -657,10 +664,9 @@ export default function Home() {
   const [isBuffering, setIsBuffering] = useState(false);
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
-  const [zenMode, setZenMode] = useState(false);
   const [sleepTimer, setSleepTimer] = useState<number>(0);
   const [sleepRemaining, setSleepRemaining] = useState<number | null>(null);
-  const [timerDropdownOpen, setTimerDropdownOpen] = useState(false);
+  const [timerModalOpen, setTimerModalOpen] = useState(false);
   const [autoPlayEnabled, setAutoPlayEnabled] = useState(true);
   const [repeatMode, setRepeatMode] = useState<RepeatMode>("off");
   const [sharedCatalogTracks, setSharedCatalogTracks] = useState<Track[]>([]);
@@ -847,84 +853,15 @@ export default function Home() {
     if (!audio || !el) return;
 
     let running = true;
-    let lastTick = 0;
 
-    const tick = (timestamp: number) => {
+    const tick = () => {
       if (!running) return;
-      // Throttle DOM style writes to ~35fps (every 28ms) for zero-jank Safari 120fps performance
-      if (timestamp - lastTick > 28) {
-        lastTick = timestamp;
-        if (!audio.paused && audio.currentTime > 0) {
-          const t = audio.currentTime;
-          const lyrics = currentLyricsRef.current?.syncedLyrics;
-          let isChorus = false;
-          let inSinging = false;
-          let beatFraction = 0;
-          let isDownbeat = false;
-          let vocalImpact = 0;
-
-          if (lyrics && lyrics.length > 0) {
-            for (let i = 0; i < lyrics.length; i++) {
-              const cur = lyrics[i];
-              const next = lyrics[i + 1];
-              if (t >= cur.time && (!next || t < next.time)) {
-                const lineDuration = next ? Math.max(1.2, next.time - cur.time) : 3.6;
-                const delta = t - cur.time;
-                const text = cur.text.trim();
-
-                if (text.startsWith("[") && text.endsWith("]")) {
-                  if (/Chorus|Hook|Drop/i.test(text)) isChorus = true;
-                } else if (text.length > 0) {
-                  inSinging = true;
-                  // Derive real beat step from the lyric phrase cadence
-                  const stepDuration = lineDuration / 4;
-                  const stepNum = Math.floor(delta / stepDuration);
-                  beatFraction = (delta % stepDuration) / stepDuration;
-                  isDownbeat = stepNum === 0 || stepNum === 2; // Heavy 808 downbeats
-
-                  // Vocal onset strike on line start
-                  if (delta < 0.38) {
-                    vocalImpact = Math.exp(-delta * 6.0);
-                  }
-                }
-
-                for (let j = i; j >= 0; j--) {
-                  if (lyrics[j].text.startsWith("[")) {
-                    if (/Chorus|Hook|Drop/i.test(lyrics[j].text)) isChorus = true;
-                    break;
-                  }
-                }
-                break;
-              }
-            }
-          }
-
-          // ── LAYER 1: Sharp Inner Neon Rim (Viền sắc đanh nảy theo từng nhịp beat) ──
-          const rimPulse = inSinging ? Math.exp(-beatFraction * 4.2) : Math.exp(-(t % 0.48) * 4.6);
-          const rimVal = Math.min(1, Math.max(0.08, 0.12 + rimPulse * 0.72 + vocalImpact * 0.35));
-          el.style.setProperty("--beat", rimVal.toFixed(2));
-
-          // ── LAYER 2: Deep Subwoofer Shockwave (CHỈ bùng khi có cú đập bass nặng hoặc điệp khúc) ──
-          if (blastEl) {
-            let blastVal = 0;
-            if (isChorus) {
-              // Điệp khúc: Hào quang luôn tỏa rộng và đập bùng nổ
-              blastVal = 0.35 + (isDownbeat ? rimPulse * 0.65 : rimPulse * 0.25);
-            } else if (isDownbeat && rimPulse > 0.42) {
-              // Đoạn thường: CHỈ nổ khi có cú đập bass chính
-              blastVal = rimPulse * 0.9;
-            } else if (vocalImpact > 0.6) {
-              blastVal = vocalImpact * 0.7;
-            } else {
-              // Nhịp phụ tĩnh lặng, tạo độ tương phản rõ rệt!
-              blastVal = 0;
-            }
-            blastEl.style.setProperty("--bass", Math.min(1, blastVal).toFixed(2));
-          }
-        } else {
-          el.style.setProperty("--beat", "0");
-          if (blastEl) blastEl.style.setProperty("--bass", "0");
-        }
+      if (!audio.paused && audio.currentTime > 0) {
+        el.style.setProperty("--beat", "0.75");
+        if (blastEl) blastEl.style.setProperty("--bass", "0.45");
+      } else {
+        el.style.setProperty("--beat", "0");
+        if (blastEl) blastEl.style.setProperty("--bass", "0");
       }
       beatRafRef.current = requestAnimationFrame(tick);
     };
@@ -1997,16 +1934,6 @@ export default function Home() {
     setVolume(Math.max(0.1, lastAudibleVolumeRef.current));
   };
 
-  // Zen Mode body class
-  useEffect(() => {
-    if (zenMode) {
-      document.body.classList.add("is-zen-mode");
-    } else {
-      document.body.classList.remove("is-zen-mode");
-    }
-    return () => { document.body.classList.remove("is-zen-mode"); };
-  }, [zenMode]);
-
   // Sleep timer interval
   useEffect(() => {
     if (sleepTimer <= 0) {
@@ -2030,7 +1957,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [sleepTimer]);
 
-  // Desktop Keyboard Shortcuts (Space, ArrowLeft, ArrowRight, J, K, L, M, F, Escape)
+  // Desktop Keyboard Shortcuts (Space, ArrowLeft, ArrowRight, J, K, L, M, Escape)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
@@ -2061,19 +1988,15 @@ export default function Home() {
       } else if (e.code === "KeyM") {
         e.preventDefault();
         toggleMute();
-      } else if (e.code === "KeyF") {
-        e.preventDefault();
-        setZenMode((z) => !z);
       } else if (e.code === "Escape") {
-        if (zenMode) setZenMode(false);
-        if (timerDropdownOpen) setTimerDropdownOpen(false);
+        if (timerModalOpen) setTimerModalOpen(false);
         if (shareModalOpen) setShareModalOpen(false);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [duration, playNext, playPrevious, shareModalOpen, timerDropdownOpen, zenMode]);
+  }, [duration, playNext, playPrevious, shareModalOpen, timerModalOpen]);
 
   useEffect(() => {
     if (!("mediaSession" in navigator)) return;
@@ -2353,68 +2276,6 @@ export default function Home() {
                 </div>
                 <p>30 file FLAC được phát từ kho riêng của HVL 30, giữ nguyên định dạng và không cần tài khoản.</p>
               </section>
-
-              <section className="about-section-block">
-                <p className="eyebrow">TRẢI NGHIỆM ĐỈNH CAO</p>
-                <h3>Tính Năng Của HVL 30</h3>
-                <div className="about-features-grid">
-                  <div className="feature-box">
-                    <strong><Icon name="music" size={17} /> 30 Bản FLAC Lossless</strong>
-                    <p>Chất lượng âm thanh 24-bit phòng thu nguyên bản, không nén, nghe chuẩn từng nốt bass.</p>
-                  </div>
-                  <div className="feature-box">
-                    <strong><Icon name="lyrics" size={17} /> Lời Bài Hát Đồng Bộ (Synced)</strong>
-                    <p>Theo dõi lời theo thời gian thực. Chạm vào câu bất kỳ để tua nhạc đến đúng đoạn đó.</p>
-                  </div>
-                  <div className="feature-box">
-                    <strong><Icon name="share" size={17} /> Thẻ Chia Sẻ Câu Rap (4:5)</strong>
-                    <p>Xuất ảnh câu rap trích dẫn nghệ thuật chuẩn tỉ lệ vàng 4:5 để chia sẻ lên Story và mạng xã hội.</p>
-                  </div>
-                  <div className="feature-box">
-                    <strong><Icon name="moon" size={17} /> Hẹn Giờ Tắt Nhạc (Sleep Timer)</strong>
-                    <p>Tự động dừng phát sau 15 - 60 phút hoặc khi phát hết bài hiện tại, thoải mái nghe trước khi ngủ.</p>
-                  </div>
-                  <div className="feature-box">
-                    <strong><Icon name="zen" size={17} /> Chế Độ Tập Trung (Zen Display)</strong>
-                    <p>Ẩn toàn bộ giao diện rối mắt, đưa ảnh bìa lớn và hào quang đỏ vào tâm điểm như một chiếc đồng hồ nhạc.</p>
-                  </div>
-                  <div className="feature-box">
-                    <strong><Icon name="install" size={17} /> Cài Đặt Ứng Dụng (PWA)</strong>
-                    <p>Cài đặt trực tiếp lên iPhone, Android hoặc máy tính để mở nghe tức thì không cần mở trình duyệt.</p>
-                  </div>
-                </div>
-              </section>
-
-              <section className="about-section-block">
-                <p className="eyebrow">TIỆN ÍCH TRÊN MÁY TÍNH</p>
-                <h3>Phím Tắt Bàn Phím</h3>
-                <div className="shortcuts-grid">
-                  <div className="shortcut-row">
-                    <span className="shortcut-desc">Phát / Tạm dừng</span>
-                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">Space</kbd></span>
-                  </div>
-                  <div className="shortcut-row">
-                    <span className="shortcut-desc">Tua lùi / Tiến 5 giây</span>
-                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">←</kbd><kbd className="shortcut-key">→</kbd></span>
-                  </div>
-                  <div className="shortcut-row">
-                    <span className="shortcut-desc">Bài trước / Bài sau</span>
-                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">J</kbd><kbd className="shortcut-key">K</kbd></span>
-                  </div>
-                  <div className="shortcut-row">
-                    <span className="shortcut-desc">Bật / Tắt lời bài hát</span>
-                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">L</kbd></span>
-                  </div>
-                  <div className="shortcut-row">
-                    <span className="shortcut-desc">Bật / Tắt âm thanh</span>
-                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">M</kbd></span>
-                  </div>
-                  <div className="shortcut-row">
-                    <span className="shortcut-desc">Chế độ tập trung (Zen)</span>
-                    <span className="shortcut-key-wrap"><kbd className="shortcut-key">F</kbd></span>
-                  </div>
-                </div>
-              </section>
             </div>
           </section>
         </div>
@@ -2432,6 +2293,76 @@ export default function Home() {
         trackArtist={currentTrack?.artist || "RPT MCK"}
         trackTitle={currentTrack?.title || "HVL 30"}
       />
+
+      {/* ── Sleep Timer Dialog (Unified with HVL install-dialog) ── */}
+      {timerModalOpen && (
+        <div className="modal-backdrop" onClick={() => setTimerModalOpen(false)} role="presentation">
+          <section
+            aria-labelledby="timer-title"
+            aria-modal="true"
+            className="install-dialog timer-dialog"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+          >
+            <button
+              aria-label="Đóng hẹn giờ"
+              className="dialog-close"
+              onClick={() => setTimerModalOpen(false)}
+              type="button"
+            >
+              <Icon name="close" size={19} />
+            </button>
+            <div className="dialog-mark">
+              <Icon name="clock" size={24} />
+            </div>
+            <h2 id="timer-title">Hẹn Giờ Tắt Nhạc</h2>
+            <p className="dialog-copy">
+              Tự động dừng phát nhạc khi hết thời gian. Thoải mái chìm vào giấc ngủ.
+            </p>
+            <div className="timer-modal-grid">
+              <button
+                className={`timer-modal-item ${sleepTimer === 0 ? "active" : ""}`}
+                onClick={() => {
+                  setSleepTimer(0);
+                  setTimerModalOpen(false);
+                  showControlNotice("Hẹn giờ · Đã tắt");
+                }}
+                type="button"
+              >
+                <span>Tắt hẹn giờ</span>
+                {sleepTimer === 0 && <span className="item-check">✓</span>}
+              </button>
+              {[15, 30, 45, 60].map((mins) => (
+                <button
+                  key={mins}
+                  className={`timer-modal-item ${sleepTimer === mins ? "active" : ""}`}
+                  onClick={() => {
+                    setSleepTimer(mins);
+                    setTimerModalOpen(false);
+                    showControlNotice(`Hẹn giờ tắt sau ${mins} phút`);
+                  }}
+                  type="button"
+                >
+                  <span>{mins} phút</span>
+                  {sleepTimer === mins && <span className="item-check">✓</span>}
+                </button>
+              ))}
+              <button
+                className={`timer-modal-item ${sleepTimer === -1 ? "active" : ""}`}
+                onClick={() => {
+                  setSleepTimer(-1);
+                  setTimerModalOpen(false);
+                  showControlNotice("Hẹn giờ · Hết bài hiện tại");
+                }}
+                type="button"
+              >
+                <span>Hết bài hiện tại</span>
+                {sleepTimer === -1 && <span className="item-check">✓</span>}
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
 
       {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && formOpen && (
         <section className={`add-panel ${folderLinkId ? "folder-mode" : ""}`} aria-label="Thêm bài hát hoặc thư mục">
@@ -2684,71 +2615,24 @@ export default function Home() {
               >
                 <Icon name="queue" size={18} />
               </button>
-              <div style={{ position: "relative" }}>
-                <button
-                  aria-label="Hẹn giờ tắt nhạc"
-                  aria-pressed={sleepTimer !== 0}
-                  className={`timer-toggle-btn ${sleepTimer !== 0 ? "active" : ""}`}
-                  onClick={() => setTimerDropdownOpen((open) => !open)}
-                  title="Hẹn giờ tắt nhạc"
-                  type="button"
-                >
-                  <Icon name="moon" size={18} />
-                  {sleepTimer !== 0 && (
-                    <span className="timer-badge">
-                      {sleepTimer === -1
-                        ? "Hết bài"
-                        : sleepRemaining !== null
-                          ? `${Math.ceil(sleepRemaining / 60)}p`
-                          : `${sleepTimer}p`}
-                    </span>
-                  )}
-                </button>
-                {timerDropdownOpen && (
-                  <div className="timer-dropdown" role="menu">
-                    <button
-                      className={`timer-option ${sleepTimer === 0 ? "selected" : ""}`}
-                      onClick={() => { setSleepTimer(0); setTimerDropdownOpen(false); showControlNotice("Hẹn giờ · Đã tắt"); }}
-                      type="button"
-                    >
-                      <span>Tắt hẹn giờ</span>
-                      {sleepTimer === 0 && <span>✓</span>}
-                    </button>
-                    {[15, 30, 45, 60].map((mins) => (
-                      <button
-                        key={mins}
-                        className={`timer-option ${sleepTimer === mins ? "selected" : ""}`}
-                        onClick={() => { setSleepTimer(mins); setTimerDropdownOpen(false); showControlNotice(`Hẹn giờ tắt sau ${mins} phút`); }}
-                        type="button"
-                      >
-                        <span>{mins} phút</span>
-                        {sleepTimer === mins && <span>✓</span>}
-                      </button>
-                    ))}
-                    <button
-                      className={`timer-option ${sleepTimer === -1 ? "selected" : ""}`}
-                      onClick={() => { setSleepTimer(-1); setTimerDropdownOpen(false); showControlNotice("Hẹn giờ · Hết bài hiện tại"); }}
-                      type="button"
-                    >
-                      <span>Hết bài hiện tại</span>
-                      {sleepTimer === -1 && <span>✓</span>}
-                    </button>
-                  </div>
-                )}
-              </div>
               <button
-                aria-label={zenMode ? "Thoát chế độ tập trung" : "Chế độ tập trung"}
-                aria-pressed={zenMode}
-                className={`zen-toggle-btn ${zenMode ? "active" : ""}`}
-                onClick={() => {
-                  const next = !zenMode;
-                  setZenMode(next);
-                  showControlNotice(`Chế độ tập trung · ${next ? "Đã bật (Bấm Esc hoặc F để thoát)" : "Đã tắt"}`);
-                }}
-                title={zenMode ? "Thoát Zen Mode (F)" : "Chế độ tập trung (F)"}
+                aria-label="Hẹn giờ tắt nhạc"
+                aria-pressed={sleepTimer !== 0}
+                className={`timer-toggle-btn ${sleepTimer !== 0 ? "active" : ""}`}
+                onClick={() => setTimerModalOpen(true)}
+                title="Hẹn giờ tắt nhạc"
                 type="button"
               >
-                <Icon name="zen" size={18} />
+                <Icon name="clock" size={18} />
+                {sleepTimer !== 0 && (
+                  <span className="timer-badge">
+                    {sleepTimer === -1
+                      ? "Hết bài"
+                      : sleepRemaining !== null
+                        ? `${Math.ceil(sleepRemaining / 60)}p`
+                        : `${sleepTimer}p`}
+                  </span>
+                )}
               </button>
             </div>
           </div>

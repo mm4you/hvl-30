@@ -268,17 +268,29 @@ export const LyricShareModal: React.FC<LyricShareModalProps> = ({
   };
 
   return (
-    <div className="modal-backdrop lyric-share-backdrop" onClick={onClose} role="presentation">
-      <div className="lyric-share-dialog" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true">
-        <div className="lyric-share-topbar">
-          <span className="lyric-share-title">
-            <strong>Tạo Thẻ Câu Rap</strong>
-            <small>Tỉ lệ 4:5 chuẩn mạng xã hội</small>
-          </span>
-          <button className="dialog-close" onClick={onClose} type="button" aria-label="Đóng">
-            ✕
-          </button>
-        </div>
+    <div className="modal-backdrop" onClick={onClose} role="presentation">
+      <section
+        aria-labelledby="lyric-share-title"
+        aria-modal="true"
+        className="install-dialog lyric-share-dialog"
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+      >
+        <button
+          aria-label="Đóng"
+          className="dialog-close"
+          onClick={onClose}
+          type="button"
+        >
+          ✕
+        </button>
+
+        <h2 id="lyric-share-title" style={{ fontSize: "21px", letterSpacing: "-0.03em" }}>
+          Thẻ Trích Dẫn Câu Rap
+        </h2>
+        <p className="dialog-copy" style={{ margin: "6px 0 16px" }}>
+          Tỉ lệ 4:5 chuẩn mạng xã hội. Chọn tối đa 3 câu để tạo ảnh.
+        </p>
 
         {/* 4:5 Aspect Ratio Card Preview */}
         <div className="lyric-card-stage">
@@ -307,9 +319,12 @@ export const LyricShareModal: React.FC<LyricShareModalProps> = ({
 
         {/* Line selector list */}
         <div className="lyric-selector-container">
-          <p className="selector-hint">Chọn tối đa 3 câu để đưa vào ảnh:</p>
+          <div className="selector-header-row">
+            <span className="selector-hint">Chọn câu rap muốn đưa vào ảnh:</span>
+            <span className="selector-count">{selectedLines.length}/3 câu</span>
+          </div>
           <div className="lyric-selector-list">
-            {validLyrics.slice(0, 30).map((l, i) => {
+            {validLyrics.map((l, i) => {
               const isSelected = selectedLines.includes(l.text);
               return (
                 <button
@@ -326,21 +341,16 @@ export const LyricShareModal: React.FC<LyricShareModalProps> = ({
           </div>
         </div>
 
-        {/* Actions */}
+        {/* Unified Action Buttons */}
         <div className="lyric-share-actions">
           <button className="share-btn secondary" onClick={handleCopy} disabled={isExporting} type="button">
-            {copied ? "✓ Đã sao chép" : "Sao chép ảnh"}
+            <span>{copied ? "Đã sao chép" : "Sao chép ảnh"}</span>
           </button>
           <button className="share-btn primary" onClick={handleDownload} disabled={isExporting} type="button">
-            {isExporting ? "Đang tạo ảnh..." : "Tải ảnh (PNG)"}
+            <span>{isExporting ? "Đang tạo ảnh..." : "Tải ảnh về máy"}</span>
           </button>
-          {typeof navigator !== "undefined" && "share" in navigator && (
-            <button className="share-btn share-native" onClick={handleShare} disabled={isExporting} type="button">
-              Chia sẻ
-            </button>
-          )}
         </div>
-      </div>
+      </section>
     </div>
   );
 };
