@@ -2095,7 +2095,7 @@ export default function Home() {
 
       <header className="topbar">
         <div className="brand">
-          <img alt="HVL 30" className="brand-logo" src="/favicon.svg" />
+          <img alt="HVL" className="brand-logo" src="/hvl-logo.svg" />
         </div>
         <div className="header-actions">
           {ACCOUNT_FEATURES_ENABLED && !sharedCatalogReady && <button

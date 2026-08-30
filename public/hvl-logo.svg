@@ -1,0 +1,10 @@
+<svg viewBox="72 166 416 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#FF3725">
+    <!-- H -->
+    <path d="M72 166H120V242H168V166H216V346H168V298H120V346H72V166Z"/>
+    <!-- V -->
+    <path d="M226 166H272L306 288L340 166H386L330 346H282L226 166Z"/>
+    <!-- L -->
+    <path d="M394 166H440V298H488V346H394V166Z"/>
+  </g>
+</svg>

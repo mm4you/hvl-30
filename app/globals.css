@@ -88,7 +88,8 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .topbar::before { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: linear-gradient(90deg, var(--accent), rgba(255,55,35,.12) 62%, transparent); content: ""; }
 
 .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.brand-logo, .about-brand-icon { display: block; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 9px; box-shadow: 0 0 14px rgba(255,55,35,0.2); }
+.brand-logo { display: block; flex: 0 0 auto; height: 28px; width: auto; }
+.about-brand-icon { display: block; flex: 0 0 auto; width: 40px; height: 40px; border-radius: 9px; }
 .brand-mark, .panel-icon {
   display: grid;
   flex: 0 0 auto;
