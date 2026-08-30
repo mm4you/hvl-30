@@ -2757,13 +2757,13 @@ export default function Home() {
       {/* ── Zen Mode Floating Exit Button ── */}
       {zenMode && (
         <button
-          aria-label="Thoát chế độ tập trung"
+          aria-label="Thoát chế độ tập trung (Esc)"
           className="zen-exit-pill"
           onClick={() => setZenMode(false)}
+          title="Thoát Zen Mode (Esc / F)"
           type="button"
         >
           <span className="zen-exit-icon">✕</span>
-          <span>Thoát Zen (Esc)</span>
         </button>
       )}
 

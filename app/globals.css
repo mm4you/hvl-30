@@ -1719,22 +1719,21 @@ footer a:hover { color: var(--accent); }
   border-color: rgba(255, 55, 35, 0.45) !important;
 }
 
-/* Floating Exit Button */
+/* Floating Exit Button: Tối giản, chỉ icon đóng */
 .zen-exit-pill {
   position: fixed;
-  top: max(20px, calc(env(safe-area-inset-top) + 12px));
+  top: max(20px, calc(env(safe-area-inset-top) + 14px));
   right: 24px;
   z-index: 120;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: rgba(18, 12, 12, 0.85);
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgba(22, 14, 14, 0.75);
   border: 1px solid rgba(255, 55, 35, 0.35);
-  border-radius: 999px;
+  border-radius: 50%;
   color: #f7f2ed;
-  font-size: 12px;
-  font-weight: 700;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(16px);
@@ -1743,16 +1742,26 @@ footer a:hover { color: var(--accent); }
 }
 
 .zen-exit-pill:hover {
-  background: rgba(255, 55, 35, 0.2);
+  background: rgba(255, 55, 35, 0.25);
   border-color: var(--accent);
   color: #ffffff;
-  transform: translateY(-1px);
+  transform: scale(1.08);
+}
+
+.zen-exit-pill:active {
+  transform: scale(0.94);
 }
 
 .zen-exit-icon {
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f7f2ed;
+  line-height: 1;
+  transition: color 150ms ease;
+}
+
+.zen-exit-pill:hover .zen-exit-icon {
   color: var(--accent);
-  font-weight: 900;
 }
 
 /* Viewport Layout in Zen Mode: Sân Khấu Điện Ảnh Rộng Rãi (Zero Clipping) */
