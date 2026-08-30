@@ -1824,9 +1824,14 @@ body.is-zen-mode .player-card {
   background: linear-gradient(135deg, rgba(28, 8, 7, 0.94), rgba(12, 8, 8, 0.92) 50%, rgba(6, 4, 4, 0.96)) !important;
   border: 1px solid rgba(255, 55, 35, 0.28) !important;
   border-radius: 28px !important;
+  overflow: hidden !important;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.9), 0 0 80px rgba(255, 55, 35, 0.16) !important;
   backdrop-filter: blur(40px) saturate(1.2) !important;
   box-sizing: border-box !important;
+}
+
+body.is-zen-mode .player-card::before {
+  display: none !important;
 }
 
 body.is-zen-mode .artwork-stage {
