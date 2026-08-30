@@ -267,8 +267,9 @@ button, input[type="range"] { -webkit-tap-highlight-color: transparent; }
 .about-links .spotify-link svg { color: #1ed760; }
 .about-links .youtube-link svg { color: #ff4a3d; }
 .about-links a:hover { border-color: rgba(255,55,35,.5); background: rgba(255,55,35,.1); }
-.about-statement { display: grid; grid-template-columns: minmax(150px, .36fr) minmax(0, 1.02fr) minmax(280px, .82fr); gap: clamp(22px, 4.5vw, 64px); align-items: start; padding: clamp(46px, 7vw, 88px) 0; border-top: 1px solid rgba(245,240,236,.15); border-bottom: 1px solid rgba(245,240,236,.15); }
-.about-statement h3 { margin: 0; max-width: 660px; color: #f4f0eb; font-size: clamp(38px, 5.5vw, 74px); line-height: .98; letter-spacing: -.065em; }
+.about-statement { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); gap: clamp(36px, 6vw, 88px); align-items: start; padding: clamp(46px, 7vw, 88px) 0; border-top: 1px solid rgba(245,240,236,.15); border-bottom: 1px solid rgba(245,240,236,.15); }
+.about-statement-header { display: flex; flex-direction: column; gap: 16px; }
+.about-statement h3 { margin: 0; color: #f4f0eb; font-size: clamp(38px, 5.2vw, 72px); line-height: .98; letter-spacing: -.065em; }
 .about-essay { display: grid; gap: 18px; }
 .about-essay p { margin: 0; color: #998e89; font-size: 13px; line-height: 1.75; }
 .about-essay strong { color: #eee7e1; }
@@ -1569,6 +1570,279 @@ footer a:hover { color: var(--accent); }
   padding: 1px 4px;
   border-radius: 10px;
   letter-spacing: -0.02em;
+}
+
+/* ── Lyrics Share Pill in Header ── */
+.lyrics-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.lyrics-share-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 55, 35, 0.12);
+  border: 1px solid rgba(255, 55, 35, 0.35);
+  color: #f7f2ed;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lyrics-share-pill svg {
+  display: block;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.lyrics-share-pill:hover {
+  background: rgba(255, 55, 35, 0.22);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.lyrics-share-pill:active {
+  transform: scale(0.96);
+}
+
+/* ── "Đôi Lời" Editorial Sections: Features & Shortcuts ── */
+.about-editorial-section {
+  padding: clamp(48px, 7vw, 92px) 0;
+  border-top: 1px solid rgba(245, 240, 236, 0.15);
+}
+
+.about-editorial-header {
+  margin-bottom: 32px;
+}
+
+.about-editorial-header h3 {
+  margin: 4px 0 0;
+  color: #f4f0eb;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+}
+
+.about-features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px 32px;
+}
+
+.about-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feature-num {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  padding-top: 2px;
+}
+
+.feature-info strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 750;
+  color: #f7f2ed;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.feature-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #998e89;
+  line-height: 1.6;
+}
+
+.about-shortcuts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px 24px;
+}
+
+.about-shortcut-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.about-shortcut-row span {
+  font-size: 13px;
+  color: #dcd4ce;
+  font-weight: 600;
+}
+
+.hvl-kbd {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.kbd-pair {
+  display: flex;
+  gap: 6px;
+}
+
+/* ── Zen Focus Stage (Hoàn Thiện, Cân Đối Tuyệt Đối) ── */
+.zen-toggle-btn {
+  position: relative;
+}
+
+.zen-toggle-btn.active {
+  color: var(--accent) !important;
+  border-color: rgba(255, 55, 35, 0.45) !important;
+}
+
+/* Floating Exit Button */
+.zen-exit-pill {
+  position: fixed;
+  top: max(20px, calc(env(safe-area-inset-top) + 12px));
+  right: 24px;
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(18, 12, 12, 0.85);
+  border: 1px solid rgba(255, 55, 35, 0.35);
+  border-radius: 999px;
+  color: #f7f2ed;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(16px);
+  transition: all 180ms ease;
+  animation: control-notice-in 160ms ease-out;
+}
+
+.zen-exit-pill:hover {
+  background: rgba(255, 55, 35, 0.2);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.zen-exit-icon {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+/* Viewport Layout in Zen Mode */
+body.is-zen-mode {
+  overflow: hidden;
+}
+
+body.is-zen-mode .topbar,
+body.is-zen-mode .playlist-section,
+body.is-zen-mode .library-panel,
+body.is-zen-mode footer,
+body.is-zen-mode .control-notice {
+  display: none !important;
+}
+
+body.is-zen-mode .app-shell {
+  min-height: 100dvh;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+}
+
+body.is-zen-mode .player-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  min-height: auto !important;
+  margin: 0 auto !important;
+  padding: 34px 28px !important;
+  background: rgba(14, 8, 8, 0.88) !important;
+  border: 1px solid rgba(255, 55, 35, 0.3) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 70px rgba(255, 55, 35, 0.16) !important;
+  backdrop-filter: blur(40px) saturate(1.25) !important;
+}
+
+body.is-zen-mode .artwork-stage {
+  width: 100% !important;
+  max-width: 360px !important;
+  margin: 0 auto 20px !important;
+}
+
+body.is-zen-mode .artwork {
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 55, 35, 0.25) !important;
+}
+
+body.is-zen-mode .player-info {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+body.is-zen-mode .track-title-row {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+body.is-zen-mode .track-artist {
+  text-align: center !important;
+}
+
+body.is-zen-mode .track-badges {
+  justify-content: center !important;
+}
+
+body.is-zen-mode .timeline {
+  width: 100% !important;
+}
+
+body.is-zen-mode .controls {
+  justify-content: center !important;
+}
+
+body.is-zen-mode .volume-control {
+  justify-content: center !important;
+  margin: 6px auto !important;
+}
+
+body.is-zen-mode .playback-options-wrap {
+  justify-content: center !important;
+  margin-top: 12px !important;
 }
 
 

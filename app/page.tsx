@@ -664,6 +664,7 @@ export default function Home() {
   const [isBuffering, setIsBuffering] = useState(false);
   const [shuffleEnabled, setShuffleEnabled] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [zenMode, setZenMode] = useState(false);
   const [sleepTimer, setSleepTimer] = useState<number>(0);
   const [sleepRemaining, setSleepRemaining] = useState<number | null>(null);
   const [timerModalOpen, setTimerModalOpen] = useState(false);
@@ -1957,7 +1958,17 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [sleepTimer]);
 
-  // Desktop Keyboard Shortcuts (Space, ArrowLeft, ArrowRight, J, K, L, M, Escape)
+  // Zen Mode body class
+  useEffect(() => {
+    if (zenMode) {
+      document.body.classList.add("is-zen-mode");
+    } else {
+      document.body.classList.remove("is-zen-mode");
+    }
+    return () => { document.body.classList.remove("is-zen-mode"); };
+  }, [zenMode]);
+
+  // Desktop Keyboard Shortcuts (Space, ArrowLeft, ArrowRight, J, K, L, M, F, Escape)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
@@ -1988,7 +1999,11 @@ export default function Home() {
       } else if (e.code === "KeyM") {
         e.preventDefault();
         toggleMute();
+      } else if (e.code === "KeyF") {
+        e.preventDefault();
+        setZenMode((z) => !z);
       } else if (e.code === "Escape") {
+        if (zenMode) setZenMode(false);
         if (timerModalOpen) setTimerModalOpen(false);
         if (shareModalOpen) setShareModalOpen(false);
       }
@@ -1996,7 +2011,7 @@ export default function Home() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [duration, playNext, playPrevious, shareModalOpen, timerModalOpen]);
+  }, [duration, playNext, playPrevious, shareModalOpen, timerModalOpen, zenMode]);
 
   useEffect(() => {
     if (!("mediaSession" in navigator)) return;
@@ -2233,8 +2248,10 @@ export default function Home() {
               </header>
 
               <section className="about-statement">
-                <p className="eyebrow">MCK · HVL · VĂN HOÁ RAP</p>
-                <h3>Có những điều người trẻ chỉ biết nói ra bằng rap.</h3>
+                <div className="about-statement-header">
+                  <p className="eyebrow">MCK · HVL · VĂN HOÁ RAP</p>
+                  <h3>Có những điều người trẻ chỉ biết nói ra bằng rap.</h3>
+                </div>
                 <div className="about-essay">
                   <p>Có một nỗi ấm ức rất khó gọi tên trong người trẻ hôm nay. Họ được bảo phải ngoan hơn, bình thường hơn, dễ nghe hơn. Họ đi qua áp lực, cô đơn, tiền bạc, tình yêu và cảm giác không ai thật sự hiểu mình. Nhiều điều không thể kể với gia đình, không thể nói trong lớp học, cũng không vừa vặn với một dòng trạng thái đẹp đẽ. Rap trở thành nơi họ được phép nói thật, kể cả khi sự thật ấy xấu xí, vụng về và đầy vết xước.</p>
                   <p>Vì vậy, nỗi lo rap đang mất chất không chỉ nằm ở âm thanh. Nó nằm trong cảm giác mọi góc cạnh dần bị mài phẳng để vừa với thuật toán, nhãn hàng và những khuôn mẫu an toàn. Khi một tiếng nói từng thuộc về bên lề bước vào trung tâm, người nghe vừa tự hào vừa sợ rằng nó sẽ quên mất vì sao mình đã cất tiếng từ đầu.</p>
@@ -2275,6 +2292,90 @@ export default function Home() {
                   {['marzuz', 'Tage', 'A$AP Ướt Mi', 'Tùng Dương', 'Obito', 'THANHDRAW', 'RPT Orijinn'].map((name) => <span key={name}>{name}</span>)}
                 </div>
                 <p>30 file FLAC được phát từ kho riêng của HVL 30, giữ nguyên định dạng và không cần tài khoản.</p>
+              </section>
+
+              <section className="about-editorial-section" aria-labelledby="features-heading">
+                <div className="about-editorial-header">
+                  <p className="eyebrow">ĐẶC TÍNH NỀN TẢNG</p>
+                  <h3 id="features-heading">Tính Năng Web App</h3>
+                </div>
+                <div className="about-features-list">
+                  <div className="about-feature-item">
+                    <span className="feature-num">01</span>
+                    <div className="feature-info">
+                      <strong>30 Bản FLAC Lossless 24-bit</strong>
+                      <p>Âm thanh phòng thu nguyên bản phát trực tiếp từ kho độc quyền, giữ trọn độ nét từng nốt nhạc.</p>
+                    </div>
+                  </div>
+                  <div className="about-feature-item">
+                    <span className="feature-num">02</span>
+                    <div className="feature-info">
+                      <strong>Lời Bài Hát Đồng Bộ (Synced Lyrics)</strong>
+                      <p>Chữ chạy theo giọng hát thời gian thực. Chạm vào câu rap bất kỳ để tua nhạc chính xác.</p>
+                    </div>
+                  </div>
+                  <div className="about-feature-item">
+                    <span className="feature-num">03</span>
+                    <div className="feature-info">
+                      <strong>Thẻ Trích Dẫn Câu Rap 4:5</strong>
+                      <p>Xuất ảnh trích dẫn câu rap tỷ lệ 4:5 chuẩn mạng xã hội với artwork và monogram HVL.</p>
+                    </div>
+                  </div>
+                  <div className="about-feature-item">
+                    <span className="feature-num">04</span>
+                    <div className="feature-info">
+                      <strong>Hẹn Giờ Tắt Nhạc (Sleep Timer)</strong>
+                      <p>Tự động dừng sau 15 - 60 phút hoặc khi hết bài hiện tại để bạn yên tâm chìm vào giấc ngủ.</p>
+                    </div>
+                  </div>
+                  <div className="about-feature-item">
+                    <span className="feature-num">05</span>
+                    <div className="feature-info">
+                      <strong>Chế Đô Tập Trung (Zen Mode)</strong>
+                      <p>Đưa ảnh bìa và nhịp nhạc vào trung tâm màn hình, ẩn mọi chi tiết thừa để thưởng thức trọn vẹn.</p>
+                    </div>
+                  </div>
+                  <div className="about-feature-item">
+                    <span className="feature-num">06</span>
+                    <div className="feature-info">
+                      <strong>Cài Đặt PWA Mở Tức Thì</strong>
+                      <p>Lưu về màn hình chính trên iOS, Android và PC để nghe nhạc mượt mà không cần mở trình duyệt.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section className="about-editorial-section" aria-labelledby="shortcuts-heading">
+                <div className="about-editorial-header">
+                  <p className="eyebrow">ĐIỀU KHIỂN NHANH</p>
+                  <h3 id="shortcuts-heading">Phím Tắt Máy Tính</h3>
+                </div>
+                <div className="about-shortcuts-grid">
+                  <div className="about-shortcut-row">
+                    <span>Phát / Tạm dừng</span>
+                    <kbd className="hvl-kbd">Space</kbd>
+                  </div>
+                  <div className="about-shortcut-row">
+                    <span>Tua lùi / Tiến 5 giây</span>
+                    <span className="kbd-pair"><kbd className="hvl-kbd">←</kbd><kbd className="hvl-kbd">→</kbd></span>
+                  </div>
+                  <div className="about-shortcut-row">
+                    <span>Bài trước / Bài sau</span>
+                    <span className="kbd-pair"><kbd className="hvl-kbd">J</kbd><kbd className="hvl-kbd">K</kbd></span>
+                  </div>
+                  <div className="about-shortcut-row">
+                    <span>Bật / Tắt lời bài hát</span>
+                    <kbd className="hvl-kbd">L</kbd>
+                  </div>
+                  <div className="about-shortcut-row">
+                    <span>Bật / Tắt âm thanh</span>
+                    <kbd className="hvl-kbd">M</kbd>
+                  </div>
+                  <div className="about-shortcut-row">
+                    <span>Chế độ tập trung (Zen)</span>
+                    <kbd className="hvl-kbd">F</kbd>
+                  </div>
+                </div>
               </section>
             </div>
           </section>
@@ -2634,10 +2735,37 @@ export default function Home() {
                   </span>
                 )}
               </button>
+              <button
+                aria-label={zenMode ? "Thoát chế độ tập trung (F)" : "Chế độ tập trung (F)"}
+                aria-pressed={zenMode}
+                className={`icon-button zen-toggle-btn ${zenMode ? "active" : ""}`}
+                onClick={() => {
+                  const next = !zenMode;
+                  setZenMode(next);
+                  showControlNotice(`Chế độ tập trung · ${next ? "Bật (F / Esc để thoát)" : "Tắt"}`);
+                }}
+                title={zenMode ? "Thoát Zen Mode (F)" : "Chế độ tập trung (F)"}
+                type="button"
+              >
+                <Icon name="zen" size={18} />
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── Zen Mode Floating Exit Button ── */}
+      {zenMode && (
+        <button
+          aria-label="Thoát chế độ tập trung"
+          className="zen-exit-pill"
+          onClick={() => setZenMode(false)}
+          type="button"
+        >
+          <span className="zen-exit-icon">✕</span>
+          <span>Thoát Zen (Esc)</span>
+        </button>
+      )}
 
       {message && <p className="status-message" role="status">{message}</p>}
 

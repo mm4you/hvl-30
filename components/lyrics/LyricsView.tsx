@@ -84,45 +84,47 @@ export const LyricsView = React.memo(function LyricsView({
           <h3>{trackTitle || trackLyrics?.title || "HVL 30"}</h3>
           {trackArtist && <p className="lyrics-artist">{trackArtist}</p>}
         </div>
-        {onOpenShare && (
-          <button
-            type="button"
-            className="lyrics-share-btn"
-            onClick={onOpenShare}
-            aria-label="Tạo thẻ câu rap"
-            title="Tạo thẻ câu rap 4:5"
-          >
-            <svg aria-hidden="true" fill="none" height="14" viewBox="0 0 24 24" width="14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-              <polyline points="16 6 12 2 8 6"/>
-              <line x1="12" y1="2" x2="12" y2="15"/>
-            </svg>
-            <span>Tạo thẻ</span>
-          </button>
-        )}
-        {onClose && (
-          <button
-            type="button"
-            className="lyrics-close-btn"
-            onClick={onClose}
-            aria-label="Đóng lời bài hát"
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="18"
-              viewBox="0 0 24 24"
-              width="18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        <div className="lyrics-header-actions">
+          {onOpenShare && (
+            <button
+              type="button"
+              className="lyrics-share-pill"
+              onClick={onOpenShare}
+              aria-label="Tạo thẻ câu rap"
+              title="Tạo thẻ trích dẫn 4:5"
             >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        )}
+              <svg aria-hidden="true" fill="none" height="13" viewBox="0 0 24 24" width="13" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                <polyline points="16 6 12 2 8 6"/>
+                <line x1="12" y1="2" x2="12" y2="15"/>
+              </svg>
+              <span>Tạo thẻ</span>
+            </button>
+          )}
+          {onClose && (
+            <button
+              type="button"
+              className="lyrics-close-btn"
+              onClick={onClose}
+              aria-label="Đóng lời bài hát"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="18"
+                viewBox="0 0 24 24"
+                width="18"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="lyrics-view-body">
