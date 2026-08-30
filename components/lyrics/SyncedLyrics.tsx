@@ -65,12 +65,20 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
   }, [activeIndex, isUserScrolling]);
 
   const handleLineSeek = useCallback(
-    (time: number) => {
-      isSeekingRef.current = true;
+    (time: number, targetIndex: number) => {
+      const targetElement = lineRefs.current[targetIndex];
+      const container = containerRef.current;
+      if (targetElement && container) {
+        const targetRect = targetElement.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const relativeTop = targetRect.top - containerRect.top + container.scrollTop;
+        const desiredScrollTop = relativeTop - (container.clientHeight * 0.42) + (targetElement.clientHeight / 2);
+        container.scrollTo({
+          top: Math.max(0, desiredScrollTop),
+          behavior: "smooth",
+        });
+      }
       onSeek(time);
-      setTimeout(() => {
-        isSeekingRef.current = false;
-      }, 350);
     },
     [onSeek]
   );
@@ -93,6 +101,7 @@ export const SyncedLyrics = React.memo(function SyncedLyrics({
             >
               <LyricLine
                 line={line}
+                index={index}
                 isActive={isActive}
                 isPast={isPast}
                 isUpcoming={isUpcoming}

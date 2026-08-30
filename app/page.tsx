@@ -2027,8 +2027,17 @@ export default function Home() {
   const seek = (value: number) => {
     const audio = audioRef.current;
     if (!audio || !duration) return;
-    audio.currentTime = value;
-    setCurrentTime(value);
+    const target = Math.max(0, Math.min(value, duration));
+    setCurrentTime(target);
+    if ("fastSeek" in audio && typeof (audio as HTMLAudioElement & { fastSeek?: (t: number) => void }).fastSeek === "function") {
+      try {
+        (audio as HTMLAudioElement & { fastSeek: (t: number) => void }).fastSeek(target);
+      } catch {
+        audio.currentTime = target;
+      }
+    } else {
+      audio.currentTime = target;
+    }
   };
 
   const toggleMute = () => {

@@ -3,15 +3,17 @@ import type { SyncedLyricLine } from "@/data/lyrics/types";
 
 type LyricLineProps = {
   line: SyncedLyricLine;
+  index: number;
   isActive: boolean;
   isPast: boolean;
   isUpcoming: boolean;
-  onSeek: (time: number) => void;
+  onSeek: (time: number, index: number) => void;
   progress?: number;
 };
 
 export const LyricLine = React.memo(function LyricLine({
   line,
+  index,
   isActive,
   isPast,
   isUpcoming,
@@ -36,7 +38,7 @@ export const LyricLine = React.memo(function LyricLine({
     <button
       type="button"
       className={`lyric-line ${isActive ? "active" : ""} ${isPast ? "past" : ""} ${isUpcoming ? "upcoming" : ""}`}
-      onClick={() => onSeek(line.time)}
+      onClick={() => onSeek(line.time, index)}
       aria-label={`Tua đến ${line.text}`}
       aria-current={isActive ? "true" : undefined}
     >
