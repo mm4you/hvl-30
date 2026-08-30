@@ -657,6 +657,7 @@ export default function Home() {
   const [message, setMessage] = useState("");
   const [controlNotice, setControlNotice] = useState("");
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [artworkPreviewIndex, setArtworkPreviewIndex] = useState<number | null>(null);
   const [driveMetadata, setDriveMetadata] = useState<DriveMetadata | null>(null);
   const [readingMetadata, setReadingMetadata] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
@@ -746,6 +747,22 @@ export default function Home() {
     document.body.style.overflow = "hidden";
     return () => { document.body.style.overflow = previousOverflow; };
   }, [aboutOpen]);
+
+  useEffect(() => {
+    if (artworkPreviewIndex === null) return;
+    const totalCount = sharedCatalogTracks.length || playlist.length || 30;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setArtworkPreviewIndex((prev) => (prev !== null ? (prev - 1 + totalCount) % totalCount : 0));
+      } else if (e.key === "ArrowRight") {
+        setArtworkPreviewIndex((prev) => (prev !== null ? (prev + 1) % totalCount : 0));
+      } else if (e.key === "Escape") {
+        setArtworkPreviewIndex(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [artworkPreviewIndex, sharedCatalogTracks.length, playlist.length]);
 
   useEffect(() => {
     if (!hydrated || !sharedCatalogTracks.length || aboutAutoOpenedRef.current) return;
@@ -2395,6 +2412,8 @@ export default function Home() {
                   <div className="about-links">
                     <a className="spotify-link" href="https://open.spotify.com/album/36e3pjcLAYabHjXlaSmWOe" rel="noreferrer" target="_blank"><Icon name="spotify" size={18} /><span>Spotify</span></a>
                     <a className="youtube-link" href="https://www.youtube.com/playlist?list=PLG5bpInXG8Sc" rel="noreferrer" target="_blank"><Icon name="youtube" size={18} /><span>YouTube</span></a>
+                    <a className="drive-link" href="https://drive.google.com/drive/folders/1EgLj3GXTI0oIMAlcZDXVnyacR8uW8iVk" rel="noreferrer" target="_blank"><Icon name="drive" size={18} /><span>Drive Artwork</span></a>
+                    <a className="github-link" href="https://github.com/mm4you/hvl-30" rel="noreferrer" target="_blank"><Icon name="github" size={18} /><span>mm4you/hvl-30</span></a>
                   </div>
                 </div>
                 <div aria-hidden="true" className="about-art-stack">
@@ -2426,19 +2445,64 @@ export default function Home() {
 
               <section className="about-track-section" aria-labelledby="about-track-title">
                 <div className="about-section-heading">
-                  <div><p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p><h3 id="about-track-title">Danh sách album</h3></div>
-                  <p>Chạm vào một artwork để nghe bài đó.</p>
+                  <div>
+                    <p className="eyebrow">30 ARTWORK / 30 CA KHÚC</p>
+                    <h3 id="about-track-title">Bộ Sưu Tập 30 Artwork</h3>
+                  </div>
+                  <div className="about-heading-btns">
+                    <button
+                      type="button"
+                      className="about-gallery-btn"
+                      onClick={() => setArtworkPreviewIndex(0)}
+                      title="Mở chế độ xem và tải trọn vẹn 30 artwork"
+                    >
+                      <svg fill="none" height="14" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="14"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                      <span>Xem & Lưu 30 Artwork</span>
+                    </button>
+                    <a
+                      className="about-drive-link-btn"
+                      href="https://drive.google.com/drive/folders/1EgLj3GXTI0oIMAlcZDXVnyacR8uW8iVk"
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Mở thư mục Google Drive trọn bộ 30 Artwork"
+                    >
+                      <Icon name="drive" size={14} />
+                      <span>Thư mục Drive</span>
+                    </a>
+                  </div>
                 </div>
+                <p className="about-track-tip">Chạm vào ảnh để phóng to & tải về máy. Bấm tên bài để phát nhạc.</p>
                 <ol className="about-track-grid">
                   {albumTracks.map((track, index) => (
                     <li key={track.id}>
-                      <button onClick={() => { closeAbout(); playFromActivePlaylist(index); }} type="button">
-                        <span className="about-track-art">
-                          {track.artworkUrl && <img alt={`Artwork ${track.title}`} loading="lazy" src={track.artworkUrl} />}
-                          <small>{String(index + 1).padStart(2, "0")}</small>
-                        </span>
-                        <span className="about-track-copy"><strong>{track.title}</strong><small>{track.artist}</small></span>
-                      </button>
+                      <div className="about-track-card">
+                        <button
+                          className="about-track-art-btn"
+                          onClick={() => setArtworkPreviewIndex(index)}
+                          type="button"
+                          title={`Xem phóng to và lưu Artwork ${track.title}`}
+                          aria-label={`Xem ảnh lớn và tải về ${track.title}`}
+                        >
+                          <span className="about-track-art">
+                            {track.artworkUrl && <img alt={`Artwork ${track.title}`} loading="lazy" src={track.artworkUrl} />}
+                            <small>{String(index + 1).padStart(2, "0")}</small>
+                            <span className="about-art-zoom-hint" aria-hidden="true">
+                              <svg fill="none" height="14" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="14"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            </span>
+                          </span>
+                        </button>
+                        <button
+                          className="about-track-play-btn"
+                          onClick={() => { closeAbout(); playFromActivePlaylist(index); }}
+                          type="button"
+                          title={`Phát bài ${track.title}`}
+                        >
+                          <span className="about-track-copy">
+                            <strong>{track.title}</strong>
+                            <small>{track.artist}</small>
+                          </span>
+                        </button>
+                      </div>
                     </li>
                   ))}
                 </ol>
@@ -2553,8 +2617,131 @@ export default function Home() {
                   </div>
                 </div>
               </section>
+
+              <section className="about-repo-card" aria-label="Mã nguồn dự án">
+                <div className="about-repo-info">
+                  <div className="about-repo-badge">
+                    <Icon name="github" size={24} />
+                  </div>
+                  <div className="about-repo-text">
+                    <p className="eyebrow">OPEN SOURCE & ARCHIVE</p>
+                    <h4>Mã Nguồn Mở Dự Án HVL 30</h4>
+                    <p>Kho lưu trữ mã nguồn mở, tài liệu kỹ thuật và đóng góp lời bài hát tại GitHub.</p>
+                  </div>
+                </div>
+                <a
+                  className="about-repo-link"
+                  href="https://github.com/mm4you/hvl-30"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <span>mm4you/hvl-30</span>
+                  <svg fill="none" height="15" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="15"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                </a>
+              </section>
             </div>
           </section>
+        </div>
+      )}
+
+      {/* ── 30 Artwork Lightbox & Downloader Modal ── */}
+      {artworkPreviewIndex !== null && (
+        <div
+          className="modal-backdrop artwork-preview-backdrop"
+          onClick={() => setArtworkPreviewIndex(null)}
+          role="presentation"
+        >
+          <div
+            className="artwork-preview-dialog"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-label="Xem artwork chi tiết"
+          >
+            <div className="artwork-preview-top">
+              <span className="eyebrow">ARTWORK {String(artworkPreviewIndex + 1).padStart(2, "0")} / 30</span>
+              <button
+                type="button"
+                className="dialog-close"
+                onClick={() => setArtworkPreviewIndex(null)}
+                aria-label="Đóng"
+              >
+                <Icon name="close" size={19} />
+              </button>
+            </div>
+
+            <div className="artwork-preview-stage">
+              <button
+                type="button"
+                className="artwork-preview-nav prev"
+                onClick={() => setArtworkPreviewIndex((prev) => (prev !== null ? (prev - 1 + albumTracks.length) % albumTracks.length : 0))}
+                aria-label="Artwork trước"
+                title="Phím mũi tên trái"
+              >
+                <svg fill="none" height="24" stroke="currentColor" strokeWidth="2.4" viewBox="0 0 24 24" width="24"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+
+              <div className="artwork-preview-image-wrap">
+                <img
+                  src={albumTracks[artworkPreviewIndex]?.artworkUrl || `/artwork/${String(artworkPreviewIndex + 1).padStart(2, "0")}.jpg`}
+                  alt={`Artwork ${albumTracks[artworkPreviewIndex]?.title}`}
+                  className="artwork-preview-img"
+                />
+              </div>
+
+              <button
+                type="button"
+                className="artwork-preview-nav next"
+                onClick={() => setArtworkPreviewIndex((prev) => (prev !== null ? (prev + 1) % albumTracks.length : 0))}
+                aria-label="Artwork tiếp theo"
+                title="Phím mũi tên phải"
+              >
+                <svg fill="none" height="24" stroke="currentColor" strokeWidth="2.4" viewBox="0 0 24 24" width="24"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+
+            <div className="artwork-preview-meta">
+              <div className="artwork-preview-info">
+                <h4>{albumTracks[artworkPreviewIndex]?.title}</h4>
+                <p>{albumTracks[artworkPreviewIndex]?.artist}</p>
+              </div>
+              <div className="artwork-preview-actions">
+                <a
+                  href={albumTracks[artworkPreviewIndex]?.artworkUrl || `/artwork/${String(artworkPreviewIndex + 1).padStart(2, "0")}.jpg`}
+                  download={`HVL-30-${String(artworkPreviewIndex + 1).padStart(2, "0")}-${albumTracks[artworkPreviewIndex]?.title}.jpg`}
+                  className="artwork-download-btn"
+                  title="Tải ảnh gốc độ nét cao về máy"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg fill="none" height="16" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" width="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  <span>Lưu Ảnh ({String(artworkPreviewIndex + 1).padStart(2, "0")}.jpg)</span>
+                </a>
+                <a
+                  href="https://drive.google.com/drive/folders/1EgLj3GXTI0oIMAlcZDXVnyacR8uW8iVk"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="artwork-drive-btn"
+                  title="Mở toàn bộ thư mục Google Drive chứa 30 ảnh gốc"
+                >
+                  <Icon name="drive" size={15} />
+                  <span>Mở Drive Bộ Ảnh</span>
+                </a>
+                <button
+                  type="button"
+                  className="artwork-play-btn"
+                  onClick={() => {
+                    const idx = artworkPreviewIndex;
+                    setArtworkPreviewIndex(null);
+                    closeAbout();
+                    playFromActivePlaylist(idx);
+                  }}
+                >
+                  <Icon name="music" size={15} />
+                  <span>Phát Bài Này</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
 
