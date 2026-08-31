@@ -2050,21 +2050,18 @@ export default function Home() {
     playAt(index);
   };
 
-  const seek = (value: number) => {
+  const seek = useCallback((value: number) => {
     const audio = audioRef.current;
-    if (!audio || !duration) return;
+    if (!audio || !duration || Number.isNaN(value)) return;
     const target = Math.max(0, Math.min(value, duration));
     setCurrentTime(target);
-    if ("fastSeek" in audio && typeof (audio as HTMLAudioElement & { fastSeek?: (t: number) => void }).fastSeek === "function") {
-      try {
-        (audio as HTMLAudioElement & { fastSeek: (t: number) => void }).fastSeek(target);
-      } catch {
-        audio.currentTime = target;
-      }
-    } else {
+    setScrubbingTime(null);
+    try {
       audio.currentTime = target;
+    } catch {
+      // Ignore transient seek errors
     }
-  };
+  }, [duration]);
 
   const toggleMute = () => {
     if (volume > 0.01) {
@@ -2286,7 +2283,8 @@ export default function Home() {
     }
   };
 
-  const progress = duration ? Math.min(100, (currentTime / duration) * 100) : 0;
+  const effectiveCurrentTime = scrubbingTime !== null ? scrubbingTime : currentTime;
+  const progress = duration ? Math.min(100, (effectiveCurrentTime / duration) * 100) : 0;
   const volumeProgress = Math.round(volume * 100);
   const accountLabel = !syncUser ? "Đăng nhập" : syncUser.role === "admin" ? "Admin" : "Tài khoản";
   const sharedCatalogReady = true;
@@ -2967,12 +2965,31 @@ export default function Home() {
               disabled={!duration}
               max={duration || 0}
               min="0"
-              onChange={(event) => seek(Number(event.target.value))}
+              step="any"
+              onInput={(event) => {
+                const val = Number(event.currentTarget.value);
+                if (Number.isFinite(val)) setScrubbingTime(val);
+              }}
+              onChange={(event) => {
+                const val = Number(event.target.value);
+                seek(val);
+              }}
+              onPointerUp={(event) => {
+                const val = Number(event.currentTarget.value);
+                seek(val);
+              }}
+              onTouchEnd={(event) => {
+                const val = Number(event.currentTarget.value);
+                seek(val);
+              }}
               style={{ "--progress": `${progress}%` } as CSSProperties}
               type="range"
-              value={Math.min(currentTime, duration || 0)}
+              value={Math.min(effectiveCurrentTime, duration || 0)}
             />
-            <div className="time-row"><span>{formatTime(currentTime)}</span><span>{formatTime(duration)}</span></div>
+            <div className="time-row">
+              <span>{formatTime(effectiveCurrentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
           </div>
 
           <div className="controls">

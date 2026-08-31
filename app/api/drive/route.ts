@@ -495,6 +495,11 @@ function streamedResponse(upstream: Response, headOnly = false) {
     const value = upstream.headers.get(name);
     if (value) headers.set(name, value);
   }
+  headers.set("Accept-Ranges", "bytes");
+  headers.set("Access-Control-Allow-Origin", "*");
+  headers.set("Access-Control-Allow-Methods", "GET, HEAD, OPTIONS");
+  headers.set("Access-Control-Allow-Headers", "Range, Accept, Content-Type, Origin");
+  headers.set("Access-Control-Expose-Headers", "Content-Range, Accept-Ranges, Content-Length, Content-Type, ETag, Last-Modified");
   headers.set("Content-Type", audioType(upstream.headers.get("content-type"), upstream.headers.get("content-disposition")));
   headers.set("Content-Disposition", "inline");
   headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, stale-while-revalidate=86400, immutable");
@@ -556,4 +561,17 @@ export async function GET(request: Request) {
 
 export async function HEAD(request: Request) {
   return handle(request, true);
+}
+
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+      "Access-Control-Allow-Headers": "Range, Accept, Content-Type, Origin",
+      "Access-Control-Expose-Headers": "Content-Range, Accept-Ranges, Content-Length, Content-Type, ETag, Last-Modified",
+      "Access-Control-Max-Age": "86400",
+    },
+  });
 }
