@@ -2945,6 +2945,7 @@ export default function Home() {
                   key={currentTrack?.id}
                   alt={`Artwork ${currentTrack.title}`}
                   className="artwork-image"
+                  decoding="async"
                   src={currentTrack.artworkUrl}
                 />
               ) : (
