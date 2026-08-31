@@ -634,6 +634,7 @@ export default function Home() {
   const aboutAutoOpenedRef = useRef(false);
   const ambientRef = useRef<HTMLDivElement>(null);
   const blastRef = useRef<HTMLDivElement>(null);
+  const stageBackdropRef = useRef<HTMLDivElement>(null);
   const beatRafRef = useRef<number>(0);
   const [playlists, setPlaylists] = useState<MusicPlaylist[]>([
     { id: "default", name: "Playlist của tôi", tracks: [] },
@@ -915,6 +916,7 @@ export default function Home() {
     const audio = audioRef.current;
     const el = ambientRef.current;
     const blastEl = blastRef.current;
+    const stageEl = stageBackdropRef.current;
     if (!audio || !el) return;
 
     let running = true;
@@ -983,6 +985,9 @@ export default function Home() {
         if (blastEl) {
           blastEl.style.setProperty("--bass", currentBass.toFixed(3));
         }
+        if (stageEl) {
+          stageEl.style.setProperty("--bass", currentBass.toFixed(3));
+        }
       } else {
         // Paused: smoothly fade out to zero
         currentBass += (0 - currentBass) * 0.12;
@@ -990,6 +995,9 @@ export default function Home() {
         el.style.setProperty("--beat", currentBeat < 0.01 ? "0" : currentBeat.toFixed(3));
         if (blastEl) {
           blastEl.style.setProperty("--bass", currentBass < 0.01 ? "0" : currentBass.toFixed(3));
+        }
+        if (stageEl) {
+          stageEl.style.setProperty("--bass", currentBass < 0.01 ? "0" : currentBass.toFixed(3));
         }
       }
 
@@ -2901,6 +2909,11 @@ export default function Home() {
 
       <section className={`player-card ${isPlaying ? "is-playing" : ""}`} aria-label="Trình phát nhạc">
         <div className="artwork-stage">
+          <div
+            ref={stageBackdropRef}
+            aria-hidden="true"
+            className={`artwork-ambient-stage ${isPlaying ? "is-playing" : ""}`}
+          />
           <div
             ref={blastRef}
             aria-hidden="true"

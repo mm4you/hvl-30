@@ -442,7 +442,27 @@ button { color: inherit; }
   overflow: visible !important;
 }
 
-/* Organic Stage Ambient Aura: 2 Lớp Âm Học Chuẩn Sân Khấu (Soft Feathered Ellipse) */
+/* Organic Stage Ambient Aura: 3 Lớp Âm Học Chuẩn Sân Khấu (Soft Feathered Ellipse) */
+.artwork-ambient-stage {
+  position: absolute;
+  inset: -65px -85px;
+  border-radius: 45px;
+  background: radial-gradient(ellipse 72% 64% at 50% 50%, rgba(255, 30, 10, 0.45) 0%, rgba(220, 15, 5, 0.16) 55%, transparent 88%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transform: scale(0.92) translateZ(0);
+  filter: blur(50px);
+  transition: opacity 180ms ease-out, transform 220ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.artwork-ambient-stage.is-playing {
+  /* Lớp 3: Deep Atmospheric Stage Glow - Ánh đèn sân khấu hắt tường siêu sâu */
+  opacity: calc(0.35 + var(--bass, 0) * 0.65);
+  transform: scale(calc(1.0 + var(--bass, 0) * 0.12)) translateZ(0);
+}
+
 .artwork-ambient-blast {
   position: absolute;
   inset: -28px -36px;
@@ -504,12 +524,12 @@ button { color: inherit; }
 /* ── Cinematic Track Transition Animations (GPU Accelerated) ── */
 @keyframes artworkCinematicTransition {
   0% {
-    opacity: 0.1;
-    transform: scale(0.92) translateZ(0);
-    filter: blur(12px) brightness(0.8);
+    opacity: 0.05;
+    transform: scale(0.88) translateZ(0);
+    filter: blur(16px) brightness(0.7);
   }
-  50% {
-    filter: blur(2px) brightness(1.06);
+  45% {
+    filter: blur(3px) brightness(1.08);
   }
   100% {
     opacity: 1;
@@ -523,7 +543,7 @@ button { color: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: artworkCinematicTransition 650ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: artworkCinematicTransition 950ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity, filter;
 }
 
@@ -535,7 +555,7 @@ button { color: inherit; }
 @keyframes numberSlideUp {
   0% {
     opacity: 0;
-    transform: translateY(12px) translateZ(0);
+    transform: translateY(16px) translateZ(0);
   }
   100% {
     opacity: 0.82;
@@ -552,7 +572,7 @@ button { color: inherit; }
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.1em;
-  animation: numberSlideUp 550ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: numberSlideUp 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
 }
 .artwork-aurora {
