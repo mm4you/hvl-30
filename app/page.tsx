@@ -2930,11 +2930,16 @@ export default function Home() {
           ) : (
             <>
               {currentTrack?.artworkUrl ? (
-                <img alt={`Artwork ${currentTrack.title}`} className="artwork-image" src={currentTrack.artworkUrl} />
+                <img
+                  key={currentTrack?.id}
+                  alt={`Artwork ${currentTrack.title}`}
+                  className="artwork-image"
+                  src={currentTrack.artworkUrl}
+                />
               ) : (
                 <div aria-hidden="true" className="artwork-fallback"><strong>HVL</strong><span>RPT MCK</span></div>
               )}
-              <span aria-hidden="true" className="artwork-number">{String((currentIndex ?? 0) + 1).padStart(2, "0")}</span>
+              <span key={`num-${currentTrack?.id}`} aria-hidden="true" className="artwork-number">{String((currentIndex ?? 0) + 1).padStart(2, "0")}</span>
               <span className="source-badge"><strong>HVL</strong></span>
             </>
           )}
@@ -2944,8 +2949,8 @@ export default function Home() {
         <div className="player-content">
           <div className="track-heading">
             <p className="eyebrow">{isPlaying ? "ĐANG PHÁT" : "HVL 30"}</p>
-            <h1>{currentTrack?.title ?? "Playlist của bạn đang trống"}</h1>
-            <p className="artist-name">{currentTrack?.artist ?? "Thêm một link nhạc để bắt đầu"}</p>
+            <h1 key={`title-${currentTrack?.id}`}>{currentTrack?.title ?? "Playlist của bạn đang trống"}</h1>
+            <p key={`artist-${currentTrack?.id}`} className="artist-name">{currentTrack?.artist ?? "Thêm một link nhạc để bắt đầu"}</p>
             <div className="lyric-slot">
               {!lyricsVisible && activeLyricLine && (
                 <p className="live-active-lyric" key={activeLyricLine}>
