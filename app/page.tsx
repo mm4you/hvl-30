@@ -371,23 +371,16 @@ function sourceCandidates(value: string) {
   const fileId = isGoogleDriveUrl(value) ? googleDriveFileId(value) : null;
   if (!fileId) return [value];
   const id = encodeURIComponent(fileId);
-  return Array.from({ length: SOURCE_RETRY_DELAYS.length + 1 }, (_, attempt) =>
-    `/api/drive?id=${id}&stream=original-v3&attempt=${attempt}`,
-  );
+  return [
+    `/api/drive?id=${id}&stream=original-v3`,
+    `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`,
+    `https://docs.google.com/uc?export=download&id=${id}`,
+  ];
 }
 
 async function warmDriveTrack(value: string, signal: AbortSignal) {
   const fileId = isGoogleDriveUrl(value) ? googleDriveFileId(value) : null;
   if (!fileId) return false;
-  const response = await fetch(sourceCandidates(value)[0], {
-    headers: { Range: "bytes=0-131071" },
-    signal,
-  });
-  if (response.status !== 206) {
-    await response.body?.cancel();
-    return false;
-  }
-  await response.arrayBuffer();
   return true;
 }
 
