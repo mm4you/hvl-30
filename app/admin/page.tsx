@@ -35,31 +35,45 @@ export default function AdminPage() {
   const [healthLoading, setHealthLoading] = useState(false);
   const [pingRunning, setPingRunning] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Check saved session
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedAuth = sessionStorage.getItem("hvl_admin_authenticated");
-      if (savedAuth === "true") setIsAuthenticated(true);
+      const savedAuth = sessionStorage.getItem("hvl_admin_token");
+      if (savedAuth) setIsAuthenticated(true);
     }
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const cleanPin = pin.trim();
-    // Accept master admin password & convenient PINs
-    if (
-      cleanPin === "082206009329@" ||
-      cleanPin.toLowerCase() === "hvl30" ||
-      cleanPin === "2026" ||
-      cleanPin.toLowerCase() === "mck"
-    ) {
-      setIsAuthenticated(true);
-      setPinError(false);
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem("hvl_admin_authenticated", "true");
+    if (!pin.trim() || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setPinError(false);
+
+    try {
+      const res = await fetch("/api/admin/auth", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: pin }),
+      });
+
+      const data = (await res.json()) as { success?: boolean; token?: string };
+
+      if (res.ok && data.success && data.token) {
+        setIsAuthenticated(true);
+        setPinError(false);
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("hvl_admin_token", data.token);
+        }
+      } else {
+        setPinError(true);
       }
-    } else {
+    } catch {
       setPinError(true);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -67,7 +81,7 @@ export default function AdminPage() {
     setIsAuthenticated(false);
     setPin("");
     if (typeof window !== "undefined") {
-      sessionStorage.removeItem("hvl_admin_authenticated");
+      sessionStorage.removeItem("hvl_admin_token");
     }
   };
 
@@ -117,7 +131,7 @@ export default function AdminPage() {
             </span>
           </div>
           <h1 style={styles.loginTitle}>BẢNG QUẢN TRỊ ẨN</h1>
-          <p style={styles.loginSubtitle}>Nhập mã PIN quản trị viên để mở khóa bảng thống kê</p>
+          <p style={styles.loginSubtitle}>Xác thực danh tính quản trị viên để mở khóa bảng thống kê</p>
 
           <form onSubmit={handleLogin} style={styles.form}>
             <input
@@ -127,7 +141,7 @@ export default function AdminPage() {
                 setPin(e.target.value);
                 setPinError(false);
               }}
-              placeholder="Nhập mã PIN (vd: 2026 hoặc hvl30)"
+              placeholder="••••••••••••"
               autoFocus
               style={{
                 ...styles.input,
@@ -135,9 +149,9 @@ export default function AdminPage() {
                 boxShadow: pinError ? "0 0 15px rgba(255,51,34,0.4)" : "none",
               }}
             />
-            {pinError && <p style={styles.errorText}>Mã PIN không chính xác. Thử &quot;2026&quot; hoặc &quot;hvl30&quot;</p>}
-            <button type="submit" style={styles.loginBtn}>
-              MỞ KHÓA DASHBOARD
+            {pinError && <p style={styles.errorText}>Mật khẩu không chính xác. Vui lòng thử lại.</p>}
+            <button type="submit" disabled={isSubmitting} style={styles.loginBtn}>
+              {isSubmitting ? "ĐANG XÁC THỰC..." : "MỞ KHÓA DASHBOARD"}
             </button>
           </form>
 
