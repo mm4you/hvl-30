@@ -15,12 +15,23 @@
 
 * { box-sizing: border-box; }
 
-html { min-height: 100%; background: #120505; color-scheme: dark; }
+html {
+  min-height: 100%;
+  background: #120505;
+  color-scheme: dark;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
 
 body {
   min-height: 100vh;
   min-height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
   background:
     radial-gradient(ellipse at 50% -12%, rgba(206, 24, 14, .28), transparent 36rem),
     linear-gradient(180deg, #160707 0%, var(--bg) 44%, #050505 100%);
@@ -43,8 +54,10 @@ button { color: inherit; }
   position: relative;
   isolation: isolate;
   width: min(100%, 1160px);
+  max-width: 100vw;
   min-height: 100vh;
   margin: 0 auto;
+  overflow-x: clip;
   padding: max(88px, calc(env(safe-area-inset-top) + 76px)) 22px max(34px, env(safe-area-inset-bottom));
 }
 .app-shell::before {
@@ -442,54 +455,57 @@ button { color: inherit; }
   overflow: visible !important;
 }
 
-/* Organic Stage Ambient Aura: 3 Lớp Âm Học Chuẩn Sân Khấu (Soft Feathered Ellipse) */
+/* Organic Stage Ambient Aura: 3 Tầng Màu Hòa Âm Độc Đáo (Amber Gold -> Crimson Red -> Cyber Violet) */
 .artwork-ambient-stage {
   position: absolute;
-  inset: -65px -85px;
-  border-radius: 45px;
-  background: radial-gradient(ellipse 72% 64% at 50% 50%, rgba(255, 30, 10, 0.45) 0%, rgba(220, 15, 5, 0.16) 55%, transparent 88%);
+  inset: -34px -42px;
+  border-radius: 38px;
+  /* Lớp 3: Tím Huyền Ảo Sân Khấu (Cyber Violet & Neon Magenta Wash) hắt sâu vào tường */
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(165, 35, 255, 0.58) 0%, rgba(220, 25, 145, 0.28) 50%, transparent 85%);
   opacity: 0;
   pointer-events: none;
   z-index: -1;
-  transform: scale(0.92) translateZ(0);
-  filter: blur(50px);
+  transform: scale(0.95) translateZ(0);
+  filter: blur(34px);
   transition: opacity 180ms ease-out, transform 220ms cubic-bezier(0.1, 0.9, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .artwork-ambient-stage.is-playing {
-  /* Lớp 3: Deep Atmospheric Stage Glow - Ánh đèn sân khấu hắt tường siêu sâu */
-  opacity: calc(0.35 + var(--bass, 0) * 0.65);
-  transform: scale(calc(1.0 + var(--bass, 0) * 0.12)) translateZ(0);
+  /* Lớp 3: Sâu thẳm, thở nhịp nhàng theo sub-bass */
+  opacity: calc(0.42 + var(--bass, 0) * 0.58);
+  transform: scale(calc(1.0 + var(--bass, 0) * 0.09)) translateZ(0);
 }
 
 .artwork-ambient-blast {
   position: absolute;
-  inset: -28px -36px;
-  border-radius: 28px;
-  background: radial-gradient(ellipse 65% 58% at 50% 50%, rgba(255, 48, 22, 0.85) 0%, rgba(240, 30, 15, 0.38) 55%, transparent 88%);
+  inset: -16px -22px;
+  border-radius: 22px;
+  /* Lớp 2: Đỏ Rực Lửa HVL (Radiant Crimson Flame) bùng cháy ở trung tâm theo 808 kick */
+  background: radial-gradient(ellipse 66% 58% at 50% 50%, rgba(255, 35, 55, 0.92) 0%, rgba(255, 75, 45, 0.48) 55%, transparent 85%);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
-  transform: scale(0.96) translateZ(0);
-  filter: blur(26px);
+  transform: scale(0.97) translateZ(0);
+  filter: blur(16px);
   transition: opacity 140ms ease-out, transform 180ms cubic-bezier(0.1, 0.9, 0.2, 1);
   will-change: opacity, transform;
 }
 
 .artwork-ambient-blast.is-playing {
-  /* Lớp 1: Sub-bass 808 nở rộng và bừng sáng êm dịu, rực rỡ và lan tỏa */
-  opacity: calc(0.42 + var(--bass, 0) * 0.58);
-  transform: scale(calc(1.0 + var(--bass, 0) * 0.08)) translateZ(0);
+  /* Lớp 1: Bừng sáng mạnh mẽ theo nhịp trống Kick */
+  opacity: calc(0.50 + var(--bass, 0) * 0.50);
+  transform: scale(calc(1.0 + var(--bass, 0) * 0.06)) translateZ(0);
 }
 
 .artwork-ambient {
   position: absolute;
-  inset: -6px;
-  border-radius: 12px;
+  inset: -4px;
+  border-radius: 8px;
   background: transparent;
-  box-shadow: 0 0 22px rgba(255, 65, 40, 0.95), 0 0 45px rgba(255, 35, 15, 0.55);
-  border: 1px solid rgba(255, 80, 50, 0.55);
+  /* Lớp 1: Viền Cam Cháy Neon (Electric Amber-Gold) sắc bén giật theo Snare/Hi-hat */
+  box-shadow: 0 0 16px rgba(255, 145, 50, 0.95), 0 0 30px rgba(255, 95, 25, 0.65);
+  border: 1.5px solid rgba(255, 170, 75, 0.85);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
@@ -499,8 +515,8 @@ button { color: inherit; }
 }
 
 .artwork-ambient.is-playing {
-  /* Lớp 2: Rim Flare bùng sáng theo tiếng snare/clap và vocal accent */
-  opacity: calc(0.22 + var(--beat, 0) * 0.78);
+  /* Lớp 2: Giật sáng sắc nét theo tiếng snare/clap */
+  opacity: calc(0.32 + var(--beat, 0) * 0.68);
 }
 
 .artwork {
@@ -808,6 +824,10 @@ footer a:hover { color: var(--accent); }
     border-radius: 5px 26px 5px 26px;
     background: linear-gradient(180deg, rgba(48,8,5,.86), rgba(11,9,9,.94) 56%, #070707);
   }
+  .artwork-stage { position: relative; width: 100%; max-width: 100%; overflow: visible; }
+  .artwork-ambient-stage { inset: -12px -12px; filter: blur(20px); border-radius: 20px; }
+  .artwork-ambient-blast { inset: -8px -8px; filter: blur(12px); border-radius: 14px; }
+  .artwork-ambient { inset: -3px; border-radius: 6px; }
   .artwork { width: 100%; margin: 0 auto; border-radius: 2px; }
   .player-content { text-align: left; }
   .player-content h1 { font-size: clamp(26px, 8.2vw, 38px); }
