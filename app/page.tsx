@@ -372,9 +372,9 @@ function sourceCandidates(value: string) {
   if (!fileId) return [value];
   const id = encodeURIComponent(fileId);
   return [
-    `/api/drive?id=${id}&stream=original-v3`,
     `https://drive.usercontent.google.com/download?id=${id}&export=download&confirm=t`,
     `https://docs.google.com/uc?export=download&id=${id}`,
+    `/api/drive?id=${id}&stream=original-v3`,
   ];
 }
 
@@ -2309,7 +2309,7 @@ export default function Home() {
         </div>
       )}
 
-      <audio ref={audioRef} crossOrigin="anonymous" playsInline preload="auto" />
+      <audio ref={audioRef} playsInline preload="metadata" />
       <audio aria-hidden="true" ref={preloadAudioRef} preload="metadata" />
       {controlNotice && <p aria-live="polite" className="control-notice" role="status">{controlNotice}</p>}
 

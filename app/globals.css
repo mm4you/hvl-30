@@ -455,13 +455,13 @@ button { color: inherit; }
   overflow: visible !important;
 }
 
-/* Organic Stage Ambient Aura: 3 Tầng Màu Tách Bạch Tuyệt Đối (Gold Amber -> Laser Crimson -> Royal Cyber Purple) */
+/* Organic Stage Ambient Aura: 3 Tầng Lệch 1-2 Tone Chuẩn Đỏ HVL (Đỏ Cam Neon -> Đỏ Thuần -> Đỏ Thẫm Ruby) */
 .artwork-ambient-stage {
   position: absolute;
   inset: -34px -42px;
   border-radius: 38px;
-  /* Lớp 3: Tím Điện Quang (Royal Cyber Purple & Electric Violet) - Hoàn toàn tách biệt với nền */
-  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(185, 45, 255, 0.65) 0%, rgba(235, 35, 165, 0.32) 50%, transparent 85%);
+  /* Lớp 3 (Tone -1 Trầm): Đỏ Thẫm Sâu Ruby (#98081a) hắt sâu vào tường tạo độ sâu 3D */
+  background: radial-gradient(ellipse 75% 65% at 50% 50%, rgba(175, 12, 32, 0.65) 0%, rgba(120, 6, 20, 0.28) 50%, transparent 85%);
   opacity: 0;
   pointer-events: none;
   z-index: -1;
@@ -472,7 +472,7 @@ button { color: inherit; }
 }
 
 .artwork-ambient-stage.is-playing {
-  /* Lớp 3: Quầng tím điện quang hắt tường sâu thẳm, nổi bật trên nền tối */
+  /* Lớp 3: Sâu thẳm, thở êm ái theo sub-bass */
   opacity: calc(0.44 + var(--bass, 0) * 0.56);
   transform: scale(calc(1.0 + var(--bass, 0) * 0.09)) translateZ(0);
 }
@@ -481,8 +481,8 @@ button { color: inherit; }
   position: absolute;
   inset: -16px -22px;
   border-radius: 22px;
-  /* Lớp 2: Đỏ Laser San Hô (Laser Crimson Neon) - Tươi sáng, rực rỡ, không bị chìm */
-  background: radial-gradient(ellipse 66% 58% at 50% 50%, rgba(255, 30, 65, 0.95) 0%, rgba(255, 70, 95, 0.52) 55%, transparent 85%);
+  /* Lớp 2 (Tone Chuẩn): Đỏ Thuần Rực Lửa HVL (#ff1525) bùng cháy ở trung tâm theo 808 kick */
+  background: radial-gradient(ellipse 66% 58% at 50% 50%, rgba(255, 25, 40, 0.95) 0%, rgba(240, 18, 32, 0.52) 55%, transparent 85%);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
@@ -503,9 +503,9 @@ button { color: inherit; }
   inset: -4px;
   border-radius: 8px;
   background: transparent;
-  /* Lớp 1: Viền Vàng Hổ Phách Neon (Gold Amber Flare) - Cực kỳ sắc bén, tương phản cao */
-  box-shadow: 0 0 16px rgba(255, 185, 45, 0.98), 0 0 30px rgba(255, 130, 20, 0.7);
-  border: 1.5px solid rgba(255, 205, 80, 0.9);
+  /* Lớp 1 (Tone +1 Sáng): Đỏ Cam Neon (#ff553a) sắc bén giật theo Snare/Hi-hat */
+  box-shadow: 0 0 16px rgba(255, 75, 48, 0.98), 0 0 30px rgba(255, 40, 25, 0.7);
+  border: 1.5px solid rgba(255, 100, 70, 0.9);
   opacity: 0;
   pointer-events: none;
   z-index: 0;
